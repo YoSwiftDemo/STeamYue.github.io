@@ -403,14 +403,18 @@
 
       
         
-          文章访问密码
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/06/iOS-App-Error/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="网络类"><a href="#网络类" class="headerlink" title="网络类"></a>网络类</h1><blockquote>
+<p>AFN参数错误</p>
+<h2 id="AFN参数错误"><a href="#AFN参数错误" class="headerlink" title="AFN参数错误"></a>AFN参数错误</h2><p>AFNetworking来调用接口,发送请求. 引起崩溃</p>
+</blockquote>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*** Terminating app due <span class="keyword">to</span> uncaught exception <span class="comment">'NSInvalidArgumentException',</span></div><div class="line">reason: <span class="comment">'*** -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]</span></div><div class="line">: attempt <span class="keyword">to</span> insert nil <span class="built_in">object</span> <span class="keyword">from</span> objects[<span class="number">0</span>]<span class="comment">'**</span></div></pre></td></tr></table></figure>
+<h2 id="字典的初始化"><a href="#字典的初始化" class="headerlink" title="字典的初始化"></a>字典的初始化</h2><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSDictionary *params = @&#123; @<span class="string">"key1"</span>:<span class="keyword">value</span><span class="number">1</span> ,@<span class="string">"key2"</span>:<span class="keyword">value</span><span class="number">2</span>&#125;;</div></pre></td></tr></table></figure>
+<p>但是,value的值一般都是动态传入的,所以有存在nil的可能</p>
+<h2 id="安全的方法"><a href="#安全的方法" class="headerlink" title="安全的方法"></a>安全的方法</h2><p>在传入前判断value是否为nil,或者使用较为安全的方法</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NSDictionary dictionaryWithObjectsAndKeys:value,@<span class="string">"key"</span>, <span class="literal">nil</span>]<span class="comment">;</span></div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
