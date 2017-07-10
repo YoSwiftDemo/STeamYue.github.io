@@ -1,0 +1,807 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ReactNative,RN-Flexbox" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="RN-Flexbox LayoutFlexboxLayout作用React Native中使用flexbox规则来指定某个组件的子元素的布局。Flexbox可以在不同屏幕尺寸上提供一致的布局结构 样式属性flexDirection、alignItems和 justifyContent 1React Native中的Flexbox的工作原理和web上的CSS基本一致，当然也存在少许差异。首先是默认值">
+<meta name="keywords" content="ReactNative,RN-Flexbox">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RN-Flexbox">
+<meta property="og:url" content="http://yoursite.com/2017/07/09/RN-Flexbox/index.html">
+<meta property="og:site_name" content="胜利女神在微笑">
+<meta property="og:description" content="RN-Flexbox LayoutFlexboxLayout作用React Native中使用flexbox规则来指定某个组件的子元素的布局。Flexbox可以在不同屏幕尺寸上提供一致的布局结构 样式属性flexDirection、alignItems和 justifyContent 1React Native中的Flexbox的工作原理和web上的CSS基本一致，当然也存在少许差异。首先是默认值">
+<meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN-Flexbox-001.png">
+<meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN-Flexbox-layout-002.png">
+<meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN-Flexbox-layout-003.png">
+<meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN-Flexbox-layout-004.png">
+<meta property="og:updated_time" content="2017-07-10T13:35:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RN-Flexbox">
+<meta name="twitter:description" content="RN-Flexbox LayoutFlexboxLayout作用React Native中使用flexbox规则来指定某个组件的子元素的布局。Flexbox可以在不同屏幕尺寸上提供一致的布局结构 样式属性flexDirection、alignItems和 justifyContent 1React Native中的Flexbox的工作原理和web上的CSS基本一致，当然也存在少许差异。首先是默认值">
+<meta name="twitter:image" content="http://osq7nstcc.bkt.clouddn.com/RN-Flexbox-001.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/09/RN-Flexbox/"/>
+
+
+
+
+
+  <title>RN-Flexbox | 胜利女神在微笑</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">胜利女神在微笑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">iOS</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/09/RN-Flexbox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steam Yue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="胜利女神在微笑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RN-Flexbox</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-09T21:43:23+08:00">
+                2017-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="RN-Flexbox-Layout"><a href="#RN-Flexbox-Layout" class="headerlink" title="RN-Flexbox Layout"></a>RN-Flexbox Layout</h1><h2 id="FlexboxLayout作用"><a href="#FlexboxLayout作用" class="headerlink" title="FlexboxLayout作用"></a>FlexboxLayout作用</h2><p>React Native中使用flexbox规则来指定某个组件的子元素的布局。Flexbox可以在不同屏幕尺寸上提供一致的布局结构</p>
+<h2 id="样式属性"><a href="#样式属性" class="headerlink" title="样式属性"></a>样式属性</h2><p>flexDirection、alignItems和 justifyContent</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">React Native中的Flexbox的工作原理和web上的CSS基本一致，当然也存在少许差异。首先是默认值不同：flexDirection的默认值是<span class="built_in">column</span>而不是<span class="built_in">row</span>，而flex也只能指定一个数字值。</div></pre></td></tr></table></figure>
+<h3 id="Flex-Direction"><a href="#Flex-Direction" class="headerlink" title="Flex Direction"></a>Flex Direction</h3><p>在组件的style中指定flexDirection可以决定布局的主轴。子元素是应该沿着水平轴(row)方向排列，还是沿着竖直轴(column)方向排列呢？默认值是竖直轴(column)方向。</p>
+<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Flexbox-001.png" alt=""></p>
+<blockquote>
+<p>1.flex container : 理解父层。容器。嵌套n个内层item<br>2.main direction: 主轴 与item的排列方式有关（图示按照行排，主轴横向）<br>3.cross direction: 交叉周</p>
+</blockquote>
+<h1 id="弹性盒模型"><a href="#弹性盒模型" class="headerlink" title="弹性盒模型"></a>弹性盒模型</h1><p><a href="http://www.runoob.com/css3/css3-flexbox.html" target="_blank" rel="external">资料参考</a></p>
+<h1 id="代码学习"><a href="#代码学习" class="headerlink" title="代码学习"></a>代码学习</h1><h2 id="定义组件"><a href="#定义组件" class="headerlink" title="定义组件"></a>定义组件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  RN_Flexbox_Layout = React.createClass(&#123;</div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.container&#125;</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.child1&#125;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.child2&#125;</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="设置样式1"><a href="#设置样式1" class="headerlink" title="设置样式1"></a>设置样式1</h2><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var styles = StyleSheet.create(&#123;</div><div class="line"><span class="symbol">  container:</span>&#123;</div><div class="line"><span class="symbol">    margin:</span><span class="number">30</span>,</div><div class="line"><span class="symbol">    width:</span><span class="number">300</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">500</span>,</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"yellow"</span>,</div><div class="line">    <span class="comment">//默认主轴方向是column（纵向排列）</span></div><div class="line">    <span class="comment">//设置横向排列</span></div><div class="line"><span class="symbol">    flexDirection:</span><span class="string">"row"</span>,</div><div class="line">    <span class="comment">//子视图居中</span></div><div class="line">    <span class="comment">//主轴方向</span></div><div class="line"><span class="symbol">    justifyContent:</span><span class="string">"center"</span>,</div><div class="line">    <span class="comment">//交叉轴</span></div><div class="line">    <span class="comment">// alignItems:"center",</span></div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  child1:</span>&#123;</div><div class="line"><span class="symbol">    width:</span><span class="number">100</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">100</span>,</div><div class="line"><span class="symbol">     backgroundColor:</span><span class="string">"green"</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  child2:</span>&#123;</div><div class="line"><span class="symbol">    width:</span><span class="number">100</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">100</span>,</div><div class="line"><span class="symbol">     backgroundColor:</span><span class="string">"blue"</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="交叉轴改变影响"><a href="#交叉轴改变影响" class="headerlink" title="交叉轴改变影响"></a>交叉轴改变影响</h3><blockquote>
+<p>1.设置交叉轴</p>
+</blockquote>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">alignItems:</span><span class="string">"center"</span>,</div></pre></td></tr></table></figure>
+<p> <img src="http://osq7nstcc.bkt.clouddn.com/RN-Flexbox-layout-002.png" alt=""></p>
+<blockquote>
+<p>2.不设置<br>会发现交叉轴从头开始排列<br><img src="http://osq7nstcc.bkt.clouddn.com/RN-Flexbox-layout-003.png" alt=""></p>
+</blockquote>
+<h1 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h1><p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Flexbox-layout-004.png" alt=""></p>
+<h2 id="设置样式2"><a href="#设置样式2" class="headerlink" title="设置样式2"></a>设置样式2</h2><p>flex<br> 可以给组件指定flex，flex的值是个数字<br> flex:1 表示组件 可以撑满父组件所有的剩余空间，若存在多个并列子组件，都设置为1，则均分。<br> 如果并列的子组件的flex值不一样，按比例分，权重！</p>
+ <figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> var styles = StyleSheet.create(&#123;</div><div class="line"><span class="symbol">  container:</span></div><div class="line">  &#123;</div><div class="line"><span class="symbol">    margin:</span><span class="number">30</span>,</div><div class="line"><span class="symbol">    flex:</span><span class="number">1</span>,<span class="comment">//父组件相对于窗口</span></div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"yellow"</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  child1:</span></div><div class="line">  &#123;</div><div class="line"><span class="symbol">    flex:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"blue"</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  child2:</span></div><div class="line">  &#123;</div><div class="line"><span class="symbol">    flex:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"red"</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
+          
+            <a href="/tags/RN-Flexbox/" rel="tag"># RN-Flexbox</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/08/RN-SytleSheet/" rel="next" title="RN-SytleSheet">
+                <i class="fa fa-chevron-left"></i> RN-SytleSheet
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Steam Yue" />
+          <p class="site-author-name" itemprop="name">Steam Yue</p>
+           
+              <p class="site-description motion-element" itemprop="description">iOS</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RN-Flexbox-Layout"><span class="nav-number">1.</span> <span class="nav-text">RN-Flexbox Layout</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FlexboxLayout作用"><span class="nav-number">1.1.</span> <span class="nav-text">FlexboxLayout作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式属性"><span class="nav-number">1.2.</span> <span class="nav-text">样式属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex-Direction"><span class="nav-number">1.2.1.</span> <span class="nav-text">Flex Direction</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解"><span class="nav-number">2.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#弹性盒模型"><span class="nav-number">3.</span> <span class="nav-text">弹性盒模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码学习"><span class="nav-number">4.</span> <span class="nav-text">代码学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义组件"><span class="nav-number">4.1.</span> <span class="nav-text">定义组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置样式1"><span class="nav-number">4.2.</span> <span class="nav-text">设置样式1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉轴改变影响"><span class="nav-number">4.2.1.</span> <span class="nav-text">交叉轴改变影响</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#flex"><span class="nav-number">5.</span> <span class="nav-text">flex</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置样式2"><span class="nav-number">5.1.</span> <span class="nav-text">设置样式2</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Steam Yue</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
