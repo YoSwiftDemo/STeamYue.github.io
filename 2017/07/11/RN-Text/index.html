@@ -1,0 +1,798 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ReactNative,Text" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="RN_Text_Header常用特性onPress  手指触摸事件numberOfLines 显示多少行设置字体 颜色 大小对其方式 样例代码布局分析界面布局分为2部分Header和新闻信息如果都写在一个index.ios.js,代码比较乱可以在其他文件中引用在单独一个文件中定义子组件，使用Modele.exports将组建导出作为独立的模块RNText路径下新建文件 index.js引入12va">
+<meta name="keywords" content="ReactNative,Text">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RN_Text">
+<meta property="og:url" content="http://yoursite.com/2017/07/11/RN-Text/index.html">
+<meta property="og:site_name" content="胜利女神在微笑">
+<meta property="og:description" content="RN_Text_Header常用特性onPress  手指触摸事件numberOfLines 显示多少行设置字体 颜色 大小对其方式 样例代码布局分析界面布局分为2部分Header和新闻信息如果都写在一个index.ios.js,代码比较乱可以在其他文件中引用在单独一个文件中定义子组件，使用Modele.exports将组建导出作为独立的模块RNText路径下新建文件 index.js引入12va">
+<meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN_Text_001.png">
+<meta property="og:updated_time" content="2017-07-11T14:37:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RN_Text">
+<meta name="twitter:description" content="RN_Text_Header常用特性onPress  手指触摸事件numberOfLines 显示多少行设置字体 颜色 大小对其方式 样例代码布局分析界面布局分为2部分Header和新闻信息如果都写在一个index.ios.js,代码比较乱可以在其他文件中引用在单独一个文件中定义子组件，使用Modele.exports将组建导出作为独立的模块RNText路径下新建文件 index.js引入12va">
+<meta name="twitter:image" content="http://osq7nstcc.bkt.clouddn.com/RN_Text_001.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/11/RN-Text/"/>
+
+
+
+
+
+  <title>RN_Text | 胜利女神在微笑</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">胜利女神在微笑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">iOS</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/11/RN-Text/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steam Yue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="胜利女神在微笑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RN_Text</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T20:18:24+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="RN-Text-Header"><a href="#RN-Text-Header" class="headerlink" title="RN_Text_Header"></a>RN_Text_Header</h1><h1 id="常用特性"><a href="#常用特性" class="headerlink" title="常用特性"></a>常用特性</h1><p>onPress  手指触摸事件<br>numberOfLines 显示多少行<br>设置字体 颜色 大小对其方式</p>
+<h1 id="样例代码布局分析"><a href="#样例代码布局分析" class="headerlink" title="样例代码布局分析"></a>样例代码布局分析</h1><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Text_001.png" alt=""><br>界面布局分为2部分<br>Header和新闻信息<br>如果都写在一个index.ios.js,代码比较乱<br>可以在其他文件中引用<br>在单独一个文件中定义子组件，使用Modele.exports将组建导出作为独立的模块<br>RNText路径下新建文件</p>
+<h1 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> <span class="keyword">Header</span> = <span class="keyword">require</span>(<span class="string">"./header"</span>);</div><div class="line"><span class="built_in">var</span> News = <span class="keyword">require</span>(<span class="string">"./news"</span>);</div></pre></td></tr></table></figure>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>定义数据源（新闻内容）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> RN_Text_Header = React.createClass(&#123;</div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> news = [</div><div class="line">      <span class="string">"1.头条"</span>,</div><div class="line">      <span class="string">"2.RN学习"</span>,</div><div class="line">      <span class="string">"3.代码编写"</span>,</div><div class="line">      <span class="string">"4.挺不错的哦！"</span>,</div><div class="line">    ];</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.flex&#125;</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">Header</span>&gt;</span> <span class="tag">&lt;/<span class="name">Header</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">News</span> <span class="attr">news</span> = <span class="string">&#123;news&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">News</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span>);</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h2><p>AppRegistry.registerComponent(‘RN_Text_Header’, () =&gt; RN_Text_Header);</p>
+<h2 id="headr-js"><a href="#headr-js" class="headerlink" title="headr.js"></a>headr.js</h2><h3 id="组件-1"><a href="#组件-1" class="headerlink" title="组件"></a>组件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Header = React.createClass(&#123;</div><div class="line">   <span class="attr">render</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="keyword">return</span> (</div><div class="line">       <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.flex&#125;</span>&gt;</span></span></div><div class="line">         <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span> = <span class="string">&#123;styles.font&#125;</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span> = <span class="string">&#123;styles.font_1&#125;</span>&gt;</span>网易<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span> = <span class="string">&#123;styles.font_2&#125;</span>&gt;</span>新闻<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">Text</span>&gt;</span>有态度<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">         <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">     );</div><div class="line">   &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">var Header = React.createClass(&#123;</div><div class="line"><span class="symbol">   render:</span>function () &#123;</div><div class="line">     return (</div><div class="line">       <span class="params">&lt;View style = &#123;styles.flex&#125;&gt;</span></div><div class="line">         <span class="params">&lt;Text style = &#123;styles.font&#125;&gt;</span></div><div class="line">           <span class="params">&lt;Text style = &#123;styles.font_1&#125;&gt;</span>网易<span class="params">&lt;/Text&gt;</span></div><div class="line">           <span class="params">&lt;Text style = &#123;styles.font_2&#125;&gt;</span>新闻<span class="params">&lt;/Text&gt;</span></div><div class="line">           <span class="params">&lt;Text&gt;</span>有态度<span class="params">&lt;/Text&gt;</span></div><div class="line">         <span class="params">&lt;/Text&gt;</span></div><div class="line">       <span class="params">&lt;/View&gt;</span></div><div class="line">     );</div><div class="line">   &#125;,</div><div class="line">&#125;);</div><div class="line"><span class="comment">//样式</span></div><div class="line">var styles = StyleSheet.create(&#123;</div><div class="line"><span class="symbol">  flex:</span>&#123;</div><div class="line"><span class="symbol">    marginTop:</span><span class="number">25</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">40</span>,</div><div class="line"><span class="symbol">    borderBottomWidth:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    borderColor:</span><span class="string">"#EF2D36"</span>,</div><div class="line"><span class="symbol">    alignItems:</span><span class="string">"center"</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="comment">//字体设置的公共部分</span></div><div class="line"><span class="symbol">font:</span>&#123;</div><div class="line"><span class="symbol">  fontSize:</span><span class="number">25</span>,</div><div class="line"><span class="symbol">  fontWeight:</span><span class="string">"bold"</span>, <span class="comment">//粗体</span></div><div class="line"><span class="symbol">  textAlign:</span><span class="string">"center"</span>,</div><div class="line">&#125;,</div><div class="line"><span class="symbol">font_1:</span>&#123;</div><div class="line"><span class="symbol">  color:</span><span class="string">"#CD1D1C"</span>, </div><div class="line">  </div><div class="line">&#125;,</div><div class="line"><span class="symbol">font_2:</span>&#123;</div><div class="line"><span class="symbol">  color:</span><span class="string">"#FFF"</span>,</div><div class="line"><span class="symbol">  backgroundColor:</span><span class="string">"#CD1D1C"</span>,</div><div class="line">&#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="导出模块"><a href="#导出模块" class="headerlink" title="导出模块"></a>导出模块</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = Header;</div></pre></td></tr></table></figure>
+<h2 id="news-js"><a href="#news-js" class="headerlink" title="news.js"></a>news.js</h2><blockquote>
+<p>1.定义数组，用于存储设置好的Text组件<br>2.遍历存储信息的数组，从外部传入的<br>3.将设置好的Text存入数组</p>
+<p>设置提示<br>1.带参数 alert函数<br>2.绑定到Text组件<br>3.绑定参数<br>4.传递参数 </p>
+</blockquote>
+<h3 id="组件-2"><a href="#组件-2" class="headerlink" title="组件"></a>组件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> News = React.createClass(&#123;</div><div class="line">  <span class="attr">show</span>:<span class="function"><span class="keyword">function</span> (<span class="params">title</span>) </span>&#123;</div><div class="line">    alert(title);</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">render</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> newsComponents = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span>  <span class="keyword">this</span>.props.news)</div><div class="line">    &#123;</div><div class="line">   <span class="keyword">var</span> text =</div><div class="line">   (</div><div class="line">     <span class="xml"><span class="tag">&lt;<span class="name">Text</span></span></span></div><div class="line">       <span class="attr">onPress</span> = <span class="string">&#123;this.show.bind(this,this.props.news[i])&#125;</span></div><div class="line">       <span class="attr">style</span> = <span class="string">&#123;styles.news_item&#125;</span></div><div class="line">       <span class="attr">numberOfLines</span> = <span class="string">&#123;2&#125;</span></div><div class="line">       <span class="attr">key</span> = <span class="string">&#123;i&#125;</span>&gt;</div><div class="line">       &#123;this.props.news[i]&#125;</div><div class="line">     <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">   );</div><div class="line">        newsComponents.push(text);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.flex&#125;</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span> = <span class="string">&#123;styles.news_title&#125;</span>&gt;</span>今日要闻<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">        &#123;newsComponents&#125;</div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="News样式"><a href="#News样式" class="headerlink" title="News样式"></a>News样式</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//样式</span></div><div class="line">var styles = StyleSheet.create(&#123;</div><div class="line"><span class="symbol">  flex:</span>&#123;</div><div class="line"><span class="symbol">    flex:</span><span class="number">1</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">//“”今日要闻“标题</span></div><div class="line"><span class="symbol">   news_title:</span>&#123;</div><div class="line"><span class="symbol">     fontSize:</span><span class="number">20</span>,</div><div class="line"><span class="symbol">     fontWeight:</span><span class="string">"bold"</span>,</div><div class="line"><span class="symbol">     color:</span><span class="string">"#CD1D1C"</span>,</div><div class="line"><span class="symbol">     marginLeft:</span><span class="number">10</span>,</div><div class="line"><span class="symbol">     marginTop:</span><span class="number">15</span>,</div><div class="line">   &#125;,</div><div class="line">   <span class="comment">//每条新闻</span></div><div class="line"><span class="symbol">   news_item:</span>&#123;</div><div class="line"><span class="symbol">     marginTop:</span><span class="number">10</span>,</div><div class="line"><span class="symbol">     marginLeft:</span><span class="number">10</span>,</div><div class="line"><span class="symbol">     marginRight:</span><span class="number">10</span>,</div><div class="line"><span class="symbol">     fontSize:</span><span class="number">15</span>,</div><div class="line"><span class="symbol">     lineHeight:</span><span class="number">30</span>,</div><div class="line">   &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="导出News模块"><a href="#导出News模块" class="headerlink" title="导出News模块"></a>导出News模块</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = News;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
+          
+            <a href="/tags/Text/" rel="tag"># Text</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/10/RN-View/" rel="next" title="RN_View">
+                <i class="fa fa-chevron-left"></i> RN_View
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Steam Yue" />
+          <p class="site-author-name" itemprop="name">Steam Yue</p>
+           
+              <p class="site-description motion-element" itemprop="description">iOS</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RN-Text-Header"><span class="nav-number">1.</span> <span class="nav-text">RN_Text_Header</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用特性"><span class="nav-number">2.</span> <span class="nav-text">常用特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#样例代码布局分析"><span class="nav-number">3.</span> <span class="nav-text">样例代码布局分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#index-js"><span class="nav-number">4.</span> <span class="nav-text">index.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">4.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件"><span class="nav-number">4.2.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染"><span class="nav-number">4.3.</span> <span class="nav-text">渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#headr-js"><span class="nav-number">4.4.</span> <span class="nav-text">headr.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件-1"><span class="nav-number">4.4.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式"><span class="nav-number">4.4.2.</span> <span class="nav-text">样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出模块"><span class="nav-number">4.4.3.</span> <span class="nav-text">导出模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#news-js"><span class="nav-number">4.5.</span> <span class="nav-text">news.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件-2"><span class="nav-number">4.5.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#News样式"><span class="nav-number">4.5.2.</span> <span class="nav-text">News样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出News模块"><span class="nav-number">4.5.3.</span> <span class="nav-text">导出News模块</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Steam Yue</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
