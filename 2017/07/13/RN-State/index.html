@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ReactNative,RN_View" />
+  <meta name="keywords" content="State,ReactNative" />
 
 
 
@@ -93,19 +93,19 @@
 
 
 
-<meta name="description" content="文章访问密码">
-<meta name="keywords" content="ReactNative,RN_View">
+<meta name="description" content="State 使用两种数据来控制一个组件：props和stateprops是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state一般来说，你需要在constructor中初始化state然后在需要修改时调用setState方法 官网样例1假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个pro">
+<meta name="keywords" content="State,ReactNative">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RN_View">
-<meta property="og:url" content="http://yoursite.com/2017/07/10/RN-View/index.html">
+<meta property="og:title" content="RN_State状态">
+<meta property="og:url" content="http://yoursite.com/2017/07/13/RN-State/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="文章访问密码">
-<meta property="og:image" content="http://olz8i6wia.bkt.clouddn.com/RN-View%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E6%95%88%E6%9E%9C%E5%9B%BE.png">
-<meta property="og:updated_time" content="2017-07-10T14:29:09.000Z">
+<meta property="og:description" content="State 使用两种数据来控制一个组件：props和stateprops是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state一般来说，你需要在constructor中初始化state然后在需要修改时调用setState方法 官网样例1假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个pro">
+<meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN_State_001.gif">
+<meta property="og:updated_time" content="2017-07-13T11:15:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RN_View">
-<meta name="twitter:description" content="文章访问密码">
-<meta name="twitter:image" content="http://olz8i6wia.bkt.clouddn.com/RN-View%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E6%95%88%E6%9E%9C%E5%9B%BE.png">
+<meta name="twitter:title" content="RN_State状态">
+<meta name="twitter:description" content="State 使用两种数据来控制一个组件：props和stateprops是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state一般来说，你需要在constructor中初始化state然后在需要修改时调用setState方法 官网样例1假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个pro">
+<meta name="twitter:image" content="http://osq7nstcc.bkt.clouddn.com/RN_State_001.gif">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/10/RN-View/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/13/RN-State/"/>
 
 
 
 
 
-  <title>RN_View | 胜利/女神/在微笑</title>
+  <title>RN_State状态 | 胜利/女神/在微笑</title>
   
 
 
@@ -316,7 +316,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/RN-View/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/13/RN-State/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steam Yue">
@@ -333,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">RN_View</h1>
+          <h1 class="post-title" itemprop="name headline">RN_State状态</h1>
         
 
         <div class="post-meta">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T21:38:17+08:00">
-                2017-07-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T18:39:58+08:00">
+                2017-07-13
               </time>
             
 
@@ -391,10 +391,6 @@
           
 
           
-              <div class="post-description">
-                  文章访问密码
-              </div>
-          
 
         </div>
       </header>
@@ -406,13 +402,14 @@
       
 
       
-        <h1 id="RN-View-组件"><a href="#RN-View-组件" class="headerlink" title="RN_View(组件)"></a>RN_View(组件)</h1><p><a href="http://reactnative.cn/docs/0.46/getting-started.html" target="_blank" rel="external">RN-中文官网地址–&gt;</a></p>
-<h2 id="布局分析"><a href="#布局分析" class="headerlink" title="布局分析"></a>布局分析</h2><blockquote>
-<p>1.有个containor容器<br>2.内嵌3个子<br>3.子嵌入2子</p>
+        <h1 id="State"><a href="#State" class="headerlink" title="State"></a>State</h1><blockquote>
+<p>使用两种数据来控制一个组件：props和state<br>props是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state<br>一般来说，你需要在constructor中初始化state<br>然后在需要修改时调用setState方法</p>
+<h1 id="官网样例1"><a href="#官网样例1" class="headerlink" title="官网样例1"></a>官网样例1</h1><p>假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个prop。而文字的显示或隐藏的状态（快速的显隐切换就产生了闪烁的效果）则是随着时间变化的，因此这一状态应该写到state中<br><img src="http://osq7nstcc.bkt.clouddn.com/RN_State_001.gif" alt=""></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2></blockquote>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 每1000毫秒对showText状态做一次取反操作</div><div class="line"> * 根据当前showText的值决定是否显示text内容</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blink</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  constructor(props)&#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;showText:<span class="literal">true</span>&#125;;</div><div class="line">  setInterval(()=&gt;&#123;</div><div class="line">    <span class="keyword">this</span>.setState(previousState=&gt;&#123;</div><div class="line">      <span class="keyword">return</span>&#123; showText:!previousState.showText&#125;;</div><div class="line">    &#125;);</div><div class="line">  &#125;,<span class="number">1000</span>);</div><div class="line">&#125;</div><div class="line">  render ()&#123;</div><div class="line">    let display= <span class="keyword">this</span>.state.showText?<span class="keyword">this</span>.props.text:<span class="string">" "</span>;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">Text</span>&gt;&#123;display&#125;&lt;/<span class="type">Text</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_State</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span>&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"好喜欢"</span> /&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"真的么"</span>/&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"RN的实战"</span>/&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"吼一吼！123456！"</span>/&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>实际开发中，我们一般不会在定时器函数（setInterval、setTimeout等）中来操作state。典型的场景是在接收到服务器返回的新数据，或者在用户输入数据之后。你也可以使用一些“状态容器”比如Redux来统一管理数据流</p>
 </blockquote>
-<p><img src="http://olz8i6wia.bkt.clouddn.com/RN-View%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E6%95%88%E6%9E%9C%E5%9B%BE.png" alt="效果图"></p>
-<h2 id="定义组件"><a href="#定义组件" class="headerlink" title="定义组件"></a>定义组件</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span>  RN_View = React.createClass(&#123;</div><div class="line">  <span class="attr">render</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.container,styles.flex]&#125;</span>&gt;</span></span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.item&#125;</span>&gt;</span></div><div class="line"></div><div class="line">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center]&#125;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Text</span>&gt;</span>酒店<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> =<span class="string">&#123;[styles.flex,styles.lineLeftRight]&#125;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center,styles.lineCenter]&#125;</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">Text</span>&gt;</span>海外酒店<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center]&#125;</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">Text</span>&gt;</span>特价酒店<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> =<span class="string">&#123;[styles.flex]&#125;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center,styles.lineCenter]&#125;</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">Text</span>&gt;</span>团购<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center]&#125;</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">Text</span>&gt;</span>民宿.客栈<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">             <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">var styles = StyleSheet.create(&#123;</div><div class="line"><span class="symbol">  container:</span>&#123;</div><div class="line"><span class="symbol">    marginTop:</span><span class="number">25</span>,</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"#F2F2F2"</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/*</span></div><div class="line">  多个组件都需要设置，则一次性设置</div><div class="line">  */</div><div class="line"><span class="symbol">  flex:</span>&#123;</div><div class="line"><span class="symbol">    flex:</span><span class="number">1</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  center:</span>&#123;</div><div class="line"><span class="symbol">    justifyContent:</span><span class="string">"center"</span>,</div><div class="line"><span class="symbol">    alignItems:</span><span class="string">"center"</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  item:</span>&#123;</div><div class="line"><span class="symbol">    flexDirection:</span><span class="string">"row"</span>,</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"#FF607C"</span>,</div><div class="line"><span class="symbol">    marginTop:</span><span class="number">5</span>,</div><div class="line"><span class="symbol">    marginLeft:</span><span class="number">5</span>,</div><div class="line"><span class="symbol">    marginRight:</span><span class="number">5</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">80</span>,</div><div class="line"><span class="symbol">    borderRadius:</span><span class="number">5</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/**</span></div><div class="line">  给中间的区域设置左右线</div><div class="line">  */</div><div class="line"><span class="symbol">  lineLeftRight:</span>&#123;</div><div class="line"><span class="symbol">    boederLeftWidth:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    borderRightWidth:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    borderColor:</span><span class="string">"white"</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/**</span></div><div class="line">  上半区域设置下边线</div><div class="line">  */</div><div class="line"><span class="symbol">  lineCenter:</span>&#123;</div><div class="line"><span class="symbol">  borderBottomWidth:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">  borderColor:</span><span class="string">"white"</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -444,8 +441,6 @@
           
             <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
           
-            <a href="/tags/RN-View/" rel="tag"># RN_View</a>
-          
         </div>
       
 
@@ -457,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/09/RN-Flexbox/" rel="next" title="RN-Flexbox">
-                <i class="fa fa-chevron-left"></i> RN-Flexbox
+              <a href="/2017/07/13/BC-Resume-Video-Play/" rel="next" title="BC_Resume_Video_Play">
+                <i class="fa fa-chevron-left"></i> BC_Resume_Video_Play
               </a>
             
           </div>
@@ -466,10 +461,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/11/RN-Text/" rel="prev" title="RN_Text">
-                RN_Text <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -598,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RN-View-组件"><span class="nav-number">1.</span> <span class="nav-text">RN_View(组件)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#布局分析"><span class="nav-number">1.1.</span> <span class="nav-text">布局分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义组件"><span class="nav-number">1.2.</span> <span class="nav-text">定义组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式"><span class="nav-number">1.3.</span> <span class="nav-text">样式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#State"><span class="nav-number">1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#官网样例1"><span class="nav-number">2.</span> <span class="nav-text">官网样例1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.1.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
             
 
           </div>
