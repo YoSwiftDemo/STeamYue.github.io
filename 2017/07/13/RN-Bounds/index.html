@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ReactNative,RN_View" />
+  <meta name="keywords" content="ReactNative,Bounds" />
 
 
 
@@ -93,19 +93,20 @@
 
 
 
-<meta name="description" content="文章访问密码">
-<meta name="keywords" content="ReactNative,RN_View">
+<meta name="description" content="组件的高度和宽度决定了其在屏幕上显示的尺寸 指定宽高 最简单的给组件设定尺寸的方式就是在样式中指定固定的width和height。React Native中的尺寸都是无单位的，表示的是与设备像素密度无关的逻辑像素点  🌰 class RN_Bounds extends Component &amp;#123;  render ()&amp;#123;    return(      &amp;lt;View&amp;gt;">
+<meta name="keywords" content="ReactNative,Bounds">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RN_View">
-<meta property="og:url" content="http://yoursite.com/2017/07/10/RN-View/index.html">
+<meta property="og:title" content="RN_Bounds宽高">
+<meta property="og:url" content="http://yoursite.com/2017/07/13/RN-Bounds/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="文章访问密码">
-<meta property="og:image" content="http://olz8i6wia.bkt.clouddn.com/RN-View%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E6%95%88%E6%9E%9C%E5%9B%BE.png">
-<meta property="og:updated_time" content="2017-07-10T14:29:09.000Z">
+<meta property="og:description" content="组件的高度和宽度决定了其在屏幕上显示的尺寸 指定宽高 最简单的给组件设定尺寸的方式就是在样式中指定固定的width和height。React Native中的尺寸都是无单位的，表示的是与设备像素密度无关的逻辑像素点  🌰 class RN_Bounds extends Component &amp;#123;  render ()&amp;#123;    return(      &amp;lt;View&amp;gt;">
+<meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN_Bounds_001.png">
+<meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN_Bounds_002.png">
+<meta property="og:updated_time" content="2017-07-13T12:04:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RN_View">
-<meta name="twitter:description" content="文章访问密码">
-<meta name="twitter:image" content="http://olz8i6wia.bkt.clouddn.com/RN-View%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E6%95%88%E6%9E%9C%E5%9B%BE.png">
+<meta name="twitter:title" content="RN_Bounds宽高">
+<meta name="twitter:description" content="组件的高度和宽度决定了其在屏幕上显示的尺寸 指定宽高 最简单的给组件设定尺寸的方式就是在样式中指定固定的width和height。React Native中的尺寸都是无单位的，表示的是与设备像素密度无关的逻辑像素点  🌰 class RN_Bounds extends Component &amp;#123;  render ()&amp;#123;    return(      &amp;lt;View&amp;gt;">
+<meta name="twitter:image" content="http://osq7nstcc.bkt.clouddn.com/RN_Bounds_001.png">
 
 
 
@@ -133,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/10/RN-View/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/13/RN-Bounds/"/>
 
 
 
 
 
-  <title>RN_View | 胜利/女神/在微笑</title>
+  <title>RN_Bounds宽高 | 胜利/女神/在微笑</title>
   
 
 
@@ -316,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/RN-View/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/13/RN-Bounds/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steam Yue">
@@ -333,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">RN_View</h1>
+          <h1 class="post-title" itemprop="name headline">RN_Bounds宽高</h1>
         
 
         <div class="post-meta">
@@ -345,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T21:38:17+08:00">
-                2017-07-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T19:40:50+08:00">
+                2017-07-13
               </time>
             
 
@@ -391,10 +392,6 @@
           
 
           
-              <div class="post-description">
-                  文章访问密码
-              </div>
-          
 
         </div>
       </header>
@@ -406,14 +403,17 @@
       
 
       
-        <h1 id="RN-View-组件"><a href="#RN-View-组件" class="headerlink" title="RN_View(组件)"></a>RN_View(组件)</h1><p><a href="http://reactnative.cn/docs/0.46/getting-started.html" target="_blank" rel="external">RN-中文官网地址–&gt;</a></p>
-<h2 id="布局分析"><a href="#布局分析" class="headerlink" title="布局分析"></a>布局分析</h2><blockquote>
-<p>1.有个containor容器<br>2.内嵌3个子<br>3.子嵌入2子</p>
+        <p>组件的高度和宽度决定了其在屏幕上显示的尺寸</p>
+<h1 id="指定宽高"><a href="#指定宽高" class="headerlink" title="指定宽高"></a>指定宽高</h1><blockquote>
+<p>最简单的给组件设定尺寸的方式就是在样式中指定固定的width和height。<br>React Native中的尺寸都是无单位的，表示的是与设备像素密度无关的逻辑像素点</p>
 </blockquote>
-<p><img src="http://olz8i6wia.bkt.clouddn.com/RN-View%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E6%95%88%E6%9E%9C%E5%9B%BE.png" alt="效果图"></p>
-<h2 id="定义组件"><a href="#定义组件" class="headerlink" title="定义组件"></a>定义组件</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span>  RN_View = React.createClass(&#123;</div><div class="line">  <span class="attr">render</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.container,styles.flex]&#125;</span>&gt;</span></span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.item&#125;</span>&gt;</span></div><div class="line"></div><div class="line">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center]&#125;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Text</span>&gt;</span>酒店<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> =<span class="string">&#123;[styles.flex,styles.lineLeftRight]&#125;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center,styles.lineCenter]&#125;</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">Text</span>&gt;</span>海外酒店<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center]&#125;</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">Text</span>&gt;</span>特价酒店<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> =<span class="string">&#123;[styles.flex]&#125;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center,styles.lineCenter]&#125;</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">Text</span>&gt;</span>团购<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center]&#125;</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">Text</span>&gt;</span>民宿.客栈<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">             <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">var styles = StyleSheet.create(&#123;</div><div class="line"><span class="symbol">  container:</span>&#123;</div><div class="line"><span class="symbol">    marginTop:</span><span class="number">25</span>,</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"#F2F2F2"</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/*</span></div><div class="line">  多个组件都需要设置，则一次性设置</div><div class="line">  */</div><div class="line"><span class="symbol">  flex:</span>&#123;</div><div class="line"><span class="symbol">    flex:</span><span class="number">1</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  center:</span>&#123;</div><div class="line"><span class="symbol">    justifyContent:</span><span class="string">"center"</span>,</div><div class="line"><span class="symbol">    alignItems:</span><span class="string">"center"</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  item:</span>&#123;</div><div class="line"><span class="symbol">    flexDirection:</span><span class="string">"row"</span>,</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"#FF607C"</span>,</div><div class="line"><span class="symbol">    marginTop:</span><span class="number">5</span>,</div><div class="line"><span class="symbol">    marginLeft:</span><span class="number">5</span>,</div><div class="line"><span class="symbol">    marginRight:</span><span class="number">5</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">80</span>,</div><div class="line"><span class="symbol">    borderRadius:</span><span class="number">5</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/**</span></div><div class="line">  给中间的区域设置左右线</div><div class="line">  */</div><div class="line"><span class="symbol">  lineLeftRight:</span>&#123;</div><div class="line"><span class="symbol">    boederLeftWidth:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    borderRightWidth:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    borderColor:</span><span class="string">"white"</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/**</span></div><div class="line">  上半区域设置下边线</div><div class="line">  */</div><div class="line"><span class="symbol">  lineCenter:</span>&#123;</div><div class="line"><span class="symbol">  borderBottomWidth:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">  borderColor:</span><span class="string">"white"</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-
+<h2 id="🌰"><a href="#🌰" class="headerlink" title="🌰"></a>🌰</h2><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Bounds_001.png" alt=""></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">class</span> <span class="selector-tag">RN_Bounds</span> <span class="selector-tag">extends</span> <span class="selector-tag">Component</span> &#123;</div><div class="line"></div><div class="line">  <span class="selector-tag">render</span> ()&#123;</div><div class="line">    <span class="selector-tag">return</span>(</div><div class="line">      &lt;View&gt;</div><div class="line">        &lt;View style = &#123;&#123;<span class="attribute">width</span>:<span class="number">50</span>,<span class="attribute">height</span>:<span class="number">50</span>,<span class="attribute">backgroundColor</span>:<span class="string">"powderblue"</span>&#125;&#125;/&gt;</div><div class="line">        &lt;View style = &#123;&#123;<span class="attribute">width</span>:<span class="number">100</span>,<span class="attribute">height</span>:<span class="number">100</span>,<span class="attribute">backgroundColor</span>:<span class="string">"skyblue"</span>&#125;&#125;/&gt;</div><div class="line">        &lt;View style = &#123;&#123;<span class="attribute">width</span>:<span class="number">150</span>,<span class="attribute">height</span>:<span class="number">150</span>,<span class="attribute">backgroundColor</span>:<span class="string">"steelblue"</span>&#125;&#125;/&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h1><blockquote>
+<p>理解为权重<br>组件能够撑满剩余空间的前提是其父容器的尺寸不为零<br>如果父容器既没有固定的width和height，也没有设定flex，则父容器的尺寸为零。其子组件如果使用了flex，也是无法显示的</p>
+</blockquote>
+<h2 id="🌰🌰"><a href="#🌰🌰" class="headerlink" title="🌰🌰"></a>🌰🌰</h2><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Bounds_002.png" alt=""></p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_Bounds</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render()&#123;</div><div class="line">    <span class="keyword">return</span>(</div><div class="line">      &lt;<span class="type">View</span> style=&#123;&#123;flex:<span class="number">1</span>&#125;&#125;&gt;</div><div class="line">        &lt;<span class="type">View</span> style = &#123;&#123;flex:<span class="number">1</span>,backgroundColor:<span class="string">"red"</span>&#125;&#125;/&gt;</div><div class="line">          &lt;<span class="type">View</span> style = &#123;&#123;flex:<span class="number">2</span>,backgroundColor:<span class="string">"blue"</span>&#125;&#125;/&gt;</div><div class="line">            &lt;<span class="type">View</span> style = &#123;&#123;flex:<span class="number">3</span>,backgroundColor:<span class="string">"steelblue"</span>&#125;&#125;/&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -444,8 +444,6 @@
           
             <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
           
-            <a href="/tags/RN-View/" rel="tag"># RN_View</a>
-          
         </div>
       
 
@@ -457,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/09/RN-Flexbox/" rel="next" title="RN-Flexbox">
-                <i class="fa fa-chevron-left"></i> RN-Flexbox
+              <a href="/2017/07/13/RN-State/" rel="next" title="RN_State状态">
+                <i class="fa fa-chevron-left"></i> RN_State状态
               </a>
             
           </div>
@@ -466,10 +464,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/11/RN-Text/" rel="prev" title="RN_Text">
-                RN_Text <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -598,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RN-View-组件"><span class="nav-number">1.</span> <span class="nav-text">RN_View(组件)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#布局分析"><span class="nav-number">1.1.</span> <span class="nav-text">布局分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义组件"><span class="nav-number">1.2.</span> <span class="nav-text">定义组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式"><span class="nav-number">1.3.</span> <span class="nav-text">样式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#指定宽高"><span class="nav-number">1.</span> <span class="nav-text">指定宽高</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🌰"><span class="nav-number">1.1.</span> <span class="nav-text">🌰</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Flex"><span class="nav-number">2.</span> <span class="nav-text">Flex</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#🌰🌰"><span class="nav-number">2.1.</span> <span class="nav-text">🌰🌰</span></a></li></ol></li></ol></div>
             
 
           </div>
