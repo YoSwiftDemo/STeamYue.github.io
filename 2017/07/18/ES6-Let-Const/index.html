@@ -1,0 +1,1266 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ES^,Let,Const" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Let命令基本用法①声明变量 ES6 新增了let命令，用来声明变量。用法类似于var所声明的变量，只在let命令所在的代码块内有效  &amp;#123;  let a = 10;  var b = 1;&amp;#125;a // ReferenceError: a is not defined.b // 1 ②用于for 设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域计数器i只在for">
+<meta name="keywords" content="ES^,Let,Const">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6_Let_Const命令">
+<meta property="og:url" content="http://yoursite.com/2017/07/18/ES6-Let-Const/index.html">
+<meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
+<meta property="og:description" content="Let命令基本用法①声明变量 ES6 新增了let命令，用来声明变量。用法类似于var所声明的变量，只在let命令所在的代码块内有效  &amp;#123;  let a = 10;  var b = 1;&amp;#125;a // ReferenceError: a is not defined.b // 1 ②用于for 设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域计数器i只在for">
+<meta property="og:updated_time" content="2017-07-18T05:43:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6_Let_Const命令">
+<meta name="twitter:description" content="Let命令基本用法①声明变量 ES6 新增了let命令，用来声明变量。用法类似于var所声明的变量，只在let命令所在的代码块内有效  &amp;#123;  let a = 10;  var b = 1;&amp;#125;a // ReferenceError: a is not defined.b // 1 ②用于for 设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域计数器i只在for">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/18/ES6-Let-Const/"/>
+
+
+
+
+
+  <title>ES6_Let_Const命令 | 胜利/女神/在微笑</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">胜利/女神/在微笑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">iOS</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/18/ES6-Let-Const/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steam Yue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="胜利/女神/在微笑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ES6_Let_Const命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T13:42:43+08:00">
+                2017-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Let命令"><a href="#Let命令" class="headerlink" title="Let命令"></a>Let命令</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="①声明变量"><a href="#①声明变量" class="headerlink" title="①声明变量"></a>①声明变量</h3><blockquote>
+<p>ES6 新增了let命令，用来声明变量。用法类似于var<br>所声明的变量，只在let命令所在的代码块内有效</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">var</span> b = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">a <span class="comment">// ReferenceError: a is not defined.</span></div><div class="line">b <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<h3 id="②用于for"><a href="#②用于for" class="headerlink" title="②用于for"></a>②用于for</h3><blockquote>
+<p>设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域<br>计数器i只在for循环体内有效，在循环体外引用就会报错</p>
+</blockquote>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> (let i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  <span class="regexp">//</span> ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(i);</div><div class="line"><span class="regexp">//</span> <span class="symbol">ReferenceError:</span> i is <span class="keyword">not</span> <span class="keyword">defined</span></div></pre></td></tr></table></figure>
+<h4 id="❶Var"><a href="#❶Var" class="headerlink" title="❶Var"></a>❶Var</h4><blockquote>
+<p>变量i是var命令声明的，在全局范围内都有效，所以全局只有一个变量i<br>每一次循环，变量i的值都会发生改变，而循环内被赋给数组a的函数内部的console.log(i)，里面的i指向的就是全局的i。也就是说，所有数组a的成员里面的i，指向的都是同一个i<br>导致运行时输出的是最后一轮的i的值，也就是10</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>](); <span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<h4 id="❶-Let"><a href="#❶-Let" class="headerlink" title="❶ Let"></a>❶ Let</h4><blockquote>
+<p>变量i是let声明的，当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量，所以最后输出的是6<br>JavaScript 引擎内部会记住上一轮循环的值，初始化本轮的变量i时，就在上一轮循环的基础上进行计算</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></div></pre></td></tr></table></figure>
+<h2 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h2><blockquote>
+<p>var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined<br>let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错</p>
+</blockquote>
+<figure class="highlight gauss"><table><tr><td class="code"><pre><div class="line"><span class="comment">// var 的情况</span></div><div class="line">console.<span class="built_in">log</span>(foo); <span class="comment">// 输出undefined</span></div><div class="line">var foo = <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="comment">// let 的情况</span></div><div class="line">console.<span class="built_in">log</span>(<span class="built_in">bar</span>); <span class="comment">// 报错ReferenceError表示在声明它之前，变量bar是不存在的</span></div><div class="line"><span class="keyword">let</span> <span class="built_in">bar</span> = <span class="number">2</span>;</div></pre></td></tr></table></figure>
+<h2 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h2><blockquote>
+<p>S6明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错<br>在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）</p>
+</blockquote>
+<h3 id="绑定binding"><a href="#绑定binding" class="headerlink" title="绑定binding"></a>绑定binding</h3><blockquote>
+<p>只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></div><div class="line">  <span class="keyword">let</span> tmp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>存在全局变量tmp，但是块级作用域内let又声明了一个局部变量tmp，导致后者绑定这个块级作用域，所以在let声明变量前，对tmp赋值会报错<br>在let命令声明变量tmp之前，都属于变量tmp的“死区”</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="comment">// TDZ开始</span></div><div class="line">  tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></div><div class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// ReferenceError</span></div><div class="line"></div><div class="line">  <span class="keyword">let</span> tmp; <span class="comment">// TDZ结束</span></div><div class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></div><div class="line"></div><div class="line">  tmp = <span class="number">123</span>;</div><div class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// 123</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><h4 id="①暂时性死区-typeof"><a href="#①暂时性死区-typeof" class="headerlink" title="①暂时性死区+typeof"></a>①暂时性死区+typeof</h4><blockquote>
+<p>“暂时性死区”也意味着typeof不再是一个百分之百安全的操作<br>变量x使用let命令声明，所以在声明之前，都属于x的“死区”，只要用到该变量就会报错,typeof运行时就会抛出一个ReferenceError</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typeof</span> x; <span class="comment">// ReferenceError</span></div><div class="line"><span class="keyword">let</span> x;</div></pre></td></tr></table></figure>
+<h4 id="②无暂时性死区-typeof"><a href="#②无暂时性死区-typeof" class="headerlink" title="②无暂时性死区+typeof"></a>②无暂时性死区+typeof</h4><blockquote>
+<p>一个变量根本没有被声明，使用typeof反而不会报错<br>undeclared_variable是一个不存在的变量名，结果返回“undefined”。所以，在没有let之前，typeof运算符是百分之百安全的，永远不会报错<br>现在这一点不成立了。这样的设计是为了让大家养成良好的编程习惯，变量一定要在声明之后使用，否则就报错。</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typeof</span> undeclared_variable <span class="comment">// "undefined"</span></div></pre></td></tr></table></figure>
+<h4 id="③有些“死区”比较隐蔽"><a href="#③有些“死区”比较隐蔽" class="headerlink" title="③有些“死区”比较隐蔽"></a>③有些“死区”比较隐蔽</h4><blockquote>
+<p>调用bar函数之所以报错（某些实现可能不报错），是因为参数x默认值等于另一个参数y，而此时y还没有声明，属于”死区“</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">(x = y, y = 2)</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> [x, y];</div><div class="line">&#125;</div><div class="line"></div><div class="line">bar(); <span class="comment">// 报错</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>y的默认值是x，就不会报错，因为此时x已经声明</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">(x = 2, y = x)</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> [x, y];</div><div class="line">&#125;</div><div class="line">bar(); <span class="comment">// [2, 2]</span></div></pre></td></tr></table></figure>
+<h3 id="TDZ-Var-VS-Let"><a href="#TDZ-Var-VS-Let" class="headerlink" title="TDZ (Var VS Let)"></a>TDZ (Var VS Let)</h3><blockquote>
+<p>使用let声明变量时，只要变量在还没有声明完成前使用，就会报错。上面这行就属于这个情况，在变量x的声明语句还没有执行完成前，就去取x的值，导致报错”x 未定义“</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> x = x; <span class="comment">// 不报错</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> x = x; <span class="comment">// 报错 // ReferenceError: x is not defined</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>ES6 规定暂时性死区和let、const语句不出现变量提升，主要是为了减少运行时错误，防止在变量声明前就使用这个变量</p>
+</blockquote>
+<h2 id="不允许重复声明"><a href="#不允许重复声明" class="headerlink" title="不允许重复声明"></a>不允许重复声明</h2><h3 id="相同作用域内下"><a href="#相同作用域内下" class="headerlink" title="相同作用域内下"></a>相同作用域内下</h3><blockquote>
+<p>let不允许在相同作用域内，重复声明同一个变量</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="函数内部"><a href="#函数内部" class="headerlink" title="函数内部"></a>函数内部</h3><blockquote>
+<p>不能在函数内部重新声明参数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">arg</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> arg; <span class="comment">// 报错</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">arg</span>) </span>&#123;</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">let</span> arg; <span class="comment">// 不报错</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h1><h2 id="为什么需要块级作用域"><a href="#为什么需要块级作用域" class="headerlink" title="为什么需要块级作用域"></a>为什么需要块级作用域</h2><p>S5 只有全局作用域和函数作用域，没有块级作用域，这带来很多不合理的场景</p>
+<h3 id="①内层变量可能会覆盖外层变量"><a href="#①内层变量可能会覆盖外层变量" class="headerlink" title="①内层变量可能会覆盖外层变量"></a>①内层变量可能会覆盖外层变量</h3><blockquote>
+<p>if代码块的外部使用外层的tmp变量，内部使用内层的tmp变量<br>函数f执行后，输出结果为undefined<br>原因在于变量提升，导致内层的tmp变量覆盖了外层的tmp变量</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> tmp = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(tmp);</div><div class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</div><div class="line">    <span class="keyword">var</span> tmp = <span class="string">'hello world'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">f(); <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<h3 id="②用来计数的循环变量泄露为全局变量"><a href="#②用来计数的循环变量泄露为全局变量" class="headerlink" title="②用来计数的循环变量泄露为全局变量"></a>②用来计数的循环变量泄露为全局变量</h3><blockquote>
+<p>变量i只用来控制循环<br>循环结束后，它并没有消失，泄露成了全局变量</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">'hello'</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</div><div class="line">  <span class="built_in">console</span>.log(s[i]);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(i); <span class="comment">// 5</span></div></pre></td></tr></table></figure>
+<h2 id="ES6-的块级作用域"><a href="#ES6-的块级作用域" class="headerlink" title="ES6 的块级作用域"></a>ES6 的块级作用域</h2><h3 id="①let实际上为-JavaScript-新增了块级作用域"><a href="#①let实际上为-JavaScript-新增了块级作用域" class="headerlink" title="①let实际上为 JavaScript 新增了块级作用域"></a>①let实际上为 JavaScript 新增了块级作用域</h3><blockquote>
+<p>外层代码块不受内层代码块的影响<br>如果两次都使用var定义变量n，最后输出的值才是10</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> n = <span class="number">5</span>;</div><div class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">    <span class="keyword">let</span> n = <span class="number">10</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(n); <span class="comment">// 5</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="②ES6-允许块级作用域的任意嵌套"><a href="#②ES6-允许块级作用域的任意嵌套" class="headerlink" title="②ES6 允许块级作用域的任意嵌套"></a>②ES6 允许块级作用域的任意嵌套</h3><blockquote>
+<p>使用了一个五层的块级作用域。外层作用域无法读取内层作用域的变量</p>
+</blockquote>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><div class="line">&#123;&#123;&#123;&#123;&#123;let insane = <span class="string">'Hello World'</span>&#125;&#125;&#125;&#125;&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>内层作用域可以定义外层作用域的同名变量<br><figure class="highlight clojure"><table><tr><td class="code"><pre><div class="line">&#123;&#123;&#123;&#123;</div><div class="line">  &#123;let insane = 'Hello World'&#125;</div><div class="line">  console.log(<span class="name">insane</span>)<span class="comment">; // 报错</span></div><div class="line">&#125;&#125;&#125;&#125;<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight http"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="xquery">&#123;&#123;&#123;&#123;</span></div><div class="line">  let insane = <span class="string">'Hello World'</span>;</div><div class="line">  &#123;let insane = <span class="string">'Hello World'</span>&#125;</div><div class="line">&#125;&#125;&#125;&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>块级作用域的出现，实际上使得获得广泛应用的立即执行函数表达式（IIFE）不再必要了</p>
+</blockquote>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line"><span class="comment">// IIFE 写法</span></div><div class="line">(function () &#123;</div><div class="line">  <span class="built_in">var</span> tmp = <span class="params">...</span>;</div><div class="line">  <span class="params">...</span></div><div class="line">&#125;());</div><div class="line"></div><div class="line"><span class="comment">// 块级作用域写法</span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">let</span> tmp = <span class="params">...</span>;</div><div class="line">  <span class="params">...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="块级作用域与函数声明"><a href="#块级作用域与函数声明" class="headerlink" title="块级作用域与函数声明"></a>块级作用域与函数声明</h2><h3 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h3><blockquote>
+<p>ES5 规定，函数只能在顶层作用域和函数作用域之中声明，不能在块级作用域声明<br>根据 ES5 的规定都是非法的<br>浏览器没有遵守这个规定，为了兼容以前的旧代码，还是支持在块级作用域之中声明函数，因此上面两种情况实际都能运行，不会报错</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 情况一</span></div><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 情况二</span></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125; <span class="keyword">catch</span>(e) &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><blockquote>
+<p>ES6 引入了块级作用域，明确允许在块级作用域之中声明函数<br>ES6 规定，块级作用域之中，函数声明语句的行为类似于let，在块级作用域之外不可引用</p>
+</blockquote>
+<h4 id="栗子🌰"><a href="#栗子🌰" class="headerlink" title="栗子🌰"></a>栗子🌰</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'I am outside!'</span>); &#125;</div><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</div><div class="line">    <span class="comment">// 重复声明一次函数f</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'I am inside!'</span>); &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  f();</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
+<p>代码在 ES5 中运行，会得到“I am inside!”，因为在if内声明的函数f会被提升到函数头部<br>实际运行的代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// ES5 环境</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'I am outside!'</span>); &#125;</div><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'I am inside!'</span>); &#125;</div><div class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</div><div class="line">  &#125;</div><div class="line">  f();</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
+<p>这块 详细看  <a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/let</a></p>
+<h2 id="do-表达式"><a href="#do-表达式" class="headerlink" title="do 表达式"></a>do 表达式</h2><blockquote>
+<p>本质上，块级作用域是一个语句，将多个操作封装在一起，没有返回值</p>
+</blockquote>
+<h3 id="块级作用域将两个语句封装在一起"><a href="#块级作用域将两个语句封装在一起" class="headerlink" title="块级作用域将两个语句封装在一起"></a>块级作用域将两个语句封装在一起</h3><blockquote>
+<p>①在块级作用域以外，没有办法得到t的值，因为块级作用域不返回值，除非t是全局变量</p>
+</blockquote>
+<figure class="highlight excel"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  let <span class="built_in">t</span> = f();</div><div class="line">  <span class="built_in">t</span> = <span class="built_in">t</span> * <span class="built_in">t</span> + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>②变量x会得到整个块级作用域的返回值。<br>现在有一个提案，使得块级作用域可以变为表达式，也就是说可以返回值，办法就是在块级作用域之前加上do，使它变为do表达式</p>
+</blockquote>
+<figure class="highlight nix"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> <span class="attr">x</span> = do &#123;</div><div class="line">  <span class="keyword">let</span> <span class="attr">t</span> = f();</div><div class="line">  t * t + <span class="number">1</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="Const-命令"><a href="#Const-命令" class="headerlink" title="Const 命令"></a>Const 命令</h1><h2 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><blockquote>
+<p>const声明一个只读的常量。一旦声明，常量的值就不能改变</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">const <span class="literal">PI</span> = <span class="number">3.1415</span>;</div><div class="line"><span class="literal">PI</span> <span class="comment">// 3.1415</span></div><div class="line"><span class="literal">PI</span> = <span class="number">3</span>; <span class="comment">// TypeError: Assignment to constant variable.改变常量的值会报错</span></div></pre></td></tr></table></figure>
+<h3 id="只声明不赋值，会报错"><a href="#只声明不赋值，会报错" class="headerlink" title="只声明不赋值，会报错"></a>只声明不赋值，会报错</h3><figure class="highlight capnproto"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> foo;// SyntaxError: Missing initializer <span class="keyword">in</span> <span class="keyword">const</span> declaration</div></pre></td></tr></table></figure>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><blockquote>
+<p>const的作用域与let命令相同：只在声明所在的块级作用域内有效</p>
+</blockquote>
+<figure class="highlight monkey"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="keyword">const</span> <span class="built_in">MAX</span> = <span class="number">5</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">MAX</span> // Uncaught ReferenceError: <span class="built_in">MAX</span> is <span class="keyword">not</span> defined</div></pre></td></tr></table></figure>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><blockquote>
+<p>const命令声明的常量也是不提升，同样存在暂时性死区，只能在声明的位置后面使用<br>在常量MAX声明之前就调用，结果报错</p>
+</blockquote>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  console.<span class="keyword">log</span>(<span class="keyword">MAX</span>); <span class="comment">// ReferenceError</span></div><div class="line">  const <span class="keyword">MAX</span> = <span class="number">5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="不可重复声明"><a href="#不可重复声明" class="headerlink" title="不可重复声明"></a>不可重复声明</h3><blockquote>
+<p>const声明的常量，也与let一样不可重复声明</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> message = <span class="string">"Hello!"</span>;</div><div class="line"><span class="keyword">let</span> age = <span class="number">25</span>;</div><div class="line"><span class="comment">// 以下两行都会报错</span></div><div class="line"><span class="keyword">const</span> message = <span class="string">"Goodbye!"</span>;</div><div class="line"><span class="keyword">const</span> age = <span class="number">30</span>;</div></pre></td></tr></table></figure>
+<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><blockquote>
+<p>const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址不得改动<br>对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量<br>但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指针，const只能保证这个指针是固定的，至于它指向的数据结构是不是可变的，就完全不能控制了<br>因此，将一个对象声明为常量必须非常小心</p>
+</blockquote>
+<h3 id="添加一个属性"><a href="#添加一个属性" class="headerlink" title="添加一个属性"></a>添加一个属性</h3><blockquote>
+<p>常量foo储存的是一个地址，这个地址指向一个对象<br>不可变的只是这个地址，即不能把foo指向另一个地址，但对象本身是可变的，所以依然可以为其添加新属性</p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="code"><pre><div class="line">onst foo = &#123;&#125;;</div><div class="line"><span class="comment">// 为 foo 添加一个属性，可以成功</span></div><div class="line">foo.<span class="keyword">prop</span> = 123;</div><div class="line">foo.<span class="keyword">prop</span> <span class="comment">// 123</span></div><div class="line"><span class="comment">// 将 foo 指向另一个对象，就会报错</span></div><div class="line">foo = &#123;&#125;; <span class="comment">// TypeError: "foo" is read-only</span></div></pre></td></tr></table></figure>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
+<p>常量a是一个数组，这个数组本身是可写的<br>但是如果将另一个数组赋值给a，就会报错</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> a = [];</div><div class="line">a.push(<span class="string">'Hello'</span>); <span class="comment">// 可执行</span></div><div class="line">a.length = <span class="number">0</span>;    <span class="comment">// 可执行</span></div><div class="line">a = [<span class="string">'Dave'</span>];    <span class="comment">// 报错</span></div></pre></td></tr></table></figure>
+<h3 id="对象冻结"><a href="#对象冻结" class="headerlink" title="对象冻结"></a>对象冻结</h3><blockquote>
+<p>将对象冻结，应该使用Object.freeze方法<br>常量foo指向一个冻结的对象，所以添加新属性不起作用，严格模式时还会报错</p>
+</blockquote>
+<figure class="highlight dart"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> foo = <span class="built_in">Object</span>.freeze(&#123;&#125;);</div><div class="line"><span class="comment">// 常规模式时，下面一行不起作用；</span></div><div class="line"><span class="comment">// 严格模式时，该行会报错</span></div><div class="line">foo.prop = <span class="number">123</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>除了将对象本身冻结，对象的属性也应该冻结。下面是一个将对象彻底冻结的函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> constantize = <span class="function">(<span class="params">obj</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">Object</span>.freeze(obj);</div><div class="line">  <span class="built_in">Object</span>.keys(obj).forEach( <span class="function">(<span class="params">key, i</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">typeof</span> obj[key] === <span class="string">'object'</span> ) &#123;</div><div class="line">      constantize( obj[key] );</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="ES6-声明变量的六种方法"><a href="#ES6-声明变量的六种方法" class="headerlink" title="ES6 声明变量的六种方法"></a>ES6 声明变量的六种方法</h2><blockquote>
+<p>ES5：①var②function<br>ES6:①let②const③import④class⑤var⑥function</p>
+</blockquote>
+<hr>
+<h1 id="顶层对象的属性"><a href="#顶层对象的属性" class="headerlink" title="顶层对象的属性"></a>顶层对象的属性</h1><p>顶层对象，在浏览器环境指的是window对象，在Node指的是global对象</p>
+<h2 id="ES5-1"><a href="#ES5-1" class="headerlink" title="ES5"></a>ES5</h2><blockquote>
+<p>ES5之中，顶层对象的属性与全局变量是等价的<br>代码中，顶层对象的属性赋值与全局变量的赋值，是同一件事</p>
+</blockquote>
+<figure class="highlight dart"><table><tr><td class="code"><pre><div class="line"><span class="built_in">window</span>.a = <span class="number">1</span>;</div><div class="line">a <span class="comment">// 1</span></div><div class="line"></div><div class="line">a = <span class="number">2</span>;</div><div class="line"><span class="built_in">window</span>.a <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<p>顶层对象的属性与全局变量挂钩，被认为是JavaScript语言最大的设计败笔之一。这样的设计带来了几个很大的问题，首先是没法在编译时就报出变量未声明的错误，只有运行时才能知道（因为全局变量可能是顶层对象的属性创造的，而属性的创造是动态的）；其次，程序员很容易不知不觉地就创建了全局变量（比如打字出错）；最后，顶层对象的属性是到处可以读写的，这非常不利于模块化编程。另一方面，window对象有实体含义，指的是浏览器的窗口对象，顶层对象是一个有实体含义的对象，也是不合适的</p>
+<h2 id="ES6-1"><a href="#ES6-1" class="headerlink" title="ES6"></a>ES6</h2><p>从ES6开始，全局变量将逐步与顶层对象的属性脱钩</p>
+<blockquote>
+<p>为了保持兼容性，var命令和function命令声明的全局变量，依旧是顶层对象的属性<br>let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性<br>全局变量a由var命令声明，所以它是顶层对象的属性<br>全局变量b由let命令声明，所以它不是顶层对象的属性，返回undefined</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"><span class="comment">// 如果在Node的REPL环境，可以写成global.a</span></div><div class="line"><span class="comment">// 或者采用通用方法，写成this.a</span></div><div class="line"><span class="built_in">window</span>.a <span class="comment">// 1</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> b = <span class="number">1</span>;</div><div class="line"><span class="built_in">window</span>.b <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<h1 id="global-对象"><a href="#global-对象" class="headerlink" title="global 对象"></a>global 对象</h1><h2 id="ES5-2"><a href="#ES5-2" class="headerlink" title="ES5"></a>ES5</h2><p>ES5 的顶层对象，本身也是一个问题，因为它在各种实现里面是不统一的。</p>
+<pre><code>浏览器里面，顶层对象是window，但 Node 和 Web Worker 没有window。
+浏览器和 Web Worker 里面，self也指向顶层对象，但是 Node 没有self。
+Node 里面，顶层对象是global，但其他环境都不支持。
+</code></pre><p>同一段代码为了能够在各种环境，都能取到顶层对象，现在一般是使用this变量，但是有局限性。</p>
+<pre><code>全局环境中，this会返回顶层对象。但是，Node 模块和 ES6 模块中，this返回的是当前模块。
+函数里面的this，如果函数不是作为对象的方法运行，而是单纯作为函数运行，this会指向顶层对象。但是，严格模式下，这时this会返回undefined。
+不管是严格模式，还是普通模式，new Function(&apos;return this&apos;)()，总是会返回全局对象。但是，如果浏览器用了CSP（Content Security Policy，内容安全政策），那么eval、new Function这些方法都可能无法使用。
+</code></pre><p>综上所述，很难找到一种方法，可以在所有情况下，都取到顶层对象。下面是两种勉强可以使用的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 方法一</span></div><div class="line">(<span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">'undefined'</span></div><div class="line">   ? <span class="built_in">window</span></div><div class="line">   : (<span class="keyword">typeof</span> process === <span class="string">'object'</span> &amp;&amp;</div><div class="line">      <span class="keyword">typeof</span> <span class="built_in">require</span> === <span class="string">'function'</span> &amp;&amp;</div><div class="line">      <span class="keyword">typeof</span> global === <span class="string">'object'</span>)</div><div class="line">     ? global</div><div class="line">     : <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">// 方法二</span></div><div class="line"><span class="keyword">var</span> getGlobal = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> self !== <span class="string">'undefined'</span>) &#123; <span class="keyword">return</span> self; &#125;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">'undefined'</span>) &#123; <span class="keyword">return</span> <span class="built_in">window</span>; &#125;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> global !== <span class="string">'undefined'</span>) &#123; <span class="keyword">return</span> global; &#125;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'unable to locate global object'</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>现在有一个提案，在语言标准的层面，引入global作为顶层对象。也就是说，在所有环境下，global都是存在的，都可以从它拿到顶层对象。</p>
+<p>垫片库system.global模拟了这个提案，可以在所有环境拿到global。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">/ CommonJS 的写法</div><div class="line"><span class="built_in">require</span>(<span class="string">'system.global/shim'</span>)();</div><div class="line"></div><div class="line"><span class="comment">// ES6 模块的写法</span></div><div class="line"><span class="keyword">import</span> shim <span class="keyword">from</span> <span class="string">'system.global/shim'</span>; shim();</div></pre></td></tr></table></figure>
+<p>上面代码可以保证各种环境里面，global对象都是存在的</p>
+<figure class="highlight oxygene"><table><tr><td class="code"><pre><div class="line"><span class="comment">// CommonJS 的写法</span></div><div class="line"><span class="keyword">var</span> <span class="keyword">global</span> = <span class="keyword">require</span>(<span class="string">'system.global'</span>)();</div><div class="line"></div><div class="line"><span class="comment">// ES6 模块的写法</span></div><div class="line">import getGlobal <span class="keyword">from</span> <span class="string">'system.global'</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">global</span> = getGlobal();</div></pre></td></tr></table></figure>
+<p>上面代码将顶层对象放入变量global。</p>
+<p><a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="external">本文参考ES6做的笔记</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/14/RN-Fetch/" rel="next" title="RN_Fetch网络">
+                <i class="fa fa-chevron-left"></i> RN_Fetch网络
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Steam Yue" />
+          <p class="site-author-name" itemprop="name">Steam Yue</p>
+           
+              <p class="site-description motion-element" itemprop="description">iOS</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Let命令"><span class="nav-number">1.</span> <span class="nav-text">Let命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法"><span class="nav-number">1.1.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①声明变量"><span class="nav-number">1.1.1.</span> <span class="nav-text">①声明变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#②用于for"><span class="nav-number">1.1.2.</span> <span class="nav-text">②用于for</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#❶Var"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">❶Var</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#❶-Let"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">❶ Let</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不存在变量提升"><span class="nav-number">1.2.</span> <span class="nav-text">不存在变量提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#暂时性死区"><span class="nav-number">1.3.</span> <span class="nav-text">暂时性死区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定binding"><span class="nav-number">1.3.1.</span> <span class="nav-text">绑定binding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typeof"><span class="nav-number">1.3.2.</span> <span class="nav-text">typeof</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#①暂时性死区-typeof"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">①暂时性死区+typeof</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#②无暂时性死区-typeof"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">②无暂时性死区+typeof</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#③有些“死区”比较隐蔽"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">③有些“死区”比较隐蔽</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TDZ-Var-VS-Let"><span class="nav-number">1.3.3.</span> <span class="nav-text">TDZ (Var VS Let)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不允许重复声明"><span class="nav-number">1.4.</span> <span class="nav-text">不允许重复声明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相同作用域内下"><span class="nav-number">1.4.1.</span> <span class="nav-text">相同作用域内下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数内部"><span class="nav-number">1.4.2.</span> <span class="nav-text">函数内部</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#块级作用域"><span class="nav-number">2.</span> <span class="nav-text">块级作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要块级作用域"><span class="nav-number">2.1.</span> <span class="nav-text">为什么需要块级作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①内层变量可能会覆盖外层变量"><span class="nav-number">2.1.1.</span> <span class="nav-text">①内层变量可能会覆盖外层变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#②用来计数的循环变量泄露为全局变量"><span class="nav-number">2.1.2.</span> <span class="nav-text">②用来计数的循环变量泄露为全局变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-的块级作用域"><span class="nav-number">2.2.</span> <span class="nav-text">ES6 的块级作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①let实际上为-JavaScript-新增了块级作用域"><span class="nav-number">2.2.1.</span> <span class="nav-text">①let实际上为 JavaScript 新增了块级作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#②ES6-允许块级作用域的任意嵌套"><span class="nav-number">2.2.2.</span> <span class="nav-text">②ES6 允许块级作用域的任意嵌套</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#块级作用域与函数声明"><span class="nav-number">2.3.</span> <span class="nav-text">块级作用域与函数声明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ES5"><span class="nav-number">2.3.1.</span> <span class="nav-text">ES5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES6"><span class="nav-number">2.3.2.</span> <span class="nav-text">ES6</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#栗子🌰"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">栗子🌰</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#do-表达式"><span class="nav-number">2.4.</span> <span class="nav-text">do 表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#块级作用域将两个语句封装在一起"><span class="nav-number">2.4.1.</span> <span class="nav-text">块级作用域将两个语句封装在一起</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Const-命令"><span class="nav-number">3.</span> <span class="nav-text">Const 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法-1"><span class="nav-number">3.1.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明"><span class="nav-number">3.1.1.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只声明不赋值，会报错"><span class="nav-number">3.1.2.</span> <span class="nav-text">只声明不赋值，会报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">3.1.3.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质"><span class="nav-number">3.1.4.</span> <span class="nav-text">性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不可重复声明"><span class="nav-number">3.1.5.</span> <span class="nav-text">不可重复声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本质"><span class="nav-number">3.2.</span> <span class="nav-text">本质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加一个属性"><span class="nav-number">3.2.1.</span> <span class="nav-text">添加一个属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">3.2.2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象冻结"><span class="nav-number">3.2.3.</span> <span class="nav-text">对象冻结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-声明变量的六种方法"><span class="nav-number">3.3.</span> <span class="nav-text">ES6 声明变量的六种方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#顶层对象的属性"><span class="nav-number">4.</span> <span class="nav-text">顶层对象的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5-1"><span class="nav-number">4.1.</span> <span class="nav-text">ES5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-1"><span class="nav-number">4.2.</span> <span class="nav-text">ES6</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#global-对象"><span class="nav-number">5.</span> <span class="nav-text">global 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES5-2"><span class="nav-number">5.1.</span> <span class="nav-text">ES5</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Steam Yue</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
