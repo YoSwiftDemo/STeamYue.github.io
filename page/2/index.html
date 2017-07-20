@@ -830,8 +830,11 @@ RN提供3个组件作用于给其他没有触摸事件的组件绑定触摸事�
       
         
           
-          RN_Text_Header常用特性onPress  手指触摸事件numberOfLines 显示多少行设置字体 颜色 大小对其方式
-样例代码布局分析界面布局分为2部分Header和新闻信息如果都写在一个index.ios.js,代码比较乱可以在其他文件中引用在单独一个文件中定义子组件，使用Mode
+          Text一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理
+属性adjustsFontSizeToFitadjustsFontSizeToFit bool 
+指定字体是否随着给定样式的限制而自动缩放
+allowFontScalingallowFontScaling bool 
+控
           ...
           <!--noindex-->
           <div class="post-button text-center">

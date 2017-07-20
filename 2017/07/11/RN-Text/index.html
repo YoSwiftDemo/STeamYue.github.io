@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="RN_Text_Header常用特性onPress  手指触摸事件numberOfLines 显示多少行设置字体 颜色 大小对其方式 样例代码布局分析界面布局分为2部分Header和新闻信息如果都写在一个index.ios.js,代码比较乱可以在其他文件中引用在单独一个文件中定义子组件，使用Modele.exports将组建导出作为独立的模块RNText路径下新建文件 index.js引入var">
+<meta name="description" content="Text一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理 属性adjustsFontSizeToFitadjustsFontSizeToFit bool  指定字体是否随着给定样式的限制而自动缩放 allowFontScalingallowFontScaling bool  控制字体是否要根据系统的“字体大小”辅助选项来进行缩放 minimumFontScale iOS mi">
 <meta name="keywords" content="ReactNative,Text">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RN_Text">
 <meta property="og:url" content="http://yoursite.com/2017/07/11/RN-Text/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="RN_Text_Header常用特性onPress  手指触摸事件numberOfLines 显示多少行设置字体 颜色 大小对其方式 样例代码布局分析界面布局分为2部分Header和新闻信息如果都写在一个index.ios.js,代码比较乱可以在其他文件中引用在单独一个文件中定义子组件，使用Modele.exports将组建导出作为独立的模块RNText路径下新建文件 index.js引入var">
+<meta property="og:description" content="Text一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理 属性adjustsFontSizeToFitadjustsFontSizeToFit bool  指定字体是否随着给定样式的限制而自动缩放 allowFontScalingallowFontScaling bool  控制字体是否要根据系统的“字体大小”辅助选项来进行缩放 minimumFontScale iOS mi">
 <meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN_Text_001.png">
-<meta property="og:updated_time" content="2017-07-11T14:37:12.000Z">
+<meta property="og:updated_time" content="2017-07-20T13:58:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RN_Text">
-<meta name="twitter:description" content="RN_Text_Header常用特性onPress  手指触摸事件numberOfLines 显示多少行设置字体 颜色 大小对其方式 样例代码布局分析界面布局分为2部分Header和新闻信息如果都写在一个index.ios.js,代码比较乱可以在其他文件中引用在单独一个文件中定义子组件，使用Modele.exports将组建导出作为独立的模块RNText路径下新建文件 index.js引入var">
+<meta name="twitter:description" content="Text一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理 属性adjustsFontSizeToFitadjustsFontSizeToFit bool  指定字体是否随着给定样式的限制而自动缩放 allowFontScalingallowFontScaling bool  控制字体是否要根据系统的“字体大小”辅助选项来进行缩放 minimumFontScale iOS mi">
 <meta name="twitter:image" content="http://osq7nstcc.bkt.clouddn.com/RN_Text_001.png">
 
 
@@ -402,7 +402,75 @@
       
 
       
-        <h1 id="RN-Text-Header"><a href="#RN-Text-Header" class="headerlink" title="RN_Text_Header"></a>RN_Text_Header</h1><h1 id="常用特性"><a href="#常用特性" class="headerlink" title="常用特性"></a>常用特性</h1><p>onPress  手指触摸事件<br>numberOfLines 显示多少行<br>设置字体 颜色 大小对其方式</p>
+        <h1 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h1><p>一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理</p>
+<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h2 id="adjustsFontSizeToFit"><a href="#adjustsFontSizeToFit" class="headerlink" title="adjustsFontSizeToFit"></a>adjustsFontSizeToFit</h2><p>adjustsFontSizeToFit bool </p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">指定字体是否随着给定样式的限制而自动缩放</div></pre></td></tr></table></figure>
+<h2 id="allowFontScaling"><a href="#allowFontScaling" class="headerlink" title="allowFontScaling"></a>allowFontScaling</h2><p>allowFontScaling bool </p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">控制字体是否要根据系统的“字体大小”辅助选项来进行缩放</div></pre></td></tr></table></figure>
+<h2 id="minimumFontScale"><a href="#minimumFontScale" class="headerlink" title="minimumFontScale"></a>minimumFontScale</h2><blockquote>
+<p>iOS minimumFontScale bool </p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">当<span class="selector-tag">adjustsFontSizeToFit</span>开启时，指定最小的缩放比（即不能低于这个值）。可设定的值为0<span class="selector-class">.01</span> <span class="selector-tag">-</span> 1<span class="selector-class">.0</span></div></pre></td></tr></table></figure>
+<h2 id="numberOfLines"><a href="#numberOfLines" class="headerlink" title="numberOfLines"></a>numberOfLines</h2><blockquote>
+<p>numberOfLines  number</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">用来当文本过长的时候裁剪文本。包括折叠产生的换行在内，总的行数不会超过这个属性的限制</div></pre></td></tr></table></figure>
+<h2 id="onLayout"><a href="#onLayout" class="headerlink" title="onLayout"></a>onLayout</h2><blockquote>
+<p>onLayout function</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">当挂载或者布局变化以后调用，参数为如下的内容：</div><div class="line">&#123;<span class="attribute">nativeEvent</span>: &#123;layout: &#123;x, y, width, height&#125;&#125;&#125;</div></pre></td></tr></table></figure>
+<h2 id="onLongPress"><a href="#onLongPress" class="headerlink" title="onLongPress"></a>onLongPress</h2><blockquote>
+<p>onLongPress function</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">当文本被长按以后调用此回调函数</div></pre></td></tr></table></figure>
+<h2 id="onPress"><a href="#onPress" class="headerlink" title="onPress"></a>onPress</h2><blockquote>
+<p>onPress function</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">当文本被点击以后调用此回调函数</div></pre></td></tr></table></figure>
+<h2 id="selectable"><a href="#selectable" class="headerlink" title="selectable"></a>selectable</h2><blockquote>
+<p>selectable function </p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">决定用户是否可以长按选择文本，以便复制和粘贴</div></pre></td></tr></table></figure>
+<h2 id="style"><a href="#style" class="headerlink" title="style"></a>style</h2><blockquote>
+<p>style style<br>color color<br>fontFamily string<br>fontSize number<br>fontStyle enum(‘normal’, ‘italic’)<br>fontWeight enum(‘normal’, ‘bold’, ‘100’, ‘200’, ‘300’, ‘400’, ‘500’, ‘600’, ‘700’, ‘800’, ‘900’)</p>
+</blockquote>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><div class="line">指定字体的粗细。大多数字体都支持'normal'和'bold'值。并非所有字体都支持所有的数字值。如果某个值不支持，则会自动选择最接近的值。</div></pre></td></tr></table></figure>
+<blockquote>
+<p>lineHeight number</p>
+<p>textAlign enum(‘auto’, ‘left’, ‘right’, ‘center’, ‘justify’)<br><figure class="highlight nsis"><table><tr><td class="code"><pre><div class="line">指定文本的对齐方式。其中<span class="string">'justify'</span>值仅iOS支持，在Android上会变为<span class="literal">left</span></div></pre></td></tr></table></figure></p>
+<p>textDecorationLine enum(‘none’, ‘underline’, ‘line-through’, ‘underline line-through’)<br>textShadowColor color<br>textShadowOffset {width: number, height: number}<br>textShadowRadius number<br>fontVariant [enum(‘small-caps’, ‘oldstyle-nums’, ‘lining-nums’, ‘tabular-nums’, ‘proportional-nums’)]<br>textDecorationColor color<br>textDecorationStyle enum(‘solid’, ‘double’, ‘dotted’, ‘dashed’)<br>writingDirection enum(‘auto’, ‘ltr’, ‘rtl’)</p>
+</blockquote>
+<h2 id="testID-string"><a href="#testID-string" class="headerlink" title="testID string"></a>testID string</h2><blockquote>
+<p>testID string </p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">用来在端到端测试中标记这个视图</div></pre></td></tr></table></figure>
+<h2 id="suppressHighlighting"><a href="#suppressHighlighting" class="headerlink" title="suppressHighlighting"></a>suppressHighlighting</h2><p>iOS suppressHighlighting bool</p>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line">当为<span class="literal">true</span>时，如果文本被按下，则没有任何视觉效果。默认情况下，文本被按下时会有一个灰色的、椭圆形的高光。</div></pre></td></tr></table></figure>
+<h1 id="嵌套文本"><a href="#嵌套文本" class="headerlink" title="嵌套文本"></a>嵌套文本</h1><blockquote>
+<p>在iOS当中，显示一个格式化文本的方法就是使用NSAttributedString提供你想显示的文本内容，并且使用范围标注来指定一些格式<br>在React Native中可以把相同格式的文本嵌套包裹起来</p>
+</blockquote>
+<figure class="highlight sqf"><table><tr><td class="code"><pre><div class="line">&lt;<span class="built_in">Text</span> style=&#123;&#123;fontWeight: <span class="string">'bold'</span>&#125;&#125;&gt;</div><div class="line">  I am bold</div><div class="line">  &lt;<span class="built_in">Text</span> style=&#123;&#123;color: <span class="string">'red'</span>&#125;&#125;&gt;</div><div class="line">    <span class="built_in">and</span> red</div><div class="line">  &lt;/<span class="built_in">Text</span>&gt;</div><div class="line">&lt;/<span class="built_in">Text</span>&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>际上在框架内部，这会生成一个扁平结构的NSAttributedString，包含以下的信息</p>
+</blockquote>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><div class="line"><span class="string">"I am bold and red"</span></div><div class="line"><span class="number">0</span>-<span class="number">9</span>: <span class="keyword">bold</span></div><div class="line"><span class="number">9</span>-<span class="number">17</span>: <span class="keyword">bold, </span>red</div></pre></td></tr></table></figure>
+<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><blockquote>
+<p><text>元素在布局上不同于其它组件：在Text内部的元素不再使用flexbox布局，而是采用文本布局。这意味着<text>内部的元素不再是一个个矩形，而可能会在行末进行折叠</text></text></p>
+</blockquote>
+<h1 id="样式继承限制"><a href="#样式继承限制" class="headerlink" title="样式继承限制"></a>样式继承限制</h1><blockquote>
+<p>本节点放在<text>组件内</text></p>
+<p><view>下不能直接放一段文本</view></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">View</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">Text</span>&gt;</span></div><div class="line">    一些文本</div><div class="line">  <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">View</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>并且你也不能直接设置一整颗子树的默认样式。使用一个一致的文本和尺寸的推荐方式是创建一个包含相关样式的组件MyAppText，然后在你的App中反复使用它。你还可以创建更多特殊的组件譬如MyAppHeaderText来表达不同样式的文</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">View</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">MyAppText</span>&gt;</span>这个组件包含了一个默认的字体样式，用于整个应用的文本<span class="tag">&lt;/<span class="name">MyAppText</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">MyAppHeaderText</span>&gt;</span>这个组件包含了用于标题的样式<span class="tag">&lt;/<span class="name">MyAppHeaderText</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">View</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>React Native实际上还是有一部分样式继承的实现，不过仅限于文本标签的子树。在下面的代码里，第二部分会在加粗的同时又显示为红色：</p>
+</blockquote>
+<figure class="highlight sqf"><table><tr><td class="code"><pre><div class="line">&lt;<span class="built_in">Text</span> style=&#123;&#123;fontWeight: <span class="string">'bold'</span>&#125;&#125;&gt;</div><div class="line">  I am bold</div><div class="line">  &lt;<span class="built_in">Text</span> style=&#123;&#123;color: <span class="string">'red'</span>&#125;&#125;&gt;</div><div class="line">    <span class="built_in">and</span> red</div><div class="line">  &lt;/<span class="built_in">Text</span>&gt;</div><div class="line">&lt;/<span class="built_in">Text</span>&gt;</div></pre></td></tr></table></figure>
+<h1 id="RN-Text-Header"><a href="#RN-Text-Header" class="headerlink" title="RN_Text_Header"></a>RN_Text_Header</h1><h1 id="常用特性"><a href="#常用特性" class="headerlink" title="常用特性"></a>常用特性</h1><p>onPress  手指触摸事件<br>numberOfLines 显示多少行<br>设置字体 颜色 大小对其方式</p>
 <h1 id="样例代码布局分析"><a href="#样例代码布局分析" class="headerlink" title="样例代码布局分析"></a>样例代码布局分析</h1><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Text_001.png" alt=""><br>界面布局分为2部分<br>Header和新闻信息<br>如果都写在一个index.ios.js,代码比较乱<br>可以在其他文件中引用<br>在单独一个文件中定义子组件，使用Modele.exports将组建导出作为独立的模块<br>RNText路径下新建文件</p>
 <h1 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line"><span class="built_in">var</span> <span class="keyword">Header</span> = <span class="keyword">require</span>(<span class="string">"./header"</span>);</div><div class="line"><span class="built_in">var</span> News = <span class="keyword">require</span>(<span class="string">"./news"</span>);</div></pre></td></tr></table></figure>
 <h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p>定义数据源（新闻内容）</p>
@@ -603,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RN-Text-Header"><span class="nav-number">1.</span> <span class="nav-text">RN_Text_Header</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用特性"><span class="nav-number">2.</span> <span class="nav-text">常用特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#样例代码布局分析"><span class="nav-number">3.</span> <span class="nav-text">样例代码布局分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#index-js"><span class="nav-number">4.</span> <span class="nav-text">index.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">4.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件"><span class="nav-number">4.2.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染"><span class="nav-number">4.3.</span> <span class="nav-text">渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#headr-js"><span class="nav-number">4.4.</span> <span class="nav-text">headr.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件-1"><span class="nav-number">4.4.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式"><span class="nav-number">4.4.2.</span> <span class="nav-text">样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出模块"><span class="nav-number">4.4.3.</span> <span class="nav-text">导出模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#news-js"><span class="nav-number">4.5.</span> <span class="nav-text">news.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件-2"><span class="nav-number">4.5.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#News样式"><span class="nav-number">4.5.2.</span> <span class="nav-text">News样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出News模块"><span class="nav-number">4.5.3.</span> <span class="nav-text">导出News模块</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Text"><span class="nav-number">1.</span> <span class="nav-text">Text</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#属性"><span class="nav-number">2.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#adjustsFontSizeToFit"><span class="nav-number">2.1.</span> <span class="nav-text">adjustsFontSizeToFit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#allowFontScaling"><span class="nav-number">2.2.</span> <span class="nav-text">allowFontScaling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#minimumFontScale"><span class="nav-number">2.3.</span> <span class="nav-text">minimumFontScale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numberOfLines"><span class="nav-number">2.4.</span> <span class="nav-text">numberOfLines</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onLayout"><span class="nav-number">2.5.</span> <span class="nav-text">onLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onLongPress"><span class="nav-number">2.6.</span> <span class="nav-text">onLongPress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onPress"><span class="nav-number">2.7.</span> <span class="nav-text">onPress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selectable"><span class="nav-number">2.8.</span> <span class="nav-text">selectable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#style"><span class="nav-number">2.9.</span> <span class="nav-text">style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#testID-string"><span class="nav-number">2.10.</span> <span class="nav-text">testID string</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#suppressHighlighting"><span class="nav-number">2.11.</span> <span class="nav-text">suppressHighlighting</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#嵌套文本"><span class="nav-number">3.</span> <span class="nav-text">嵌套文本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器"><span class="nav-number">4.</span> <span class="nav-text">容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#样式继承限制"><span class="nav-number">5.</span> <span class="nav-text">样式继承限制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RN-Text-Header"><span class="nav-number">6.</span> <span class="nav-text">RN_Text_Header</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用特性"><span class="nav-number">7.</span> <span class="nav-text">常用特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#样例代码布局分析"><span class="nav-number">8.</span> <span class="nav-text">样例代码布局分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#index-js"><span class="nav-number">9.</span> <span class="nav-text">index.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">9.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件"><span class="nav-number">9.2.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#渲染"><span class="nav-number">9.3.</span> <span class="nav-text">渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#headr-js"><span class="nav-number">9.4.</span> <span class="nav-text">headr.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件-1"><span class="nav-number">9.4.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式"><span class="nav-number">9.4.2.</span> <span class="nav-text">样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出模块"><span class="nav-number">9.4.3.</span> <span class="nav-text">导出模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#news-js"><span class="nav-number">9.5.</span> <span class="nav-text">news.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件-2"><span class="nav-number">9.5.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#News样式"><span class="nav-number">9.5.2.</span> <span class="nav-text">News样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导出News模块"><span class="nav-number">9.5.3.</span> <span class="nav-text">导出News模块</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
