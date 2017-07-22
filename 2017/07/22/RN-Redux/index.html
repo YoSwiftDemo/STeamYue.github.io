@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="State,ReactNative" />
+  <meta name="keywords" content="Redux,Redux" />
 
 
 
@@ -93,19 +93,17 @@
 
 
 
-<meta name="description" content="State 使用两种数据来控制一个组件：props和stateprops是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state一般来说，你需要在constructor中初始化state然后在需要修改时调用setState方法 官网样例1假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个pro">
-<meta name="keywords" content="State,ReactNative">
+<meta name="description" content="Redux基本原则参考链接 ##①单一数据源  整个应用的 state 被储存在一棵 object tree 中并且这个 object tree 只存在于唯一一个 store 中 ##②State 是只读的惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象 ##③使用纯函数来执行修改为了描述 action 如何改变 state tree ，需要编写">
+<meta name="keywords" content="Redux,Redux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RN_State状态">
-<meta property="og:url" content="http://yoursite.com/2017/07/13/RN-State/index.html">
+<meta property="og:title" content="RN_Redux框架">
+<meta property="og:url" content="http://yoursite.com/2017/07/22/RN-Redux/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="State 使用两种数据来控制一个组件：props和stateprops是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state一般来说，你需要在constructor中初始化state然后在需要修改时调用setState方法 官网样例1假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个pro">
-<meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN_State_001.gif">
-<meta property="og:updated_time" content="2017-07-13T11:15:41.000Z">
+<meta property="og:description" content="Redux基本原则参考链接 ##①单一数据源  整个应用的 state 被储存在一棵 object tree 中并且这个 object tree 只存在于唯一一个 store 中 ##②State 是只读的惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象 ##③使用纯函数来执行修改为了描述 action 如何改变 state tree ，需要编写">
+<meta property="og:updated_time" content="2017-07-22T08:24:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RN_State状态">
-<meta name="twitter:description" content="State 使用两种数据来控制一个组件：props和stateprops是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state一般来说，你需要在constructor中初始化state然后在需要修改时调用setState方法 官网样例1假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个pro">
-<meta name="twitter:image" content="http://osq7nstcc.bkt.clouddn.com/RN_State_001.gif">
+<meta name="twitter:title" content="RN_Redux框架">
+<meta name="twitter:description" content="Redux基本原则参考链接 ##①单一数据源  整个应用的 state 被储存在一棵 object tree 中并且这个 object tree 只存在于唯一一个 store 中 ##②State 是只读的惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象 ##③使用纯函数来执行修改为了描述 action 如何改变 state tree ，需要编写">
 
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/13/RN-State/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/22/RN-Redux/"/>
 
 
 
 
 
-  <title>RN_State状态 | 胜利/女神/在微笑</title>
+  <title>RN_Redux框架 | 胜利/女神/在微笑</title>
   
 
 
@@ -316,7 +314,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/13/RN-State/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/RN-Redux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steam Yue">
@@ -333,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">RN_State状态</h1>
+          <h1 class="post-title" itemprop="name headline">RN_Redux框架</h1>
         
 
         <div class="post-meta">
@@ -345,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T18:39:58+08:00">
-                2017-07-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T16:07:28+08:00">
+                2017-07-22
               </time>
             
 
@@ -402,14 +400,49 @@
       
 
       
-        <h1 id="State"><a href="#State" class="headerlink" title="State"></a>State</h1><blockquote>
-<p>使用两种数据来控制一个组件：props和state<br>props是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state<br>一般来说，你需要在constructor中初始化state<br>然后在需要修改时调用setState方法</p>
-<h1 id="官网样例1"><a href="#官网样例1" class="headerlink" title="官网样例1"></a>官网样例1</h1><p>假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个prop。而文字的显示或隐藏的状态（快速的显隐切换就产生了闪烁的效果）则是随着时间变化的，因此这一状态应该写到state中<br><img src="http://osq7nstcc.bkt.clouddn.com/RN_State_001.gif" alt=""></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2></blockquote>
-<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 每1000毫秒对showText状态做一次取反操作</div><div class="line"> * 根据当前showText的值决定是否显示text内容</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blink</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  constructor(props)&#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;showText:<span class="literal">true</span>&#125;;</div><div class="line">  setInterval(()=&gt;&#123;</div><div class="line">    <span class="keyword">this</span>.setState(previousState=&gt;&#123;</div><div class="line">      <span class="keyword">return</span>&#123; showText:!previousState.showText&#125;;</div><div class="line">    &#125;);</div><div class="line">  &#125;,<span class="number">1000</span>);</div><div class="line">&#125;</div><div class="line">  render ()&#123;</div><div class="line">    let display= <span class="keyword">this</span>.state.showText?<span class="keyword">this</span>.props.text:<span class="string">" "</span>;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">Text</span>&gt;&#123;display&#125;&lt;/<span class="type">Text</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_State</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span>&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"好喜欢"</span> /&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"真的么"</span>/&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"RN的实战"</span>/&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"吼一吼！123456！"</span>/&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h1 id="Redux基本原则"><a href="#Redux基本原则" class="headerlink" title="Redux基本原则"></a>Redux基本原则</h1><p><a href="http://blog.csdn.net/codetomylaw/article/details/52389716" target="_blank" rel="external">参考链接</a></p>
+<p>##①单一数据源</p>
 <blockquote>
-<p>实际开发中，我们一般不会在定时器函数（setInterval、setTimeout等）中来操作state。典型的场景是在接收到服务器返回的新数据，或者在用户输入数据之后。你也可以使用一些“状态容器”比如Redux来统一管理数据流</p>
+<p>整个应用的 state 被储存在一棵 object tree 中<br>并且这个 object tree 只存在于唯一一个 store 中</p>
+<p>##②State 是只读的<br>惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象</p>
+<p>##③使用纯函数来执行修改<br>为了描述 action 如何改变 state tree ，需要编写 reducers</p>
 </blockquote>
+<h1 id="基本概念Action-Reducer-Store"><a href="#基本概念Action-Reducer-Store" class="headerlink" title="基本概念Action/Reducer/Store"></a>基本概念Action/Reducer/Store</h1><h2 id="①Action"><a href="#①Action" class="headerlink" title="①Action"></a>①Action</h2><blockquote>
+<p>Action 本质上是 JavaScript 普通对象<br>我们约定，action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作<br>多数情况下，type 会被定义成字符串常量<br>当应用规模越来越大时，建议使用单独的模块或文件来存放 action</p>
+</blockquote>
+<figure class="highlight dart"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> addTodo = (<span class="built_in">num</span>) =&gt; &#123;  </div><div class="line">  <span class="keyword">return</span> &#123;  </div><div class="line">    type: <span class="string">'INCREMENT'</span>,  </div><div class="line">    <span class="built_in">num</span>: <span class="built_in">num</span>,  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> decTodo = (<span class="built_in">num</span>) =&gt; &#123;  </div><div class="line">  <span class="keyword">return</span> &#123;  </div><div class="line">    type: <span class="string">'DECREMENT'</span>,  </div><div class="line">    <span class="built_in">num</span>: <span class="built_in">num</span>,  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> updateText = (text) =&gt; &#123;  </div><div class="line">  <span class="keyword">return</span> &#123;  </div><div class="line">    type: <span class="string">'TEXT_UPDATE'</span>,  </div><div class="line">    text: text,  </div><div class="line">  &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h2><blockquote>
+<p>Reducer 就是一个纯函数，接收旧的 state 和 action，返回新的 state</p>
+</blockquote>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">(<span class="name">previousState</span>, action) =&gt; newState</div></pre></td></tr></table></figure>
+<h3 id="保持reducer纯净"><a href="#保持reducer纯净" class="headerlink" title="保持reducer纯净"></a>保持reducer纯净</h3><p>保持 reducer 纯净非常重要。永远不要在 reducer 里做这些操作</p>
+<blockquote>
+<p>修改传入参数<br>执行有副作用的操作，如 API 请求和路由跳转<br>调用非纯函数，如 Date.now() 或 Math.random()</p>
+</blockquote>
+<h3 id="定义了2个reduce-（reduceNum-js-reduceText-js）"><a href="#定义了2个reduce-（reduceNum-js-reduceText-js）" class="headerlink" title="定义了2个reduce （reduceNum.js   reduceText.js）"></a>定义了2个reduce （reduceNum.js   reduceText.js）</h3><blockquote>
+<p>educeNum</p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">const todo = (<span class="keyword">state</span>=<span class="number">0</span>, action) =&gt; &#123;  </div><div class="line">  switch (action.type) &#123;  </div><div class="line">    case 'INCREMENT':  </div><div class="line">      return <span class="keyword">state</span> + <span class="number">1</span>  </div><div class="line">    case 'DECREMENT':  </div><div class="line">      return <span class="keyword">state</span> - <span class="number">1</span>  </div><div class="line">    <span class="keyword">default</span>:  </div><div class="line">      return <span class="keyword">state</span>//返回原来的<span class="keyword">state</span>  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">export <span class="keyword">default</span> todo</div></pre></td></tr></table></figure>
+<blockquote>
+<p>educeText</p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">const todo = (<span class="keyword">state</span>=<span class="string">""</span>, action) =&gt; &#123;  </div><div class="line">  </div><div class="line">  switch (action.type) &#123;  </div><div class="line">    case 'TEXT_UPDATE':  </div><div class="line">    //新的<span class="keyword">state</span>  </div><div class="line">      return  action.text   </div><div class="line">    <span class="keyword">default</span>:  </div><div class="line">      //返回原来的<span class="keyword">state</span>  </div><div class="line">      return <span class="keyword">state</span>  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">export <span class="keyword">default</span> todo</div></pre></td></tr></table></figure>
+<blockquote>
+<p>使用combineReducers 合并reduce </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">'redux'</span>  </div><div class="line"><span class="keyword">import</span> reduceNum <span class="keyword">from</span> <span class="string">'./reduceNum'</span>  </div><div class="line"><span class="keyword">import</span> reduceText <span class="keyword">from</span> <span class="string">'./reduceText'</span>  </div><div class="line">  </div><div class="line"><span class="keyword">const</span> todoApp = combineReducers(&#123;  </div><div class="line">  <span class="attr">num</span>:reduceNum,  </div><div class="line">  <span class="attr">text</span>:reduceText  </div><div class="line">&#125;)  </div><div class="line">  </div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> todoApp</div></pre></td></tr></table></figure>
+<h2 id="②Store"><a href="#②Store" class="headerlink" title="②Store"></a>②Store</h2><blockquote>
+<p>Store 就是把action和reduce联系到一起的对象<br>再次强调一下 Redux 应用只有一个单一的 store<br>当需要拆分数据处理逻辑时，你应该使用 reducer 组合 而不是创建多个 store。</p>
+</blockquote>
+<h3 id="职责"><a href="#职责" class="headerlink" title="职责"></a>职责</h3><blockquote>
+<p>维持应用的 state<br>提供 getState() 方法获取 state<br>提供 dispatch(action) 方法更新 state<br>通过 subscribe(listener) 注册监听器<br>通过 subscribe(listener) 返回的函数注销监听器</p>
+</blockquote>
+<h3 id="创建-store"><a href="#创建-store" class="headerlink" title="创建 store"></a>创建 store</h3><blockquote>
+<p>根据已有的 reducer 来创建 store 是非常容易的<br>使用 combineReducers() 将多个 reducer 合并成为一个<br>现在我们将其导入，并传递 createStore()<br>createStore() 的第二个参数是可选的, 用于设置 state 初始状态</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> reducers <span class="keyword">from</span> <span class="string">'./reducers'</span>  </div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>  </div><div class="line">  </div><div class="line"><span class="keyword">let</span> initState = &#123; num: <span class="number">0</span>,text:<span class="string">""</span>&#125;;  </div><div class="line"><span class="keyword">let</span> store = createStore(reducers,initState);</div></pre></td></tr></table></figure>
+<h1 id="Demo源码"><a href="#Demo源码" class="headerlink" title="Demo源码"></a>Demo源码</h1><h2 id="入口组件"><a href="#入口组件" class="headerlink" title="入口组件"></a>入口组件</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * Sample React Native App </div><div class="line"> * https://github.com/facebook/react-native </div><div class="line"> * @flow </div><div class="line"> */  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;  </div><div class="line"><span class="keyword">import</span> &#123;  </div><div class="line">  AppRegistry,  </div><div class="line">  StyleSheet,  </div><div class="line">  Text,  </div><div class="line">  View  </div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;  </div><div class="line">  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>  </div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> reducers <span class="keyword">from</span> <span class="string">'./reducers'</span>  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> AddTodo <span class="keyword">from</span> <span class="string">'./containers/AddTodo'</span>  </div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">reduxdemo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;  </div><div class="line">  </div><div class="line">  render() &#123;  </div><div class="line">    <span class="comment">// let initState = &#123; num: 0,text:""&#125;;  </span></div><div class="line">    <span class="keyword">let</span> store = createStore(reducers);  </div><div class="line">    <span class="keyword">return</span> (  </div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span>  </span></div><div class="line">          <span class="tag">&lt;<span class="name">AddTodo</span> /&gt;</span>  </div><div class="line">        <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span>  </div><div class="line">    )  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">  </div><div class="line">AppRegistry.registerComponent(<span class="string">'reduxdemo'</span>, () =&gt; reduxdemo);</div></pre></td></tr></table></figure>
+<h2 id="视图组件：AddTodo"><a href="#视图组件：AddTodo" class="headerlink" title="视图组件：AddTodo"></a>视图组件：AddTodo</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span>  </div><div class="line"><span class="keyword">import</span> &#123;  </div><div class="line">  AppRegistry,  </div><div class="line">  StyleSheet,  </div><div class="line">  Text,  </div><div class="line">  View,  </div><div class="line">  TouchableHighlight,  </div><div class="line">  Dimensions,  </div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;  </div><div class="line"><span class="keyword">import</span> &#123; connect,Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>  </div><div class="line"><span class="keyword">import</span> &#123; addTodo,decTodo,updateText &#125; <span class="keyword">from</span> <span class="string">'../actions'</span>  </div><div class="line">  </div><div class="line"><span class="keyword">const</span> &#123;width, height&#125; = Dimensions.get(<span class="string">'window'</span>);  </div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AddTodo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;  </div><div class="line">    <span class="keyword">constructor</span>(props) &#123;  </div><div class="line">      <span class="keyword">super</span>(props);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    render() &#123;  </div><div class="line">      <span class="keyword">const</span> &#123; dispatch,num ,text&#125; = <span class="keyword">this</span>.props  </div><div class="line">      <span class="comment">// alert(num);  </span></div><div class="line">      <span class="keyword">return</span> (  </div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span>  </span></div><div class="line">          <span class="tag">&lt;<span class="name">TouchableHighlight</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemView&#125;</span> <span class="attr">underlayColor</span>=<span class="string">"red"</span> <span class="attr">onPress</span>=<span class="string">&#123;()</span>=&gt;</span>&#123;dispatch(addTodo(num))&#125;&#125;&gt;  </div><div class="line">              <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemText&#125;</span>&gt;</span>  </div><div class="line">                点击我就+1  </div><div class="line">              <span class="tag">&lt;/<span class="name">Text</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;/<span class="name">TouchableHighlight</span>&gt;</span>  </div><div class="line">  </div><div class="line">          <span class="tag">&lt;<span class="name">TouchableHighlight</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemView&#125;</span> <span class="attr">underlayColor</span>=<span class="string">"red"</span> <span class="attr">onPress</span>=<span class="string">&#123;()</span>=&gt;</span>&#123;dispatch(decTodo(num))&#125;&#125;&gt;  </div><div class="line">              <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemText&#125;</span>&gt;</span>  </div><div class="line">                点击我就-1  </div><div class="line">              <span class="tag">&lt;/<span class="name">Text</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;/<span class="name">TouchableHighlight</span>&gt;</span>  </div><div class="line">  </div><div class="line">          <span class="tag">&lt;<span class="name">TouchableHighlight</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemView&#125;</span> <span class="attr">underlayColor</span>=<span class="string">"red"</span> <span class="attr">onPress</span>=<span class="string">&#123;()</span>=&gt;</span>&#123;dispatch(updateText('测试'))&#125;&#125;&gt;  </div><div class="line">              <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemText&#125;</span>&gt;</span>  </div><div class="line">                修改Text的值  </div><div class="line">              <span class="tag">&lt;/<span class="name">Text</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;/<span class="name">TouchableHighlight</span>&gt;</span>  </div><div class="line">  </div><div class="line">          <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;&#123;paddingTop:10,color:</span>'<span class="attr">red</span>'&#125;&#125;&gt;</span>  </div><div class="line">            当前的Num值是:&#123;num&#125; ， 当前的Text值是：&#123;text&#125;  </div><div class="line">          <span class="tag">&lt;/<span class="name">Text</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;/<span class="name">View</span>&gt;</span>  </div><div class="line">      )  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;  </div><div class="line">  <span class="attr">container</span>: &#123;  </div><div class="line">    <span class="attr">flex</span>: <span class="number">1</span>,  </div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'#f2f2f2'</span>,  </div><div class="line">    <span class="attr">marginTop</span>:<span class="number">20</span>,  </div><div class="line">  &#125;,  </div><div class="line">  <span class="attr">itemView</span>:&#123;  </div><div class="line">    <span class="attr">backgroundColor</span>:<span class="string">'grey'</span>,  </div><div class="line">    <span class="attr">height</span>:<span class="number">44</span>,  </div><div class="line">    <span class="attr">width</span>:width,  </div><div class="line">    <span class="attr">justifyContent</span>:<span class="string">'center'</span>,  </div><div class="line">    <span class="attr">marginTop</span>:<span class="number">10</span>,  </div><div class="line">  &#125;,  </div><div class="line">  <span class="attr">itemText</span>:&#123;  </div><div class="line">    <span class="attr">fontSize</span>:<span class="number">15</span>,  </div><div class="line">    <span class="attr">color</span>:<span class="string">'#ffffff'</span>,  </div><div class="line">    <span class="attr">textAlign</span>:<span class="string">'left'</span>,  </div><div class="line">    <span class="attr">marginLeft</span>:<span class="number">20</span>,  </div><div class="line">  &#125;,  </div><div class="line">&#125;);  </div><div class="line">  </div><div class="line"><span class="comment">//selector：这是你自己编写的一个函数。这个函数声明了你的组件需要整个 store 中的哪一部分数据作为自己的 props。  </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">selector</span>(<span class="params">state</span>) </span>&#123;  </div><div class="line">  <span class="keyword">return</span> &#123;  </div><div class="line">    <span class="attr">num</span>: state.num ,  </div><div class="line">    <span class="attr">text</span>:state.text  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">// 包装 component ，注入 dispatch 和 state 到其默认的 connect(selector)(App) 中；  </span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(selector)(AddTodo);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -439,7 +472,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
+            <a href="/tags/Redux/" rel="tag"># Redux</a>
           
         </div>
       
@@ -452,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/13/BC-Resume-Video-Play/" rel="next" title="BC_Resume_Video_Play">
-                <i class="fa fa-chevron-left"></i> BC_Resume_Video_Play
+              <a href="/2017/07/18/ES6-Let-Const/" rel="next" title="ES6_Let_Const命令">
+                <i class="fa fa-chevron-left"></i> ES6_Let_Const命令
               </a>
             
           </div>
@@ -461,10 +494,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/13/RN-Bounds/" rel="prev" title="RN_Bounds宽高">
-                RN_Bounds宽高 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -593,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#State"><span class="nav-number">1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#官网样例1"><span class="nav-number">2.</span> <span class="nav-text">官网样例1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">2.1.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redux基本原则"><span class="nav-number">1.</span> <span class="nav-text">Redux基本原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念Action-Reducer-Store"><span class="nav-number">2.</span> <span class="nav-text">基本概念Action/Reducer/Store</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#①Action"><span class="nav-number">2.1.</span> <span class="nav-text">①Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reducer"><span class="nav-number">2.2.</span> <span class="nav-text">Reducer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#保持reducer纯净"><span class="nav-number">2.2.1.</span> <span class="nav-text">保持reducer纯净</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义了2个reduce-（reduceNum-js-reduceText-js）"><span class="nav-number">2.2.2.</span> <span class="nav-text">定义了2个reduce （reduceNum.js   reduceText.js）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#②Store"><span class="nav-number">2.3.</span> <span class="nav-text">②Store</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#职责"><span class="nav-number">2.3.1.</span> <span class="nav-text">职责</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-store"><span class="nav-number">2.3.2.</span> <span class="nav-text">创建 store</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo源码"><span class="nav-number">3.</span> <span class="nav-text">Demo源码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#入口组件"><span class="nav-number">3.1.</span> <span class="nav-text">入口组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图组件：AddTodo"><span class="nav-number">3.2.</span> <span class="nav-text">视图组件：AddTodo</span></a></li></ol></li></ol></div>
             
 
           </div>
