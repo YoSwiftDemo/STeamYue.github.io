@@ -1,0 +1,1156 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ReactNative,TabBarIOS" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="TabBarIOS属性barTintColor View props…barTintColor string标签栏的背景颜色  tintColor tintColor stringstyle View#style当前被选中的标签图标的颜色 unselectedTintColor前被未选中的标签图标的颜色这个与下面有啥区别？？  unselectedItemTintColor unselectedI">
+<meta name="keywords" content="ReactNative,TabBarIOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RN_TabBarIOS">
+<meta property="og:url" content="http://yoursite.com/2017/07/23/RN-TabBarIOS/index.html">
+<meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
+<meta property="og:description" content="TabBarIOS属性barTintColor View props…barTintColor string标签栏的背景颜色  tintColor tintColor stringstyle View#style当前被选中的标签图标的颜色 unselectedTintColor前被未选中的标签图标的颜色这个与下面有啥区别？？  unselectedItemTintColor unselectedI">
+<meta property="og:updated_time" content="2017-07-23T14:10:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RN_TabBarIOS">
+<meta name="twitter:description" content="TabBarIOS属性barTintColor View props…barTintColor string标签栏的背景颜色  tintColor tintColor stringstyle View#style当前被选中的标签图标的颜色 unselectedTintColor前被未选中的标签图标的颜色这个与下面有啥区别？？  unselectedItemTintColor unselectedI">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/23/RN-TabBarIOS/"/>
+
+
+
+
+
+  <title>RN_TabBarIOS | 胜利/女神/在微笑</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">胜利/女神/在微笑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">iOS</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/23/RN-TabBarIOS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steam Yue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="胜利/女神/在微笑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RN_TabBarIOS</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T12:25:35+08:00">
+                2017-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="TabBarIOS"><a href="#TabBarIOS" class="headerlink" title="TabBarIOS"></a>TabBarIOS</h1><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="barTintColor"><a href="#barTintColor" class="headerlink" title="barTintColor"></a>barTintColor</h3><blockquote>
+<p>View props…<br>barTintColor string<br>标签栏的背景颜色</p>
+</blockquote>
+<h3 id="tintColor"><a href="#tintColor" class="headerlink" title="tintColor"></a>tintColor</h3><blockquote>
+<p>tintColor string<br>style View#style<br>当前被选中的标签图标的颜色</p>
+<h3 id="unselectedTintColor"><a href="#unselectedTintColor" class="headerlink" title="unselectedTintColor"></a>unselectedTintColor</h3><p>前被未选中的标签图标的颜色<br>这个与下面有啥区别？？</p>
+</blockquote>
+<h3 id="unselectedItemTintColor"><a href="#unselectedItemTintColor" class="headerlink" title="unselectedItemTintColor"></a>unselectedItemTintColor</h3><blockquote>
+<p>unselectedItemTintColor string<br>当前没有被选中的标签图标的颜色<br>仅在iOS 10及以上版本有效</p>
+</blockquote>
+<h3 id="translucent"><a href="#translucent" class="headerlink" title="translucent"></a>translucent</h3><blockquote>
+<p>translucent bool<br>一个布尔值，决定标签栏是否需要半透明化</p>
+<p>false和true 感觉没区别！？！？！</p>
+</blockquote>
+<hr>
+<h1 id="TabBarIOS-Item"><a href="#TabBarIOS-Item" class="headerlink" title="TabBarIOS.Item"></a>TabBarIOS.Item</h1><h2 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h2><h3 id="①badge"><a href="#①badge" class="headerlink" title="①badge:"></a>①badge:</h3><blockquote>
+<p>badge : string, number<br>在图标右上角显示一个红色的气泡<br>iOS中的消息角标，JSBadge这个库，不过是iOS是NSString</p>
+</blockquote>
+<h3 id="②icon"><a href="#②icon" class="headerlink" title="②icon"></a>②icon</h3><blockquote>
+<p>icon:Image.propTypes.source<br>给当前标签指定一个自定义的图标。如果定义了systemIcon属性， 这个属性会被忽略</p>
+</blockquote>
+<h3 id="③onPress"><a href="#③onPress" class="headerlink" title="③onPress"></a>③onPress</h3><blockquote>
+<p>onPress :function<br>当此标签被选中时调用。你应该修改组件的状态来使得selected={true}</p>
+</blockquote>
+<h3 id="④selected"><a href="#④selected" class="headerlink" title="④selected"></a>④selected</h3><blockquote>
+<p>selected : bool<br>这个属性决定了子视图是否可见。如果你看到一个空白的页面，很可能是没有选中任何一个标签</p>
+</blockquote>
+<h3 id="⑤selectedIcon"><a href="#⑤selectedIcon" class="headerlink" title="⑤selectedIcon"></a>⑤selectedIcon</h3><blockquote>
+<p>selectedIcon :Image.propTypes.source<br>当标签被选中的时候显示的自定义图标<br>如果定义了systemIcon属性，这个属性会被忽略<br>如果定义了icon而没定义这个属性，在选中的时候图标会染上蓝色</p>
+</blockquote>
+<h3 id="⑥style"><a href="#⑥style" class="headerlink" title="⑥style"></a>⑥style</h3><blockquote>
+<p>style :View#style<br>systemIcon: 一些预定义的系统图标。注意如果你使用了此属性，标题和自定义图标都会被覆盖为系统定义的值。</p>
+</blockquote>
+<figure class="highlight sml"><table><tr><td class="code"><pre><div class="line">systemIcon enum(<span class="symbol">'bookmarks'</span>, <span class="symbol">'contacts'</span>, <span class="symbol">'downloads'</span>, <span class="symbol">'favorites'</span>, <span class="symbol">'featured'</span>, <span class="symbol">'history'</span>, <span class="symbol">'more'</span>, <span class="symbol">'most</span>-recent', <span class="symbol">'most</span>-viewed', <span class="symbol">'recents'</span>, <span class="symbol">'search'</span>, <span class="symbol">'top</span>-rated')</div></pre></td></tr></table></figure>
+<h3 id="⑦title"><a href="#⑦title" class="headerlink" title="⑦title"></a>⑦title</h3><blockquote>
+<p>title: 在图标下面显示的标题文字。如果定义了systemIcon属性，这个属性会被忽略</p>
+</blockquote>
+<hr>
+<h1 id="TabBarIOS和Item组件理解"><a href="#TabBarIOS和Item组件理解" class="headerlink" title="TabBarIOS和Item组件理解"></a>TabBarIOS和Item组件理解</h1><blockquote>
+<p>TabBarIOS组件 类似 UITabBarController<br>TabBarIOS.Item 类似 childViewController<br>iOS中建出对应的child ViewController存到UITabBarController的viewControllers数组里，代理设置方法，设置child ViewController的tabBarItem属性来配置BarItem<br>RN中建对应的TabBarIOS.Item组件，封装在TabBarIOS组件中，通过设置TabBarIOS.Item的属性来配置BarItem</p>
+</blockquote>
+<h1 id="TabBar的简单使用"><a href="#TabBar的简单使用" class="headerlink" title="TabBar的简单使用"></a>TabBar的简单使用</h1><p><a href="https://github.com/STeamYue/RN_TaBarIOS" target="_blank" rel="external">Github 代码参考地址</a></p>
+<h2 id="TabBar-Simple-Demo目录"><a href="#TabBar-Simple-Demo目录" class="headerlink" title="TabBar_Simple_Demo目录"></a>TabBar_Simple_Demo目录</h2><blockquote>
+<p>ios.index.js<br>src<br>pages<br>HomePage.js<br>NextPages.js<br>MainTabBar.js<br>MyPage.js</p>
+</blockquote>
+<h2 id="ios-index-js"><a href="#ios-index-js" class="headerlink" title="ios.index.js"></a>ios.index.js</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="comment">//导出自定义的 MainTabBar</span></div><div class="line"><span class="keyword">import</span> <span class="type">MainTabBar</span> from <span class="string">"./src/pages/MainTabBar.js"</span></div><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">RN_TaBarIOS</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">MainTabBar</span>&gt;&lt;/<span class="type">MainTabBar</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="type">AppRegistry</span>.registerComponent(<span class="symbol">'RN_TaBarIO</span>S', () =&gt; <span class="type">RN_TaBarIOS</span>);</div></pre></td></tr></table></figure>
+<h2 id="MainTabBar-js"><a href="#MainTabBar-js" class="headerlink" title="MainTabBar.js"></a>MainTabBar.js</h2><h3 id="导出TabBar上的2个页面"><a href="#导出TabBar上的2个页面" class="headerlink" title="导出TabBar上的2个页面"></a>导出TabBar上的2个页面</h3><figure class="highlight capnproto"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> HomePage <span class="keyword">from</span> <span class="string">"./HomePage"</span></div><div class="line"><span class="keyword">import</span> MyPage <span class="keyword">from</span> <span class="string">"./MyPage"</span></div></pre></td></tr></table></figure>
+<h2 id="MainTabBar"><a href="#MainTabBar" class="headerlink" title="MainTabBar"></a>MainTabBar</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">MainTabBar</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="comment">// 构造函数初始化state的一个属性，selectedBarItem（任意起）属性值要与后面设置的TabBarIOS.Item时一致，代表着启动时候进度一个页面</span></div><div class="line">  constructor(props)&#123;</div><div class="line">    <span class="keyword">super</span> (props);</div><div class="line">    <span class="keyword">this</span>.state= &#123;</div><div class="line">      selectedBarItem:<span class="string">"home"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">TabBarIOS</span></div><div class="line">        <span class="comment">/*设置TabBar属性*/</span></div><div class="line">        <span class="comment">//标签栏的背景颜色</span></div><div class="line">        barTintColor = <span class="string">"white"</span></div><div class="line">        <span class="comment">//当前被选中的标签图标的颜色</span></div><div class="line">        tintColor = <span class="string">"green"</span></div><div class="line">        <span class="comment">//前被未选中的标签图标的颜色</span></div><div class="line">        unselectedTintColor =<span class="string">"black"</span></div><div class="line">        <span class="comment">//标签栏是否需要半透明化 false和true 感觉没区别</span></div><div class="line">        translucent = &#123;<span class="literal">true</span>&#125;</div><div class="line">        &gt;</div><div class="line">          &lt;<span class="type">TabBarIOS</span>.<span class="type">Item</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            title = <span class="string">"Item:首页"</span></div><div class="line">          <span class="comment">// selectedIcon = &#123;require("./home.png")&#125;</span></div><div class="line">          <span class="comment">//selected 表示当前this.state.selectedBarItemd等于某一个值，对应的BarItemd被选中</span></div><div class="line">            selected = &#123;<span class="keyword">this</span>.state.selectedBarItem == <span class="string">"home"</span>&#125;</div><div class="line">            <span class="comment">//onPress事件触发后，重新设置当前this.state.electedBarItemd的值未当前BarItemd</span></div><div class="line">            onPress = &#123;</div><div class="line">              ()=&gt;&#123;</div><div class="line">                <span class="keyword">this</span>.setState(&#123;selectedBarItem:<span class="string">"home"</span>&#125;)</div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">            &gt;</div><div class="line">          &#123;<span class="comment">/* &lt;HomePage&gt;&lt;/HomePage&gt; */</span>&#125;</div><div class="line"></div><div class="line">          &lt;<span class="type">NavigatorIOS</span></div><div class="line">             style=&#123;&#123;flex:<span class="number">1</span>&#125;&#125;</div><div class="line">             initialRoute = &#123;&#123;</div><div class="line">               component: <span class="type">HomePage</span>,</div><div class="line">               title: '首页'</div><div class="line">             &#125;&#125;</div><div class="line">            <span class="comment">//renderScene function:必要参数,用来渲染指定路由的场景,调用的参数是路由和导航器</span></div><div class="line">             renderScene = &#123; (route, navigator) =&gt; &#123;</div><div class="line">               let <span class="type">HomePage</span> = route.component;</div><div class="line">               <span class="keyword">return</span> &lt;<span class="type">HomePage</span> navigator=&#123;navigator&#125;/&gt;</div><div class="line">             &#125;&#125;</div><div class="line">             &gt;</div><div class="line">           &lt;/<span class="type">NavigatorIOS</span>&gt;</div><div class="line"></div><div class="line">          &lt;/<span class="type">TabBarIOS</span>.<span class="type">Item</span>&gt;</div><div class="line">          &lt;<span class="type">TabBarIOS</span>.<span class="type">Item</span></div><div class="line">            title = <span class="string">"我的"</span></div><div class="line">            selected = &#123;<span class="keyword">this</span>.state.selectedBarItem === <span class="string">"myPage"</span>&#125;</div><div class="line">            onPress = &#123;</div><div class="line">              ()=&gt;&#123;</div><div class="line">                <span class="keyword">this</span>.setState(&#123;selectedBarItem:<span class="string">"myPage"</span>&#125;)</div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">            &gt;</div><div class="line">            &lt;<span class="type">MyPage</span>&gt;&lt;/<span class="type">MyPage</span>&gt;</div><div class="line">          &lt;/<span class="type">TabBarIOS</span>.<span class="type">Item</span>&gt;</div><div class="line">      &lt;/<span class="type">TabBarIOS</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="HomePage-js"><a href="#HomePage-js" class="headerlink" title="HomePage.js"></a>HomePage.js</h2><h3 id="①导入TouchableOpacity、NavigatorIOS"><a href="#①导入TouchableOpacity、NavigatorIOS" class="headerlink" title="①导入TouchableOpacity、NavigatorIOS"></a>①导入TouchableOpacity、NavigatorIOS</h3><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  AppRegistry,</div><div class="line">  StyleSheet,</div><div class="line">  Text,</div><div class="line">  View,</div><div class="line">  TouchableOpacity,</div><div class="line">  NavigatorIOS</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div></pre></td></tr></table></figure>
+<h3 id="导入NextPage"><a href="#导入NextPage" class="headerlink" title="导入NextPage"></a>导入NextPage</h3><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> NextPage <span class="keyword">from</span> <span class="string">'./NextPage'</span></div></pre></td></tr></table></figure>
+<h3 id="HomePage"><a href="#HomePage" class="headerlink" title="HomePage"></a>HomePage</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">import NextPage from &apos;./NextPage&apos;</div><div class="line"></div><div class="line">export default class HomePage extends Component &#123;</div><div class="line"></div><div class="line">  _gotoNextPage() &#123;</div><div class="line">    this.props.navigator.push(&#123;</div><div class="line">      name: &apos;NextPage&apos;,</div><div class="line">      component: NextPage</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">        &lt;Text style=&#123;styles.text&#125;&gt;这是首页&lt;/Text&gt;</div><div class="line">        &lt;TouchableOpacity style=&#123;styles.nextBtn&#125; onPress=&#123;this._gotoNextPage.bind(this)&#125;&gt;</div><div class="line">          &lt;Text style=&#123;styles.nextText&#125;&gt;进入下一页&lt;/Text&gt;</div><div class="line">        &lt;/TouchableOpacity&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">var</span> <span class="string">styles</span> <span class="string">=</span> <span class="string">StyleSheet.create(&#123;</span></div><div class="line"><span class="attr">  container:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    flex:</span><span class="number">1</span><span class="string">,</span></div><div class="line"><span class="attr">    backgroundColor:</span> <span class="string">'yellow'</span><span class="string">,</span></div><div class="line"><span class="attr">    justifyContent:</span> <span class="string">'center'</span><span class="string">,</span></div><div class="line"><span class="attr">    alignItems:</span> <span class="string">'center'</span></div><div class="line">  <span class="string">&#125;,</span></div><div class="line"><span class="attr">  text:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    fontSize:</span> <span class="number">20</span><span class="string">,</span></div><div class="line"><span class="attr">    color:</span> <span class="string">'red'</span></div><div class="line">  <span class="string">&#125;,</span></div><div class="line"><span class="attr">  nextBtn:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    width:</span> <span class="number">120</span><span class="string">,</span></div><div class="line"><span class="attr">    height:</span> <span class="number">30</span><span class="string">,</span></div><div class="line"><span class="attr">    marginTop:</span> <span class="number">50</span><span class="string">,</span></div><div class="line"><span class="attr">    borderWidth:</span> <span class="number">1</span><span class="string">,</span></div><div class="line"><span class="attr">    borderRadius:</span> <span class="number">5</span><span class="string">,</span></div><div class="line"><span class="attr">    backgroundColor:</span> <span class="string">'blue'</span></div><div class="line">  <span class="string">&#125;,</span></div><div class="line"><span class="attr">  nextText:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    flex:</span><span class="number">1</span><span class="string">,</span></div><div class="line"><span class="attr">    color:</span> <span class="string">'white'</span><span class="string">,</span></div><div class="line"><span class="attr">    fontSize:</span> <span class="number">20</span><span class="string">,</span></div><div class="line"><span class="attr">    textAlign:</span> <span class="string">'center'</span></div><div class="line">  <span class="string">&#125;</span></div><div class="line"><span class="string">&#125;);</span></div></pre></td></tr></table></figure>
+<h2 id="MyPage-js"><a href="#MyPage-js" class="headerlink" title="MyPage.js"></a>MyPage.js</h2><h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPage</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span> style=&#123;styles.container&#125;&gt;</div><div class="line">        &lt;<span class="type">Text</span> style=&#123;styles.text&#125;&gt;这是个人中心页面&lt;/<span class="type">Text</span>&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="样式-1"><a href="#样式-1" class="headerlink" title="样式"></a>样式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">var</span> <span class="string">styles</span> <span class="string">=</span> <span class="string">StyleSheet.create(&#123;</span></div><div class="line"><span class="attr">  container:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    flex:</span><span class="number">1</span><span class="string">,</span></div><div class="line"><span class="attr">    backgroundColor:</span> <span class="string">'green'</span><span class="string">,</span></div><div class="line"><span class="attr">    justifyContent:</span> <span class="string">'center'</span><span class="string">,</span></div><div class="line"><span class="attr">    alignItems:</span> <span class="string">'center'</span></div><div class="line">  <span class="string">&#125;,</span></div><div class="line"><span class="attr">  text:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    fontSize:</span> <span class="number">10</span><span class="string">,</span></div><div class="line"><span class="attr">    color:</span> <span class="string">'red'</span></div><div class="line">  <span class="string">&#125;</span></div><div class="line"><span class="string">&#125;);</span></div></pre></td></tr></table></figure>
+<h2 id="NextPage-js"><a href="#NextPage-js" class="headerlink" title="NextPage.js"></a>NextPage.js</h2><h3 id="组件-1"><a href="#组件-1" class="headerlink" title="组件"></a>组件</h3><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">NextPage</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span> style=&#123;styles.container&#125;&gt;</div><div class="line">        &lt;<span class="type">Text</span> style=&#123;styles.text&#125;&gt;这是下一页&lt;/<span class="type">Text</span>&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="样式-2"><a href="#样式-2" class="headerlink" title="样式"></a>样式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">var</span> <span class="string">styles</span> <span class="string">=</span> <span class="string">StyleSheet.create(&#123;</span></div><div class="line"><span class="attr">  container:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    flex:</span><span class="number">1</span><span class="string">,</span></div><div class="line"><span class="attr">    backgroundColor:</span> <span class="string">'blue'</span><span class="string">,</span></div><div class="line"><span class="attr">    justifyContent:</span> <span class="string">'center'</span><span class="string">,</span></div><div class="line"><span class="attr">    alignItems:</span> <span class="string">'center'</span></div><div class="line">  <span class="string">&#125;,</span></div><div class="line"><span class="attr">  text:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    fontSize:</span> <span class="number">20</span><span class="string">,</span></div><div class="line"><span class="attr">    color:</span> <span class="string">'red'</span></div><div class="line">  <span class="string">&#125;</span></div><div class="line"><span class="string">&#125;);</span></div></pre></td></tr></table></figure>
+<h1 id="其他笔记"><a href="#其他笔记" class="headerlink" title="其他笔记"></a>其他笔记</h1><h2 id="renderScene"><a href="#renderScene" class="headerlink" title="renderScene"></a>renderScene</h2><p><a href="http://blog.csdn.net/huaheshangxo/article/details/50926946" target="_blank" rel="external">http://blog.csdn.net/huaheshangxo/article/details/50926946</a><br>该方法就相当于我们使用的startActivity方法了，我们可以在该方法中设置需要渲染的场景（跳转的页面），该方法接收两个参数（必要参数），route和navigator，其中route就是路由的页面，navigator是一个Navigator对象，因为Navigator对象拥有pop，push，jump等方法，我们需要导航器对象来实现页面的跳转。而路由route需要我们提前进行配置<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">renderScene=&#123;(route, navigator) =&gt; &#123;</div><div class="line">      <span class="keyword">let</span> Component = route.component;</div><div class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...route.params</span>&#125; <span class="attr">navigator</span>=<span class="string">&#123;navigator&#125;</span> /&gt;</span></span></div><div class="line">    &#125;&#125;</div></pre></td></tr></table></figure></p>
+<p>通过上面的方法来实现页面的跳转，同时将导航器作为属性进行传递过去。之前说过，route需要进行配置，通过initialRoute方法来对我们的路由进行初始化</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">initialRoute=&#123;&#123; <span class="string">name:</span> defaultName, <span class="string">component:</span> defaultComponent &#125;&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
+          
+            <a href="/tags/TabBarIOS/" rel="tag"># TabBarIOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/22/RN-Redux/" rel="next" title="RN_Redux框架">
+                <i class="fa fa-chevron-left"></i> RN_Redux框架
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Steam Yue" />
+          <p class="site-author-name" itemprop="name">Steam Yue</p>
+           
+              <p class="site-description motion-element" itemprop="description">iOS</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TabBarIOS"><span class="nav-number">1.</span> <span class="nav-text">TabBarIOS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">1.1.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#barTintColor"><span class="nav-number">1.1.1.</span> <span class="nav-text">barTintColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tintColor"><span class="nav-number">1.1.2.</span> <span class="nav-text">tintColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unselectedTintColor"><span class="nav-number">1.1.3.</span> <span class="nav-text">unselectedTintColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unselectedItemTintColor"><span class="nav-number">1.1.4.</span> <span class="nav-text">unselectedItemTintColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#translucent"><span class="nav-number">1.1.5.</span> <span class="nav-text">translucent</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TabBarIOS-Item"><span class="nav-number">2.</span> <span class="nav-text">TabBarIOS.Item</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性-1"><span class="nav-number">2.1.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①badge"><span class="nav-number">2.1.1.</span> <span class="nav-text">①badge:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#②icon"><span class="nav-number">2.1.2.</span> <span class="nav-text">②icon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#③onPress"><span class="nav-number">2.1.3.</span> <span class="nav-text">③onPress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#④selected"><span class="nav-number">2.1.4.</span> <span class="nav-text">④selected</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑤selectedIcon"><span class="nav-number">2.1.5.</span> <span class="nav-text">⑤selectedIcon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑥style"><span class="nav-number">2.1.6.</span> <span class="nav-text">⑥style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑦title"><span class="nav-number">2.1.7.</span> <span class="nav-text">⑦title</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TabBarIOS和Item组件理解"><span class="nav-number">3.</span> <span class="nav-text">TabBarIOS和Item组件理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TabBar的简单使用"><span class="nav-number">4.</span> <span class="nav-text">TabBar的简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TabBar-Simple-Demo目录"><span class="nav-number">4.1.</span> <span class="nav-text">TabBar_Simple_Demo目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ios-index-js"><span class="nav-number">4.2.</span> <span class="nav-text">ios.index.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MainTabBar-js"><span class="nav-number">4.3.</span> <span class="nav-text">MainTabBar.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导出TabBar上的2个页面"><span class="nav-number">4.3.1.</span> <span class="nav-text">导出TabBar上的2个页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MainTabBar"><span class="nav-number">4.4.</span> <span class="nav-text">MainTabBar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HomePage-js"><span class="nav-number">4.5.</span> <span class="nav-text">HomePage.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①导入TouchableOpacity、NavigatorIOS"><span class="nav-number">4.5.1.</span> <span class="nav-text">①导入TouchableOpacity、NavigatorIOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入NextPage"><span class="nav-number">4.5.2.</span> <span class="nav-text">导入NextPage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HomePage"><span class="nav-number">4.5.3.</span> <span class="nav-text">HomePage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式"><span class="nav-number">4.5.4.</span> <span class="nav-text">样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyPage-js"><span class="nav-number">4.6.</span> <span class="nav-text">MyPage.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件"><span class="nav-number">4.6.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式-1"><span class="nav-number">4.6.2.</span> <span class="nav-text">样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NextPage-js"><span class="nav-number">4.7.</span> <span class="nav-text">NextPage.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件-1"><span class="nav-number">4.7.1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式-2"><span class="nav-number">4.7.2.</span> <span class="nav-text">样式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他笔记"><span class="nav-number">5.</span> <span class="nav-text">其他笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#renderScene"><span class="nav-number">5.1.</span> <span class="nav-text">renderScene</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Steam Yue</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
