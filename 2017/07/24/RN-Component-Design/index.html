@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/24/RN-Component-Design/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
 <meta property="og:description" content="RN_Design">
-<meta property="og:updated_time" content="2017-07-24T01:50:28.000Z">
+<meta property="og:updated_time" content="2017-07-24T01:57:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RN_Component_Design架构设计">
 <meta name="twitter:description" content="RN_Design">
@@ -412,44 +412,6 @@
 <p>使用connect将state绑定到component。此处有些黑盒了。<br>开源架构封装的复杂的redux，其和RN绑定封装了一些东西，是一个黑盒，不易理解和维护</p>
 <h3 id="数据"><a href="#数据" class="headerlink" title="数据,"></a>数据,</h3><p>异步action用来请求服务端数据,利用middleware增强createStore的dispatch后即支持</p>
 </blockquote>
-<h1 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h1><p><a href="http://cn.redux.js.org/docs/basics/Actions.html" target="_blank" rel="external">原文地址</a></p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
-<p><strong>Action</strong> 是把数据从应用（这里之所以不叫 view 是因为这些数据有可能是服务器响应，用户输入或其它非 view 的数据 ）传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 store</p>
-</blockquote>
-<h2 id="添加新-todo-任务的-action"><a href="#添加新-todo-任务的-action" class="headerlink" title="添加新 todo 任务的 action"></a>添加新 todo 任务的 action</h2><figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: ADD_TODO,</div><div class="line">  text: <span class="string">'Build my first Redux app'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Action 本质上是 JavaScript 普通对象<br>约定，action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作<br>多数情况下，type 会被定义成字符串常量<br>当应用规模越来越大时，建议使用单独的模块或文件来存放 action</p>
-</blockquote>
-<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; ADD_TODO, REMOVE_TODO &#125; <span class="keyword">from</span> <span class="string">'../actionTypes'</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>样板文件使用提醒<br>使用单独的模块或文件来定义 action type 常量并不是必须的，甚至根本不需要定义<br>对于小应用来说，使用字符串做 action type 更方便些<br>在大型应用中把它们显式地定义成常量还是利大于弊的。参照 <a href="http://cn.redux.js.org/docs/recipes/ReducingBoilerplate.html" target="_blank" rel="external">减少样板代码</a> 获取更多保持代码简洁的实践经验</p>
-<p>除了 type 字段外，action 对象的结构完全由你自己决定。参照 Flux 标准 Action 获取关于如何构造 action 的建议<br>我们还需要再添加一个 action type 来表示用户完成任务的动作。因为数据是存放在数组中的，所以我们通过下标 index 来引用特定的任务。而实际项目中一般会在新建数据的时候生成唯一的 ID 作为数据的引用标识</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: TOGGLE_TODO,</div><div class="line">  index: <span class="number">5</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>尽量减少在 action 中传递的数据<br>比如上面的例子，传递 index 就比把整个任务对象传过去要好</p>
-<p>最后，再添加一个 action type 来表示当前的任务展示选项</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: SET_VISIBILITY_FILTER,</div><div class="line">  filter: SHOW_COMPLETED</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="Action-创建函数"><a href="#Action-创建函数" class="headerlink" title="Action 创建函数"></a>Action 创建函数</h1><blockquote>
-<p>Action 创建函数 就是生成 action 的方法。“action” 和 “action 创建函数” 这两个概念很容易混在一起，使用时最好注意区分<br>在 Redux 中的 action 创建函数只是简单的返回一个 action:</p>
-</blockquote>
-<figure class="highlight ada"><table><tr><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">addTodo</span>(text) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">&#123;</span></div><div class="line">    <span class="keyword">type</span>: ADD_TODO,</div><div class="line">    text</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样做将使 action 创建函数更容易被移植和测试<br>在 传统的 Flux 实现中，当调用 action 创建函数时，一般会触发一个 dispatch，像这样</p>
-<figure class="highlight fortran"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span></span> addTodoWithDispatch(text) &#123;</div><div class="line">  const <span class="keyword">action</span> = &#123;</div><div class="line">    <span class="keyword">type</span>: ADD_TODO,</div><div class="line">    text</div><div class="line">  &#125;</div><div class="line">  dispatch(<span class="keyword">action</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不同的是，Redux 中只需把 action 创建函数的结果传给 dispatch() 方法即可发起一次 dispatch 过程</p>
-<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">dispatch(<span class="name">addTodo</span>(<span class="name">text</span>))</div><div class="line">dispatch(<span class="name">completeTodo</span>(<span class="name">index</span>))</div></pre></td></tr></table></figure>
-<p>或者创建一个 被绑定的 action 创建函数 来自动 dispatch：</p>
-<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">const boundAddTodo = (<span class="name">text</span>) =&gt; dispatch(<span class="name">addTodo</span>(<span class="name">text</span>))</div><div class="line">const boundCompleteTodo = (<span class="name">index</span>) =&gt; dispatch(<span class="name">completeTodo</span>(<span class="name">index</span>))</div></pre></td></tr></table></figure>
-<p>然后直接调用它们：</p>
-<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">boundAddTodo(<span class="name">text</span>)<span class="comment">;</span></div><div class="line">boundCompleteTodo(<span class="name">index</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>store 里能直接通过 store.dispatch() 调用 dispatch() 方法，但是多数情况下你会使用 react-redux 提供的 connect() 帮助器来调用。bindActionCreators() 可以自动把多个 action 创建函数 绑定到 dispatch() 方法上。</p>
-<p>Action 创建函数也可以是异步非纯函数。你可以通过阅读 高级教程 中的 异步 action章节，学习如何处理 AJAX 响应和如何把 action 创建函数组合进异步控制流。因为基础教程中包含了阅读高级教程和异步 action 章节所需要的一些重要基础概念, 所以请在移步异步 action 之前, 务必先完成基础教程</p>
-<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><blockquote>
-<p>actions.js</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * action 类型</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> TOGGLE_TODO = <span class="string">'TOGGLE_TODO'</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> SET_VISIBILITY_FILTER = <span class="string">'SET_VISIBILITY_FILTER'</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * 其它的常量</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> VisibilityFilters = &#123;</div><div class="line">  <span class="attr">SHOW_ALL</span>: <span class="string">'SHOW_ALL'</span>,</div><div class="line">  <span class="attr">SHOW_COMPLETED</span>: <span class="string">'SHOW_COMPLETED'</span>,</div><div class="line">  <span class="attr">SHOW_ACTIVE</span>: <span class="string">'SHOW_ACTIVE'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * action 创建函数</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: ADD_TODO, text &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">toggleTodo</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: TOGGLE_TODO, index &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">setVisibilityFilter</span>(<span class="params">filter</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: SET_VISIBILITY_FILTER, filter &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -501,6 +463,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/24/RN-Action/" rel="prev" title="RN_Action">
+                RN_Action <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -572,7 +538,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -583,7 +549,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -594,7 +560,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -629,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RN-Component-Design架构设计"><span class="nav-number">1.</span> <span class="nav-text">RN-Component-Design架构设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#架构问题"><span class="nav-number">2.</span> <span class="nav-text">架构问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#①交互"><span class="nav-number">2.1.</span> <span class="nav-text">①交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#②职责"><span class="nav-number">2.2.</span> <span class="nav-text">②职责</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#③todo一个问题"><span class="nav-number">2.3.</span> <span class="nav-text">③todo一个问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#④react的架构"><span class="nav-number">2.4.</span> <span class="nav-text">④react的架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Flux架构"><span class="nav-number">3.</span> <span class="nav-text">Flux架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redux"><span class="nav-number">4.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">4.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在问题"><span class="nav-number">4.2.</span> <span class="nav-text">存在问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①redux的原则1：state不能被修改。"><span class="nav-number">4.2.1.</span> <span class="nav-text">①redux的原则1：state不能被修改。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方建议设计模式"><span class="nav-number">4.2.2.</span> <span class="nav-text">官方建议设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#黑盒"><span class="nav-number">4.2.3.</span> <span class="nav-text">黑盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据"><span class="nav-number">4.2.4.</span> <span class="nav-text">数据,</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Action"><span class="nav-number">5.</span> <span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">5.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加新-todo-任务的-action"><span class="nav-number">5.2.</span> <span class="nav-text">添加新 todo 任务的 action</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Action-创建函数"><span class="nav-number">6.</span> <span class="nav-text">Action 创建函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源码"><span class="nav-number">7.</span> <span class="nav-text">源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RN-Component-Design架构设计"><span class="nav-number">1.</span> <span class="nav-text">RN-Component-Design架构设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#架构问题"><span class="nav-number">2.</span> <span class="nav-text">架构问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#①交互"><span class="nav-number">2.1.</span> <span class="nav-text">①交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#②职责"><span class="nav-number">2.2.</span> <span class="nav-text">②职责</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#③todo一个问题"><span class="nav-number">2.3.</span> <span class="nav-text">③todo一个问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#④react的架构"><span class="nav-number">2.4.</span> <span class="nav-text">④react的架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Flux架构"><span class="nav-number">3.</span> <span class="nav-text">Flux架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redux"><span class="nav-number">4.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">4.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在问题"><span class="nav-number">4.2.</span> <span class="nav-text">存在问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①redux的原则1：state不能被修改。"><span class="nav-number">4.2.1.</span> <span class="nav-text">①redux的原则1：state不能被修改。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方建议设计模式"><span class="nav-number">4.2.2.</span> <span class="nav-text">官方建议设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#黑盒"><span class="nav-number">4.2.3.</span> <span class="nav-text">黑盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据"><span class="nav-number">4.2.4.</span> <span class="nav-text">数据,</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
