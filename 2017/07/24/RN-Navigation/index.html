@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ReactNative,Action" />
+  <meta name="keywords" content="ReactNative,Navigation" />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="Action原文地址 定义 Action 是把数据从应用（这里之所以不叫 view 是因为这些数据有可能是服务器响应，用户输入或其它非 view 的数据 ）传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 store  添加新 todo 任务的 actionconst ADD_TODO = &apos;ADD_TODO">
-<meta name="keywords" content="ReactNative,Action">
+<meta name="description" content="原文参考 StackNavigator属性①navigationOptions： 配置StackNavigator的一些属性。    title：                   标题，如果设置了这个导航栏和标签栏的title就会变成一样的，不推荐使用  header：                  可以设置一些导航的属性，如果隐藏顶部导航栏只要将这个属性设置为null  headerTi">
+<meta name="keywords" content="ReactNative,Navigation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RN_Action">
-<meta property="og:url" content="http://yoursite.com/2017/07/24/RN-Action/index.html">
+<meta property="og:title" content="RN-Navigation">
+<meta property="og:url" content="http://yoursite.com/2017/07/24/RN-Navigation/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="Action原文地址 定义 Action 是把数据从应用（这里之所以不叫 view 是因为这些数据有可能是服务器响应，用户输入或其它非 view 的数据 ）传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 store  添加新 todo 任务的 actionconst ADD_TODO = &apos;ADD_TODO">
-<meta property="og:updated_time" content="2017-07-24T01:58:46.000Z">
+<meta property="og:description" content="原文参考 StackNavigator属性①navigationOptions： 配置StackNavigator的一些属性。    title：                   标题，如果设置了这个导航栏和标签栏的title就会变成一样的，不推荐使用  header：                  可以设置一些导航的属性，如果隐藏顶部导航栏只要将这个属性设置为null  headerTi">
+<meta property="og:updated_time" content="2017-07-24T06:35:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RN_Action">
-<meta name="twitter:description" content="Action原文地址 定义 Action 是把数据从应用（这里之所以不叫 view 是因为这些数据有可能是服务器响应，用户输入或其它非 view 的数据 ）传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 store  添加新 todo 任务的 actionconst ADD_TODO = &apos;ADD_TODO">
+<meta name="twitter:title" content="RN-Navigation">
+<meta name="twitter:description" content="原文参考 StackNavigator属性①navigationOptions： 配置StackNavigator的一些属性。    title：                   标题，如果设置了这个导航栏和标签栏的title就会变成一样的，不推荐使用  header：                  可以设置一些导航的属性，如果隐藏顶部导航栏只要将这个属性设置为null  headerTi">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/24/RN-Action/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/24/RN-Navigation/"/>
 
 
 
 
 
-  <title>RN_Action | 胜利/女神/在微笑</title>
+  <title>RN-Navigation | 胜利/女神/在微笑</title>
   
 
 
@@ -314,7 +314,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/RN-Action/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/RN-Navigation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steam Yue">
@@ -331,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">RN_Action</h1>
+          <h1 class="post-title" itemprop="name headline">RN-Navigation</h1>
         
 
         <div class="post-meta">
@@ -343,7 +343,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T09:57:07+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T10:25:05+08:00">
                 2017-07-24
               </time>
             
@@ -366,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RN-Design/" itemprop="url" rel="index">
-                    <span itemprop="name">RN_Design</span>
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
                   </a>
                 </span>
 
@@ -400,44 +400,110 @@
       
 
       
-        <h1 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h1><p><a href="http://cn.redux.js.org/docs/basics/Actions.html" target="_blank" rel="external">原文地址</a></p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
-<p><strong>Action</strong> 是把数据从应用（这里之所以不叫 view 是因为这些数据有可能是服务器响应，用户输入或其它非 view 的数据 ）传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 store</p>
+        <p><a href="http://blog.csdn.net/u013718120/article/details/72357698" target="_blank" rel="external">原文参考</a></p>
+<h1 id="StackNavigator属性"><a href="#StackNavigator属性" class="headerlink" title="StackNavigator属性"></a>StackNavigator属性</h1><h2 id="①navigationOptions："><a href="#①navigationOptions：" class="headerlink" title="①navigationOptions："></a>①navigationOptions：</h2><blockquote>
+<p>配置StackNavigator的一些属性。  </p>
 </blockquote>
-<h2 id="添加新-todo-任务的-action"><a href="#添加新-todo-任务的-action" class="headerlink" title="添加新 todo 任务的 action"></a>添加新 todo 任务的 action</h2><figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: ADD_TODO,</div><div class="line">  text: <span class="string">'Build my first Redux app'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight gauss"><table><tr><td class="code"><pre><div class="line"><span class="built_in">title</span>：                   标题，如果设置了这个导航栏和标签栏的<span class="built_in">title</span>就会变成一样的，不推荐使用  </div><div class="line"><span class="built_in">header</span>：                  可以设置一些导航的属性，如果隐藏顶部导航栏只要将这个属性设置为<span class="built_in">null</span>  </div><div class="line">headerTitle：             设置导航栏标题，推荐  </div><div class="line">headerBackTitle：         设置跳转页面左侧返回箭头后面的文字，默认是上一个页面的标题。可以自定义，也可以设置为<span class="built_in">null</span>  </div><div class="line">headerTruncatedBackTitle：设置当上个页面标题不符合返回箭头后的文字时，默认改成<span class="string">"返回"</span>  </div><div class="line">headerRight：             设置导航条右侧。可以是按钮或者其他视图控件  </div><div class="line">headerLeft：              设置导航条左侧。可以是按钮或者其他视图控件  </div><div class="line">headerStyle：             设置导航条的样式。背景色，宽高等  </div><div class="line">headerTitleStyle：        设置导航栏文字样式  </div><div class="line">headerBackTitleStyle：    设置导航栏‘返回’文字样式  </div><div class="line">headerTintColor：         设置导航栏颜色  </div><div class="line">headerPressColorAndroid： 安卓独有的设置颜色纹理，需要安卓版本大于<span class="number">5.0</span>  </div><div class="line">gesturesEnabled：         是否支持滑动返回手势，iOS默认支持，安卓默认关闭</div></pre></td></tr></table></figure>
+<h2 id="②screen"><a href="#②screen" class="headerlink" title="②screen"></a>②screen</h2><blockquote>
+<p>对应界面名称，需要填入import之后的页面  </p>
+</blockquote>
+<h2 id="③mode："><a href="#③mode：" class="headerlink" title="③mode："></a>③mode：</h2><blockquote>
+<p>定义跳转风格<br>❶card：使用iOS和安卓默认的风格<br>❷modal：iOS独有的使屏幕从底部画出。类似iOS的present效果  </p>
+</blockquote>
+<h2 id="④headerMode"><a href="#④headerMode" class="headerlink" title="④headerMode"></a>④headerMode</h2><blockquote>
+<p>返回上级页面时动画效果<br>❶float：iOS默认的效果<br>❷screen：滑动过程中，整个页面都会返回<br>❸none：无动画  </p>
+</blockquote>
+<h2 id="⑤cardStyle"><a href="#⑤cardStyle" class="headerlink" title="⑤cardStyle"></a>⑤cardStyle</h2><blockquote>
+<p>自定义设置跳转效果<br>❶transitionConfig： 自定义设置滑动返回的配置<br>❷onTransitionStart：当转换动画即将开始时被调用的功能<br>❸onTransitionEnd：当转换动画完成，将被调用的功能  </p>
+</blockquote>
+<h2 id="⑥path"><a href="#⑥path" class="headerlink" title="⑥path"></a>⑥path</h2><blockquote>
+<p>路由中设置的路径的覆盖映射配置<br>path属性适用于其他app或浏览器使用url打开本app并进入指定页面<br>path属性用于声明一个界面路径，例如：【/pages/Home】。此时我们可以在手机浏览器中输入：app名称://pages/Home来启动该App，并进入Home界面</p>
+</blockquote>
+<h2 id="⑦initialRouteName"><a href="#⑦initialRouteName" class="headerlink" title="⑦initialRouteName"></a>⑦initialRouteName</h2><blockquote>
+<p>设置默认的页面组件，必须是上面已注册的页面组件  </p>
+</blockquote>
+<h2 id="⑧initialRouteParams："><a href="#⑧initialRouteParams：" class="headerlink" title="⑧initialRouteParams："></a>⑧initialRouteParams：</h2><blockquote>
+<p>初始路由参数 </p>
+</blockquote>
+<h1 id="TabNavigator"><a href="#TabNavigator" class="headerlink" title="TabNavigator"></a>TabNavigator</h1><h2 id="screen："><a href="#screen：" class="headerlink" title="screen："></a>screen：</h2><blockquote>
+<p>和导航的功能是一样的，对应界面名称，可以在其他页面通过这个screen传值和跳转。  </p>
+</blockquote>
+<h2 id="navigationOptions："><a href="#navigationOptions：" class="headerlink" title="navigationOptions："></a>navigationOptions：</h2><blockquote>
+<p>配置TabNavigator的一些属性<br>❶title：标题，会同时设置导航条和标签栏的title<br>❷tabBarVisible：是否隐藏标签栏。默认不隐藏(true)<br>❸tabBarIcon：设置标签栏的图标。需要给每个都设置<br>❹tabBarLabel：设置标签栏的title。推荐  </p>
+</blockquote>
+<h2 id="导航栏配置"><a href="#导航栏配置" class="headerlink" title="导航栏配置"></a>导航栏配置</h2><h3 id="❶tabBarPosition"><a href="#❶tabBarPosition" class="headerlink" title="❶tabBarPosition"></a>❶tabBarPosition</h3><blockquote>
+<p>设置tabbar的位置，iOS默认在底部，安卓默认在顶部。（属性值：’top’，’bottom’）    </p>
+<p>###swipeEnabled<br>是否允许在标签之间进行滑动  </p>
+</blockquote>
+<h3 id="animationEnabled"><a href="#animationEnabled" class="headerlink" title="animationEnabled"></a>animationEnabled</h3><blockquote>
+<p>是否在更改标签时显示动画  </p>
+</blockquote>
+<p>###lazy</p>
 <blockquote>
-<p>Action 本质上是 JavaScript 普通对象<br>约定，action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作<br>多数情况下，type 会被定义成字符串常量<br>当应用规模越来越大时，建议使用单独的模块或文件来存放 action</p>
+<p>是否根据需要懒惰呈现标签，而不是提前，意思是在app打开的时候将底部标签栏全部加载，默认false,推荐为true  </p>
 </blockquote>
-<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; ADD_TODO, REMOVE_TODO &#125; <span class="keyword">from</span> <span class="string">'../actionTypes'</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>样板文件使用提醒<br>使用单独的模块或文件来定义 action type 常量并不是必须的，甚至根本不需要定义<br>对于小应用来说，使用字符串做 action type 更方便些<br>在大型应用中把它们显式地定义成常量还是利大于弊的。参照 <a href="http://cn.redux.js.org/docs/recipes/ReducingBoilerplate.html" target="_blank" rel="external">减少样板代码</a> 获取更多保持代码简洁的实践经验</p>
-<p>除了 type 字段外，action 对象的结构完全由你自己决定。参照 Flux 标准 Action 获取关于如何构造 action 的建议<br>我们还需要再添加一个 action type 来表示用户完成任务的动作。因为数据是存放在数组中的，所以我们通过下标 index 来引用特定的任务。而实际项目中一般会在新建数据的时候生成唯一的 ID 作为数据的引用标识</p>
+<h3 id="trueinitialRouteName"><a href="#trueinitialRouteName" class="headerlink" title="trueinitialRouteName"></a>trueinitialRouteName</h3><blockquote>
+<p>设置默认的页面组件  </p>
 </blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: TOGGLE_TODO,</div><div class="line">  index: <span class="number">5</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>尽量减少在 action 中传递的数据<br>比如上面的例子，传递 index 就比把整个任务对象传过去要好</p>
-<p>最后，再添加一个 action type 来表示当前的任务展示选项</p>
+<h3 id="backBehavior"><a href="#backBehavior" class="headerlink" title="backBehavior"></a>backBehavior</h3><blockquote>
+<p>按 back 键是否跳转到第一个Tab(首页)， none 为不跳转  </p>
+<h3 id="tabBarOptions"><a href="#tabBarOptions" class="headerlink" title="tabBarOptions"></a>tabBarOptions</h3><p>配置标签栏的一些属性iOS属性  </p>
 </blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: SET_VISIBILITY_FILTER,</div><div class="line">  filter: SHOW_COMPLETED</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="Action-创建函数"><a href="#Action-创建函数" class="headerlink" title="Action 创建函数"></a>Action 创建函数</h1><blockquote>
-<p>Action 创建函数 就是生成 action 的方法。“action” 和 “action 创建函数” 这两个概念很容易混在一起，使用时最好注意区分<br>在 Redux 中的 action 创建函数只是简单的返回一个 action:</p>
+<h3 id="activeTintColor"><a href="#activeTintColor" class="headerlink" title="activeTintColor"></a>activeTintColor</h3><blockquote>
+<p>label和icon的前景色 活跃状态下  </p>
 </blockquote>
-<figure class="highlight ada"><table><tr><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">addTodo</span>(text) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">&#123;</span></div><div class="line">    <span class="keyword">type</span>: ADD_TODO,</div><div class="line">    text</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样做将使 action 创建函数更容易被移植和测试<br>在 传统的 Flux 实现中，当调用 action 创建函数时，一般会触发一个 dispatch，像这样</p>
-<figure class="highlight fortran"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span></span> addTodoWithDispatch(text) &#123;</div><div class="line">  const <span class="keyword">action</span> = &#123;</div><div class="line">    <span class="keyword">type</span>: ADD_TODO,</div><div class="line">    text</div><div class="line">  &#125;</div><div class="line">  dispatch(<span class="keyword">action</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>不同的是，Redux 中只需把 action 创建函数的结果传给 dispatch() 方法即可发起一次 dispatch 过程</p>
-<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">dispatch(<span class="name">addTodo</span>(<span class="name">text</span>))</div><div class="line">dispatch(<span class="name">completeTodo</span>(<span class="name">index</span>))</div></pre></td></tr></table></figure>
-<p>或者创建一个 被绑定的 action 创建函数 来自动 dispatch：</p>
-<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">const boundAddTodo = (<span class="name">text</span>) =&gt; dispatch(<span class="name">addTodo</span>(<span class="name">text</span>))</div><div class="line">const boundCompleteTodo = (<span class="name">index</span>) =&gt; dispatch(<span class="name">completeTodo</span>(<span class="name">index</span>))</div></pre></td></tr></table></figure>
-<p>然后直接调用它们：</p>
-<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">boundAddTodo(<span class="name">text</span>)<span class="comment">;</span></div><div class="line">boundCompleteTodo(<span class="name">index</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
-<p>store 里能直接通过 store.dispatch() 调用 dispatch() 方法，但是多数情况下你会使用 react-redux 提供的 connect() 帮助器来调用。bindActionCreators() 可以自动把多个 action 创建函数 绑定到 dispatch() 方法上。</p>
-<p>Action 创建函数也可以是异步非纯函数。你可以通过阅读 高级教程 中的 异步 action章节，学习如何处理 AJAX 响应和如何把 action 创建函数组合进异步控制流。因为基础教程中包含了阅读高级教程和异步 action 章节所需要的一些重要基础概念, 所以请在移步异步 action 之前, 务必先完成基础教程</p>
-<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><blockquote>
-<p>actions.js</p>
+<h3 id="activeBackgroundColor"><a href="#activeBackgroundColor" class="headerlink" title="activeBackgroundColor"></a>activeBackgroundColor</h3><blockquote>
+<p>label和icon的背景色 活跃状态下  </p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * action 类型</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> TOGGLE_TODO = <span class="string">'TOGGLE_TODO'</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> SET_VISIBILITY_FILTER = <span class="string">'SET_VISIBILITY_FILTER'</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * 其它的常量</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> VisibilityFilters = &#123;</div><div class="line">  <span class="attr">SHOW_ALL</span>: <span class="string">'SHOW_ALL'</span>,</div><div class="line">  <span class="attr">SHOW_COMPLETED</span>: <span class="string">'SHOW_COMPLETED'</span>,</div><div class="line">  <span class="attr">SHOW_ACTIVE</span>: <span class="string">'SHOW_ACTIVE'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * action 创建函数</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: ADD_TODO, text &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">toggleTodo</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: TOGGLE_TODO, index &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">setVisibilityFilter</span>(<span class="params">filter</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: SET_VISIBILITY_FILTER, filter &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="inactiveTintColor"><a href="#inactiveTintColor" class="headerlink" title="inactiveTintColor"></a>inactiveTintColor</h3><blockquote>
+<p>label和icon的前景色 不活跃状态下  </p>
+</blockquote>
+<h3 id="inactiveBackgroundColor"><a href="#inactiveBackgroundColor" class="headerlink" title="inactiveBackgroundColor"></a>inactiveBackgroundColor</h3><blockquote>
+<p>label和icon的背景色 不活跃状态下  </p>
+</blockquote>
+<h3 id="showLabel"><a href="#showLabel" class="headerlink" title="showLabel"></a>showLabel</h3><blockquote>
+<p>是否显示label，默认开启 style：tabbar的样式  </p>
+</blockquote>
+<h3 id="labelStyle"><a href="#labelStyle" class="headerlink" title="labelStyle"></a>labelStyle</h3><blockquote>
+<p>label的样式安卓属性  </p>
+</blockquote>
+<h3 id="activeTintColor-1"><a href="#activeTintColor-1" class="headerlink" title="activeTintColor"></a>activeTintColor</h3><blockquote>
+<p>label和icon的前景色 活跃状态下  </p>
+</blockquote>
+<h3 id="inactiveTintColor-1"><a href="#inactiveTintColor-1" class="headerlink" title="inactiveTintColor"></a>inactiveTintColor</h3><blockquote>
+<p>label和icon的前景色 不活跃状态下  </p>
+</blockquote>
+<h3 id="showIcon"><a href="#showIcon" class="headerlink" title="showIcon"></a>showIcon</h3><blockquote>
+<p>是否显示图标，默认关闭  </p>
+</blockquote>
+<h3 id="showLabel-1"><a href="#showLabel-1" class="headerlink" title="showLabel"></a>showLabel</h3><blockquote>
+<p>是否显示label，默认开启 style：tabbar的样式  </p>
+</blockquote>
+<h3 id="labelStyle-1"><a href="#labelStyle-1" class="headerlink" title="labelStyle"></a>labelStyle</h3><blockquote>
+<p>label的样式 upperCaseLabel：是否使标签大写，默认为true  </p>
+</blockquote>
+<h3 id="pressColor"><a href="#pressColor" class="headerlink" title="pressColor"></a>pressColor</h3><blockquote>
+<p>material涟漪效果的颜色（安卓版本需要大于5.0）  </p>
+</blockquote>
+<h3 id="pressOpacity"><a href="#pressOpacity" class="headerlink" title="pressOpacity"></a>pressOpacity</h3><blockquote>
+<p>按压标签的透明度变化（安卓版本需要小于5.0）  </p>
+</blockquote>
+<h3 id="scrollEnabled"><a href="#scrollEnabled" class="headerlink" title="scrollEnabled"></a>scrollEnabled</h3><blockquote>
+<p>是否启用可滚动选项卡 tabStyle：tab的样式  </p>
+</blockquote>
+<h3 id="indicatorStyle"><a href="#indicatorStyle" class="headerlink" title="indicatorStyle"></a>indicatorStyle</h3><blockquote>
+<p>标签指示器的样式对象（选项卡底部的行）。安卓底部会多出一条线，可以将height设置为0来暂时解决这个问题  </p>
+</blockquote>
+<h3 id="labelStyle-2"><a href="#labelStyle-2" class="headerlink" title="labelStyle"></a>labelStyle</h3><blockquote>
+<p>label的样式  </p>
+</blockquote>
+<h3 id="iconStyle"><a href="#iconStyle" class="headerlink" title="iconStyle"></a>iconStyle</h3><blockquote>
+<p>图标样式  </p>
+</blockquote>
+<h1 id="DrawerNavigator"><a href="#DrawerNavigator" class="headerlink" title="DrawerNavigator"></a>DrawerNavigator</h1><figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">DrawerNavigatorConfig  </div><div class="line">  </div><div class="line">    drawerWidth - 抽屉的宽度  </div><div class="line">    drawerPosition - 选项是左或右。 默认为左侧位置  </div><div class="line">    contentComponent - 用于呈现抽屉内容的组件，例如导航项。 接收抽屉的导航。 默认为DrawerItems  </div><div class="line">    contentOptions - 配置抽屉内容  </div><div class="line">  </div><div class="line">    initialRouteName - 初始路由的routeName  </div><div class="line">    <span class="keyword">order</span> <span class="title">- 定义抽屉项目顺序的routeNames</span>数组。  </div><div class="line">    路径 - 提供routeName到路径配置的映射，它覆盖routeConfigs中设置的路径。  </div><div class="line">    backBehavior - 后退按钮是否会切换到初始路由？ 如果是，设置为initialRoute，否则为none。 默认为initialRoute行为  </div><div class="line">  </div><div class="line">   DrawerItems的contentOptions属性  </div><div class="line">  </div><div class="line">    activeTintColor - 活动标签的标签和图标颜色  </div><div class="line">    activeBackgroundColor - 活动标签的背景颜色  </div><div class="line">    inactiveTintColor - 非活动标签的标签和图标颜色  </div><div class="line">    inactiveBackgroundColor - 非活动标签的背景颜色  </div><div class="line">    内容部分的样式样式对象  </div><div class="line">    labelStyle - 当您的标签是字符串时，要覆盖内容部分中的文本样式的样式对象</div></pre></td></tr></table></figure>
+<p> <a href="http://blog.csdn.net/haoranli/article/details/61917583" target="_blank" rel="external">http://blog.csdn.net/haoranli/article/details/61917583</a></p>
+<p> <a href="http://blog.csdn.net/u013718120/article/details/72357698" target="_blank" rel="external">http://blog.csdn.net/u013718120/article/details/72357698</a><br> 卡在 定义组件的写法 。</p>
 
       
     </div>
@@ -467,7 +533,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Action/" rel="tag"># Action</a>
+            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
           
         </div>
       
@@ -480,8 +546,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/24/RN-Component-Design/" rel="next" title="RN_Component_Design架构设计">
-                <i class="fa fa-chevron-left"></i> RN_Component_Design架构设计
+              <a href="/2017/07/24/RN-Action/" rel="next" title="RN_Action">
+                <i class="fa fa-chevron-left"></i> RN_Action
               </a>
             
           </div>
@@ -489,10 +555,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/24/RN-Navigation/" rel="prev" title="RN-Navigation">
-                RN-Navigation <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Action"><span class="nav-number">1.</span> <span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加新-todo-任务的-action"><span class="nav-number">1.2.</span> <span class="nav-text">添加新 todo 任务的 action</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Action-创建函数"><span class="nav-number">2.</span> <span class="nav-text">Action 创建函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源码"><span class="nav-number">3.</span> <span class="nav-text">源码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#StackNavigator属性"><span class="nav-number">1.</span> <span class="nav-text">StackNavigator属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#①navigationOptions："><span class="nav-number">1.1.</span> <span class="nav-text">①navigationOptions：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#②screen"><span class="nav-number">1.2.</span> <span class="nav-text">②screen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#③mode："><span class="nav-number">1.3.</span> <span class="nav-text">③mode：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#④headerMode"><span class="nav-number">1.4.</span> <span class="nav-text">④headerMode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#⑤cardStyle"><span class="nav-number">1.5.</span> <span class="nav-text">⑤cardStyle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#⑥path"><span class="nav-number">1.6.</span> <span class="nav-text">⑥path</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#⑦initialRouteName"><span class="nav-number">1.7.</span> <span class="nav-text">⑦initialRouteName</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#⑧initialRouteParams："><span class="nav-number">1.8.</span> <span class="nav-text">⑧initialRouteParams：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TabNavigator"><span class="nav-number">2.</span> <span class="nav-text">TabNavigator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#screen："><span class="nav-number">2.1.</span> <span class="nav-text">screen：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigationOptions："><span class="nav-number">2.2.</span> <span class="nav-text">navigationOptions：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导航栏配置"><span class="nav-number">2.3.</span> <span class="nav-text">导航栏配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#❶tabBarPosition"><span class="nav-number">2.3.1.</span> <span class="nav-text">❶tabBarPosition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animationEnabled"><span class="nav-number">2.3.2.</span> <span class="nav-text">animationEnabled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trueinitialRouteName"><span class="nav-number">2.3.3.</span> <span class="nav-text">trueinitialRouteName</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#backBehavior"><span class="nav-number">2.3.4.</span> <span class="nav-text">backBehavior</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tabBarOptions"><span class="nav-number">2.3.5.</span> <span class="nav-text">tabBarOptions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#activeTintColor"><span class="nav-number">2.3.6.</span> <span class="nav-text">activeTintColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#activeBackgroundColor"><span class="nav-number">2.3.7.</span> <span class="nav-text">activeBackgroundColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inactiveTintColor"><span class="nav-number">2.3.8.</span> <span class="nav-text">inactiveTintColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inactiveBackgroundColor"><span class="nav-number">2.3.9.</span> <span class="nav-text">inactiveBackgroundColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#showLabel"><span class="nav-number">2.3.10.</span> <span class="nav-text">showLabel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#labelStyle"><span class="nav-number">2.3.11.</span> <span class="nav-text">labelStyle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#activeTintColor-1"><span class="nav-number">2.3.12.</span> <span class="nav-text">activeTintColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inactiveTintColor-1"><span class="nav-number">2.3.13.</span> <span class="nav-text">inactiveTintColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#showIcon"><span class="nav-number">2.3.14.</span> <span class="nav-text">showIcon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#showLabel-1"><span class="nav-number">2.3.15.</span> <span class="nav-text">showLabel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#labelStyle-1"><span class="nav-number">2.3.16.</span> <span class="nav-text">labelStyle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pressColor"><span class="nav-number">2.3.17.</span> <span class="nav-text">pressColor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pressOpacity"><span class="nav-number">2.3.18.</span> <span class="nav-text">pressOpacity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollEnabled"><span class="nav-number">2.3.19.</span> <span class="nav-text">scrollEnabled</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#indicatorStyle"><span class="nav-number">2.3.20.</span> <span class="nav-text">indicatorStyle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#labelStyle-2"><span class="nav-number">2.3.21.</span> <span class="nav-text">labelStyle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iconStyle"><span class="nav-number">2.3.22.</span> <span class="nav-text">iconStyle</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DrawerNavigator"><span class="nav-number">3.</span> <span class="nav-text">DrawerNavigator</span></a></li></ol></div>
             
 
           </div>
