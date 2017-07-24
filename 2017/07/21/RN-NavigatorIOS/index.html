@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ActivityIndicator,ReactNative" />
+  <meta name="keywords" content="NavigatorIOS,ReactNative" />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="RN_ActivityIndicator显示一个圆形的loading提示符号 属性Propsanimating是否要显示指示器，默认为true，表示显示animating bool color滚轮的前景颜色（默认为灰色） color string hidesWhenStopped在没有动画的时候，是否要隐藏指示器（默认为true）。iOS hidesWhenStopped bool size指示器">
-<meta name="keywords" content="ActivityIndicator,ReactNative">
+<meta name="description" content="RN_NavigatorIOS导航条 React Native中有两个组件:①Navigator ②NavigatorIOS① Navigator:适配Android和iOS(导航条需要自定义)②NavigatorIOS:包装UIKit的导航功能，可使用左划功能来返回到上一界面(导航条不能自定义) 属性①barTintColorbarTintColor:string导航条的背景颜色  ②initi">
+<meta name="keywords" content="NavigatorIOS,ReactNative">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RN_ActivityIndicator">
-<meta property="og:url" content="http://yoursite.com/2017/07/12/RN-ActivityIndicator/index.html">
+<meta property="og:title" content="RN_Nav导航条">
+<meta property="og:url" content="http://yoursite.com/2017/07/21/RN-NavigatorIOS/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="RN_ActivityIndicator显示一个圆形的loading提示符号 属性Propsanimating是否要显示指示器，默认为true，表示显示animating bool color滚轮的前景颜色（默认为灰色） color string hidesWhenStopped在没有动画的时候，是否要隐藏指示器（默认为true）。iOS hidesWhenStopped bool size指示器">
-<meta property="og:updated_time" content="2017-07-12T05:17:34.000Z">
+<meta property="og:description" content="RN_NavigatorIOS导航条 React Native中有两个组件:①Navigator ②NavigatorIOS① Navigator:适配Android和iOS(导航条需要自定义)②NavigatorIOS:包装UIKit的导航功能，可使用左划功能来返回到上一界面(导航条不能自定义) 属性①barTintColorbarTintColor:string导航条的背景颜色  ②initi">
+<meta property="og:updated_time" content="2017-07-24T10:17:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RN_ActivityIndicator">
-<meta name="twitter:description" content="RN_ActivityIndicator显示一个圆形的loading提示符号 属性Propsanimating是否要显示指示器，默认为true，表示显示animating bool color滚轮的前景颜色（默认为灰色） color string hidesWhenStopped在没有动画的时候，是否要隐藏指示器（默认为true）。iOS hidesWhenStopped bool size指示器">
+<meta name="twitter:title" content="RN_Nav导航条">
+<meta name="twitter:description" content="RN_NavigatorIOS导航条 React Native中有两个组件:①Navigator ②NavigatorIOS① Navigator:适配Android和iOS(导航条需要自定义)②NavigatorIOS:包装UIKit的导航功能，可使用左划功能来返回到上一界面(导航条不能自定义) 属性①barTintColorbarTintColor:string导航条的背景颜色  ②initi">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/12/RN-ActivityIndicator/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/21/RN-NavigatorIOS/"/>
 
 
 
 
 
-  <title>RN_ActivityIndicator | 胜利/女神/在微笑</title>
+  <title>RN_Nav导航条 | 胜利/女神/在微笑</title>
   
 
 
@@ -314,7 +314,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/12/RN-ActivityIndicator/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/21/RN-NavigatorIOS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steam Yue">
@@ -331,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">RN_ActivityIndicator</h1>
+          <h1 class="post-title" itemprop="name headline">RN_Nav导航条</h1>
         
 
         <div class="post-meta">
@@ -343,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T12:28:39+08:00">
-                2017-07-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T10:46:31+08:00">
+                2017-07-21
               </time>
             
 
@@ -400,13 +400,77 @@
       
 
       
-        <h1 id="RN-ActivityIndicator"><a href="#RN-ActivityIndicator" class="headerlink" title="RN_ActivityIndicator"></a>RN_ActivityIndicator</h1><p>显示一个圆形的loading提示符号</p>
-<h1 id="属性Props"><a href="#属性Props" class="headerlink" title="属性Props"></a>属性Props</h1><h2 id="animating"><a href="#animating" class="headerlink" title="animating"></a>animating</h2><p>是否要显示指示器，默认为true，表示显示<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line">animating <span class="keyword">bool</span></div></pre></td></tr></table></figure></p>
-<h2 id="color"><a href="#color" class="headerlink" title="color"></a>color</h2><p>滚轮的前景颜色（默认为灰色）</p>
-<figure class="highlight maxima"><table><tr><td class="code"><pre><div class="line"><span class="built_in">color</span> <span class="built_in">string</span></div></pre></td></tr></table></figure>
-<h2 id="hidesWhenStopped"><a href="#hidesWhenStopped" class="headerlink" title="hidesWhenStopped"></a>hidesWhenStopped</h2><p>在没有动画的时候，是否要隐藏指示器（默认为true）。<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line">iOS hidesWhenStopped <span class="keyword">bool</span></div></pre></td></tr></table></figure></p>
-<h2 id="size"><a href="#size" class="headerlink" title="size"></a>size</h2><p>指示器的大小。small的高度为20，large为36<br><figure class="highlight crystal"><table><tr><td class="code"><pre><div class="line">size <span class="class"><span class="keyword">enum</span>('<span class="title">small</span>', '<span class="title">large</span>')</span></div></pre></td></tr></table></figure></p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1>
+        <h1 id="RN-NavigatorIOS导航条"><a href="#RN-NavigatorIOS导航条" class="headerlink" title="RN_NavigatorIOS导航条"></a>RN_NavigatorIOS导航条</h1><blockquote>
+<p>React Native中有两个组件:①Navigator ②NavigatorIOS<br>① Navigator:适配Android和iOS(导航条需要自定义)<br>②NavigatorIOS:包装UIKit的导航功能，可使用左划功能来返回到上一界面(导航条不能自定义)</p>
+<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h2 id="①barTintColor"><a href="#①barTintColor" class="headerlink" title="①barTintColor"></a>①barTintColor</h2><p>barTintColor:string<br>导航条的背景颜色</p>
+</blockquote>
+<h2 id="②initialRoute"><a href="#②initialRoute" class="headerlink" title="②initialRoute"></a>②initialRoute</h2><blockquote>
+<p>NavigatorIOS使用”路由”对象来包含要渲染的子视图、它们的属性、以及导航条配置<br>“push”和任何其它的导航函数的参数都是这样的路由对象</p>
+</blockquote>
+<figure class="highlight delphi"><table><tr><td class="code"><pre><div class="line">component:          <span class="function"><span class="keyword">function</span>,               <span class="comment">// 路由到对应的版块,加载的视图组件</span></span></div><div class="line"><span class="title">title</span>:              <span class="keyword">string</span>,                 <span class="comment">// 当前视图的标题</span></div><div class="line">passProps:          <span class="keyword">object</span>,                 <span class="comment">// 传递的参数</span></div><div class="line">backButtonIcon:     Image.propTypes.source, <span class="comment">// 返回按钮</span></div><div class="line">backButtonTitle:    <span class="keyword">string</span>,                 <span class="comment">// 返回按钮标题</span></div><div class="line">leftButtonIcon:     Image.propTypes.source, <span class="comment">// 左侧按钮图标</span></div><div class="line">leftButtonTitle:    <span class="keyword">string</span>,                 <span class="comment">// 左侧按钮标题  </span></div><div class="line">onLeftButtonPress:  <span class="function"><span class="keyword">function</span>,               <span class="comment">// 左侧按钮点击事件</span></span></div><div class="line"><span class="title">rightButtonIcon</span>:    Image.propTypes.source, <span class="comment">// 右侧按钮图标</span></div><div class="line">rightButtonTitle:   <span class="keyword">string</span>,                 <span class="comment">// 右侧按钮标题</span></div><div class="line">onRightButtonPress: <span class="function"><span class="keyword">function</span>,               <span class="comment">// 右侧按钮点击事件</span></span></div><div class="line"><span class="title">wrapperStyle</span>:       [<span class="keyword">object</span> <span class="keyword">Object</span>]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>简单使用</p>
+</blockquote>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><div class="line">&lt;NavigatorIOS </div><div class="line">    style=&#123;&#123;flex:<span class="number">1</span>,</div><div class="line">            backgroundColor:<span class="string">'red'</span>&#125;&#125; </div><div class="line">    initialRoute=&#123;&#123; component: OneView, </div><div class="line">                    title: <span class="string">'首页'</span>, </div><div class="line">                    leftButtonIcon:&#123;uri<span class="string">'bar_btn_left'</span>&#125;, &#125;&#125; /&gt;</div></pre></td></tr></table></figure>
+<h2 id="③itemWrapperStyle"><a href="#③itemWrapperStyle" class="headerlink" title="③itemWrapperStyle"></a>③itemWrapperStyle</h2><blockquote>
+<p>itemWrapperStyle View#style<br>导航器中的组件的默认属性。一个常见的用途是设置所有页面的背景颜色</p>
+</blockquote>
+<h2 id="④navigationBarHidden"><a href="#④navigationBarHidden" class="headerlink" title="④navigationBarHidden"></a>④navigationBarHidden</h2><blockquote>
+<p>navigationBarHidden : bool </p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">一个布尔值，决定导航栏是否隐藏</div></pre></td></tr></table></figure>
+<h2 id="⑤shadowHidden"><a href="#⑤shadowHidden" class="headerlink" title="⑤shadowHidden"></a>⑤shadowHidden</h2><blockquote>
+<p>shadowHidden:bool<br>一个布尔值，决定是否要隐藏1像素的阴影</p>
+</blockquote>
+<h2 id="⑥tintColor"><a href="#⑥tintColor" class="headerlink" title="⑥tintColor"></a>⑥tintColor</h2><blockquote>
+<p>tintColor:string<br>导航栏上按钮的颜色</p>
+</blockquote>
+<h2 id="⑦titleTextColor"><a href="#⑦titleTextColor" class="headerlink" title="⑦titleTextColor"></a>⑦titleTextColor</h2><blockquote>
+<p>titleTextColor:string<br>导航器标题的文字颜色</p>
+</blockquote>
+<h2 id="⑧translucent"><a href="#⑧translucent" class="headerlink" title="⑧translucent"></a>⑧translucent</h2><blockquote>
+<p>translucent bool<br>一个布尔值，决定是否导航条是半透明的</p>
+</blockquote>
+<h2 id="⑨interactivePopGestureEnabled"><a href="#⑨interactivePopGestureEnabled" class="headerlink" title="⑨interactivePopGestureEnabled"></a>⑨interactivePopGestureEnabled</h2><blockquote>
+<p>interactivePopGestureEnabled bool<br>决定是否启用滑动返回手势。不指定此属性时，手势会根据navigationBar的显隐情况决定是否启用（显示时启用手势，隐藏时禁用手势）。指定此属性后，手势与navigationBar的显隐情况无关</p>
+</blockquote>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="①push-route"><a href="#①push-route" class="headerlink" title="①push(route)"></a>①push(route)</h2><p>导航器跳转到一个新的路由</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">push(route: &#123;</div><div class="line"><span class="symbol">  component:</span> Function<span class="comment">;</span></div><div class="line"><span class="symbol">  title:</span> string<span class="comment">;</span></div><div class="line">  passProps?: Object<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonTitle?: </span>string<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonIcon?: </span>Object<span class="comment">;</span></div><div class="line">  leftButtonTitle?: string<span class="comment">;</span></div><div class="line">  leftButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onLeftButtonPress?: Function<span class="comment">;</span></div><div class="line">  rightButtonTitle?: string<span class="comment">;</span></div><div class="line">  rightButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onRightButtonPress?: Function<span class="comment">;</span></div><div class="line">  wrapperStyle?: any<span class="comment">;</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">Navigate forward to a new route</div></pre></td></tr></table></figure>
+<h2 id="②popN-n"><a href="#②popN-n" class="headerlink" title="②popN(n)"></a>②popN(n)</h2><blockquote>
+<p>回到N页之前。当N=1的时候，效果和 pop() 一样</p>
+</blockquote>
+<figure class="highlight http"><table><tr><td class="code"><pre><div class="line"><span class="attribute">popN(n</span>: number)</div><div class="line"></div><div class="line"><span class="mipsasm">Go <span class="keyword">back </span>N pages <span class="built_in">at</span> once. When N=<span class="number">1</span>, <span class="keyword">behavior </span>matches pop()</span></div></pre></td></tr></table></figure>
+<h2 id="③pop"><a href="#③pop" class="headerlink" title="③pop()"></a>③pop()</h2><blockquote>
+<p>回到上一页</p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">Go <span class="keyword">back</span> one page</div></pre></td></tr></table></figure>
+<h2 id="④replaceAtIndex"><a href="#④replaceAtIndex" class="headerlink" title="④replaceAtIndex"></a>④replaceAtIndex</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">replaceAtIndex(route: &#123;</div><div class="line"><span class="symbol">  component:</span> Function<span class="comment">;</span></div><div class="line"><span class="symbol">  title:</span> string<span class="comment">;</span></div><div class="line">  passProps?: Object<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonTitle?: </span>string<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonIcon?: </span>Object<span class="comment">;</span></div><div class="line">  leftButtonTitle?: string<span class="comment">;</span></div><div class="line">  leftButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onLeftButtonPress?: Function<span class="comment">;</span></div><div class="line">  rightButtonTitle?: string<span class="comment">;</span></div><div class="line">  rightButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onRightButtonPress?: Function<span class="comment">;</span></div><div class="line">  wrapperStyle?: any<span class="comment">;</span></div><div class="line">&#125;, index: number) <span class="comment">#</span></div><div class="line"></div><div class="line">Replace a route in the navigation stack.</div><div class="line"></div><div class="line">index specifies the route in the stack that <span class="keyword">should </span><span class="keyword">be </span>replaced. If it<span class="string">'s negative, it counts from the back.</span></div></pre></td></tr></table></figure>
+<h2 id="⑤replace-route"><a href="#⑤replace-route" class="headerlink" title="⑤replace(route)"></a>⑤replace(route)</h2><blockquote>
+<p>替换当前页的路由，并立即加载新路由的视图</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">replace(route: &#123;</div><div class="line">  component: Function;</div><div class="line">  title: string;</div><div class="line">  passProps?: Object;</div><div class="line">  backButtonTitle?: string;</div><div class="line">  backButtonIcon?: Object;</div><div class="line">  leftButtonTitle?: string;</div><div class="line">  leftButtonIcon?: Object;</div><div class="line">  onLeftButtonPress?: Function;</div><div class="line">  rightButtonTitle?: string;</div><div class="line">  rightButtonIcon?: Object;</div><div class="line">  onRightButtonPress?: Function;</div><div class="line">  wrapperStyle?: any;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">Replace the<span class="built_in"> route </span><span class="keyword">for</span> the current<span class="built_in"> page </span><span class="keyword">and</span> immediately load the view <span class="keyword">for</span> the new route.</div></pre></td></tr></table></figure>
+<h2 id="⑥replacePrevious-route"><a href="#⑥replacePrevious-route" class="headerlink" title="⑥replacePrevious(route)"></a>⑥replacePrevious(route)</h2><blockquote>
+<p>替换上一页的路由/视图</p>
+</blockquote>
+<figure class="highlight roboconf"><table><tr><td class="code"><pre><div class="line">replacePrevious(route: &#123;</div><div class="line">  <span class="attribute">component</span>: Function;</div><div class="line">  <span class="attribute">title</span>: string;</div><div class="line">  <span class="attribute">passProps?</span>: Object;</div><div class="line">  <span class="attribute">backButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">backButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">leftButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">leftButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">onLeftButtonPress?</span>: Function;</div><div class="line">  <span class="attribute">rightButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">rightButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">onRightButtonPress?</span>: Function;</div><div class="line">  <span class="attribute">wrapperStyle?</span>: any;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">Replace the route/view for the previous page.</div></pre></td></tr></table></figure>
+<h2 id="⑦popToTop"><a href="#⑦popToTop" class="headerlink" title="⑦popToTop()"></a>⑦popToTop()</h2><blockquote>
+<p>回到最顶层的路由</p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">Go <span class="keyword">back</span> <span class="keyword">to</span> <span class="keyword">the</span> top <span class="built_in">item</span></div></pre></td></tr></table></figure>
+<h2 id="⑧popToRoute-route"><a href="#⑧popToRoute-route" class="headerlink" title="⑧popToRoute(route)"></a>⑧popToRoute(route)</h2><blockquote>
+<p>一直回到某个指定的路由</p>
+</blockquote>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">popToRoute(route: &#123;</div><div class="line"><span class="symbol">  component:</span> Function<span class="comment">;</span></div><div class="line"><span class="symbol">  title:</span> string<span class="comment">;</span></div><div class="line">  passProps?: Object<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonTitle?: </span>string<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonIcon?: </span>Object<span class="comment">;</span></div><div class="line">  leftButtonTitle?: string<span class="comment">;</span></div><div class="line">  leftButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onLeftButtonPress?: Function<span class="comment">;</span></div><div class="line">  rightButtonTitle?: string<span class="comment">;</span></div><div class="line">  rightButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onRightButtonPress?: Function<span class="comment">;</span></div><div class="line">  wrapperStyle?: any<span class="comment">;</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">Go <span class="keyword">back </span>to the item for a particular route object</div></pre></td></tr></table></figure>
+<h2 id="⑨replacePreviousAndPop"><a href="#⑨replacePreviousAndPop" class="headerlink" title="⑨replacePreviousAndPop"></a>⑨replacePreviousAndPop</h2><figure class="highlight roboconf"><table><tr><td class="code"><pre><div class="line">replacePreviousAndPop(route: &#123;</div><div class="line">  <span class="attribute">component</span>: Function;</div><div class="line">  <span class="attribute">title</span>: string;</div><div class="line">  <span class="attribute">passProps?</span>: Object;</div><div class="line">  <span class="attribute">backButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">backButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">leftButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">leftButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">onLeftButtonPress?</span>: Function;</div><div class="line">  <span class="attribute">rightButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">rightButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">onRightButtonPress?</span>: Function;</div><div class="line">  <span class="attribute">wrapperStyle?</span>: any;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">Replaces the previous route/view and transitions back to it.</div></pre></td></tr></table></figure>
+<h2 id="⑩resetTo-route"><a href="#⑩resetTo-route" class="headerlink" title="⑩resetTo(route)"></a>⑩resetTo(route)</h2><blockquote>
+<p>替换最顶级的路由并且回到它</p>
+</blockquote>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">resetTo(route: &#123;</div><div class="line"><span class="symbol">  component:</span>           Function<span class="comment">;</span></div><div class="line"><span class="symbol">  title:</span>               string<span class="comment">;</span></div><div class="line">  passProps?:          Object<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonTitle?: </span>   string<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonIcon?: </span>    Object<span class="comment">;</span></div><div class="line">  leftButtonTitle?:    string<span class="comment">;</span></div><div class="line">  leftButtonIcon?:     Object<span class="comment">;</span></div><div class="line">  onLeftButtonPress?:  Function<span class="comment">;</span></div><div class="line">  rightButtonTitle?:   string<span class="comment">;</span></div><div class="line">  rightButtonIcon?:    Object<span class="comment">;</span></div><div class="line">  onRightButtonPress?: Function<span class="comment">;</span></div><div class="line">  wrapperStyle?:       any<span class="comment">;</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">Replaces the top item <span class="keyword">and </span>popToTop</div></pre></td></tr></table></figure>
+<h1 id="官网栗子-NavigatorIOS-001🌰"><a href="#官网栗子-NavigatorIOS-001🌰" class="headerlink" title="官网栗子-NavigatorIOS-001🌰"></a>官网栗子-NavigatorIOS-001🌰</h1><blockquote>
+<p><strong>官网《使用导航器跳转页面》</strong> NavigatorIOS🌰</p>
+</blockquote>
+<pre><code>
+</code></pre>
       
     </div>
 
@@ -433,14 +497,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
-          
-            <a href="/tags/ActivityIndicator/" rel="tag"># ActivityIndicator</a>
-          
-        </div>
-      
 
       
       
@@ -450,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/12/RN-Image/" rel="next" title="RN_Image">
-                <i class="fa fa-chevron-left"></i> RN_Image
+              <a href="/2017/07/18/ES6-Let-Const/" rel="next" title="ES6_Let_Const命令">
+                <i class="fa fa-chevron-left"></i> ES6_Let_Const命令
               </a>
             
           </div>
@@ -460,8 +516,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/12/RN-ScrollView/" rel="prev" title="RN_ScrollView">
-                RN_ScrollView <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/22/RN-Redux/" rel="prev" title="RN_Redux框架">
+                RN_Redux框架 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
