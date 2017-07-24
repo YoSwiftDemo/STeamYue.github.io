@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="RN_Export一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用 组件导出的关键字exprot default 没有加default时 export class MyPage&amp;#123;&amp;#125; 多个组件 单个js文件里声明多个组件 MyPage.js中  export class MyPage&amp;#123;&amp;#125;export class MyInfo&amp;#123;">
+<meta name="description" content="RN_Export一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用 模块导出导入组件导出的关键字exprot default 没有加default时 export class MyPage&amp;#123;&amp;#125; 多个组件 单个js文件里声明多个组件 MyPage.js中  export class MyPage&amp;#123;&amp;#125;export class MyInfo">
 <meta name="keywords" content="ReactNative,Export">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RN_Export组件导出+引用">
 <meta property="og:url" content="http://yoursite.com/2017/07/24/RN-Export/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="RN_Export一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用 组件导出的关键字exprot default 没有加default时 export class MyPage&amp;#123;&amp;#125; 多个组件 单个js文件里声明多个组件 MyPage.js中  export class MyPage&amp;#123;&amp;#125;export class MyInfo&amp;#123;">
-<meta property="og:updated_time" content="2017-07-24T10:13:49.000Z">
+<meta property="og:description" content="RN_Export一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用 模块导出导入组件导出的关键字exprot default 没有加default时 export class MyPage&amp;#123;&amp;#125; 多个组件 单个js文件里声明多个组件 MyPage.js中  export class MyPage&amp;#123;&amp;#125;export class MyInfo">
+<meta property="og:updated_time" content="2017-07-24T11:28:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RN_Export组件导出+引用">
-<meta name="twitter:description" content="RN_Export一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用 组件导出的关键字exprot default 没有加default时 export class MyPage&amp;#123;&amp;#125; 多个组件 单个js文件里声明多个组件 MyPage.js中  export class MyPage&amp;#123;&amp;#125;export class MyInfo&amp;#123;">
+<meta name="twitter:description" content="RN_Export一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用 模块导出导入组件导出的关键字exprot default 没有加default时 export class MyPage&amp;#123;&amp;#125; 多个组件 单个js文件里声明多个组件 MyPage.js中  export class MyPage&amp;#123;&amp;#125;export class MyInfo">
 
 
 
@@ -401,7 +401,7 @@
 
       
         <h1 id="RN-Export"><a href="#RN-Export" class="headerlink" title="RN_Export"></a>RN_Export</h1><p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用</p>
-<h2 id="组件导出的关键字"><a href="#组件导出的关键字" class="headerlink" title="组件导出的关键字"></a>组件导出的关键字</h2><figure class="highlight haskell"><table><tr><td class="code"><pre><div class="line"><span class="title">exprot</span> <span class="keyword">default</span></div></pre></td></tr></table></figure>
+<h1 id="模块导出导入"><a href="#模块导出导入" class="headerlink" title="模块导出导入"></a>模块导出导入</h1><h2 id="组件导出的关键字"><a href="#组件导出的关键字" class="headerlink" title="组件导出的关键字"></a>组件导出的关键字</h2><figure class="highlight haskell"><table><tr><td class="code"><pre><div class="line"><span class="title">exprot</span> <span class="keyword">default</span></div></pre></td></tr></table></figure>
 <p>没有加default时</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPage</span>&#123;</span>&#125;</div></pre></td></tr></table></figure>
 <h2 id="多个组件"><a href="#多个组件" class="headerlink" title="多个组件"></a>多个组件</h2><blockquote>
@@ -418,6 +418,10 @@
 </blockquote>
 <figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line"><span class="builtin-name">export</span><span class="built_in"> default </span>class MyPage&#123;&#125;</div><div class="line"><span class="builtin-name">export</span> class MyInfo&#123;&#125;</div></pre></td></tr></table></figure>
 <h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line">mport MyPage,&#123;MyInfo&#125; <span class="keyword">from</span> <span class="string">'./components/Templates'</span>;</div></pre></td></tr></table></figure>
+<h1 id="变量、常量导入导出"><a href="#变量、常量导入导出" class="headerlink" title="变量、常量导入导出"></a>变量、常量导入导出</h1><h2 id="导出-1"><a href="#导出-1" class="headerlink" title="导出"></a>导出</h2><figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line"><span class="builtin-name">export</span> &#123;name, age&#125;</div></pre></td></tr></table></figure>
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;name, age&#125; <span class="keyword">from</span> <span class="string">'./xxxxx'</span></div></pre></td></tr></table></figure>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="导出方法"><a href="#导出方法" class="headerlink" title="导出方法"></a>导出方法</h2><figure class="highlight ada"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">function</span> <span class="title">sum</span>(num1, num2)</div><div class="line">&#123;</div><div class="line"> <span class="keyword">return</span> <span class="type">num1</span> + num2; </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h2 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h2><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;sum&#125; <span class="keyword">from</span> <span class="string">'./xxxx'</span></div></pre></td></tr></table></figure>
 
       
     </div>
