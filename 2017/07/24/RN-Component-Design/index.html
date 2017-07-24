@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Fetch,ReactNative" />
+  <meta name="keywords" content="ReactNative,RN_Design" />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="使用Fetch React Native提供了和web标准一致的Fetch API，用于满足开发者访问网络的需求  发起网络请求fetch+网址 要从任意地址获取内容的话，只需简单地将网址作为参数传递给fetch方法  fetch(&apos;https://mywebsite.com/mydata.json&apos;) POST的数据格式 Fetch还有可选的第二个参数，可以用来定制HTTP请求一些参数可以指定h">
-<meta name="keywords" content="Fetch,ReactNative">
+<meta name="description" content="RN_Design">
+<meta name="keywords" content="ReactNative,RN_Design">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RN_Fetch网络">
-<meta property="og:url" content="http://yoursite.com/2017/07/14/RN-Fetch/index.html">
+<meta property="og:title" content="RN_Component_Design架构设计">
+<meta property="og:url" content="http://yoursite.com/2017/07/24/RN-Component-Design/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="使用Fetch React Native提供了和web标准一致的Fetch API，用于满足开发者访问网络的需求  发起网络请求fetch+网址 要从任意地址获取内容的话，只需简单地将网址作为参数传递给fetch方法  fetch(&apos;https://mywebsite.com/mydata.json&apos;) POST的数据格式 Fetch还有可选的第二个参数，可以用来定制HTTP请求一些参数可以指定h">
-<meta property="og:updated_time" content="2017-07-14T05:48:11.000Z">
+<meta property="og:description" content="RN_Design">
+<meta property="og:updated_time" content="2017-07-24T01:50:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RN_Fetch网络">
-<meta name="twitter:description" content="使用Fetch React Native提供了和web标准一致的Fetch API，用于满足开发者访问网络的需求  发起网络请求fetch+网址 要从任意地址获取内容的话，只需简单地将网址作为参数传递给fetch方法  fetch(&apos;https://mywebsite.com/mydata.json&apos;) POST的数据格式 Fetch还有可选的第二个参数，可以用来定制HTTP请求一些参数可以指定h">
+<meta name="twitter:title" content="RN_Component_Design架构设计">
+<meta name="twitter:description" content="RN_Design">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/14/RN-Fetch/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/24/RN-Component-Design/"/>
 
 
 
 
 
-  <title>RN_Fetch网络 | 胜利/女神/在微笑</title>
+  <title>RN_Component_Design架构设计 | 胜利/女神/在微笑</title>
   
 
 
@@ -314,7 +314,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/RN-Fetch/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/RN-Component-Design/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steam Yue">
@@ -331,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">RN_Fetch网络</h1>
+          <h1 class="post-title" itemprop="name headline">RN_Component_Design架构设计</h1>
         
 
         <div class="post-meta">
@@ -343,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T13:40:14+08:00">
-                2017-07-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T09:06:19+08:00">
+                2017-07-24
               </time>
             
 
@@ -354,28 +354,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactNative</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -388,6 +366,10 @@
 
           
 
+          
+              <div class="post-description">
+                  RN_Design
+              </div>
           
 
         </div>
@@ -400,28 +382,74 @@
       
 
       
-        <h1 id="使用Fetch"><a href="#使用Fetch" class="headerlink" title="使用Fetch"></a>使用Fetch</h1><blockquote>
-<p>React Native提供了和web标准一致的Fetch API，用于满足开发者访问网络的需求</p>
+        <h1 id="RN-Component-Design架构设计"><a href="#RN-Component-Design架构设计" class="headerlink" title="RN-Component-Design架构设计"></a>RN-Component-Design架构设计</h1><p><a href="https://segmentfault.com/a/1190000004161358" target="_blank" rel="external">原文参考</a></p>
+<h1 id="架构问题"><a href="#架构问题" class="headerlink" title="架构问题"></a>架构问题</h1><h2 id="①交互"><a href="#①交互" class="headerlink" title="①交互"></a>①交互</h2><blockquote>
+<p>如何解决组件间通信【父子、子父、兄弟等，特别是跨层or反向数据流动等】<br>用state还是接口操作组件；</p>
+<h2 id="②职责"><a href="#②职责" class="headerlink" title="②职责"></a>②职责</h2><p>组件状态放哪<br>业务逻辑放哪<br>数据放哪</p>
+<h2 id="③todo一个问题"><a href="#③todo一个问题" class="headerlink" title="③todo一个问题"></a>③todo一个问题</h2><p>由于react是面向状态编程，相当于react的组件只关注数据的最终状态，数据是怎么产生的并不关心，但是某些场景下，数据如何产生的是会影响到组件的一些行为的【比如一个新增行要求有动画效果，查询出的行就不需要等】，这在RN中很难描述</p>
 </blockquote>
-<h2 id="发起网络请求"><a href="#发起网络请求" class="headerlink" title="发起网络请求"></a>发起网络请求</h2><h3 id="fetch-网址"><a href="#fetch-网址" class="headerlink" title="fetch+网址"></a>fetch+网址</h3><blockquote>
-<p>要从任意地址获取内容的话，只需简单地将网址作为参数传递给fetch方法</p>
+<h2 id="④react的架构"><a href="#④react的架构" class="headerlink" title="④react的架构"></a>④react的架构</h2><blockquote>
+<p>❶Flux<br>❷Reflux<br>❸Redux<br>❹Redux<br>❺Marty</p>
 </blockquote>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="title">fetch</span><span class="params">(<span class="string">'https://mywebsite.com/mydata.json'</span>)</span></span></div></pre></td></tr></table></figure>
-<h3 id="POST的数据格式"><a href="#POST的数据格式" class="headerlink" title="POST的数据格式"></a>POST的数据格式</h3><blockquote>
-<p>Fetch还有可选的第二个参数，可以用来定制HTTP请求一些参数<br>可以指定header参数<br>可以指定使用POST方法<br>可以指定提交数据</p>
+<h1 id="Flux架构"><a href="#Flux架构" class="headerlink" title="Flux架构"></a>Flux架构</h1><blockquote>
+<p>flux是官方提供的架构，目的是分层解耦，职责划分清晰，谁负责干啥很明确<br>❶action 封装请求<br>❷dispatcher 注册处理器、分发请求<br>❸store 是处理器，处理业务逻辑，保存数据<br>❹view 根据store提供的数据进行展现;接受用户的输入并发出action请求<br>数据流动：Action-&gt; Dispatcher -&gt; Store -&gt; Component</p>
 </blockquote>
-<figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">fetch</span>(<span class="string">'https://mywebsite.com/endpoint/'</span>, &#123;</div><div class="line">  <span class="attribute">method</span>: <span class="string">'POST'</span>,</div><div class="line">  <span class="attribute">headers</span>: &#123;</div><div class="line">    <span class="string">'Accept'</span>: <span class="string">'application/json'</span>,</div><div class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attribute">body</span>: JSON.stringify(&#123;</div><div class="line">    <span class="attribute">firstParam</span>: <span class="string">'yourValue'</span>,</div><div class="line">    <span class="attribute">secondParam</span>: <span class="string">'yourOtherValue'</span>,</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="form格"><a href="#form格" class="headerlink" title="form格"></a>form格</h3><blockquote>
-<p>服务器无法识别上面POST的数据格式，那么可以尝试传统的form格式</p>
+<h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><blockquote>
+<p>1.分层设计，职责清晰。<br>2.要求store reducer都是页面单例，易于管理。<br>3.action为请求dto对象，是请求类型，请求数据的载体。<br>4.reducer是处理请求的方法。不允许有状态，必须是纯方法。必须严格遵守输入输出，中间不允许有异步调用。不允许对state直接进行修改，要想修改必须返回新对象。<br>5.store<br>5.1.维持应用的state；<br>5.2.提供 getState() 方法获取 state；<br>5.3.提供 dispatch(action) 方法分发请求来更新 state；门面模式，要求所有的请求满足统一的格式【可以进行路由、监控、日志等】，统一的调用方式。<br>5.44.通过 subscribe(listener) 注册监听器监听state的变化。</p>
 </blockquote>
-<figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">fetch</span>(<span class="string">'https://mywebsite.com/endpoint/'</span>, &#123;</div><div class="line">  <span class="attribute">method</span>: <span class="string">'POST'</span>,</div><div class="line">  <span class="attribute">headers</span>: &#123;</div><div class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attribute">body</span>: <span class="string">'key1=value1&amp;key2=value2'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h1 id="使用其他的网络库"><a href="#使用其他的网络库" class="headerlink" title="使用其他的网络库"></a>使用其他的网络库</h1><p>React Native中已经内置了XMLHttpRequest API(也就是俗称的ajax)。一些基于XMLHttpRequest封装的第三方库也可以使用，例如frisbee或是axios等。但注意不能使用jQuery，因为jQuery中还使用了很多浏览器中才有而RN中没有的东西（所以也不是所有web中的ajax库都可以直接使用</p>
-<figure class="highlight plain"><figcaption><span>request = new XMLHttpRequest();</span></figcaption><table><tr><td class="code"><pre><div class="line">request.onreadystatechange = (e) =&gt; &#123;</div><div class="line">  if (request.readyState !== 4) &#123;</div><div class="line">    return;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  if (request.status === 200) &#123;</div><div class="line">    console.log(&apos;success&apos;, request.responseText);</div><div class="line">  &#125; else &#123;</div><div class="line">    console.warn(&apos;error&apos;);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">request.open(&apos;GET&apos;, &apos;https://mywebsite.com/endpoint/&apos;);</div><div class="line">request.send();</div></pre></td></tr></table></figure>
+<h2 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h2><h3 id="①redux的原则1：state不能被修改。"><a href="#①redux的原则1：state不能被修改。" class="headerlink" title="①redux的原则1：state不能被修改。"></a>①redux的原则1：state不能被修改。</h3><blockquote>
+<p>其实这个用react的state也会有同样的问题，最好把state设计的没有冗余，尽量少出这种情况</p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">解决方案：参考官方：因为我们不能直接修改却要更新数组中指定的一项数据，这里需要先把前面和后面都切开。如果经常需要这类的操作，可以选择使用帮助类 React.addons.update，updeep，或者使用原生支持深度更新的库 Immutable。最后，时刻谨记永远不要在克隆 <span class="keyword">state</span> 前修改它。</div></pre></td></tr></table></figure>
+<p>###单一的庞大的reducer的拆分</p>
 <blockquote>
-<p>需要注意的是，安全机制与网页环境有所不同：在应用中你可以访问任何网站，没有跨域的限制。</p>
+<p>这块设计也不好做，会让人疑惑<br>官方给的demo中直接按state的内容区分，我觉得这样做不好，如果后期有跨内容的情况，就比较奇怪了。官方给的combineReducers方案，也只是减少代码量，本质没有变化，state还是拆分处理，路由还是业务逻辑自己来做。<br>解决方案：还是处理一整个state，可以按照约定写reducer类而不是方法，类里按照&gt;以前做java架构，路由一定是架构来调用的，目前感觉各大flux框架都是解决问题不彻底。</p>
 </blockquote>
-<h1 id="WebSocket支持"><a href="#WebSocket支持" class="headerlink" title="WebSocket支持"></a>WebSocket支持</h1><p>React Native还支持WebSocket，这种协议可以在单个TCP连接上提供全双工的通信信道</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">'ws://host.com/path'</span>);</div><div class="line"></div><div class="line">ws.onopen = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="comment">// 打开一个连接</span></div><div class="line"></div><div class="line">  ws.send(<span class="string">'something'</span>); <span class="comment">// 发送一个消息</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">ws.onmessage = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// 接收到了一个消息</span></div><div class="line">  <span class="built_in">console</span>.log(e.data);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ws.onerror = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// 发生了一个错误</span></div><div class="line">  <span class="built_in">console</span>.log(e.message);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ws.onclose = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// 连接被关闭了</span></div><div class="line">  <span class="built_in">console</span>.log(e.code, e.reason);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="官方建议设计模式"><a href="#官方建议设计模式" class="headerlink" title="官方建议设计模式"></a>官方建议设计模式</h3><blockquote>
+<p>官方建议设计模式：顶层容器组件才对redux有依赖，组件间通过props来传递数据。按照这样设计还是没有解决组件间交互和数据传递的问题。官方react设计建议：react的设计建议：<a href="http://camsong.github.io/redux-in-chinese/docs/basics/UsageWithReact.html" target="_blank" rel="external">http://camsong.github.io/redux-in-chinese/docs/basics/UsageWithReact.html</a></p>
+</blockquote>
+<h3 id="黑盒"><a href="#黑盒" class="headerlink" title="黑盒"></a>黑盒</h3><blockquote>
+<p>使用connect将state绑定到component。此处有些黑盒了。<br>开源架构封装的复杂的redux，其和RN绑定封装了一些东西，是一个黑盒，不易理解和维护</p>
+<h3 id="数据"><a href="#数据" class="headerlink" title="数据,"></a>数据,</h3><p>异步action用来请求服务端数据,利用middleware增强createStore的dispatch后即支持</p>
+</blockquote>
+<h1 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h1><p><a href="http://cn.redux.js.org/docs/basics/Actions.html" target="_blank" rel="external">原文地址</a></p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p><strong>Action</strong> 是把数据从应用（这里之所以不叫 view 是因为这些数据有可能是服务器响应，用户输入或其它非 view 的数据 ）传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 store</p>
+</blockquote>
+<h2 id="添加新-todo-任务的-action"><a href="#添加新-todo-任务的-action" class="headerlink" title="添加新 todo 任务的 action"></a>添加新 todo 任务的 action</h2><figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: ADD_TODO,</div><div class="line">  text: <span class="string">'Build my first Redux app'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Action 本质上是 JavaScript 普通对象<br>约定，action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作<br>多数情况下，type 会被定义成字符串常量<br>当应用规模越来越大时，建议使用单独的模块或文件来存放 action</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; ADD_TODO, REMOVE_TODO &#125; <span class="keyword">from</span> <span class="string">'../actionTypes'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>样板文件使用提醒<br>使用单独的模块或文件来定义 action type 常量并不是必须的，甚至根本不需要定义<br>对于小应用来说，使用字符串做 action type 更方便些<br>在大型应用中把它们显式地定义成常量还是利大于弊的。参照 <a href="http://cn.redux.js.org/docs/recipes/ReducingBoilerplate.html" target="_blank" rel="external">减少样板代码</a> 获取更多保持代码简洁的实践经验</p>
+<p>除了 type 字段外，action 对象的结构完全由你自己决定。参照 Flux 标准 Action 获取关于如何构造 action 的建议<br>我们还需要再添加一个 action type 来表示用户完成任务的动作。因为数据是存放在数组中的，所以我们通过下标 index 来引用特定的任务。而实际项目中一般会在新建数据的时候生成唯一的 ID 作为数据的引用标识</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: TOGGLE_TODO,</div><div class="line">  index: <span class="number">5</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>尽量减少在 action 中传递的数据<br>比如上面的例子，传递 index 就比把整个任务对象传过去要好</p>
+<p>最后，再添加一个 action type 来表示当前的任务展示选项</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: SET_VISIBILITY_FILTER,</div><div class="line">  filter: SHOW_COMPLETED</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Action-创建函数"><a href="#Action-创建函数" class="headerlink" title="Action 创建函数"></a>Action 创建函数</h1><blockquote>
+<p>Action 创建函数 就是生成 action 的方法。“action” 和 “action 创建函数” 这两个概念很容易混在一起，使用时最好注意区分<br>在 Redux 中的 action 创建函数只是简单的返回一个 action:</p>
+</blockquote>
+<figure class="highlight ada"><table><tr><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">addTodo</span>(text) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">&#123;</span></div><div class="line">    <span class="keyword">type</span>: ADD_TODO,</div><div class="line">    text</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样做将使 action 创建函数更容易被移植和测试<br>在 传统的 Flux 实现中，当调用 action 创建函数时，一般会触发一个 dispatch，像这样</p>
+<figure class="highlight fortran"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span></span> addTodoWithDispatch(text) &#123;</div><div class="line">  const <span class="keyword">action</span> = &#123;</div><div class="line">    <span class="keyword">type</span>: ADD_TODO,</div><div class="line">    text</div><div class="line">  &#125;</div><div class="line">  dispatch(<span class="keyword">action</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不同的是，Redux 中只需把 action 创建函数的结果传给 dispatch() 方法即可发起一次 dispatch 过程</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">dispatch(<span class="name">addTodo</span>(<span class="name">text</span>))</div><div class="line">dispatch(<span class="name">completeTodo</span>(<span class="name">index</span>))</div></pre></td></tr></table></figure>
+<p>或者创建一个 被绑定的 action 创建函数 来自动 dispatch：</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">const boundAddTodo = (<span class="name">text</span>) =&gt; dispatch(<span class="name">addTodo</span>(<span class="name">text</span>))</div><div class="line">const boundCompleteTodo = (<span class="name">index</span>) =&gt; dispatch(<span class="name">completeTodo</span>(<span class="name">index</span>))</div></pre></td></tr></table></figure>
+<p>然后直接调用它们：</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">boundAddTodo(<span class="name">text</span>)<span class="comment">;</span></div><div class="line">boundCompleteTodo(<span class="name">index</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>store 里能直接通过 store.dispatch() 调用 dispatch() 方法，但是多数情况下你会使用 react-redux 提供的 connect() 帮助器来调用。bindActionCreators() 可以自动把多个 action 创建函数 绑定到 dispatch() 方法上。</p>
+<p>Action 创建函数也可以是异步非纯函数。你可以通过阅读 高级教程 中的 异步 action章节，学习如何处理 AJAX 响应和如何把 action 创建函数组合进异步控制流。因为基础教程中包含了阅读高级教程和异步 action 章节所需要的一些重要基础概念, 所以请在移步异步 action 之前, 务必先完成基础教程</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><blockquote>
+<p>actions.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * action 类型</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> TOGGLE_TODO = <span class="string">'TOGGLE_TODO'</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> SET_VISIBILITY_FILTER = <span class="string">'SET_VISIBILITY_FILTER'</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * 其它的常量</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> VisibilityFilters = &#123;</div><div class="line">  <span class="attr">SHOW_ALL</span>: <span class="string">'SHOW_ALL'</span>,</div><div class="line">  <span class="attr">SHOW_COMPLETED</span>: <span class="string">'SHOW_COMPLETED'</span>,</div><div class="line">  <span class="attr">SHOW_ACTIVE</span>: <span class="string">'SHOW_ACTIVE'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * action 创建函数</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: ADD_TODO, text &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">toggleTodo</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: TOGGLE_TODO, index &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">setVisibilityFilter</span>(<span class="params">filter</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: SET_VISIBILITY_FILTER, filter &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -451,9 +479,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
-          
-            <a href="/tags/Fetch/" rel="tag"># Fetch</a>
+            <a href="/tags/RN-Design/" rel="tag"># RN_Design</a>
           
         </div>
       
@@ -466,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/14/RN-List/" rel="next" title="RN_List列表">
-                <i class="fa fa-chevron-left"></i> RN_List列表
+              <a href="/2017/07/23/RN-TabBarIOS/" rel="next" title="RN_TabBarIOS">
+                <i class="fa fa-chevron-left"></i> RN_TabBarIOS
               </a>
             
           </div>
@@ -475,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/18/ES6-Let-Const/" rel="prev" title="ES6_Let_Const命令">
-                ES6_Let_Const命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -607,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Fetch"><span class="nav-number">1.</span> <span class="nav-text">使用Fetch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#发起网络请求"><span class="nav-number">1.1.</span> <span class="nav-text">发起网络请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fetch-网址"><span class="nav-number">1.1.1.</span> <span class="nav-text">fetch+网址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST的数据格式"><span class="nav-number">1.1.2.</span> <span class="nav-text">POST的数据格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#form格"><span class="nav-number">1.1.3.</span> <span class="nav-text">form格</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用其他的网络库"><span class="nav-number">2.</span> <span class="nav-text">使用其他的网络库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WebSocket支持"><span class="nav-number">3.</span> <span class="nav-text">WebSocket支持</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RN-Component-Design架构设计"><span class="nav-number">1.</span> <span class="nav-text">RN-Component-Design架构设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#架构问题"><span class="nav-number">2.</span> <span class="nav-text">架构问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#①交互"><span class="nav-number">2.1.</span> <span class="nav-text">①交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#②职责"><span class="nav-number">2.2.</span> <span class="nav-text">②职责</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#③todo一个问题"><span class="nav-number">2.3.</span> <span class="nav-text">③todo一个问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#④react的架构"><span class="nav-number">2.4.</span> <span class="nav-text">④react的架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Flux架构"><span class="nav-number">3.</span> <span class="nav-text">Flux架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redux"><span class="nav-number">4.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特性"><span class="nav-number">4.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在问题"><span class="nav-number">4.2.</span> <span class="nav-text">存在问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①redux的原则1：state不能被修改。"><span class="nav-number">4.2.1.</span> <span class="nav-text">①redux的原则1：state不能被修改。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方建议设计模式"><span class="nav-number">4.2.2.</span> <span class="nav-text">官方建议设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#黑盒"><span class="nav-number">4.2.3.</span> <span class="nav-text">黑盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据"><span class="nav-number">4.2.4.</span> <span class="nav-text">数据,</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Action"><span class="nav-number">5.</span> <span class="nav-text">Action</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">5.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加新-todo-任务的-action"><span class="nav-number">5.2.</span> <span class="nav-text">添加新 todo 任务的 action</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Action-创建函数"><span class="nav-number">6.</span> <span class="nav-text">Action 创建函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源码"><span class="nav-number">7.</span> <span class="nav-text">源码</span></a></li></ol></div>
             
 
           </div>
