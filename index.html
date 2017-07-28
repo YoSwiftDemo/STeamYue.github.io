@@ -550,14 +550,9 @@
         
           
           RN_Export一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用
-模块导出导入组件导出的关键字exprot default
-没有加default时
-export class MyPage&#123;&#125;
-多个组件
-单个js文件里声明多个组件
-MyPage.js中
-
-
+组件引入默认组件定义export default class XXXX extends Component
+默认组件引用import XXX from '../YYYY/XXX'
+非默认组件定义export 
           ...
           <!--noindex-->
           <div class="post-button text-center">

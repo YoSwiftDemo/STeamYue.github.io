@@ -93,19 +93,19 @@
 
 
 
-<meta name="description" content="RN-Error.md0.45.1版本引发 ReactNative版本为0.45.1,新建项目运行出现错误 错误报错：fatal error: &apos;boost/iterator/iterator_adaptor.hpp&apos; file not found 错误原因：0.45需要下载boost编译，因为被墙了所以会无法运行 解决方式1： 1.项目中的package.json文件2.删项目下，node_mo">
+<meta name="description" content="RN-Error.md0.45.1版本引发 ①ReactNative版本为0.45.1,新建项目运行出现错误②Print: Entry, “:CFBundleIdentifier”, Does Not Exist 错误报错：fatal error: &apos;boost/iterator/iterator_adaptor.hpp&apos; file not found  错误原因：0.45需要下载boost编译，">
 <meta name="keywords" content="ReactNative,Error">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RN-Error">
 <meta property="og:url" content="http://yoursite.com/2017/07/08/RN-Error/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="RN-Error.md0.45.1版本引发 ReactNative版本为0.45.1,新建项目运行出现错误 错误报错：fatal error: &apos;boost/iterator/iterator_adaptor.hpp&apos; file not found 错误原因：0.45需要下载boost编译，因为被墙了所以会无法运行 解决方式1： 1.项目中的package.json文件2.删项目下，node_mo">
+<meta property="og:description" content="RN-Error.md0.45.1版本引发 ①ReactNative版本为0.45.1,新建项目运行出现错误②Print: Entry, “:CFBundleIdentifier”, Does Not Exist 错误报错：fatal error: &apos;boost/iterator/iterator_adaptor.hpp&apos; file not found  错误原因：0.45需要下载boost编译，">
 <meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN-Error-001.png">
 <meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN-Error-002.png">
-<meta property="og:updated_time" content="2017-07-24T03:01:12.000Z">
+<meta property="og:updated_time" content="2017-07-25T03:36:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RN-Error">
-<meta name="twitter:description" content="RN-Error.md0.45.1版本引发 ReactNative版本为0.45.1,新建项目运行出现错误 错误报错：fatal error: &apos;boost/iterator/iterator_adaptor.hpp&apos; file not found 错误原因：0.45需要下载boost编译，因为被墙了所以会无法运行 解决方式1： 1.项目中的package.json文件2.删项目下，node_mo">
+<meta name="twitter:description" content="RN-Error.md0.45.1版本引发 ①ReactNative版本为0.45.1,新建项目运行出现错误②Print: Entry, “:CFBundleIdentifier”, Does Not Exist 错误报错：fatal error: &apos;boost/iterator/iterator_adaptor.hpp&apos; file not found  错误原因：0.45需要下载boost编译，">
 <meta name="twitter:image" content="http://osq7nstcc.bkt.clouddn.com/RN-Error-001.png">
 
 
@@ -403,8 +403,10 @@
       
 
       
-        <h1 id="RN-Error-md"><a href="#RN-Error-md" class="headerlink" title="RN-Error.md"></a>RN-Error.md</h1><h1 id="0-45-1版本引发"><a href="#0-45-1版本引发" class="headerlink" title="0.45.1版本引发"></a>0.45.1版本引发</h1><p> ReactNative版本为0.45.1,新建项目运行出现错误</p>
+        <h1 id="RN-Error-md"><a href="#RN-Error-md" class="headerlink" title="RN-Error.md"></a>RN-Error.md</h1><h1 id="0-45-1版本引发"><a href="#0-45-1版本引发" class="headerlink" title="0.45.1版本引发"></a>0.45.1版本引发</h1><blockquote>
+<p>①ReactNative版本为0.45.1,新建项目运行出现错误<br>②Print: Entry, “:CFBundleIdentifier”, Does Not Exist</p>
 <h2 id="错误报错："><a href="#错误报错：" class="headerlink" title="错误报错："></a>错误报错：</h2><figure class="highlight vhdl"><table><tr><td class="code"><pre><div class="line">fatal <span class="literal">error</span>: <span class="symbol">'boost</span>/iterator/iterator_adaptor.hpp' <span class="keyword">file</span> <span class="keyword">not</span> found</div></pre></td></tr></table></figure>
+</blockquote>
 <h2 id="错误原因："><a href="#错误原因：" class="headerlink" title="错误原因："></a>错误原因：</h2><p>0.45需要下载boost编译，因为被墙了所以会无法运行</p>
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="方式1："><a href="#方式1：" class="headerlink" title="方式1："></a>方式1：</h3><blockquote>
 <p>1.项目中的package.json文件<br><img src="http://osq7nstcc.bkt.clouddn.com/RN-Error-001.png" alt="001"><br>2.删项目下，node_modules文件夹<br>3.终端<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install</span></div><div class="line"><span class="meta">$</span><span class="bash"> react-native run-ios</span></div></pre></td></tr></table></figure></p>
@@ -445,6 +447,7 @@
 <hr>
 <p>#缺少报错node_modules文件<br><figure class="highlight ada"><table><tr><td class="code"><pre><div class="line">Couldn<span class="symbol">'t</span> find preset <span class="string">"react-native"</span> relative to directory ...Using babel-core <span class="keyword">at</span></div></pre></td></tr></table></figure></p>
 <p>版本应发错误解决方式3：去生成</p>
+<p>#<br><figure class="highlight stata"><table><tr><td class="code"><pre><div class="line"><span class="string">"type"</span>:<span class="string">"InternalError"</span>,<span class="string">"message"</span>:"react-packager has encountered <span class="keyword">an</span> internal <span class="keyword">erro</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
