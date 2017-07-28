@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="RN-Navigation 一、StackNavigator： 用来跳转页面和传递参数二、TabNavigator：   类似底部导航栏，用来在同一屏幕下切换不同界面三、DrawerNavigator：侧滑菜单导航栏，用于轻松设置带抽屉导航的屏幕四、使用:StackNavigator + TabNavigator  原文参考 StackNavigatorStackNavigatorConfig 参">
+<meta name="description" content="RN-Navigation 一、StackNavigator： 用来跳转页面和传递参数二、TabNavigator：   类似底部导航栏，用来在同一屏幕下切换不同界面三、DrawerNavigator：侧滑菜单导航栏，用于轻松设置带抽屉导航的屏幕 四、使用:StackNavigator + TabNavigator  StackNavigator导航栏属性属性-navigation StackNa">
 <meta name="keywords" content="ReactNative,Navigation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RN-Navigation(StackNavigator+ TabNavigator+ DrawerNavigator）">
 <meta property="og:url" content="http://yoursite.com/2017/07/24/RN-Navigation/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="RN-Navigation 一、StackNavigator： 用来跳转页面和传递参数二、TabNavigator：   类似底部导航栏，用来在同一屏幕下切换不同界面三、DrawerNavigator：侧滑菜单导航栏，用于轻松设置带抽屉导航的屏幕四、使用:StackNavigator + TabNavigator  原文参考 StackNavigatorStackNavigatorConfig 参">
-<meta property="og:updated_time" content="2017-07-24T15:32:50.000Z">
+<meta property="og:description" content="RN-Navigation 一、StackNavigator： 用来跳转页面和传递参数二、TabNavigator：   类似底部导航栏，用来在同一屏幕下切换不同界面三、DrawerNavigator：侧滑菜单导航栏，用于轻松设置带抽屉导航的屏幕 四、使用:StackNavigator + TabNavigator  StackNavigator导航栏属性属性-navigation StackNa">
+<meta property="og:updated_time" content="2017-07-28T09:37:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RN-Navigation(StackNavigator+ TabNavigator+ DrawerNavigator）">
-<meta name="twitter:description" content="RN-Navigation 一、StackNavigator： 用来跳转页面和传递参数二、TabNavigator：   类似底部导航栏，用来在同一屏幕下切换不同界面三、DrawerNavigator：侧滑菜单导航栏，用于轻松设置带抽屉导航的屏幕四、使用:StackNavigator + TabNavigator  原文参考 StackNavigatorStackNavigatorConfig 参">
+<meta name="twitter:description" content="RN-Navigation 一、StackNavigator： 用来跳转页面和传递参数二、TabNavigator：   类似底部导航栏，用来在同一屏幕下切换不同界面三、DrawerNavigator：侧滑菜单导航栏，用于轻松设置带抽屉导航的屏幕 四、使用:StackNavigator + TabNavigator  StackNavigator导航栏属性属性-navigation StackNa">
 
 
 
@@ -401,81 +401,352 @@
 
       
         <h1 id="RN-Navigation"><a href="#RN-Navigation" class="headerlink" title="RN-Navigation"></a>RN-Navigation</h1><blockquote>
-<p>一、StackNavigator： 用来跳转页面和传递参数<br>二、TabNavigator：   类似底部导航栏，用来在同一屏幕下切换不同界面<br>三、DrawerNavigator：侧滑菜单导航栏，用于轻松设置带抽屉导航的屏幕<br>四、使用:StackNavigator + TabNavigator</p>
+<p>一、StackNavigator： 用来跳转页面和传递参数<br>二、TabNavigator：   类似底部导航栏，用来在同一屏幕下切换不同界面<br>三、DrawerNavigator：侧滑菜单导航栏，用于轻松设置带抽屉导航的屏幕</p>
+<p>四、使用:StackNavigator + TabNavigator</p>
 </blockquote>
-<p><a href="http://blog.csdn.net/u013718120/article/details/72357698" target="_blank" rel="external">原文参考</a></p>
-<h1 id="StackNavigator"><a href="#StackNavigator" class="headerlink" title="StackNavigator"></a>StackNavigator</h1><h2 id="StackNavigatorConfig"><a href="#StackNavigatorConfig" class="headerlink" title="StackNavigatorConfig"></a>StackNavigatorConfig</h2><blockquote>
-<p>参数<br>initialRouteName:设置默认的页面组件，必须是上面已注册的页面组件<br>initialRouteParams:初始路由的参数<br>navigationOptions:屏幕导航的默认选项<br>paths: RouteConfigs里面路径设置的映射<br>mode:页面切换模式(card: 普通app常用的左右切换 modal: 上下切换)<br>headerMode导航栏的显示模式(float: 无透明效果, 默认 screen: 有渐变透明效果, 如微信QQ的一样 none: 隐藏导航栏)<br>cardStyle: 样式<br>onTransitionStart: 页面切换开始时的回调函数<br>onTransitionEnd: 页面切换结束时的回调函数</p>
+<h1 id="StackNavigator导航栏"><a href="#StackNavigator导航栏" class="headerlink" title="StackNavigator导航栏"></a>StackNavigator导航栏</h1><h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h1 id="属性-navigation"><a href="#属性-navigation" class="headerlink" title="属性-navigation"></a>属性-navigation</h1><blockquote>
+<p>StackNavigator中注册后的组件都有navigation这个属性. navigation又有5个参数</p>
 </blockquote>
-<h2 id="StackNavigator属性"><a href="#StackNavigator属性" class="headerlink" title="StackNavigator属性"></a>StackNavigator属性</h2><h3 id="①navigationOptions："><a href="#①navigationOptions：" class="headerlink" title="①navigationOptions："></a>①navigationOptions：</h3><blockquote>
-<p>配置StackNavigator的一些属性。 </p>
-</blockquote>
-<figure class="highlight gauss"><table><tr><td class="code"><pre><div class="line"><span class="built_in">title</span>：                        导航栏的标题，如果设置了,这个导航栏和标签栏的<span class="built_in">title</span>就会变成一样的，不推荐使用  </div><div class="line"><span class="built_in">header</span>：                       导航栏设置对象,感觉有点像iOS的NavigatiobBar,可以设置一些导航的属性，如果隐藏顶部导航栏只要将这个属性设置为<span class="built_in">null</span> </div><div class="line"><span class="built_in">title</span>：                        设置导航栏标题,可以是字符串也可以是个组件,推荐 </div><div class="line">headerBackTitle：              设置跳转页面左侧返回箭头后面的文字，默认是上一个页面的标题。可以自定义，也可以设置为<span class="built_in">null</span>  </div><div class="line">headerTruncatedBackTitle：     设置当上个页面标题不符合返回箭头后的文字时，默认改成<span class="string">"返回"</span>  </div><div class="line">right：                        设置导航条右侧。可以是按钮或者其他视图控件  </div><div class="line">left：                         设置导航条左侧。可以是按钮或者其他视图控件  </div><div class="line">style：                        设置导航条的样式。背景色，宽高等  </div><div class="line">titleStyle：                   设置导航栏文字样式  </div><div class="line">backTitleStyle：               设置导航栏‘返回’文字样式  </div><div class="line">tintColor：                    设置导航栏颜色  </div><div class="line">headerPressColorAndroid：      安卓独有的设置颜色纹理，需要安卓版本大于<span class="number">5.0</span>  </div><div class="line">cardStack:&#123;gesturesEnabled:&#125;   是否支持滑动返回手势，iOS默认支持，安卓默认关闭</div></pre></td></tr></table></figure>
-<h3 id="②screen"><a href="#②screen" class="headerlink" title="②screen"></a>②screen</h3><blockquote>
-<p>对应界面名称，需要填入import之后的页面  </p>
-</blockquote>
-<h3 id="③mode："><a href="#③mode：" class="headerlink" title="③mode："></a>③mode：</h3><blockquote>
-<p>定义跳转风格<br>❶card：使用iOS和安卓默认的风格<br>❷modal：iOS独有的使屏幕从底部画出。类似iOS的present效果  </p>
-</blockquote>
-<h3 id="④headerMode"><a href="#④headerMode" class="headerlink" title="④headerMode"></a>④headerMode</h3><blockquote>
-<p>返回上级页面时动画效果<br>❶float：iOS默认的效果<br>❷screen：滑动过程中，整个页面都会返回<br>❸none：无动画  </p>
-</blockquote>
-<h3 id="⑤cardStyle"><a href="#⑤cardStyle" class="headerlink" title="⑤cardStyle"></a>⑤cardStyle</h3><blockquote>
-<p>自定义设置跳转效果<br>❶transitionConfig： 自定义设置滑动返回的配置<br>❷onTransitionStart：当转换动画即将开始时被调用的功能<br>❸onTransitionEnd：当转换动画完成，将被调用的功能  </p>
-</blockquote>
-<h3 id="⑥path"><a href="#⑥path" class="headerlink" title="⑥path"></a>⑥path</h3><blockquote>
-<p>路由中设置的路径的覆盖映射配置<br>path属性适用于其他app或浏览器使用url打开本app并进入指定页面<br>path属性用于声明一个界面路径，例如：【/pages/Home】。此时我们可以在手机浏览器中输入：app名称://pages/Home来启动该App，并进入Home界面</p>
-</blockquote>
-<h3 id="⑦initialRouteName"><a href="#⑦initialRouteName" class="headerlink" title="⑦initialRouteName"></a>⑦initialRouteName</h3><blockquote>
-<p>设置默认的页面组件，必须是上面已注册的页面组件  </p>
-</blockquote>
-<h3 id="⑧initialRouteParams："><a href="#⑧initialRouteParams：" class="headerlink" title="⑧initialRouteParams："></a>⑧initialRouteParams：</h3><blockquote>
-<p>初始路由参数 </p>
-</blockquote>
-<h3 id="⑨cardStack："><a href="#⑨cardStack：" class="headerlink" title="⑨cardStack："></a>⑨cardStack：</h3><blockquote>
-<p>gesturesEnabled: 是否允许右滑返回，在iOS上默认为true，在Android上默认为false</p>
-</blockquote>
-<h2 id="⑩navigation"><a href="#⑩navigation" class="headerlink" title="⑩navigation"></a>⑩navigation</h2><blockquote>
-<p>在StackNavigator中注册后的组件都有navigation这个属性<br>navigation又有5个参数:navigate, goBack, state, setParams, dispatch<br>可以在组件下console.log一下this.props就能看到.</p>
-</blockquote>
-<h3 id="⑩❶push下一个页面"><a href="#⑩❶push下一个页面" class="headerlink" title="⑩❶push下一个页面"></a>⑩❶push下一个页面</h3><blockquote>
-<p>his.props.navigation.navigate(‘Two’, { name: ‘two’ }): push下一个页面</p>
-</blockquote>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><div class="line"><span class="symbol">outeName:</span> 注册过的目标路由名称</div><div class="line"><span class="symbol">params:</span> 传递的参数</div><div class="line"><span class="symbol">action:</span> 如果该界面是一个navigator的话，将运行这个<span class="keyword">sub</span>-action</div></pre></td></tr></table></figure>
-<h3 id="⑩❷返回上一页"><a href="#⑩❷返回上一页" class="headerlink" title="⑩❷返回上一页"></a>⑩❷返回上一页</h3><blockquote>
-<p>this.props.navigation.goBack():</p>
-</blockquote>
-<h3 id="⑩❸state"><a href="#⑩❸state" class="headerlink" title="⑩❸state"></a>⑩❸state</h3><blockquote>
-<p>this.props.navigation.state: 每个界面通过这去访问它的router，state其中包括了：</p>
-</blockquote>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><div class="line"><span class="symbol">routeName:</span> 路由名</div><div class="line"><span class="symbol">key:</span> 路由身份标识</div><div class="line"><span class="symbol">params:</span> 参数</div></pre></td></tr></table></figure>
-<h3 id="⑩❹setParams"><a href="#⑩❹setParams" class="headerlink" title="⑩❹setParams"></a>⑩❹setParams</h3><blockquote>
-<p>this.props.navigation.setParams: 该方法允许界面更改router中的参数，可以用来动态的更改导航栏的内容</p>
-</blockquote>
-<h3 id="⑩❺dispatch"><a href="#⑩❺dispatch" class="headerlink" title="⑩❺dispatch"></a>⑩❺dispatch</h3><blockquote>
-<p>this.props.navigation.dispatch: 可以dispatch一些action，主要支持的action有：<br>Navigate<br>Reset<br>SetParams</p>
-</blockquote>
-<p>####⑩⑥❻ Navigate</p>
-<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line">import &#123; NavigationActions &#125; <span class="keyword">from</span> <span class="string">'react-navigation'</span> </div><div class="line">         <span class="keyword">const</span> navigationAction = NavigationActions.navigate(&#123; </div><div class="line">                                  routeName: <span class="string">'Profile'</span>, </div><div class="line">                                  <span class="keyword">params</span>: &#123;&#125;, <span class="comment">// navigate can have a nested navigate action that will be run inside the child router </span></div><div class="line">                                  action: NavigationActions.navigate(&#123; routeName: <span class="string">'SubProfileRoute'</span>&#125;) &#125;) </div><div class="line">                                  <span class="keyword">this</span>.props.navigation.dispatch(navigationAction)</div></pre></td></tr></table></figure>
-<h4 id="⑩❼Reset"><a href="#⑩❼Reset" class="headerlink" title="⑩❼Reset"></a>⑩❼Reset</h4><blockquote>
-<p>Reset方法会清除原来的路由记录，添加上新设置的路由信息, 可以指定多个action，index是指定默认显示的那个路由页面, 注意不要越界了</p>
-</blockquote>
-<figure class="highlight xquery"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NavigationActions &#125; from <span class="string">'react-navigation'</span></div><div class="line">           const resetAction = NavigationActions.reset(&#123; </div><div class="line">                     index: <span class="number">0</span>, </div><div class="line">                     actions: [</div><div class="line">                      NavigationActions.navigate(&#123; routeName: <span class="string">'Profile'</span>&#125;),          </div><div class="line">                      NavigationActions.navigate(&#123; routeName: <span class="string">'Two'</span>&#125;)</div><div class="line">                            ] </div><div class="line">                    &#125;) </div><div class="line"> this.props.navigation.dispatch(resetAction)</div></pre></td></tr></table></figure>
-<h4 id="⑩❽SetParams"><a href="#⑩❽SetParams" class="headerlink" title="⑩❽SetParams"></a>⑩❽SetParams</h4><blockquote>
-<p>为指定的router更新参数，该参数必须是已经存在于router的param中</p>
-</blockquote>
-<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line">  import &#123; NavigationActions &#125; <span class="keyword">from</span> <span class="string">'react-navigation'</span></div><div class="line">    <span class="keyword">const</span> setParamsAction = NavigationActions.setParams(&#123;</div><div class="line">           <span class="keyword">params</span>: &#123;&#125;, <span class="comment">// these are the new params that will be merged into the existing route params // The key of the route that should get the new params</span></div><div class="line">           key: <span class="string">'screen-123'</span>,</div><div class="line">        &#125;)</div><div class="line"><span class="keyword">this</span>.props.navigation.dispatch(setParamsAction)</div></pre></td></tr></table></figure>
-<h2 id="StackNavigator代码🌰"><a href="#StackNavigator代码🌰" class="headerlink" title="StackNavigator代码🌰"></a>StackNavigator代码🌰</h2><p><a href="http://www.jianshu.com/p/7d435e199c96" target="_blank" rel="external">参考</a></p>
-<h3 id="API-StackNavigator-RouteConfigs-StackNavigatorConfig"><a href="#API-StackNavigator-RouteConfigs-StackNavigatorConfig" class="headerlink" title="API: StackNavigator(RouteConfigs, StackNavigatorConfig)"></a>API: StackNavigator(RouteConfigs, StackNavigatorConfig)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> MyNavigator = StackNavigator(&#123;</div><div class="line">		    <span class="attr">Home</span>   :  &#123; <span class="attr">screen</span>: Tabs &#125;,</div><div class="line">		    <span class="attr">HomeTwo</span>: </div><div class="line">		               &#123;</div><div class="line">				         <span class="attr">screen</span>: HomeTwo,       <span class="comment">// 必须, 其他都是非必须</span></div><div class="line">				         path:<span class="string">'app/homeTwo'</span>,    <span class="comment">//使用url导航时用到, 如 web app 和 Deep Linking</span></div><div class="line">				         navigationOptions: &#123;&#125;  <span class="comment">// 此处设置了, 会覆盖组件内的`static navigationOptions`设置.</span></div><div class="line">		               &#125;,</div><div class="line">		    <span class="attr">HomeThree</span>: &#123; <span class="attr">screen</span>: HomeThree &#125;,</div><div class="line">		    <span class="attr">HomeFour</span>:  &#123; <span class="attr">screen</span>: HomeFour &#125;</div><div class="line">        &#125;, </div><div class="line">  &#123;</div><div class="line">        <span class="comment">// 默认显示界面</span></div><div class="line">        initialRouteName: <span class="string">'Home'</span>, </div><div class="line">        <span class="comment">// 屏幕导航的默认选项, 也可以在组件内用 static navigationOptions 设置(会覆盖此处的设置)</span></div><div class="line">        navigationOptions: </div><div class="line">          &#123;</div><div class="line">        <span class="comment">// 可以设置一些导航的属性，如果隐藏顶部导航栏只要将这个属性设置为null       </span></div><div class="line">         header: </div><div class="line">			       &#123;     </div><div class="line">			       <span class="comment">// 左上角返回键文字     </span></div><div class="line">			       backTitle: <span class="string">'返回'</span>, </div><div class="line">			       <span class="comment">//样式</span></div><div class="line">			       style:  &#123; <span class="attr">backgroundColor</span>: <span class="string">'#fff'</span> &#125;,</div><div class="line">			        <span class="attr">titleStyle</span>: &#123; <span class="attr">color</span>: <span class="string">'green'</span>&#125;</div><div class="line">                 &#125;,</div><div class="line">         <span class="comment">//配置cardStack</span></div><div class="line">         cardStack:</div><div class="line">                &#123;</div><div class="line">                  <span class="comment">//允许右滑返回</span></div><div class="line">                 gesturesEnabled: <span class="literal">true</span> </div><div class="line">                &#125;</div><div class="line">           &#125;,</div><div class="line">          <span class="comment">// 页面切换模式, 左右是card(相当于iOS中的push效果), 上下是modal(相当于iOS中的modal效果)</span></div><div class="line">          mode: <span class="string">'card'</span>, </div><div class="line">          <span class="comment">// 导航栏的显示模式, screen: 有渐变透明效果, float: 无透明效果, none: 隐藏导航栏</span></div><div class="line">          headerMode: <span class="string">'screen'</span>, </div><div class="line">          <span class="comment">// 回调</span></div><div class="line">           onTransitionStart: <span class="function"><span class="params">()</span>=&gt;</span>&#123; <span class="built_in">console</span>.log(<span class="string">'导航栏切换开始'</span>); &#125;, </div><div class="line">          <span class="comment">// 回调</span></div><div class="line">          onTransitionEnd: <span class="function"><span class="params">()</span>=&gt;</span>&#123; <span class="built_in">console</span>.log(<span class="string">'导航栏切换结束'</span>); &#125; </div><div class="line"></div><div class="line">   &#125;)</div></pre></td></tr></table></figure>
-<h3 id="在组件中设置static-navigationOptions示例"><a href="#在组件中设置static-navigationOptions示例" class="headerlink" title="在组件中设置static navigationOptions示例"></a>在组件中设置static navigationOptions示例</h3><figure class="highlight typescript"><table><tr><td class="code"><pre><div class="line">   <span class="keyword">static</span> navigationOptions = &#123; </div><div class="line">         title: <span class="string">'homeThree'</span>, </div><div class="line">         header: <span class="function">(<span class="params">navigation, defaultHeader</span>) =&gt;</span> (&#123;</div><div class="line">				          ...defaultHeader, <span class="comment">// 默认预设 </span></div><div class="line">				          visible: <span class="literal">true</span> <span class="comment">// 覆盖预设中的此项 </span></div><div class="line">				          &#125;), </div><div class="line">         cardStack: &#123;</div><div class="line">			          gesturesEnabled: <span class="literal">false</span> <span class="comment">// 是否可以右滑返回 </span></div><div class="line">			          &#125;&#125;;</div><div class="line">           <span class="comment">// 或这样 </span></div><div class="line">         <span class="keyword">static</span> navigationOptions = &#123; </div><div class="line">           <span class="comment">// title: 'Two', // 写死标题</span></div><div class="line">         title: <span class="function">(<span class="params">navigation, childRouter</span>) =&gt;</span> &#123;</div><div class="line">				          <span class="comment">// 动态标题 </span></div><div class="line">				          <span class="keyword">if</span> (navigation.state.params.isSelected) </div><div class="line">				          &#123; </div><div class="line">				          <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;navigation.state.params.name&#125;</span>选中`</span>; </div><div class="line">				          &#125; </div><div class="line">				          <span class="keyword">else</span>&#123; </div><div class="line">				           <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;navigation.state.params.name&#125;</span>没选中`</span>;</div><div class="line">				          &#125; </div><div class="line">            &#125;,</div><div class="line">         header: <span class="function">(<span class="params">&#123; state, setParams, goBack &#125;</span>) =&gt;</span> &#123; </div><div class="line">		               <span class="keyword">let</span> right; </div><div class="line">		               <span class="keyword">if</span> (state.params.isSelected) </div><div class="line">		               &#123;</div><div class="line">		                    right = (&lt;Button title=<span class="string">"取消"</span> </div><div class="line">		                                     onPress=&#123;<span class="function"><span class="params">()</span> =&gt;</span> setParams(&#123; isSelected: <span class="literal">false</span> &#125;)&#125;/&gt;);</div><div class="line">		               &#125; </div><div class="line">		               <span class="keyword">else</span> </div><div class="line">		               &#123;</div><div class="line">		                    right = (&lt;Button title=<span class="string">"选择"</span></div><div class="line">		                                     onPress=&#123;<span class="function"><span class="params">()</span> =&gt;</span> setParams(&#123; isSelected: <span class="literal">true</span> &#125;)&#125;/&gt;);</div><div class="line">                     &#125;</div><div class="line">                     <span class="keyword">let</span> left = (&lt;Button title=<span class="string">"返回"</span></div><div class="line">                            onPress=&#123;<span class="function"><span class="params">()</span> =&gt;</span> goBack()&#125;/&gt;);</div><div class="line">                     <span class="keyword">let</span> visible = <span class="literal">false</span>;  <span class="comment">// 是否显示导航栏</span></div><div class="line">        <span class="keyword">return</span> &#123; right, left, visible &#125;;</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// header: &#123;left: &lt;Button title="返回"/&gt;&#125;,</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="简单使用StackNavigator-TabNavigator实现Tab界面切换、界面间导航"><a href="#简单使用StackNavigator-TabNavigator实现Tab界面切换、界面间导航" class="headerlink" title="简单使用StackNavigator + TabNavigator实现Tab界面切换、界面间导航"></a>简单使用StackNavigator + TabNavigator实现Tab界面切换、界面间导航</h3><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p>&gt;<br>&gt;</p>
+<table>
+<thead>
+<tr>
+<th>navigation属性参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>this.props.navigation.navigate(‘Two’, { name: ‘two’ }</td>
+<td>push下一个页面</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>routeName</td>
+<td>注册过的目标路由名称</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>params</td>
+<td>传递的参数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>action</td>
+<td>如果该界面是一个navigator的话，将运行这个sub-action</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>this.props.navigation.goBack()</td>
+<td>返回上一页</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>his.props.navigation.state</td>
+<td>每个界面通过这去访问它的router，state其中包括:</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>routeName</td>
+<td>路由名</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>key</td>
+<td>路由身份标识</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>params</td>
+<td>参数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>this.props.navigation.setParams</td>
+<td>该方法允许界面更改router中的参数，可以用来动态的更改导航栏的内容</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>this.props.navigation.dispatch</td>
+<td>可以dispatch一些action，主要支持的action有</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>①Navigate</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>②Reset</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>③SetParams</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <blockquote>
+<p>①Navigate</p>
 </blockquote>
-<h4 id="API定义"><a href="#API定义" class="headerlink" title="API定义"></a>API定义</h4><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="title">StackNavigator</span><span class="params">(RouteConfigs, StackNavigatorConfig)</span></span></div><div class="line"><span class="function"><span class="title">TabNavigator</span><span class="params">(RouteConfigs, TabNavigatorConfig)</span></span></div></pre></td></tr></table></figure>
-<h4 id="集成-react-navigation"><a href="#集成-react-navigation" class="headerlink" title="集成 react-navigation"></a>集成 react-navigation</h4><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install react-navigation --save</span></div></pre></td></tr></table></figure>
-<h4 id="导入必要组件"><a href="#导入必要组件" class="headerlink" title="导入必要组件"></a>导入必要组件</h4><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;StackNavigator,TabNavigator,TabBarBottom&#125; <span class="keyword">from</span> <span class="string">'react-navigation'</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line">import &#123; </div><div class="line">       NavigationActions&#125; <span class="keyword">from</span> <span class="string">'react-navigation'</span></div><div class="line"><span class="keyword">const</span> navigationAction = NavigationActions.navigate(&#123;</div><div class="line">routeName: <span class="string">'Profile'</span>,</div><div class="line">    <span class="keyword">params</span>: &#123;&#125;,</div><div class="line">    <span class="comment">// navigate can have a nested navigate action that will be run inside the child router</span></div><div class="line">    action: NavigationActions.navigate(&#123; routeName: <span class="string">'SubProfileRoute'</span>&#125;)</div><div class="line">     &#125;)</div><div class="line">  <span class="keyword">this</span>.props.navigation.dispatch(navigationAction)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>②Reset:Reset方法会清除原来的路由记录，添加上新设置的路由信息, 可以指定多个action，index是指定默认显示的那个路由页面, 注意不要越界了</p>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NavigationActions &#125; from <span class="string">'react-navigation'</span></div><div class="line">const resetAction = NavigationActions.reset(&#123;</div><div class="line"><span class="string">index:</span> <span class="number">0</span>,</div><div class="line"><span class="string">actions:</span> [</div><div class="line">     NavigationActions.navigate(&#123; <span class="string">routeName:</span> <span class="string">'Profile'</span>&#125;),</div><div class="line">     NavigationActions.navigate(&#123; <span class="string">routeName:</span> <span class="string">'Two'</span>&#125;)</div><div class="line">     ]</div><div class="line">    &#125;)</div><div class="line"> <span class="keyword">this</span>.props.navigation.dispatch(resetAction)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>③SetParams:为指定的router更新参数，该参数必须是已经存在于router的param中</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line">import &#123; NavigationActions &#125; <span class="keyword">from</span> <span class="string">'react-navigation'</span></div><div class="line"><span class="keyword">const</span> setParamsAction = NavigationActions.setParams(&#123;</div><div class="line"> <span class="keyword">params</span>: &#123;&#125;, <span class="comment">// these are the new params that will be merged into the existing route params</span></div><div class="line"> <span class="comment">// The key of the route that should get the new params</span></div><div class="line">  key: <span class="string">'screen-123'</span>,</div><div class="line">  &#125;)</div><div class="line"> <span class="keyword">this</span>.props.navigation.dispatch(setParamsAction)</div></pre></td></tr></table></figure>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><blockquote>
+<p><strong>API</strong>: StackNavigator <strong>(</strong>RouteConfigs, StackNavigatorConfig <strong>)</strong></p>
+</blockquote>
+<h2 id="样例代码"><a href="#样例代码" class="headerlink" title="样例代码"></a>样例代码</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> MyNavigator = StackNavigator(</div><div class="line">  &#123;</div><div class="line">		    <span class="attr">Home</span>   :   &#123; <span class="attr">screen</span>: Tabs &#125;,</div><div class="line">		    <span class="attr">HomeTwo</span>: </div><div class="line">		               &#123;</div><div class="line">				         <span class="attr">screen</span>: HomeTwo,       <span class="comment">// 必须, 其他都是非必须</span></div><div class="line">				         path:<span class="string">'app/homeTwo'</span>,    <span class="comment">//使用url导航时用到, 如 web app 和 Deep Linking</span></div><div class="line">				         navigationOptions: &#123;&#125;  <span class="comment">// 此处设置了, 会覆盖组件内的`static navigationOptions`设置.</span></div><div class="line">		               &#125;,</div><div class="line">		    <span class="attr">HomeThree</span>: &#123; <span class="attr">screen</span>: HomeThree &#125;,</div><div class="line">		    <span class="attr">HomeFour</span>:  &#123; <span class="attr">screen</span>: HomeFour  &#125;,</div><div class="line">  &#125;, </div><div class="line">  &#123;</div><div class="line">          <span class="attr">initialRouteName</span>:     <span class="string">'Home'</span>,       <span class="comment">//默认显示界面</span></div><div class="line">          navigationOptions:                 <span class="comment">//屏幕导航的默认选项, 也可以在组件内用 static navigationOptions 设置(会覆盖此处的设置)</span></div><div class="line">                          &#123;                                </div><div class="line">						          <span class="attr">header</span>:      <span class="comment">//可以设置一些导航的属性，如果隐藏顶部导航栏只要将这个属性设置为null  </span></div><div class="line">									       &#123;        </div><div class="line">									          <span class="attr">backTitle</span>:  <span class="string">'返回'</span>,    <span class="comment">// 左上角返回键文字  </span></div><div class="line">									          style:      &#123; </div><div class="line">									                       <span class="attr">backgroundColor</span>: <span class="string">'#fff'</span> &#125;,</div><div class="line">									          <span class="attr">titleStyle</span>: &#123;           </div><div class="line">									                       <span class="attr">color</span>: <span class="string">'green'</span>&#125;</div><div class="line">						                 &#125;,</div><div class="line">						         <span class="attr">cardStack</span>:                       <span class="comment">//配置cardStack</span></div><div class="line">						                &#123;</div><div class="line">						                 <span class="attr">gesturesEnabled</span>: <span class="literal">true</span>,   <span class="comment">//允许右滑返回</span></div><div class="line">						                &#125;</div><div class="line">           &#125;,</div><div class="line">          <span class="attr">mode</span>: <span class="string">'card'</span>,                     <span class="comment">// 页面切换模式, 左右是card(相当于iOS中的push效果), 上下是modal(相当于iOS中的modal效果)</span></div><div class="line">          headerMode: <span class="string">'screen'</span>,             <span class="comment">// 导航栏的显示模式, screen: 有渐变透明效果, float: 无透明效果, none: 隐藏导航栏</span></div><div class="line">           onTransitionStart: <span class="function"><span class="params">()</span>=&gt;</span>&#123; </div><div class="line">                                  <span class="built_in">console</span>.log(<span class="string">'导航栏切换开始'</span>);    <span class="comment">// 回调</span></div><div class="line">                                   &#125;,           </div><div class="line">          <span class="attr">onTransitionEnd</span>: <span class="function"><span class="params">()</span>=&gt;</span>&#123; </div><div class="line">                               <span class="built_in">console</span>.log(<span class="string">'导航栏切换结束'</span>);        <span class="comment">// 回调</span></div><div class="line">                               &#125; </div><div class="line"></div><div class="line">   &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+<h2 id="navigationOptions"><a href="#navigationOptions" class="headerlink" title="navigationOptions"></a>navigationOptions</h2><table>
+<thead>
+<tr>
+<th>navigationOptions参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>导航栏的标题</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>header</td>
+<td>导航栏设置对象</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>visible</td>
+<td>导航栏是否显示</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>title</td>
+<td>导航栏的标题, 可以是字符串也可以是个组件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>backTitle</td>
+<td>左上角的返回键文字, 默认是上一个页面的title</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>right</td>
+<td>导航栏右按钮</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>left</td>
+<td>导航栏左按钮</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>style</td>
+<td>导航栏的style</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>titleStyle</td>
+<td>导航栏的title的style</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>tintColor</td>
+<td>导航栏颜色</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>cardStack</td>
+<td>配置card stack</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>gesturesEnabled</td>
+<td>是否允许右滑返回，在iOS上默认为true，在Android上默认为false</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="在组件中设置static-navigationOptions-示例"><a href="#在组件中设置static-navigationOptions-示例" class="headerlink" title="在组件中设置static navigationOptions-示例"></a>在组件中设置static navigationOptions-示例</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> navigationOptions = &#123; </div><div class="line">      <span class="attr">title</span>:     <span class="string">'homeThree'</span>, </div><div class="line">      <span class="attr">header</span>:    <span class="function">(<span class="params">navigation, defaultHeader</span>) =&gt;</span>（&#123;</div><div class="line">									          ...defaultHeader,   <span class="comment">// 默认预设 </span></div><div class="line">									          visible: <span class="literal">true</span> ,     <span class="comment">// 覆盖预设中的此项 </span></div><div class="line">									          &#125;), </div><div class="line">      <span class="attr">cardStack</span>: &#123;</div><div class="line">          <span class="attr">gesturesEnabled</span>: <span class="literal">false</span> <span class="comment">// 是否可以右滑返回 </span></div><div class="line">          &#125;&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>或这样 </p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><div class="line">    <span class="keyword">static</span> navigationOptions = &#123; </div><div class="line">         <span class="comment">//标题写死  title: 'Two', </span></div><div class="line">         <span class="comment">// 动态标题</span></div><div class="line">         title: <span class="function">(<span class="params">navigation, childRouter</span>) =&gt;</span> &#123; </div><div class="line">				          <span class="keyword">if</span> (navigation.state.params.isSelected) </div><div class="line">				          &#123; </div><div class="line">				          <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;navigation.state.params.name&#125;</span>选中`</span>; </div><div class="line">				          &#125; </div><div class="line">				          <span class="keyword">else</span></div><div class="line">				          &#123; </div><div class="line">				           <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;navigation.state.params.name&#125;</span>没选中`</span>;</div><div class="line">				          &#125; </div><div class="line">                   &#125;,</div><div class="line">         header: <span class="function">(<span class="params">&#123; state, setParams, goBack &#125;</span>) =&gt;</span> &#123; </div><div class="line">		               <span class="keyword">let</span> right; </div><div class="line">		               <span class="keyword">if</span> (state.params.isSelected) </div><div class="line">		               &#123;</div><div class="line">		                    right = (&lt;Button title=<span class="string">"取消"</span> </div><div class="line">		                                     onPress=&#123;<span class="function"><span class="params">()</span> =&gt;</span> setParams(&#123; isSelected: <span class="literal">false</span> &#125;)&#125;/&gt;);</div><div class="line">		               &#125; </div><div class="line">		               <span class="keyword">else</span> </div><div class="line">		               &#123;</div><div class="line">		                    right = (&lt;Button title=<span class="string">"选择"</span></div><div class="line">		                                     onPress=&#123;<span class="function"><span class="params">()</span> =&gt;</span> setParams(&#123; isSelected: <span class="literal">true</span> &#125;)&#125;/&gt;);</div><div class="line">                     &#125;</div><div class="line">                     <span class="keyword">let</span> left = (&lt;Button title=<span class="string">"返回"</span></div><div class="line">                            onPress=&#123;<span class="function"><span class="params">()</span> =&gt;</span> goBack()&#125;/&gt;);</div><div class="line">                     <span class="keyword">let</span> visible = <span class="literal">false</span>;  <span class="comment">// 是否显示导航栏</span></div><div class="line">        <span class="keyword">return</span> &#123; right, left, visible &#125;;</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// header: &#123;left: &lt;Button title="返回"/&gt;&#125;,</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="StackNavigatorConfig"><a href="#StackNavigatorConfig" class="headerlink" title="StackNavigatorConfig"></a>StackNavigatorConfig</h2><table>
+<thead>
+<tr>
+<th>StackNavigatorConfig 参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>initialRouteName</td>
+<td>设置默认的页面组件，必须是上面已注册的页面组件</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>initialRouteParams</td>
+<td>初始路由的参数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>navigationOptions</td>
+<td>屏幕导航的默认选项</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>paths</td>
+<td>RouteConfigs里面路径设置的映射</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>mode</td>
+<td>页面切换模式</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>card</td>
+<td>普通app常用的左右切换</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>modal</td>
+<td>上下切换</td>
+<td></td>
+</tr>
+<tr>
+<td>headerMode</td>
+<td>导航栏的显示模式:</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>float</td>
+<td>无透明效果, 默认</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>screen</td>
+<td>有渐变透明效果</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>none</td>
+<td>隐藏导航栏</td>
+<td></td>
+</tr>
+<tr>
+<td>cardStyle</td>
+<td>样式</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>onTransitionStart</td>
+<td>页面切换开始时的回调函数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>onTransitionEnd</td>
+<td>页面切换结束时的回调函数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://blog.csdn.net/sinat_17775997/article/details/70176688" target="_blank" rel="external">参考</a></p>
 <hr>
-<h1 id="二、TabNavigator"><a href="#二、TabNavigator" class="headerlink" title="二、TabNavigator"></a>二、TabNavigator</h1><blockquote>
+<h1 id="二、TabNavigator-标签栏"><a href="#二、TabNavigator-标签栏" class="headerlink" title="二、TabNavigator 标签栏"></a>二、TabNavigator 标签栏</h1><blockquote>
 <p>注册TabNavigator<br><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">const</span> <span class="string">Tabs</span> <span class="string">=</span> <span class="string">TabNavigator(&#123;</span>   </div><div class="line"><span class="attr">     Home:</span> <span class="string">&#123;</span>        </div><div class="line"><span class="attr">           screen:</span> <span class="string">Home,</span>       </div><div class="line"><span class="attr">           navigationOptions:</span> <span class="string">&#123;</span>  <span class="string">//</span> <span class="string">也可以写在组件的static</span> <span class="string">navigationOptions内</span> </div><div class="line"><span class="attr">                 tabBar:</span> <span class="string">&#123;</span>    </div><div class="line"><span class="attr">                          label:</span> <span class="string">'首页'</span><span class="string">,</span>   </div><div class="line"><span class="attr">                          icon:</span> <span class="string">(&#123;tintColor&#125;)</span> <span class="string">=&gt;</span> <span class="string">(&lt;Image</span> <span class="string">source=&#123;require('./app/images/home.png')&#125;</span> </div><div class="line">                                                         <span class="string">style=&#123;[&#123;tintColor:</span> <span class="string">tintColor&#125;,styles.icon]&#125;/&gt;),</span></div><div class="line">                        <span class="string">&#125;,</span> </div><div class="line">                            <span class="string">&#125;</span></div><div class="line">            <span class="string">&#125;,</span>  </div><div class="line"><span class="attr">      Bill:</span> <span class="string">&#123;</span>  </div><div class="line"><span class="attr">             screen:</span> <span class="string">Bill,</span>     </div><div class="line"><span class="attr">             navigationOptions:</span> <span class="string">&#123;</span>     </div><div class="line"><span class="attr">                     tabBar:</span> <span class="string">&#123;</span>            </div><div class="line"><span class="attr">                          label:</span> <span class="string">'账单'</span><span class="string">,</span>       </div><div class="line"><span class="attr">                                   icon:</span> <span class="string">(&#123;tintColor&#125;)</span> <span class="string">=&gt;</span> <span class="string">(&lt;Image</span> <span class="string">source=&#123;require('./app/images/bill.png')&#125;</span></div><div class="line">                                                                  <span class="string">style=&#123;[&#123;tintColor:</span> <span class="string">tintColor&#125;,styles.icon]&#125;/&gt;),</span> </div><div class="line">                             <span class="string">&#125;,</span></div><div class="line">                              <span class="string">&#125;</span></div><div class="line">               <span class="string">&#125;,</span>   </div><div class="line"><span class="attr">       Me:</span> <span class="string">&#123;</span>  </div><div class="line"><span class="attr">           screen:</span> <span class="string">Me,</span>      </div><div class="line"><span class="attr">           navigationOptions:</span> <span class="string">&#123;</span>  </div><div class="line"><span class="attr">                      tabBar:</span> <span class="string">&#123;</span>             </div><div class="line"><span class="attr">                           label:</span> <span class="string">'我'</span><span class="string">,</span>             </div><div class="line"><span class="attr">                           icon:</span> <span class="string">(&#123;tintColor&#125;)</span> <span class="string">=&gt;</span> <span class="string">(&lt;Image</span> <span class="string">source=&#123;require('./app/images/me.png')&#125;</span></div><div class="line">                                                          <span class="string">style=&#123;[&#123;tintColor:</span> <span class="string">tintColor&#125;,styles.icon]&#125;/&gt;),</span> </div><div class="line">                              <span class="string">&#125;,</span> </div><div class="line">                              <span class="string">&#125;</span> </div><div class="line">            <span class="string">&#125;</span></div><div class="line">       <span class="string">&#125;,</span> </div><div class="line">       <span class="string">&#123;</span>   </div><div class="line"><span class="attr">         animationEnabled:</span> <span class="literal">false</span><span class="string">,</span>                                        <span class="string">//</span> <span class="string">切换页面时是否有动画效果</span>  </div><div class="line"><span class="attr">         tabBarPosition:</span> <span class="string">'bottom'</span><span class="string">,</span>                                       <span class="string">//</span> <span class="string">显示在底端，android</span> <span class="string">默认是显示在页面顶端的</span>    </div><div class="line"><span class="attr">         swipeEnabled:</span> <span class="literal">false</span><span class="string">,</span>                                            <span class="string">//</span> <span class="string">是否可以左右滑动切换tab</span>      </div><div class="line"><span class="attr">         backBehavior:</span> <span class="string">'none'</span><span class="string">,</span>                                           <span class="string">//</span> <span class="string">按</span> <span class="string">back</span> <span class="string">键是否跳转到第一个Tab(首页)，</span> <span class="string">none</span> <span class="string">为不跳转</span>      </div><div class="line"><span class="attr">         tabBarOptions:</span> <span class="string">&#123;</span>          </div><div class="line"><span class="attr">                       activeTintColor:</span> <span class="string">'#ff8500'</span><span class="string">,</span>                       <span class="string">//</span> <span class="string">文字和图片选中颜色</span>    </div><div class="line"><span class="attr">                       inactiveTintColor:</span> <span class="string">'#999'</span><span class="string">,</span>                        <span class="string">//</span> <span class="string">文字和图片未选中颜色</span>        </div><div class="line"><span class="attr">                       showIcon:</span> <span class="literal">true</span><span class="string">,</span>                                   <span class="string">//</span> <span class="string">android</span> <span class="string">默认不显示</span> <span class="string">icon,</span> <span class="string">需要设置为</span> <span class="literal">true</span> <span class="string">才会显示</span>      </div><div class="line"><span class="attr">                       indicatorStyle:</span> <span class="string">&#123;</span>            </div><div class="line"><span class="attr">                                     height:</span> <span class="number">0</span>                          <span class="string">//</span> <span class="string">如TabBar下面显示有一条线，可以设高度为0后隐藏</span> <span class="string">&#125;,</span>     </div><div class="line"><span class="attr">                                     style:</span> <span class="string">&#123;</span>  <span class="attr">backgroundColor:</span> <span class="string">'#fff'</span><span class="string">,</span> <span class="string">//</span> <span class="string">TabBar</span> <span class="string">背景色</span> <span class="string">//</span> <span class="attr">height:</span> <span class="number">44</span> <span class="string">&#125;,</span>     </div><div class="line"><span class="attr">                                     labelStyle:</span> <span class="string">&#123;</span>   <span class="attr">fontSize:</span> <span class="number">10</span><span class="string">,</span>      <span class="string">//</span> <span class="string">文字大小</span> <span class="string">&#125;,</span></div><div class="line">                                       <span class="string">&#125;,</span></div><div class="line">        <span class="string">&#125;</span></div><div class="line">        <span class="string">);</span></div></pre></td></tr></table></figure></p>
 </blockquote>
 <h2 id="screen："><a href="#screen：" class="headerlink" title="screen："></a>screen：</h2><blockquote>
@@ -559,14 +830,15 @@
 <hr>
 <h1 id="四、使用-StackNavigator-TabNavigator"><a href="#四、使用-StackNavigator-TabNavigator" class="headerlink" title="四、使用:StackNavigator + TabNavigator"></a>四、使用:StackNavigator + TabNavigator</h1><blockquote>
 <p>简单使用StackNavigator + TabNavigator实现Tab界面切换、界面间导航</p>
-<h2 id="结构-1"><a href="#结构-1" class="headerlink" title="结构"></a>结构</h2><p>MyStackNavigator.js<br>MyTabBarItem.js</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>MyStackNavigator.js<br>MyTabBarItem.js</p>
 </blockquote>
-<h2 id="API定义-1"><a href="#API定义-1" class="headerlink" title="API定义"></a>API定义</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="title">StackNavigator</span><span class="params">(RouteConfigs, StackNavigatorConfig)</span></span></div><div class="line"><span class="function"><span class="title">TabNavigator</span><span class="params">(RouteConfigs, TabNavigatorConfig)</span></span></div></pre></td></tr></table></figure>
-<h2 id="集成-react-navigation-1"><a href="#集成-react-navigation-1" class="headerlink" title="集成 react-navigation"></a>集成 react-navigation</h2><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install react-navigation --save</span></div></pre></td></tr></table></figure>
-<h2 id="导入必要组件-1"><a href="#导入必要组件-1" class="headerlink" title="导入必要组件"></a>导入必要组件</h2><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;StackNavigator,TabNavigator,TabBarBottom&#125; <span class="keyword">from</span> <span class="string">'react-navigation'</span>;</div></pre></td></tr></table></figure>
+<h2 id="API定义"><a href="#API定义" class="headerlink" title="API定义"></a>API定义</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="title">StackNavigator</span><span class="params">(RouteConfigs, StackNavigatorConfig)</span></span></div><div class="line"><span class="function"><span class="title">TabNavigator</span><span class="params">(RouteConfigs, TabNavigatorConfig)</span></span></div></pre></td></tr></table></figure>
+<h2 id="集成-react-navigation"><a href="#集成-react-navigation" class="headerlink" title="集成 react-navigation"></a>集成 react-navigation</h2><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install react-navigation --save</span></div></pre></td></tr></table></figure>
+<h2 id="导入必要组件"><a href="#导入必要组件" class="headerlink" title="导入必要组件"></a>导入必要组件</h2><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;StackNavigator,TabNavigator,TabBarBottom&#125; <span class="keyword">from</span> <span class="string">'react-navigation'</span>;</div></pre></td></tr></table></figure>
 <hr>
 <p> <a href="http://blog.csdn.net/haoranli/article/details/61917583" target="_blank" rel="external">http://blog.csdn.net/haoranli/article/details/61917583</a></p>
 <p> <a href="http://blog.csdn.net/u013718120/article/details/72357698" target="_blank" rel="external">http://blog.csdn.net/u013718120/article/details/72357698</a></p>
+<p><a href="http://blog.csdn.net/u013718120/article/details/72357698" target="_blank" rel="external">原文参考</a></p>
 
       
     </div>
