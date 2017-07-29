@@ -102,7 +102,7 @@
 <meta property="og:description" content="RN_Props 属性大多数组件在创建时就可以使用各种参数来进行定制。用于定制的这些参数就称为props（属性） 栗子组件Image为例，在创建一个图片时，可以传入一个名为source的prop来指定要显示的图片的地址，以及使用名为style的prop来控制其尺寸 栗子-代码 import React, &amp;#123; Component &amp;#125; from &apos;react&apos;;import &amp;#1">
 <meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN_Props_001.png">
 <meta property="og:image" content="http://osq7nstcc.bkt.clouddn.com/RN_Props_002.png">
-<meta property="og:updated_time" content="2017-07-13T05:57:11.000Z">
+<meta property="og:updated_time" content="2017-07-29T08:14:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RN_Props">
 <meta name="twitter:description" content="RN_Props 属性大多数组件在创建时就可以使用各种参数来进行定制。用于定制的这些参数就称为props（属性） 栗子组件Image为例，在创建一个图片时，可以传入一个名为source的prop来指定要显示的图片的地址，以及使用名为style的prop来控制其尺寸 栗子-代码 import React, &amp;#123; Component &amp;#125; from &apos;react&apos;;import &amp;#1">
@@ -422,6 +422,10 @@
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Props_002.png" alt=""></p>
 <figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Greeting</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">Text</span>&gt; <span class="type">Hello</span> &#123;<span class="keyword">this</span>.props.name&#125;!&lt;/<span class="type">Text</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//组件</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_Props</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span> style = &#123;&#123;alignItems:<span class="string">"center"</span>&#125;&#125;&gt;</div><div class="line">        &lt;<span class="type">Greeting</span> name = <span class="string">"yue01"</span>/&gt;</div><div class="line">        &lt;<span class="type">Greeting</span> name = <span class="string">"yue02"</span>/&gt;</div><div class="line">        &lt;<span class="type">Greeting</span> name = <span class="string">"yue03"</span>/&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>Greeting组件中将name作为一个属性来定制，这样可以复用这一组件来制作各种不同的“问候语”。上面的例子把Greeting组件写在JSX语句中，用法和内置组件并无二致</p>
+<h1 id="super-props"><a href="#super-props" class="headerlink" title="super(props)"></a>super(props)</h1><blockquote>
+<p>在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错<br>因为子类实例的构建，是基于对父类实例加工，只有super方法才能返回父类实例</p>
+</blockquote>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Todo</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    constructor(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
