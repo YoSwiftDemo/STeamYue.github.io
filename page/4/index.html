@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -109,8 +109,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -276,26 +276,22 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
   </div>
-
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -414,17 +410,53 @@
       
         
           
-          RN-Error.md0.45.1版本引发
-①ReactNative版本为0.45.1,新建项目运行出现错误②Print: Entry, “:CFBundleIdentifier”, Does Not Exist
-错误报错：fatal error: 'boost/iterator/iterator_
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/08/RN-Error/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="RN-Error-md"><a href="#RN-Error-md" class="headerlink" title="RN-Error.md"></a>RN-Error.md</h1><h1 id="0-45-1版本引发"><a href="#0-45-1版本引发" class="headerlink" title="0.45.1版本引发"></a>0.45.1版本引发</h1><blockquote>
+<p>①ReactNative版本为0.45.1,新建项目运行出现错误<br>②Print: Entry, “:CFBundleIdentifier”, Does Not Exist</p>
+<h2 id="错误报错："><a href="#错误报错：" class="headerlink" title="错误报错："></a>错误报错：</h2><figure class="highlight vhdl"><table><tr><td class="code"><pre><div class="line">fatal <span class="literal">error</span>: <span class="symbol">'boost</span>/iterator/iterator_adaptor.hpp' <span class="keyword">file</span> <span class="keyword">not</span> found</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="错误原因："><a href="#错误原因：" class="headerlink" title="错误原因："></a>错误原因：</h2><p>0.45需要下载boost编译，因为被墙了所以会无法运行</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="方式1："><a href="#方式1：" class="headerlink" title="方式1："></a>方式1：</h3><blockquote>
+<p>1.项目中的package.json文件<br><img src="http://osq7nstcc.bkt.clouddn.com/RN-Error-001.png" alt="001"><br>2.删项目下，node_modules文件夹<br>3.终端<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install</span></div><div class="line"><span class="meta">$</span><span class="bash"> react-native run-ios</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="方式2"><a href="#方式2" class="headerlink" title="方式2"></a>方式2</h3><p>用–version参数创建指定版本的项目</p>
+<blockquote>
+<p>1.react-native init ProjectName –version 0.44.3<br>2.react-native run-ios</p>
+</blockquote>
+<h3 id="方式3"><a href="#方式3" class="headerlink" title="方式3"></a>方式3</h3><p>（package.json 改为0.44.3）</p>
+<blockquote>
+<p>cd+ 文件<br>node_modules 文件夹删除<br>命令 $ npm install<br>react-native upgrade     一直 y</p>
+</blockquote>
+<hr>
+<h1 id="漏掉return"><a href="#漏掉return" class="headerlink" title="漏掉return"></a>漏掉return</h1><p> 错误</p>
+<p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Error-002.png" alt=""></p>
+<p> 解决<br>在 render 补上  return（）</p>
+<hr>
+<h1 id="类大小写出错"><a href="#类大小写出错" class="headerlink" title="类大小写出错"></a>类大小写出错</h1><p> Error:</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">Expected <span class="selector-tag">a</span> component class,got[<span class="selector-tag">object</span> Object]</div></pre></td></tr></table></figure>
+<p>text  Text</p>
+<hr>
+<h1 id="return-和（）位置"><a href="#return-和（）位置" class="headerlink" title="return 和（）位置"></a>return 和（）位置</h1><p>error:<br><figure class="highlight smali"><table><tr><td class="code"><pre><div class="line">News.render():A valid React element(or null)must be returned.You may have retuned undefined,an<span class="built_in"> array </span>or some other invalid object</div></pre></td></tr></table></figure></p>
+<p>原因：return 后面的 （  千万别换行写、、、</p>
+<hr>
+<h1 id="打开多个程序，导致显示未注册"><a href="#打开多个程序，导致显示未注册" class="headerlink" title="打开多个程序，导致显示未注册"></a>打开多个程序，导致显示未注册</h1><p>同时在运行一个以上的程序，像我。如果你的react-native在运行程序A而你打开了程序B，也会出现相同的问题。解决方法：关闭另一个程序</p>
+<figure class="highlight oxygene"><table><tr><td class="code"><pre><div class="line">Application XXX <span class="keyword">has</span> <span class="keyword">not</span> been registered</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="运行后缺失文件"><a href="#运行后缺失文件" class="headerlink" title="运行后缺失文件"></a>运行后缺失文件</h1><h2 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h2><figure class="highlight gradle"><table><tr><td class="code"><pre><div class="line">h: line <span class="number">3</span>: ..<span class="regexp">/node_modules/</span>react-<span class="keyword">native</span><span class="regexp">/scripts/</span>react-<span class="keyword">native</span>-xcode.sh: No such <span class="keyword">file</span> or directory</div></pre></td></tr></table></figure>
+<h2 id="增加包解决"><a href="#增加包解决" class="headerlink" title="增加包解决"></a>增加包解决</h2><p>安装 npm-check-updates 这个包：npm i -g npm-check-updates<br>在项目目录下<br><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> rm -rf node_modulesncu -unpm install</span></div><div class="line"><span class="meta"> $</span><span class="bash"> npm install</span></div></pre></td></tr></table></figure></p>
+<p>此方法可以解决很多莫名其妙的 node 包依赖问题</p>
+<hr>
+<h1 id="导出错误"><a href="#导出错误" class="headerlink" title="导出错误"></a>导出错误</h1> <figure class="highlight delphi"><table><tr><td class="code"><pre><div class="line">Element <span class="keyword">type</span> <span class="keyword">is</span> invalid:expected sstring(<span class="keyword">for</span> built-<span class="keyword">in</span> components)<span class="keyword">or</span> a <span class="keyword">class</span>/<span class="function"><span class="keyword">function</span><span class="params">(<span class="keyword">for</span> composite components)</span><span class="title">but</span> <span class="title">got</span>:</span><span class="keyword">object</span>.You likely forgot <span class="keyword">to</span> <span class="keyword">export</span> your component from the <span class="keyword">file</span> it<span class="string">'s defined in</span></div></pre></td></tr></table></figure>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>写错 单词<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> =  MyListView;</div></pre></td></tr></table></figure></p>
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><h3 id="ES5-语法-导出模块"><a href="#ES5-语法-导出模块" class="headerlink" title="ES5 语法 导出模块"></a>ES5 语法 导出模块</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">module</span>.<span class="keyword">exports</span> = MyListView;</div></pre></td></tr></table></figure>
+<h3 id="ES5语法-引入模块"><a href="#ES5语法-引入模块" class="headerlink" title="ES5语法 引入模块"></a>ES5语法 引入模块</h3><figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">var NaviBar</span> = require(<span class="string">'./NaviBar'</span>);</div></pre></td></tr></table></figure>
+<h3 id="ES6-导出语法"><a href="#ES6-导出语法" class="headerlink" title="ES6 导出语法"></a>ES6 导出语法</h3><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export  <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Page2</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div></pre></td></tr></table></figure>
+<h3 id="ES6-语法-导入模块"><a href="#ES6-语法-导入模块" class="headerlink" title="ES6 语法 导入模块"></a>ES6 语法 导入模块</h3><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> NaviBar <span class="keyword">from</span> <span class="string">'./NaviBar'</span>;</div></pre></td></tr></table></figure>
+<hr>
+<p>#缺少报错node_modules文件<br><figure class="highlight ada"><table><tr><td class="code"><pre><div class="line">Couldn<span class="symbol">'t</span> find preset <span class="string">"react-native"</span> relative to directory ...Using babel-core <span class="keyword">at</span></div></pre></td></tr></table></figure></p>
+<p>版本应发错误解决方式3：去生成</p>
+<p>#<br><figure class="highlight stata"><table><tr><td class="code"><pre><div class="line"><span class="string">"type"</span>:<span class="string">"InternalError"</span>,<span class="string">"message"</span>:"react-packager has encountered <span class="keyword">an</span> internal <span class="keyword">erro</span></div></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -556,19 +588,17 @@
       
         
           
-          网络类
-AFN参数错误
-AFN参数错误AFNetworking来调用接口,发送请求. 引起崩溃
+            <h1 id="网络类"><a href="#网络类" class="headerlink" title="网络类"></a>网络类</h1><blockquote>
+<p>AFN参数错误</p>
+<h2 id="AFN参数错误"><a href="#AFN参数错误" class="headerlink" title="AFN参数错误"></a>AFN参数错误</h2><p>AFNetworking来调用接口,发送请求. 引起崩溃</p>
+</blockquote>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><div class="line">*** Terminating app due <span class="keyword">to</span> uncaught exception <span class="comment">'NSInvalidArgumentException',</span></div><div class="line">reason: <span class="comment">'*** -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]</span></div><div class="line">: attempt <span class="keyword">to</span> insert nil <span class="built_in">object</span> <span class="keyword">from</span> objects[<span class="number">0</span>]<span class="comment">'**</span></div></pre></td></tr></table></figure>
+<h2 id="字典的初始化"><a href="#字典的初始化" class="headerlink" title="字典的初始化"></a>字典的初始化</h2><figure class="highlight ceylon"><table><tr><td class="code"><pre><div class="line">NSDictionary *params = @&#123; @<span class="string">"key1"</span>:<span class="keyword">value</span><span class="number">1</span> ,@<span class="string">"key2"</span>:<span class="keyword">value</span><span class="number">2</span>&#125;;</div></pre></td></tr></table></figure>
+<p>但是,value的值一般都是动态传入的,所以有存在nil的可能</p>
+<h2 id="安全的方法"><a href="#安全的方法" class="headerlink" title="安全的方法"></a>安全的方法</h2><p>在传入前判断value是否为nil,或者使用较为安全的方法</p>
+<figure class="highlight clojure"><table><tr><td class="code"><pre><div class="line">[NSDictionary dictionaryWithObjectsAndKeys:value,@<span class="string">"key"</span>, <span class="literal">nil</span>]<span class="comment">;</span></div></pre></td></tr></table></figure>
 
-*** Terminating app due to uncaught exception 'NSInvalidArgumentException',reason: '*** -[__NSPlaceho
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/06/iOS-App-Error/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -678,15 +708,17 @@ AFN参数错误AFNetworking来调用接口,发送请求. 引起崩溃
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/06/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+          
         
       
     </div>
@@ -747,6 +779,7 @@ AFN参数错误AFNetworking来调用接口,发送请求. 引起崩溃
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -847,7 +880,7 @@ AFN参数错误AFNetworking来调用接口,发送请求. 引起崩溃
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 
@@ -949,12 +982,6 @@ AFN参数错误AFNetworking来调用接口,发送请求. 引起崩溃
 
 
 	
-
-
-
-
-
-  
 
 
 
@@ -1293,19 +1320,6 @@ AFN参数错误AFNetworking来调用接口,发送请求. 引起崩溃
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
 
 
 

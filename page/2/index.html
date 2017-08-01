@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -109,8 +109,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -276,26 +276,22 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
   </div>
-
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -414,20 +410,67 @@
       
         
           
-          TabBarIOS属性barTintColor
-View props…barTintColor string标签栏的背景颜色
+            <h1 id="TabBarIOS"><a href="#TabBarIOS" class="headerlink" title="TabBarIOS"></a>TabBarIOS</h1><h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="barTintColor"><a href="#barTintColor" class="headerlink" title="barTintColor"></a>barTintColor</h3><blockquote>
+<p>View props…<br>barTintColor string<br>标签栏的背景颜色</p>
+</blockquote>
+<h3 id="tintColor"><a href="#tintColor" class="headerlink" title="tintColor"></a>tintColor</h3><blockquote>
+<p>tintColor string<br>style View#style<br>当前被选中的标签图标的颜色</p>
+<h3 id="unselectedTintColor"><a href="#unselectedTintColor" class="headerlink" title="unselectedTintColor"></a>unselectedTintColor</h3><p>前被未选中的标签图标的颜色<br>这个与下面有啥区别？？</p>
+</blockquote>
+<h3 id="unselectedItemTintColor"><a href="#unselectedItemTintColor" class="headerlink" title="unselectedItemTintColor"></a>unselectedItemTintColor</h3><blockquote>
+<p>unselectedItemTintColor string<br>当前没有被选中的标签图标的颜色<br>仅在iOS 10及以上版本有效</p>
+</blockquote>
+<h3 id="translucent"><a href="#translucent" class="headerlink" title="translucent"></a>translucent</h3><blockquote>
+<p>translucent bool<br>一个布尔值，决定标签栏是否需要半透明化</p>
+<p>false和true 感觉没区别！？！？！</p>
+</blockquote>
+<hr>
+<h1 id="TabBarIOS-Item"><a href="#TabBarIOS-Item" class="headerlink" title="TabBarIOS.Item"></a>TabBarIOS.Item</h1><h2 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h2><h3 id="①badge"><a href="#①badge" class="headerlink" title="①badge:"></a>①badge:</h3><blockquote>
+<p>badge : string, number<br>在图标右上角显示一个红色的气泡<br>iOS中的消息角标，JSBadge这个库，不过是iOS是NSString</p>
+</blockquote>
+<h3 id="②icon"><a href="#②icon" class="headerlink" title="②icon"></a>②icon</h3><blockquote>
+<p>icon:Image.propTypes.source<br>给当前标签指定一个自定义的图标。如果定义了systemIcon属性， 这个属性会被忽略</p>
+</blockquote>
+<h3 id="③onPress"><a href="#③onPress" class="headerlink" title="③onPress"></a>③onPress</h3><blockquote>
+<p>onPress :function<br>当此标签被选中时调用。你应该修改组件的状态来使得selected={true}</p>
+</blockquote>
+<h3 id="④selected"><a href="#④selected" class="headerlink" title="④selected"></a>④selected</h3><blockquote>
+<p>selected : bool<br>这个属性决定了子视图是否可见。如果你看到一个空白的页面，很可能是没有选中任何一个标签</p>
+</blockquote>
+<h3 id="⑤selectedIcon"><a href="#⑤selectedIcon" class="headerlink" title="⑤selectedIcon"></a>⑤selectedIcon</h3><blockquote>
+<p>selectedIcon :Image.propTypes.source<br>当标签被选中的时候显示的自定义图标<br>如果定义了systemIcon属性，这个属性会被忽略<br>如果定义了icon而没定义这个属性，在选中的时候图标会染上蓝色</p>
+</blockquote>
+<h3 id="⑥style"><a href="#⑥style" class="headerlink" title="⑥style"></a>⑥style</h3><blockquote>
+<p>style :View#style<br>systemIcon: 一些预定义的系统图标。注意如果你使用了此属性，标题和自定义图标都会被覆盖为系统定义的值。</p>
+</blockquote>
+<figure class="highlight sml"><table><tr><td class="code"><pre><div class="line">systemIcon enum(<span class="symbol">'bookmarks'</span>, <span class="symbol">'contacts'</span>, <span class="symbol">'downloads'</span>, <span class="symbol">'favorites'</span>, <span class="symbol">'featured'</span>, <span class="symbol">'history'</span>, <span class="symbol">'more'</span>, <span class="symbol">'most</span>-recent', <span class="symbol">'most</span>-viewed', <span class="symbol">'recents'</span>, <span class="symbol">'search'</span>, <span class="symbol">'top</span>-rated')</div></pre></td></tr></table></figure>
+<h3 id="⑦title"><a href="#⑦title" class="headerlink" title="⑦title"></a>⑦title</h3><blockquote>
+<p>title: 在图标下面显示的标题文字。如果定义了systemIcon属性，这个属性会被忽略</p>
+</blockquote>
+<hr>
+<h1 id="TabBarIOS和Item组件理解"><a href="#TabBarIOS和Item组件理解" class="headerlink" title="TabBarIOS和Item组件理解"></a>TabBarIOS和Item组件理解</h1><blockquote>
+<p>TabBarIOS组件 类似 UITabBarController<br>TabBarIOS.Item 类似 childViewController<br>iOS中建出对应的child ViewController存到UITabBarController的viewControllers数组里，代理设置方法，设置child ViewController的tabBarItem属性来配置BarItem<br>RN中建对应的TabBarIOS.Item组件，封装在TabBarIOS组件中，通过设置TabBarIOS.Item的属性来配置BarItem</p>
+</blockquote>
+<h1 id="TabBar的简单使用"><a href="#TabBar的简单使用" class="headerlink" title="TabBar的简单使用"></a>TabBar的简单使用</h1><p><a href="https://github.com/STeamYue/RN_TaBarIOS" target="_blank" rel="external">Github 代码参考地址</a></p>
+<h2 id="TabBar-Simple-Demo目录"><a href="#TabBar-Simple-Demo目录" class="headerlink" title="TabBar_Simple_Demo目录"></a>TabBar_Simple_Demo目录</h2><blockquote>
+<p>ios.index.js<br>src<br>pages<br>HomePage.js<br>NextPages.js<br>MainTabBar.js<br>MyPage.js</p>
+</blockquote>
+<h2 id="ios-index-js"><a href="#ios-index-js" class="headerlink" title="ios.index.js"></a>ios.index.js</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="comment">//导出自定义的 MainTabBar</span></div><div class="line"><span class="keyword">import</span> <span class="type">MainTabBar</span> from <span class="string">"./src/pages/MainTabBar.js"</span></div><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">RN_TaBarIOS</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">MainTabBar</span>&gt;&lt;/<span class="type">MainTabBar</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="type">AppRegistry</span>.registerComponent(<span class="symbol">'RN_TaBarIO</span>S', () =&gt; <span class="type">RN_TaBarIOS</span>);</div></pre></td></tr></table></figure>
+<h2 id="MainTabBar-js"><a href="#MainTabBar-js" class="headerlink" title="MainTabBar.js"></a>MainTabBar.js</h2><h3 id="导出TabBar上的2个页面"><a href="#导出TabBar上的2个页面" class="headerlink" title="导出TabBar上的2个页面"></a>导出TabBar上的2个页面</h3><figure class="highlight capnproto"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> HomePage <span class="keyword">from</span> <span class="string">"./HomePage"</span></div><div class="line"><span class="keyword">import</span> MyPage <span class="keyword">from</span> <span class="string">"./MyPage"</span></div></pre></td></tr></table></figure>
+<h2 id="MainTabBar"><a href="#MainTabBar" class="headerlink" title="MainTabBar"></a>MainTabBar</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">MainTabBar</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="comment">// 构造函数初始化state的一个属性，selectedBarItem（任意起）属性值要与后面设置的TabBarIOS.Item时一致，代表着启动时候进度一个页面</span></div><div class="line">  constructor(props)&#123;</div><div class="line">    <span class="keyword">super</span> (props);</div><div class="line">    <span class="keyword">this</span>.state= &#123;</div><div class="line">      selectedBarItem:<span class="string">"home"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">TabBarIOS</span></div><div class="line">        <span class="comment">/*设置TabBar属性*/</span></div><div class="line">        <span class="comment">//标签栏的背景颜色</span></div><div class="line">        barTintColor = <span class="string">"white"</span></div><div class="line">        <span class="comment">//当前被选中的标签图标的颜色</span></div><div class="line">        tintColor = <span class="string">"green"</span></div><div class="line">        <span class="comment">//前被未选中的标签图标的颜色</span></div><div class="line">        unselectedTintColor =<span class="string">"black"</span></div><div class="line">        <span class="comment">//标签栏是否需要半透明化 false和true 感觉没区别</span></div><div class="line">        translucent = &#123;<span class="literal">true</span>&#125;</div><div class="line">        &gt;</div><div class="line">          &lt;<span class="type">TabBarIOS</span>.<span class="type">Item</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            title = <span class="string">"Item:首页"</span></div><div class="line">          <span class="comment">// selectedIcon = &#123;require("./home.png")&#125;</span></div><div class="line">          <span class="comment">//selected 表示当前this.state.selectedBarItemd等于某一个值，对应的BarItemd被选中</span></div><div class="line">            selected = &#123;<span class="keyword">this</span>.state.selectedBarItem == <span class="string">"home"</span>&#125;</div><div class="line">            <span class="comment">//onPress事件触发后，重新设置当前this.state.electedBarItemd的值未当前BarItemd</span></div><div class="line">            onPress = &#123;</div><div class="line">              ()=&gt;&#123;</div><div class="line">                <span class="keyword">this</span>.setState(&#123;selectedBarItem:<span class="string">"home"</span>&#125;)</div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">            &gt;</div><div class="line">          &#123;<span class="comment">/* &lt;HomePage&gt;&lt;/HomePage&gt; */</span>&#125;</div><div class="line"></div><div class="line">          &lt;<span class="type">NavigatorIOS</span></div><div class="line">             style=&#123;&#123;flex:<span class="number">1</span>&#125;&#125;</div><div class="line">             initialRoute = &#123;&#123;</div><div class="line">               component: <span class="type">HomePage</span>,</div><div class="line">               title: '首页'</div><div class="line">             &#125;&#125;</div><div class="line">            <span class="comment">//renderScene function:必要参数,用来渲染指定路由的场景,调用的参数是路由和导航器</span></div><div class="line">             renderScene = &#123; (route, navigator) =&gt; &#123;</div><div class="line">               let <span class="type">HomePage</span> = route.component;</div><div class="line">               <span class="keyword">return</span> &lt;<span class="type">HomePage</span> navigator=&#123;navigator&#125;/&gt;</div><div class="line">             &#125;&#125;</div><div class="line">             &gt;</div><div class="line">           &lt;/<span class="type">NavigatorIOS</span>&gt;</div><div class="line"></div><div class="line">          &lt;/<span class="type">TabBarIOS</span>.<span class="type">Item</span>&gt;</div><div class="line">          &lt;<span class="type">TabBarIOS</span>.<span class="type">Item</span></div><div class="line">            title = <span class="string">"我的"</span></div><div class="line">            selected = &#123;<span class="keyword">this</span>.state.selectedBarItem === <span class="string">"myPage"</span>&#125;</div><div class="line">            onPress = &#123;</div><div class="line">              ()=&gt;&#123;</div><div class="line">                <span class="keyword">this</span>.setState(&#123;selectedBarItem:<span class="string">"myPage"</span>&#125;)</div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">            &gt;</div><div class="line">            &lt;<span class="type">MyPage</span>&gt;&lt;/<span class="type">MyPage</span>&gt;</div><div class="line">          &lt;/<span class="type">TabBarIOS</span>.<span class="type">Item</span>&gt;</div><div class="line">      &lt;/<span class="type">TabBarIOS</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="HomePage-js"><a href="#HomePage-js" class="headerlink" title="HomePage.js"></a>HomePage.js</h2><h3 id="①导入TouchableOpacity、NavigatorIOS"><a href="#①导入TouchableOpacity、NavigatorIOS" class="headerlink" title="①导入TouchableOpacity、NavigatorIOS"></a>①导入TouchableOpacity、NavigatorIOS</h3><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  AppRegistry,</div><div class="line">  StyleSheet,</div><div class="line">  Text,</div><div class="line">  View,</div><div class="line">  TouchableOpacity,</div><div class="line">  NavigatorIOS</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div></pre></td></tr></table></figure>
+<h3 id="导入NextPage"><a href="#导入NextPage" class="headerlink" title="导入NextPage"></a>导入NextPage</h3><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> NextPage <span class="keyword">from</span> <span class="string">'./NextPage'</span></div></pre></td></tr></table></figure>
+<h3 id="HomePage"><a href="#HomePage" class="headerlink" title="HomePage"></a>HomePage</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">import NextPage from &apos;./NextPage&apos;</div><div class="line"></div><div class="line">export default class HomePage extends Component &#123;</div><div class="line"></div><div class="line">  _gotoNextPage() &#123;</div><div class="line">    this.props.navigator.push(&#123;</div><div class="line">      name: &apos;NextPage&apos;,</div><div class="line">      component: NextPage</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    return (</div><div class="line">      &lt;View style=&#123;styles.container&#125;&gt;</div><div class="line">        &lt;Text style=&#123;styles.text&#125;&gt;这是首页&lt;/Text&gt;</div><div class="line">        &lt;TouchableOpacity style=&#123;styles.nextBtn&#125; onPress=&#123;this._gotoNextPage.bind(this)&#125;&gt;</div><div class="line">          &lt;Text style=&#123;styles.nextText&#125;&gt;进入下一页&lt;/Text&gt;</div><div class="line">        &lt;/TouchableOpacity&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">var</span> <span class="string">styles</span> <span class="string">=</span> <span class="string">StyleSheet.create(&#123;</span></div><div class="line"><span class="attr">  container:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    flex:</span><span class="number">1</span><span class="string">,</span></div><div class="line"><span class="attr">    backgroundColor:</span> <span class="string">'yellow'</span><span class="string">,</span></div><div class="line"><span class="attr">    justifyContent:</span> <span class="string">'center'</span><span class="string">,</span></div><div class="line"><span class="attr">    alignItems:</span> <span class="string">'center'</span></div><div class="line">  <span class="string">&#125;,</span></div><div class="line"><span class="attr">  text:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    fontSize:</span> <span class="number">20</span><span class="string">,</span></div><div class="line"><span class="attr">    color:</span> <span class="string">'red'</span></div><div class="line">  <span class="string">&#125;,</span></div><div class="line"><span class="attr">  nextBtn:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    width:</span> <span class="number">120</span><span class="string">,</span></div><div class="line"><span class="attr">    height:</span> <span class="number">30</span><span class="string">,</span></div><div class="line"><span class="attr">    marginTop:</span> <span class="number">50</span><span class="string">,</span></div><div class="line"><span class="attr">    borderWidth:</span> <span class="number">1</span><span class="string">,</span></div><div class="line"><span class="attr">    borderRadius:</span> <span class="number">5</span><span class="string">,</span></div><div class="line"><span class="attr">    backgroundColor:</span> <span class="string">'blue'</span></div><div class="line">  <span class="string">&#125;,</span></div><div class="line"><span class="attr">  nextText:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    flex:</span><span class="number">1</span><span class="string">,</span></div><div class="line"><span class="attr">    color:</span> <span class="string">'white'</span><span class="string">,</span></div><div class="line"><span class="attr">    fontSize:</span> <span class="number">20</span><span class="string">,</span></div><div class="line"><span class="attr">    textAlign:</span> <span class="string">'center'</span></div><div class="line">  <span class="string">&#125;</span></div><div class="line"><span class="string">&#125;);</span></div></pre></td></tr></table></figure>
+<h2 id="MyPage-js"><a href="#MyPage-js" class="headerlink" title="MyPage.js"></a>MyPage.js</h2><h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPage</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line"></div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span> style=&#123;styles.container&#125;&gt;</div><div class="line">        &lt;<span class="type">Text</span> style=&#123;styles.text&#125;&gt;这是个人中心页面&lt;/<span class="type">Text</span>&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="样式-1"><a href="#样式-1" class="headerlink" title="样式"></a>样式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">var</span> <span class="string">styles</span> <span class="string">=</span> <span class="string">StyleSheet.create(&#123;</span></div><div class="line"><span class="attr">  container:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    flex:</span><span class="number">1</span><span class="string">,</span></div><div class="line"><span class="attr">    backgroundColor:</span> <span class="string">'green'</span><span class="string">,</span></div><div class="line"><span class="attr">    justifyContent:</span> <span class="string">'center'</span><span class="string">,</span></div><div class="line"><span class="attr">    alignItems:</span> <span class="string">'center'</span></div><div class="line">  <span class="string">&#125;,</span></div><div class="line"><span class="attr">  text:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    fontSize:</span> <span class="number">10</span><span class="string">,</span></div><div class="line"><span class="attr">    color:</span> <span class="string">'red'</span></div><div class="line">  <span class="string">&#125;</span></div><div class="line"><span class="string">&#125;);</span></div></pre></td></tr></table></figure>
+<h2 id="NextPage-js"><a href="#NextPage-js" class="headerlink" title="NextPage.js"></a>NextPage.js</h2><h3 id="组件-1"><a href="#组件-1" class="headerlink" title="组件"></a>组件</h3><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">NextPage</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span> style=&#123;styles.container&#125;&gt;</div><div class="line">        &lt;<span class="type">Text</span> style=&#123;styles.text&#125;&gt;这是下一页&lt;/<span class="type">Text</span>&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="样式-2"><a href="#样式-2" class="headerlink" title="样式"></a>样式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">var</span> <span class="string">styles</span> <span class="string">=</span> <span class="string">StyleSheet.create(&#123;</span></div><div class="line"><span class="attr">  container:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    flex:</span><span class="number">1</span><span class="string">,</span></div><div class="line"><span class="attr">    backgroundColor:</span> <span class="string">'blue'</span><span class="string">,</span></div><div class="line"><span class="attr">    justifyContent:</span> <span class="string">'center'</span><span class="string">,</span></div><div class="line"><span class="attr">    alignItems:</span> <span class="string">'center'</span></div><div class="line">  <span class="string">&#125;,</span></div><div class="line"><span class="attr">  text:</span> <span class="string">&#123;</span></div><div class="line"><span class="attr">    fontSize:</span> <span class="number">20</span><span class="string">,</span></div><div class="line"><span class="attr">    color:</span> <span class="string">'red'</span></div><div class="line">  <span class="string">&#125;</span></div><div class="line"><span class="string">&#125;);</span></div></pre></td></tr></table></figure>
+<h1 id="其他笔记"><a href="#其他笔记" class="headerlink" title="其他笔记"></a>其他笔记</h1><h2 id="renderScene"><a href="#renderScene" class="headerlink" title="renderScene"></a>renderScene</h2><p><a href="http://blog.csdn.net/huaheshangxo/article/details/50926946" target="_blank" rel="external">http://blog.csdn.net/huaheshangxo/article/details/50926946</a><br>该方法就相当于我们使用的startActivity方法了，我们可以在该方法中设置需要渲染的场景（跳转的页面），该方法接收两个参数（必要参数），route和navigator，其中route就是路由的页面，navigator是一个Navigator对象，因为Navigator对象拥有pop，push，jump等方法，我们需要导航器对象来实现页面的跳转。而路由route需要我们提前进行配置<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">renderScene=&#123;(route, navigator) =&gt; &#123;</div><div class="line">      <span class="keyword">let</span> Component = route.component;</div><div class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Component</span> &#123;<span class="attr">...route.params</span>&#125; <span class="attr">navigator</span>=<span class="string">&#123;navigator&#125;</span> /&gt;</span></span></div><div class="line">    &#125;&#125;</div></pre></td></tr></table></figure></p>
+<p>通过上面的方法来实现页面的跳转，同时将导航器作为属性进行传递过去。之前说过，route需要进行配置，通过initialRoute方法来对我们的路由进行初始化</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">initialRoute=&#123;&#123; <span class="string">name:</span> defaultName, <span class="string">component:</span> defaultComponent &#125;&#125;</div></pre></td></tr></table></figure>
 
-tintColor
-tintColor stringstyle View#style当前被选中的标签图标的颜色
-unselectedTintColor前被未选中的标签图标的
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/23/RN-TabBarIOS/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -559,19 +602,51 @@ unselectedTintColor前被未选中的标签图标的
       
         
           
-          Redux基本原则参考链接
-##①单一数据源
+            <h1 id="Redux基本原则"><a href="#Redux基本原则" class="headerlink" title="Redux基本原则"></a>Redux基本原则</h1><p><a href="http://blog.csdn.net/codetomylaw/article/details/52389716" target="_blank" rel="external">参考链接</a></p>
+<p>##①单一数据源</p>
+<blockquote>
+<p>整个应用的 state 被储存在一棵 object tree 中<br>并且这个 object tree 只存在于唯一一个 store 中</p>
+<p>##②State 是只读的<br>惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普通对象</p>
+<p>##③使用纯函数来执行修改<br>为了描述 action 如何改变 state tree ，需要编写 reducers</p>
+</blockquote>
+<h1 id="基本概念Action-Reducer-Store"><a href="#基本概念Action-Reducer-Store" class="headerlink" title="基本概念Action/Reducer/Store"></a>基本概念Action/Reducer/Store</h1><h2 id="①Action"><a href="#①Action" class="headerlink" title="①Action"></a>①Action</h2><blockquote>
+<p>Action 本质上是 JavaScript 普通对象<br>我们约定，action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作<br>多数情况下，type 会被定义成字符串常量<br>当应用规模越来越大时，建议使用单独的模块或文件来存放 action</p>
+</blockquote>
+<figure class="highlight dart"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> addTodo = (<span class="built_in">num</span>) =&gt; &#123;  </div><div class="line">  <span class="keyword">return</span> &#123;  </div><div class="line">    type: <span class="string">'INCREMENT'</span>,  </div><div class="line">    <span class="built_in">num</span>: <span class="built_in">num</span>,  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> decTodo = (<span class="built_in">num</span>) =&gt; &#123;  </div><div class="line">  <span class="keyword">return</span> &#123;  </div><div class="line">    type: <span class="string">'DECREMENT'</span>,  </div><div class="line">    <span class="built_in">num</span>: <span class="built_in">num</span>,  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> updateText = (text) =&gt; &#123;  </div><div class="line">  <span class="keyword">return</span> &#123;  </div><div class="line">    type: <span class="string">'TEXT_UPDATE'</span>,  </div><div class="line">    text: text,  </div><div class="line">  &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Reducer"><a href="#Reducer" class="headerlink" title="Reducer"></a>Reducer</h2><blockquote>
+<p>Reducer 就是一个纯函数，接收旧的 state 和 action，返回新的 state</p>
+</blockquote>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">(<span class="name">previousState</span>, action) =&gt; newState</div></pre></td></tr></table></figure>
+<h3 id="保持reducer纯净"><a href="#保持reducer纯净" class="headerlink" title="保持reducer纯净"></a>保持reducer纯净</h3><p>保持 reducer 纯净非常重要。永远不要在 reducer 里做这些操作</p>
+<blockquote>
+<p>修改传入参数<br>执行有副作用的操作，如 API 请求和路由跳转<br>调用非纯函数，如 Date.now() 或 Math.random()</p>
+</blockquote>
+<h3 id="定义了2个reduce-（reduceNum-js-reduceText-js）"><a href="#定义了2个reduce-（reduceNum-js-reduceText-js）" class="headerlink" title="定义了2个reduce （reduceNum.js   reduceText.js）"></a>定义了2个reduce （reduceNum.js   reduceText.js）</h3><blockquote>
+<p>educeNum</p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">const todo = (<span class="keyword">state</span>=<span class="number">0</span>, action) =&gt; &#123;  </div><div class="line">  switch (action.type) &#123;  </div><div class="line">    case 'INCREMENT':  </div><div class="line">      return <span class="keyword">state</span> + <span class="number">1</span>  </div><div class="line">    case 'DECREMENT':  </div><div class="line">      return <span class="keyword">state</span> - <span class="number">1</span>  </div><div class="line">    <span class="keyword">default</span>:  </div><div class="line">      return <span class="keyword">state</span>//返回原来的<span class="keyword">state</span>  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">export <span class="keyword">default</span> todo</div></pre></td></tr></table></figure>
+<blockquote>
+<p>educeText</p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">const todo = (<span class="keyword">state</span>=<span class="string">""</span>, action) =&gt; &#123;  </div><div class="line">  </div><div class="line">  switch (action.type) &#123;  </div><div class="line">    case 'TEXT_UPDATE':  </div><div class="line">    //新的<span class="keyword">state</span>  </div><div class="line">      return  action.text   </div><div class="line">    <span class="keyword">default</span>:  </div><div class="line">      //返回原来的<span class="keyword">state</span>  </div><div class="line">      return <span class="keyword">state</span>  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">export <span class="keyword">default</span> todo</div></pre></td></tr></table></figure>
+<blockquote>
+<p>使用combineReducers 合并reduce </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; combineReducers &#125; <span class="keyword">from</span> <span class="string">'redux'</span>  </div><div class="line"><span class="keyword">import</span> reduceNum <span class="keyword">from</span> <span class="string">'./reduceNum'</span>  </div><div class="line"><span class="keyword">import</span> reduceText <span class="keyword">from</span> <span class="string">'./reduceText'</span>  </div><div class="line">  </div><div class="line"><span class="keyword">const</span> todoApp = combineReducers(&#123;  </div><div class="line">  <span class="attr">num</span>:reduceNum,  </div><div class="line">  <span class="attr">text</span>:reduceText  </div><div class="line">&#125;)  </div><div class="line">  </div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> todoApp</div></pre></td></tr></table></figure>
+<h2 id="②Store"><a href="#②Store" class="headerlink" title="②Store"></a>②Store</h2><blockquote>
+<p>Store 就是把action和reduce联系到一起的对象<br>再次强调一下 Redux 应用只有一个单一的 store<br>当需要拆分数据处理逻辑时，你应该使用 reducer 组合 而不是创建多个 store。</p>
+</blockquote>
+<h3 id="职责"><a href="#职责" class="headerlink" title="职责"></a>职责</h3><blockquote>
+<p>维持应用的 state<br>提供 getState() 方法获取 state<br>提供 dispatch(action) 方法更新 state<br>通过 subscribe(listener) 注册监听器<br>通过 subscribe(listener) 返回的函数注销监听器</p>
+</blockquote>
+<h3 id="创建-store"><a href="#创建-store" class="headerlink" title="创建 store"></a>创建 store</h3><blockquote>
+<p>根据已有的 reducer 来创建 store 是非常容易的<br>使用 combineReducers() 将多个 reducer 合并成为一个<br>现在我们将其导入，并传递 createStore()<br>createStore() 的第二个参数是可选的, 用于设置 state 初始状态</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> reducers <span class="keyword">from</span> <span class="string">'./reducers'</span>  </div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>  </div><div class="line">  </div><div class="line"><span class="keyword">let</span> initState = &#123; num: <span class="number">0</span>,text:<span class="string">""</span>&#125;;  </div><div class="line"><span class="keyword">let</span> store = createStore(reducers,initState);</div></pre></td></tr></table></figure>
+<h1 id="Demo源码"><a href="#Demo源码" class="headerlink" title="Demo源码"></a>Demo源码</h1><h2 id="入口组件"><a href="#入口组件" class="headerlink" title="入口组件"></a>入口组件</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * Sample React Native App </div><div class="line"> * https://github.com/facebook/react-native </div><div class="line"> * @flow </div><div class="line"> */  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;  </div><div class="line"><span class="keyword">import</span> &#123;  </div><div class="line">  AppRegistry,  </div><div class="line">  StyleSheet,  </div><div class="line">  Text,  </div><div class="line">  View  </div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;  </div><div class="line">  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>  </div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> reducers <span class="keyword">from</span> <span class="string">'./reducers'</span>  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> AddTodo <span class="keyword">from</span> <span class="string">'./containers/AddTodo'</span>  </div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">reduxdemo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;  </div><div class="line">  </div><div class="line">  render() &#123;  </div><div class="line">    <span class="comment">// let initState = &#123; num: 0,text:""&#125;;  </span></div><div class="line">    <span class="keyword">let</span> store = createStore(reducers);  </div><div class="line">    <span class="keyword">return</span> (  </div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span>  </span></div><div class="line">          <span class="tag">&lt;<span class="name">AddTodo</span> /&gt;</span>  </div><div class="line">        <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span>  </div><div class="line">    )  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line">  </div><div class="line">AppRegistry.registerComponent(<span class="string">'reduxdemo'</span>, () =&gt; reduxdemo);</div></pre></td></tr></table></figure>
+<h2 id="视图组件：AddTodo"><a href="#视图组件：AddTodo" class="headerlink" title="视图组件：AddTodo"></a>视图组件：AddTodo</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span>  </div><div class="line"><span class="keyword">import</span> &#123;  </div><div class="line">  AppRegistry,  </div><div class="line">  StyleSheet,  </div><div class="line">  Text,  </div><div class="line">  View,  </div><div class="line">  TouchableHighlight,  </div><div class="line">  Dimensions,  </div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;  </div><div class="line"><span class="keyword">import</span> &#123; connect,Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>  </div><div class="line"><span class="keyword">import</span> &#123; addTodo,decTodo,updateText &#125; <span class="keyword">from</span> <span class="string">'../actions'</span>  </div><div class="line">  </div><div class="line"><span class="keyword">const</span> &#123;width, height&#125; = Dimensions.get(<span class="string">'window'</span>);  </div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AddTodo</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;  </div><div class="line">    <span class="keyword">constructor</span>(props) &#123;  </div><div class="line">      <span class="keyword">super</span>(props);  </div><div class="line">    &#125;  </div><div class="line">  </div><div class="line">    render() &#123;  </div><div class="line">      <span class="keyword">const</span> &#123; dispatch,num ,text&#125; = <span class="keyword">this</span>.props  </div><div class="line">      <span class="comment">// alert(num);  </span></div><div class="line">      <span class="keyword">return</span> (  </div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span>  </span></div><div class="line">          <span class="tag">&lt;<span class="name">TouchableHighlight</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemView&#125;</span> <span class="attr">underlayColor</span>=<span class="string">"red"</span> <span class="attr">onPress</span>=<span class="string">&#123;()</span>=&gt;</span>&#123;dispatch(addTodo(num))&#125;&#125;&gt;  </div><div class="line">              <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemText&#125;</span>&gt;</span>  </div><div class="line">                点击我就+1  </div><div class="line">              <span class="tag">&lt;/<span class="name">Text</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;/<span class="name">TouchableHighlight</span>&gt;</span>  </div><div class="line">  </div><div class="line">          <span class="tag">&lt;<span class="name">TouchableHighlight</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemView&#125;</span> <span class="attr">underlayColor</span>=<span class="string">"red"</span> <span class="attr">onPress</span>=<span class="string">&#123;()</span>=&gt;</span>&#123;dispatch(decTodo(num))&#125;&#125;&gt;  </div><div class="line">              <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemText&#125;</span>&gt;</span>  </div><div class="line">                点击我就-1  </div><div class="line">              <span class="tag">&lt;/<span class="name">Text</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;/<span class="name">TouchableHighlight</span>&gt;</span>  </div><div class="line">  </div><div class="line">          <span class="tag">&lt;<span class="name">TouchableHighlight</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemView&#125;</span> <span class="attr">underlayColor</span>=<span class="string">"red"</span> <span class="attr">onPress</span>=<span class="string">&#123;()</span>=&gt;</span>&#123;dispatch(updateText('测试'))&#125;&#125;&gt;  </div><div class="line">              <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.itemText&#125;</span>&gt;</span>  </div><div class="line">                修改Text的值  </div><div class="line">              <span class="tag">&lt;/<span class="name">Text</span>&gt;</span>  </div><div class="line">          <span class="tag">&lt;/<span class="name">TouchableHighlight</span>&gt;</span>  </div><div class="line">  </div><div class="line">          <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;&#123;paddingTop:10,color:</span>'<span class="attr">red</span>'&#125;&#125;&gt;</span>  </div><div class="line">            当前的Num值是:&#123;num&#125; ， 当前的Text值是：&#123;text&#125;  </div><div class="line">          <span class="tag">&lt;/<span class="name">Text</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;/<span class="name">View</span>&gt;</span>  </div><div class="line">      )  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;  </div><div class="line">  <span class="attr">container</span>: &#123;  </div><div class="line">    <span class="attr">flex</span>: <span class="number">1</span>,  </div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'#f2f2f2'</span>,  </div><div class="line">    <span class="attr">marginTop</span>:<span class="number">20</span>,  </div><div class="line">  &#125;,  </div><div class="line">  <span class="attr">itemView</span>:&#123;  </div><div class="line">    <span class="attr">backgroundColor</span>:<span class="string">'grey'</span>,  </div><div class="line">    <span class="attr">height</span>:<span class="number">44</span>,  </div><div class="line">    <span class="attr">width</span>:width,  </div><div class="line">    <span class="attr">justifyContent</span>:<span class="string">'center'</span>,  </div><div class="line">    <span class="attr">marginTop</span>:<span class="number">10</span>,  </div><div class="line">  &#125;,  </div><div class="line">  <span class="attr">itemText</span>:&#123;  </div><div class="line">    <span class="attr">fontSize</span>:<span class="number">15</span>,  </div><div class="line">    <span class="attr">color</span>:<span class="string">'#ffffff'</span>,  </div><div class="line">    <span class="attr">textAlign</span>:<span class="string">'left'</span>,  </div><div class="line">    <span class="attr">marginLeft</span>:<span class="number">20</span>,  </div><div class="line">  &#125;,  </div><div class="line">&#125;);  </div><div class="line">  </div><div class="line"><span class="comment">//selector：这是你自己编写的一个函数。这个函数声明了你的组件需要整个 store 中的哪一部分数据作为自己的 props。  </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">selector</span>(<span class="params">state</span>) </span>&#123;  </div><div class="line">  <span class="keyword">return</span> &#123;  </div><div class="line">    <span class="attr">num</span>: state.num ,  </div><div class="line">    <span class="attr">text</span>:state.text  </div><div class="line">  &#125;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="comment">// 包装 component ，注入 dispatch 和 state 到其默认的 connect(selector)(App) 中；  </span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(selector)(AddTodo);</div></pre></td></tr></table></figure>
 
-整个应用的 state 被储存在一棵 object tree 中并且这个 object tree 只存在于唯一一个 store 中
-##②State 是只读的惟一改变 state 的方法就是触发 action，action 是一个用于描述已发生事件的普
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/22/RN-Redux/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -703,17 +778,78 @@ unselectedTintColor前被未选中的标签图标的
       
         
           
-          RN_NavigatorIOS导航条
-React Native中有两个组件:①Navigator ②NavigatorIOS① Navigator:适配Android和iOS(导航条需要自定义)②NavigatorIOS:包装UIKit的导航功能，可使用左划功能来返回到上一界面(导航条不能自定义)
-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/21/RN-NavigatorIOS/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="RN-NavigatorIOS导航条"><a href="#RN-NavigatorIOS导航条" class="headerlink" title="RN_NavigatorIOS导航条"></a>RN_NavigatorIOS导航条</h1><blockquote>
+<p>React Native中有两个组件:①Navigator ②NavigatorIOS<br>① Navigator:适配Android和iOS(导航条需要自定义)<br>②NavigatorIOS:包装UIKit的导航功能，可使用左划功能来返回到上一界面(导航条不能自定义)</p>
+<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h2 id="①barTintColor"><a href="#①barTintColor" class="headerlink" title="①barTintColor"></a>①barTintColor</h2><p>barTintColor:string<br>导航条的背景颜色</p>
+</blockquote>
+<h2 id="②initialRoute"><a href="#②initialRoute" class="headerlink" title="②initialRoute"></a>②initialRoute</h2><blockquote>
+<p>NavigatorIOS使用”路由”对象来包含要渲染的子视图、它们的属性、以及导航条配置<br>“push”和任何其它的导航函数的参数都是这样的路由对象</p>
+</blockquote>
+<figure class="highlight delphi"><table><tr><td class="code"><pre><div class="line">component:          <span class="function"><span class="keyword">function</span>,               <span class="comment">// 路由到对应的版块,加载的视图组件</span></span></div><div class="line"><span class="title">title</span>:              <span class="keyword">string</span>,                 <span class="comment">// 当前视图的标题</span></div><div class="line">passProps:          <span class="keyword">object</span>,                 <span class="comment">// 传递的参数</span></div><div class="line">backButtonIcon:     Image.propTypes.source, <span class="comment">// 返回按钮</span></div><div class="line">backButtonTitle:    <span class="keyword">string</span>,                 <span class="comment">// 返回按钮标题</span></div><div class="line">leftButtonIcon:     Image.propTypes.source, <span class="comment">// 左侧按钮图标</span></div><div class="line">leftButtonTitle:    <span class="keyword">string</span>,                 <span class="comment">// 左侧按钮标题  </span></div><div class="line">onLeftButtonPress:  <span class="function"><span class="keyword">function</span>,               <span class="comment">// 左侧按钮点击事件</span></span></div><div class="line"><span class="title">rightButtonIcon</span>:    Image.propTypes.source, <span class="comment">// 右侧按钮图标</span></div><div class="line">rightButtonTitle:   <span class="keyword">string</span>,                 <span class="comment">// 右侧按钮标题</span></div><div class="line">onRightButtonPress: <span class="function"><span class="keyword">function</span>,               <span class="comment">// 右侧按钮点击事件</span></span></div><div class="line"><span class="title">wrapperStyle</span>:       [<span class="keyword">object</span> <span class="keyword">Object</span>]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>简单使用</p>
+</blockquote>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><div class="line">&lt;NavigatorIOS </div><div class="line">    style=&#123;&#123;flex:<span class="number">1</span>,</div><div class="line">            backgroundColor:<span class="string">'red'</span>&#125;&#125; </div><div class="line">    initialRoute=&#123;&#123; component: OneView, </div><div class="line">                    title: <span class="string">'首页'</span>, </div><div class="line">                    leftButtonIcon:&#123;uri<span class="string">'bar_btn_left'</span>&#125;, &#125;&#125; /&gt;</div></pre></td></tr></table></figure>
+<h2 id="③itemWrapperStyle"><a href="#③itemWrapperStyle" class="headerlink" title="③itemWrapperStyle"></a>③itemWrapperStyle</h2><blockquote>
+<p>itemWrapperStyle View#style<br>导航器中的组件的默认属性。一个常见的用途是设置所有页面的背景颜色</p>
+</blockquote>
+<h2 id="④navigationBarHidden"><a href="#④navigationBarHidden" class="headerlink" title="④navigationBarHidden"></a>④navigationBarHidden</h2><blockquote>
+<p>navigationBarHidden : bool </p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">一个布尔值，决定导航栏是否隐藏</div></pre></td></tr></table></figure>
+<h2 id="⑤shadowHidden"><a href="#⑤shadowHidden" class="headerlink" title="⑤shadowHidden"></a>⑤shadowHidden</h2><blockquote>
+<p>shadowHidden:bool<br>一个布尔值，决定是否要隐藏1像素的阴影</p>
+</blockquote>
+<h2 id="⑥tintColor"><a href="#⑥tintColor" class="headerlink" title="⑥tintColor"></a>⑥tintColor</h2><blockquote>
+<p>tintColor:string<br>导航栏上按钮的颜色</p>
+</blockquote>
+<h2 id="⑦titleTextColor"><a href="#⑦titleTextColor" class="headerlink" title="⑦titleTextColor"></a>⑦titleTextColor</h2><blockquote>
+<p>titleTextColor:string<br>导航器标题的文字颜色</p>
+</blockquote>
+<h2 id="⑧translucent"><a href="#⑧translucent" class="headerlink" title="⑧translucent"></a>⑧translucent</h2><blockquote>
+<p>translucent bool<br>一个布尔值，决定是否导航条是半透明的</p>
+</blockquote>
+<h2 id="⑨interactivePopGestureEnabled"><a href="#⑨interactivePopGestureEnabled" class="headerlink" title="⑨interactivePopGestureEnabled"></a>⑨interactivePopGestureEnabled</h2><blockquote>
+<p>interactivePopGestureEnabled bool<br>决定是否启用滑动返回手势。不指定此属性时，手势会根据navigationBar的显隐情况决定是否启用（显示时启用手势，隐藏时禁用手势）。指定此属性后，手势与navigationBar的显隐情况无关</p>
+</blockquote>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="①push-route"><a href="#①push-route" class="headerlink" title="①push(route)"></a>①push(route)</h2><p>导航器跳转到一个新的路由</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">push(route: &#123;</div><div class="line"><span class="symbol">  component:</span> Function<span class="comment">;</span></div><div class="line"><span class="symbol">  title:</span> string<span class="comment">;</span></div><div class="line">  passProps?: Object<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonTitle?: </span>string<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonIcon?: </span>Object<span class="comment">;</span></div><div class="line">  leftButtonTitle?: string<span class="comment">;</span></div><div class="line">  leftButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onLeftButtonPress?: Function<span class="comment">;</span></div><div class="line">  rightButtonTitle?: string<span class="comment">;</span></div><div class="line">  rightButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onRightButtonPress?: Function<span class="comment">;</span></div><div class="line">  wrapperStyle?: any<span class="comment">;</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">Navigate forward to a new route</div></pre></td></tr></table></figure>
+<h2 id="②popN-n"><a href="#②popN-n" class="headerlink" title="②popN(n)"></a>②popN(n)</h2><blockquote>
+<p>回到N页之前。当N=1的时候，效果和 pop() 一样</p>
+</blockquote>
+<figure class="highlight http"><table><tr><td class="code"><pre><div class="line"><span class="attribute">popN(n</span>: number)</div><div class="line"></div><div class="line"><span class="mipsasm">Go <span class="keyword">back </span>N pages <span class="built_in">at</span> once. When N=<span class="number">1</span>, <span class="keyword">behavior </span>matches pop()</span></div></pre></td></tr></table></figure>
+<h2 id="③pop"><a href="#③pop" class="headerlink" title="③pop()"></a>③pop()</h2><blockquote>
+<p>回到上一页</p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">Go <span class="keyword">back</span> one page</div></pre></td></tr></table></figure>
+<h2 id="④replaceAtIndex"><a href="#④replaceAtIndex" class="headerlink" title="④replaceAtIndex"></a>④replaceAtIndex</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">replaceAtIndex(route: &#123;</div><div class="line"><span class="symbol">  component:</span> Function<span class="comment">;</span></div><div class="line"><span class="symbol">  title:</span> string<span class="comment">;</span></div><div class="line">  passProps?: Object<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonTitle?: </span>string<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonIcon?: </span>Object<span class="comment">;</span></div><div class="line">  leftButtonTitle?: string<span class="comment">;</span></div><div class="line">  leftButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onLeftButtonPress?: Function<span class="comment">;</span></div><div class="line">  rightButtonTitle?: string<span class="comment">;</span></div><div class="line">  rightButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onRightButtonPress?: Function<span class="comment">;</span></div><div class="line">  wrapperStyle?: any<span class="comment">;</span></div><div class="line">&#125;, index: number) <span class="comment">#</span></div><div class="line"></div><div class="line">Replace a route in the navigation stack.</div><div class="line"></div><div class="line">index specifies the route in the stack that <span class="keyword">should </span><span class="keyword">be </span>replaced. If it<span class="string">'s negative, it counts from the back.</span></div></pre></td></tr></table></figure>
+<h2 id="⑤replace-route"><a href="#⑤replace-route" class="headerlink" title="⑤replace(route)"></a>⑤replace(route)</h2><blockquote>
+<p>替换当前页的路由，并立即加载新路由的视图</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">replace(route: &#123;</div><div class="line">  component: Function;</div><div class="line">  title: string;</div><div class="line">  passProps?: Object;</div><div class="line">  backButtonTitle?: string;</div><div class="line">  backButtonIcon?: Object;</div><div class="line">  leftButtonTitle?: string;</div><div class="line">  leftButtonIcon?: Object;</div><div class="line">  onLeftButtonPress?: Function;</div><div class="line">  rightButtonTitle?: string;</div><div class="line">  rightButtonIcon?: Object;</div><div class="line">  onRightButtonPress?: Function;</div><div class="line">  wrapperStyle?: any;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">Replace the<span class="built_in"> route </span><span class="keyword">for</span> the current<span class="built_in"> page </span><span class="keyword">and</span> immediately load the view <span class="keyword">for</span> the new route.</div></pre></td></tr></table></figure>
+<h2 id="⑥replacePrevious-route"><a href="#⑥replacePrevious-route" class="headerlink" title="⑥replacePrevious(route)"></a>⑥replacePrevious(route)</h2><blockquote>
+<p>替换上一页的路由/视图</p>
+</blockquote>
+<figure class="highlight roboconf"><table><tr><td class="code"><pre><div class="line">replacePrevious(route: &#123;</div><div class="line">  <span class="attribute">component</span>: Function;</div><div class="line">  <span class="attribute">title</span>: string;</div><div class="line">  <span class="attribute">passProps?</span>: Object;</div><div class="line">  <span class="attribute">backButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">backButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">leftButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">leftButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">onLeftButtonPress?</span>: Function;</div><div class="line">  <span class="attribute">rightButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">rightButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">onRightButtonPress?</span>: Function;</div><div class="line">  <span class="attribute">wrapperStyle?</span>: any;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">Replace the route/view for the previous page.</div></pre></td></tr></table></figure>
+<h2 id="⑦popToTop"><a href="#⑦popToTop" class="headerlink" title="⑦popToTop()"></a>⑦popToTop()</h2><blockquote>
+<p>回到最顶层的路由</p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">Go <span class="keyword">back</span> <span class="keyword">to</span> <span class="keyword">the</span> top <span class="built_in">item</span></div></pre></td></tr></table></figure>
+<h2 id="⑧popToRoute-route"><a href="#⑧popToRoute-route" class="headerlink" title="⑧popToRoute(route)"></a>⑧popToRoute(route)</h2><blockquote>
+<p>一直回到某个指定的路由</p>
+</blockquote>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">popToRoute(route: &#123;</div><div class="line"><span class="symbol">  component:</span> Function<span class="comment">;</span></div><div class="line"><span class="symbol">  title:</span> string<span class="comment">;</span></div><div class="line">  passProps?: Object<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonTitle?: </span>string<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonIcon?: </span>Object<span class="comment">;</span></div><div class="line">  leftButtonTitle?: string<span class="comment">;</span></div><div class="line">  leftButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onLeftButtonPress?: Function<span class="comment">;</span></div><div class="line">  rightButtonTitle?: string<span class="comment">;</span></div><div class="line">  rightButtonIcon?: Object<span class="comment">;</span></div><div class="line">  onRightButtonPress?: Function<span class="comment">;</span></div><div class="line">  wrapperStyle?: any<span class="comment">;</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">Go <span class="keyword">back </span>to the item for a particular route object</div></pre></td></tr></table></figure>
+<h2 id="⑨replacePreviousAndPop"><a href="#⑨replacePreviousAndPop" class="headerlink" title="⑨replacePreviousAndPop"></a>⑨replacePreviousAndPop</h2><figure class="highlight roboconf"><table><tr><td class="code"><pre><div class="line">replacePreviousAndPop(route: &#123;</div><div class="line">  <span class="attribute">component</span>: Function;</div><div class="line">  <span class="attribute">title</span>: string;</div><div class="line">  <span class="attribute">passProps?</span>: Object;</div><div class="line">  <span class="attribute">backButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">backButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">leftButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">leftButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">onLeftButtonPress?</span>: Function;</div><div class="line">  <span class="attribute">rightButtonTitle?</span>: string;</div><div class="line">  <span class="attribute">rightButtonIcon?</span>: Object;</div><div class="line">  <span class="attribute">onRightButtonPress?</span>: Function;</div><div class="line">  <span class="attribute">wrapperStyle?</span>: any;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">Replaces the previous route/view and transitions back to it.</div></pre></td></tr></table></figure>
+<h2 id="⑩resetTo-route"><a href="#⑩resetTo-route" class="headerlink" title="⑩resetTo(route)"></a>⑩resetTo(route)</h2><blockquote>
+<p>替换最顶级的路由并且回到它</p>
+</blockquote>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">resetTo(route: &#123;</div><div class="line"><span class="symbol">  component:</span>           Function<span class="comment">;</span></div><div class="line"><span class="symbol">  title:</span>               string<span class="comment">;</span></div><div class="line">  passProps?:          Object<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonTitle?: </span>   string<span class="comment">;</span></div><div class="line">  <span class="keyword">backButtonIcon?: </span>    Object<span class="comment">;</span></div><div class="line">  leftButtonTitle?:    string<span class="comment">;</span></div><div class="line">  leftButtonIcon?:     Object<span class="comment">;</span></div><div class="line">  onLeftButtonPress?:  Function<span class="comment">;</span></div><div class="line">  rightButtonTitle?:   string<span class="comment">;</span></div><div class="line">  rightButtonIcon?:    Object<span class="comment">;</span></div><div class="line">  onRightButtonPress?: Function<span class="comment">;</span></div><div class="line">  wrapperStyle?:       any<span class="comment">;</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">Replaces the top item <span class="keyword">and </span>popToTop</div></pre></td></tr></table></figure>
+<h1 id="官网栗子-NavigatorIOS-001🌰"><a href="#官网栗子-NavigatorIOS-001🌰" class="headerlink" title="官网栗子-NavigatorIOS-001🌰"></a>官网栗子-NavigatorIOS-001🌰</h1><blockquote>
+<p><strong>官网《使用导航器跳转页面》</strong> NavigatorIOS🌰</p>
+</blockquote>
+<pre><code>
+</code></pre>
+          
         
       
     </div>
@@ -845,19 +981,185 @@ React Native中有两个组件:①Navigator ②NavigatorIOS① Navigator:适配A
       
         
           
-          Let命令基本用法①声明变量
-ES6 新增了let命令，用来声明变量。用法类似于var所声明的变量，只在let命令所在的代码块内有效
+            <h1 id="Let命令"><a href="#Let命令" class="headerlink" title="Let命令"></a>Let命令</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="①声明变量"><a href="#①声明变量" class="headerlink" title="①声明变量"></a>①声明变量</h3><blockquote>
+<p>ES6 新增了let命令，用来声明变量。用法类似于var<br>所声明的变量，只在let命令所在的代码块内有效</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">var</span> b = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">a <span class="comment">// ReferenceError: a is not defined.</span></div><div class="line">b <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<h3 id="②用于for"><a href="#②用于for" class="headerlink" title="②用于for"></a>②用于for</h3><blockquote>
+<p>设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域<br>计数器i只在for循环体内有效，在循环体外引用就会报错</p>
+</blockquote>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> (let i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  <span class="regexp">//</span> ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(i);</div><div class="line"><span class="regexp">//</span> <span class="symbol">ReferenceError:</span> i is <span class="keyword">not</span> <span class="keyword">defined</span></div></pre></td></tr></table></figure>
+<h4 id="❶Var"><a href="#❶Var" class="headerlink" title="❶Var"></a>❶Var</h4><blockquote>
+<p>变量i是var命令声明的，在全局范围内都有效，所以全局只有一个变量i<br>每一次循环，变量i的值都会发生改变，而循环内被赋给数组a的函数内部的console.log(i)，里面的i指向的就是全局的i。也就是说，所有数组a的成员里面的i，指向的都是同一个i<br>导致运行时输出的是最后一轮的i的值，也就是10</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>](); <span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<h4 id="❶-Let"><a href="#❶-Let" class="headerlink" title="❶ Let"></a>❶ Let</h4><blockquote>
+<p>变量i是let声明的，当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量，所以最后输出的是6<br>JavaScript 引擎内部会记住上一轮循环的值，初始化本轮的变量i时，就在上一轮循环的基础上进行计算</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[<span class="number">6</span>](); <span class="comment">// 6</span></div></pre></td></tr></table></figure>
+<h2 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h2><blockquote>
+<p>var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined<br>let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错</p>
+</blockquote>
+<figure class="highlight gauss"><table><tr><td class="code"><pre><div class="line"><span class="comment">// var 的情况</span></div><div class="line">console.<span class="built_in">log</span>(foo); <span class="comment">// 输出undefined</span></div><div class="line">var foo = <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="comment">// let 的情况</span></div><div class="line">console.<span class="built_in">log</span>(<span class="built_in">bar</span>); <span class="comment">// 报错ReferenceError表示在声明它之前，变量bar是不存在的</span></div><div class="line"><span class="keyword">let</span> <span class="built_in">bar</span> = <span class="number">2</span>;</div></pre></td></tr></table></figure>
+<h2 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h2><blockquote>
+<p>S6明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错<br>在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）</p>
+</blockquote>
+<h3 id="绑定binding"><a href="#绑定binding" class="headerlink" title="绑定binding"></a>绑定binding</h3><blockquote>
+<p>只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></div><div class="line">  <span class="keyword">let</span> tmp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>存在全局变量tmp，但是块级作用域内let又声明了一个局部变量tmp，导致后者绑定这个块级作用域，所以在let声明变量前，对tmp赋值会报错<br>在let命令声明变量tmp之前，都属于变量tmp的“死区”</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="comment">// TDZ开始</span></div><div class="line">  tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></div><div class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// ReferenceError</span></div><div class="line"></div><div class="line">  <span class="keyword">let</span> tmp; <span class="comment">// TDZ结束</span></div><div class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></div><div class="line"></div><div class="line">  tmp = <span class="number">123</span>;</div><div class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// 123</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><h4 id="①暂时性死区-typeof"><a href="#①暂时性死区-typeof" class="headerlink" title="①暂时性死区+typeof"></a>①暂时性死区+typeof</h4><blockquote>
+<p>“暂时性死区”也意味着typeof不再是一个百分之百安全的操作<br>变量x使用let命令声明，所以在声明之前，都属于x的“死区”，只要用到该变量就会报错,typeof运行时就会抛出一个ReferenceError</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typeof</span> x; <span class="comment">// ReferenceError</span></div><div class="line"><span class="keyword">let</span> x;</div></pre></td></tr></table></figure>
+<h4 id="②无暂时性死区-typeof"><a href="#②无暂时性死区-typeof" class="headerlink" title="②无暂时性死区+typeof"></a>②无暂时性死区+typeof</h4><blockquote>
+<p>一个变量根本没有被声明，使用typeof反而不会报错<br>undeclared_variable是一个不存在的变量名，结果返回“undefined”。所以，在没有let之前，typeof运算符是百分之百安全的，永远不会报错<br>现在这一点不成立了。这样的设计是为了让大家养成良好的编程习惯，变量一定要在声明之后使用，否则就报错。</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">typeof</span> undeclared_variable <span class="comment">// "undefined"</span></div></pre></td></tr></table></figure>
+<h4 id="③有些“死区”比较隐蔽"><a href="#③有些“死区”比较隐蔽" class="headerlink" title="③有些“死区”比较隐蔽"></a>③有些“死区”比较隐蔽</h4><blockquote>
+<p>调用bar函数之所以报错（某些实现可能不报错），是因为参数x默认值等于另一个参数y，而此时y还没有声明，属于”死区“</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">(x = y, y = 2)</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> [x, y];</div><div class="line">&#125;</div><div class="line"></div><div class="line">bar(); <span class="comment">// 报错</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>y的默认值是x，就不会报错，因为此时x已经声明</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span><span class="params">(x = 2, y = x)</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> [x, y];</div><div class="line">&#125;</div><div class="line">bar(); <span class="comment">// [2, 2]</span></div></pre></td></tr></table></figure>
+<h3 id="TDZ-Var-VS-Let"><a href="#TDZ-Var-VS-Let" class="headerlink" title="TDZ (Var VS Let)"></a>TDZ (Var VS Let)</h3><blockquote>
+<p>使用let声明变量时，只要变量在还没有声明完成前使用，就会报错。上面这行就属于这个情况，在变量x的声明语句还没有执行完成前，就去取x的值，导致报错”x 未定义“</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> x = x; <span class="comment">// 不报错</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> x = x; <span class="comment">// 报错 // ReferenceError: x is not defined</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>ES6 规定暂时性死区和let、const语句不出现变量提升，主要是为了减少运行时错误，防止在变量声明前就使用这个变量</p>
+</blockquote>
+<h2 id="不允许重复声明"><a href="#不允许重复声明" class="headerlink" title="不允许重复声明"></a>不允许重复声明</h2><h3 id="相同作用域内下"><a href="#相同作用域内下" class="headerlink" title="相同作用域内下"></a>相同作用域内下</h3><blockquote>
+<p>let不允许在相同作用域内，重复声明同一个变量</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 报错</span></div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="函数内部"><a href="#函数内部" class="headerlink" title="函数内部"></a>函数内部</h3><blockquote>
+<p>不能在函数内部重新声明参数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">arg</span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> arg; <span class="comment">// 报错</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params">arg</span>) </span>&#123;</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">let</span> arg; <span class="comment">// 不报错</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h1><h2 id="为什么需要块级作用域"><a href="#为什么需要块级作用域" class="headerlink" title="为什么需要块级作用域"></a>为什么需要块级作用域</h2><p>S5 只有全局作用域和函数作用域，没有块级作用域，这带来很多不合理的场景</p>
+<h3 id="①内层变量可能会覆盖外层变量"><a href="#①内层变量可能会覆盖外层变量" class="headerlink" title="①内层变量可能会覆盖外层变量"></a>①内层变量可能会覆盖外层变量</h3><blockquote>
+<p>if代码块的外部使用外层的tmp变量，内部使用内层的tmp变量<br>函数f执行后，输出结果为undefined<br>原因在于变量提升，导致内层的tmp变量覆盖了外层的tmp变量</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> tmp = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(tmp);</div><div class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</div><div class="line">    <span class="keyword">var</span> tmp = <span class="string">'hello world'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">f(); <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<h3 id="②用来计数的循环变量泄露为全局变量"><a href="#②用来计数的循环变量泄露为全局变量" class="headerlink" title="②用来计数的循环变量泄露为全局变量"></a>②用来计数的循环变量泄露为全局变量</h3><blockquote>
+<p>变量i只用来控制循环<br>循环结束后，它并没有消失，泄露成了全局变量</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">'hello'</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</div><div class="line">  <span class="built_in">console</span>.log(s[i]);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(i); <span class="comment">// 5</span></div></pre></td></tr></table></figure>
+<h2 id="ES6-的块级作用域"><a href="#ES6-的块级作用域" class="headerlink" title="ES6 的块级作用域"></a>ES6 的块级作用域</h2><h3 id="①let实际上为-JavaScript-新增了块级作用域"><a href="#①let实际上为-JavaScript-新增了块级作用域" class="headerlink" title="①let实际上为 JavaScript 新增了块级作用域"></a>①let实际上为 JavaScript 新增了块级作用域</h3><blockquote>
+<p>外层代码块不受内层代码块的影响<br>如果两次都使用var定义变量n，最后输出的值才是10</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">let</span> n = <span class="number">5</span>;</div><div class="line">  <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">    <span class="keyword">let</span> n = <span class="number">10</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(n); <span class="comment">// 5</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="②ES6-允许块级作用域的任意嵌套"><a href="#②ES6-允许块级作用域的任意嵌套" class="headerlink" title="②ES6 允许块级作用域的任意嵌套"></a>②ES6 允许块级作用域的任意嵌套</h3><blockquote>
+<p>使用了一个五层的块级作用域。外层作用域无法读取内层作用域的变量</p>
+</blockquote>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><div class="line">&#123;&#123;&#123;&#123;&#123;let insane = <span class="string">'Hello World'</span>&#125;&#125;&#125;&#125;&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>内层作用域可以定义外层作用域的同名变量<br><figure class="highlight clojure"><table><tr><td class="code"><pre><div class="line">&#123;&#123;&#123;&#123;</div><div class="line">  &#123;let insane = 'Hello World'&#125;</div><div class="line">  console.log(<span class="name">insane</span>)<span class="comment">; // 报错</span></div><div class="line">&#125;&#125;&#125;&#125;<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight http"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="xquery">&#123;&#123;&#123;&#123;</span></div><div class="line">  let insane = <span class="string">'Hello World'</span>;</div><div class="line">  &#123;let insane = <span class="string">'Hello World'</span>&#125;</div><div class="line">&#125;&#125;&#125;&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>块级作用域的出现，实际上使得获得广泛应用的立即执行函数表达式（IIFE）不再必要了</p>
+</blockquote>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line"><span class="comment">// IIFE 写法</span></div><div class="line">(function () &#123;</div><div class="line">  <span class="built_in">var</span> tmp = <span class="params">...</span>;</div><div class="line">  <span class="params">...</span></div><div class="line">&#125;());</div><div class="line"></div><div class="line"><span class="comment">// 块级作用域写法</span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">let</span> tmp = <span class="params">...</span>;</div><div class="line">  <span class="params">...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="块级作用域与函数声明"><a href="#块级作用域与函数声明" class="headerlink" title="块级作用域与函数声明"></a>块级作用域与函数声明</h2><h3 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h3><blockquote>
+<p>ES5 规定，函数只能在顶层作用域和函数作用域之中声明，不能在块级作用域声明<br>根据 ES5 的规定都是非法的<br>浏览器没有遵守这个规定，为了兼容以前的旧代码，还是支持在块级作用域之中声明函数，因此上面两种情况实际都能运行，不会报错</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 情况一</span></div><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 情况二</span></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125; <span class="keyword">catch</span>(e) &#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h3><blockquote>
+<p>ES6 引入了块级作用域，明确允许在块级作用域之中声明函数<br>ES6 规定，块级作用域之中，函数声明语句的行为类似于let，在块级作用域之外不可引用</p>
+</blockquote>
+<h4 id="栗子🌰"><a href="#栗子🌰" class="headerlink" title="栗子🌰"></a>栗子🌰</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'I am outside!'</span>); &#125;</div><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</div><div class="line">    <span class="comment">// 重复声明一次函数f</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'I am inside!'</span>); &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  f();</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
+<p>代码在 ES5 中运行，会得到“I am inside!”，因为在if内声明的函数f会被提升到函数头部<br>实际运行的代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// ES5 环境</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'I am outside!'</span>); &#125;</div><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(<span class="string">'I am inside!'</span>); &#125;</div><div class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</div><div class="line">  &#125;</div><div class="line">  f();</div><div class="line">&#125;());</div></pre></td></tr></table></figure>
+<p>这块 详细看  <a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/let</a></p>
+<h2 id="do-表达式"><a href="#do-表达式" class="headerlink" title="do 表达式"></a>do 表达式</h2><blockquote>
+<p>本质上，块级作用域是一个语句，将多个操作封装在一起，没有返回值</p>
+</blockquote>
+<h3 id="块级作用域将两个语句封装在一起"><a href="#块级作用域将两个语句封装在一起" class="headerlink" title="块级作用域将两个语句封装在一起"></a>块级作用域将两个语句封装在一起</h3><blockquote>
+<p>①在块级作用域以外，没有办法得到t的值，因为块级作用域不返回值，除非t是全局变量</p>
+</blockquote>
+<figure class="highlight excel"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  let <span class="built_in">t</span> = f();</div><div class="line">  <span class="built_in">t</span> = <span class="built_in">t</span> * <span class="built_in">t</span> + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>②变量x会得到整个块级作用域的返回值。<br>现在有一个提案，使得块级作用域可以变为表达式，也就是说可以返回值，办法就是在块级作用域之前加上do，使它变为do表达式</p>
+</blockquote>
+<figure class="highlight nix"><table><tr><td class="code"><pre><div class="line"><span class="keyword">let</span> <span class="attr">x</span> = do &#123;</div><div class="line">  <span class="keyword">let</span> <span class="attr">t</span> = f();</div><div class="line">  t * t + <span class="number">1</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="Const-命令"><a href="#Const-命令" class="headerlink" title="Const 命令"></a>Const 命令</h1><h2 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><blockquote>
+<p>const声明一个只读的常量。一旦声明，常量的值就不能改变</p>
+</blockquote>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">const <span class="literal">PI</span> = <span class="number">3.1415</span>;</div><div class="line"><span class="literal">PI</span> <span class="comment">// 3.1415</span></div><div class="line"><span class="literal">PI</span> = <span class="number">3</span>; <span class="comment">// TypeError: Assignment to constant variable.改变常量的值会报错</span></div></pre></td></tr></table></figure>
+<h3 id="只声明不赋值，会报错"><a href="#只声明不赋值，会报错" class="headerlink" title="只声明不赋值，会报错"></a>只声明不赋值，会报错</h3><figure class="highlight capnproto"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> foo;// SyntaxError: Missing initializer <span class="keyword">in</span> <span class="keyword">const</span> declaration</div></pre></td></tr></table></figure>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><blockquote>
+<p>const的作用域与let命令相同：只在声明所在的块级作用域内有效</p>
+</blockquote>
+<figure class="highlight monkey"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  <span class="keyword">const</span> <span class="built_in">MAX</span> = <span class="number">5</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">MAX</span> // Uncaught ReferenceError: <span class="built_in">MAX</span> is <span class="keyword">not</span> defined</div></pre></td></tr></table></figure>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><blockquote>
+<p>const命令声明的常量也是不提升，同样存在暂时性死区，只能在声明的位置后面使用<br>在常量MAX声明之前就调用，结果报错</p>
+</blockquote>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</div><div class="line">  console.<span class="keyword">log</span>(<span class="keyword">MAX</span>); <span class="comment">// ReferenceError</span></div><div class="line">  const <span class="keyword">MAX</span> = <span class="number">5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="不可重复声明"><a href="#不可重复声明" class="headerlink" title="不可重复声明"></a>不可重复声明</h3><blockquote>
+<p>const声明的常量，也与let一样不可重复声明</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> message = <span class="string">"Hello!"</span>;</div><div class="line"><span class="keyword">let</span> age = <span class="number">25</span>;</div><div class="line"><span class="comment">// 以下两行都会报错</span></div><div class="line"><span class="keyword">const</span> message = <span class="string">"Goodbye!"</span>;</div><div class="line"><span class="keyword">const</span> age = <span class="number">30</span>;</div></pre></td></tr></table></figure>
+<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><blockquote>
+<p>const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址不得改动<br>对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量<br>但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指针，const只能保证这个指针是固定的，至于它指向的数据结构是不是可变的，就完全不能控制了<br>因此，将一个对象声明为常量必须非常小心</p>
+</blockquote>
+<h3 id="添加一个属性"><a href="#添加一个属性" class="headerlink" title="添加一个属性"></a>添加一个属性</h3><blockquote>
+<p>常量foo储存的是一个地址，这个地址指向一个对象<br>不可变的只是这个地址，即不能把foo指向另一个地址，但对象本身是可变的，所以依然可以为其添加新属性</p>
+</blockquote>
+<figure class="highlight stata"><table><tr><td class="code"><pre><div class="line">onst foo = &#123;&#125;;</div><div class="line"><span class="comment">// 为 foo 添加一个属性，可以成功</span></div><div class="line">foo.<span class="keyword">prop</span> = 123;</div><div class="line">foo.<span class="keyword">prop</span> <span class="comment">// 123</span></div><div class="line"><span class="comment">// 将 foo 指向另一个对象，就会报错</span></div><div class="line">foo = &#123;&#125;; <span class="comment">// TypeError: "foo" is read-only</span></div></pre></td></tr></table></figure>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
+<p>常量a是一个数组，这个数组本身是可写的<br>但是如果将另一个数组赋值给a，就会报错</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> a = [];</div><div class="line">a.push(<span class="string">'Hello'</span>); <span class="comment">// 可执行</span></div><div class="line">a.length = <span class="number">0</span>;    <span class="comment">// 可执行</span></div><div class="line">a = [<span class="string">'Dave'</span>];    <span class="comment">// 报错</span></div></pre></td></tr></table></figure>
+<h3 id="对象冻结"><a href="#对象冻结" class="headerlink" title="对象冻结"></a>对象冻结</h3><blockquote>
+<p>将对象冻结，应该使用Object.freeze方法<br>常量foo指向一个冻结的对象，所以添加新属性不起作用，严格模式时还会报错</p>
+</blockquote>
+<figure class="highlight dart"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> foo = <span class="built_in">Object</span>.freeze(&#123;&#125;);</div><div class="line"><span class="comment">// 常规模式时，下面一行不起作用；</span></div><div class="line"><span class="comment">// 严格模式时，该行会报错</span></div><div class="line">foo.prop = <span class="number">123</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>除了将对象本身冻结，对象的属性也应该冻结。下面是一个将对象彻底冻结的函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> constantize = <span class="function">(<span class="params">obj</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">Object</span>.freeze(obj);</div><div class="line">  <span class="built_in">Object</span>.keys(obj).forEach( <span class="function">(<span class="params">key, i</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> ( <span class="keyword">typeof</span> obj[key] === <span class="string">'object'</span> ) &#123;</div><div class="line">      constantize( obj[key] );</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="ES6-声明变量的六种方法"><a href="#ES6-声明变量的六种方法" class="headerlink" title="ES6 声明变量的六种方法"></a>ES6 声明变量的六种方法</h2><blockquote>
+<p>ES5：①var②function<br>ES6:①let②const③import④class⑤var⑥function</p>
+</blockquote>
+<hr>
+<h1 id="顶层对象的属性"><a href="#顶层对象的属性" class="headerlink" title="顶层对象的属性"></a>顶层对象的属性</h1><p>顶层对象，在浏览器环境指的是window对象，在Node指的是global对象</p>
+<h2 id="ES5-1"><a href="#ES5-1" class="headerlink" title="ES5"></a>ES5</h2><blockquote>
+<p>ES5之中，顶层对象的属性与全局变量是等价的<br>代码中，顶层对象的属性赋值与全局变量的赋值，是同一件事</p>
+</blockquote>
+<figure class="highlight dart"><table><tr><td class="code"><pre><div class="line"><span class="built_in">window</span>.a = <span class="number">1</span>;</div><div class="line">a <span class="comment">// 1</span></div><div class="line"></div><div class="line">a = <span class="number">2</span>;</div><div class="line"><span class="built_in">window</span>.a <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<p>顶层对象的属性与全局变量挂钩，被认为是JavaScript语言最大的设计败笔之一。这样的设计带来了几个很大的问题，首先是没法在编译时就报出变量未声明的错误，只有运行时才能知道（因为全局变量可能是顶层对象的属性创造的，而属性的创造是动态的）；其次，程序员很容易不知不觉地就创建了全局变量（比如打字出错）；最后，顶层对象的属性是到处可以读写的，这非常不利于模块化编程。另一方面，window对象有实体含义，指的是浏览器的窗口对象，顶层对象是一个有实体含义的对象，也是不合适的</p>
+<h2 id="ES6-1"><a href="#ES6-1" class="headerlink" title="ES6"></a>ES6</h2><p>从ES6开始，全局变量将逐步与顶层对象的属性脱钩</p>
+<blockquote>
+<p>为了保持兼容性，var命令和function命令声明的全局变量，依旧是顶层对象的属性<br>let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性<br>全局变量a由var命令声明，所以它是顶层对象的属性<br>全局变量b由let命令声明，所以它不是顶层对象的属性，返回undefined</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"><span class="comment">// 如果在Node的REPL环境，可以写成global.a</span></div><div class="line"><span class="comment">// 或者采用通用方法，写成this.a</span></div><div class="line"><span class="built_in">window</span>.a <span class="comment">// 1</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> b = <span class="number">1</span>;</div><div class="line"><span class="built_in">window</span>.b <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<h1 id="global-对象"><a href="#global-对象" class="headerlink" title="global 对象"></a>global 对象</h1><h2 id="ES5-2"><a href="#ES5-2" class="headerlink" title="ES5"></a>ES5</h2><p>ES5 的顶层对象，本身也是一个问题，因为它在各种实现里面是不统一的。</p>
+<pre><code>浏览器里面，顶层对象是window，但 Node 和 Web Worker 没有window。
+浏览器和 Web Worker 里面，self也指向顶层对象，但是 Node 没有self。
+Node 里面，顶层对象是global，但其他环境都不支持。
+</code></pre><p>同一段代码为了能够在各种环境，都能取到顶层对象，现在一般是使用this变量，但是有局限性。</p>
+<pre><code>全局环境中，this会返回顶层对象。但是，Node 模块和 ES6 模块中，this返回的是当前模块。
+函数里面的this，如果函数不是作为对象的方法运行，而是单纯作为函数运行，this会指向顶层对象。但是，严格模式下，这时this会返回undefined。
+不管是严格模式，还是普通模式，new Function(&apos;return this&apos;)()，总是会返回全局对象。但是，如果浏览器用了CSP（Content Security Policy，内容安全政策），那么eval、new Function这些方法都可能无法使用。
+</code></pre><p>综上所述，很难找到一种方法，可以在所有情况下，都取到顶层对象。下面是两种勉强可以使用的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 方法一</span></div><div class="line">(<span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">'undefined'</span></div><div class="line">   ? <span class="built_in">window</span></div><div class="line">   : (<span class="keyword">typeof</span> process === <span class="string">'object'</span> &amp;&amp;</div><div class="line">      <span class="keyword">typeof</span> <span class="built_in">require</span> === <span class="string">'function'</span> &amp;&amp;</div><div class="line">      <span class="keyword">typeof</span> global === <span class="string">'object'</span>)</div><div class="line">     ? global</div><div class="line">     : <span class="keyword">this</span>);</div><div class="line"></div><div class="line"><span class="comment">// 方法二</span></div><div class="line"><span class="keyword">var</span> getGlobal = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> self !== <span class="string">'undefined'</span>) &#123; <span class="keyword">return</span> self; &#125;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">window</span> !== <span class="string">'undefined'</span>) &#123; <span class="keyword">return</span> <span class="built_in">window</span>; &#125;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> global !== <span class="string">'undefined'</span>) &#123; <span class="keyword">return</span> global; &#125;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'unable to locate global object'</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>现在有一个提案，在语言标准的层面，引入global作为顶层对象。也就是说，在所有环境下，global都是存在的，都可以从它拿到顶层对象。</p>
+<p>垫片库system.global模拟了这个提案，可以在所有环境拿到global。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line">/ CommonJS 的写法</div><div class="line"><span class="built_in">require</span>(<span class="string">'system.global/shim'</span>)();</div><div class="line"></div><div class="line"><span class="comment">// ES6 模块的写法</span></div><div class="line"><span class="keyword">import</span> shim <span class="keyword">from</span> <span class="string">'system.global/shim'</span>; shim();</div></pre></td></tr></table></figure>
+<p>上面代码可以保证各种环境里面，global对象都是存在的</p>
+<figure class="highlight oxygene"><table><tr><td class="code"><pre><div class="line"><span class="comment">// CommonJS 的写法</span></div><div class="line"><span class="keyword">var</span> <span class="keyword">global</span> = <span class="keyword">require</span>(<span class="string">'system.global'</span>)();</div><div class="line"></div><div class="line"><span class="comment">// ES6 模块的写法</span></div><div class="line">import getGlobal <span class="keyword">from</span> <span class="string">'system.global'</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">global</span> = getGlobal();</div></pre></td></tr></table></figure>
+<p>上面代码将顶层对象放入变量global。</p>
+<p><a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="external">本文参考ES6做的笔记</a></p>
 
-&#123;  let a = 10;  var b = 1;&#125;a // ReferenceError: a is not defined.b // 1
-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/18/ES6-Let-Const/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -989,21 +1291,30 @@ ES6 新增了let命令，用来声明变量。用法类似于var所声明的变�
       
         
           
-          使用Fetch
-React Native提供了和web标准一致的Fetch API，用于满足开发者访问网络的需求
+            <h1 id="使用Fetch"><a href="#使用Fetch" class="headerlink" title="使用Fetch"></a>使用Fetch</h1><blockquote>
+<p>React Native提供了和web标准一致的Fetch API，用于满足开发者访问网络的需求</p>
+</blockquote>
+<h2 id="发起网络请求"><a href="#发起网络请求" class="headerlink" title="发起网络请求"></a>发起网络请求</h2><h3 id="fetch-网址"><a href="#fetch-网址" class="headerlink" title="fetch+网址"></a>fetch+网址</h3><blockquote>
+<p>要从任意地址获取内容的话，只需简单地将网址作为参数传递给fetch方法</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="title">fetch</span><span class="params">(<span class="string">'https://mywebsite.com/mydata.json'</span>)</span></span></div></pre></td></tr></table></figure>
+<h3 id="POST的数据格式"><a href="#POST的数据格式" class="headerlink" title="POST的数据格式"></a>POST的数据格式</h3><blockquote>
+<p>Fetch还有可选的第二个参数，可以用来定制HTTP请求一些参数<br>可以指定header参数<br>可以指定使用POST方法<br>可以指定提交数据</p>
+</blockquote>
+<figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">fetch</span>(<span class="string">'https://mywebsite.com/endpoint/'</span>, &#123;</div><div class="line">  <span class="attribute">method</span>: <span class="string">'POST'</span>,</div><div class="line">  <span class="attribute">headers</span>: &#123;</div><div class="line">    <span class="string">'Accept'</span>: <span class="string">'application/json'</span>,</div><div class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attribute">body</span>: JSON.stringify(&#123;</div><div class="line">    <span class="attribute">firstParam</span>: <span class="string">'yourValue'</span>,</div><div class="line">    <span class="attribute">secondParam</span>: <span class="string">'yourOtherValue'</span>,</div><div class="line">  &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="form格"><a href="#form格" class="headerlink" title="form格"></a>form格</h3><blockquote>
+<p>服务器无法识别上面POST的数据格式，那么可以尝试传统的form格式</p>
+</blockquote>
+<figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">fetch</span>(<span class="string">'https://mywebsite.com/endpoint/'</span>, &#123;</div><div class="line">  <span class="attribute">method</span>: <span class="string">'POST'</span>,</div><div class="line">  <span class="attribute">headers</span>: &#123;</div><div class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attribute">body</span>: <span class="string">'key1=value1&amp;key2=value2'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h1 id="使用其他的网络库"><a href="#使用其他的网络库" class="headerlink" title="使用其他的网络库"></a>使用其他的网络库</h1><p>React Native中已经内置了XMLHttpRequest API(也就是俗称的ajax)。一些基于XMLHttpRequest封装的第三方库也可以使用，例如frisbee或是axios等。但注意不能使用jQuery，因为jQuery中还使用了很多浏览器中才有而RN中没有的东西（所以也不是所有web中的ajax库都可以直接使用</p>
+<figure class="highlight plain"><figcaption><span>request = new XMLHttpRequest();</span></figcaption><table><tr><td class="code"><pre><div class="line">request.onreadystatechange = (e) =&gt; &#123;</div><div class="line">  if (request.readyState !== 4) &#123;</div><div class="line">    return;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  if (request.status === 200) &#123;</div><div class="line">    console.log(&apos;success&apos;, request.responseText);</div><div class="line">  &#125; else &#123;</div><div class="line">    console.warn(&apos;error&apos;);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">request.open(&apos;GET&apos;, &apos;https://mywebsite.com/endpoint/&apos;);</div><div class="line">request.send();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>需要注意的是，安全机制与网页环境有所不同：在应用中你可以访问任何网站，没有跨域的限制。</p>
+</blockquote>
+<h1 id="WebSocket支持"><a href="#WebSocket支持" class="headerlink" title="WebSocket支持"></a>WebSocket支持</h1><p>React Native还支持WebSocket，这种协议可以在单个TCP连接上提供全双工的通信信道</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">'ws://host.com/path'</span>);</div><div class="line"></div><div class="line">ws.onopen = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">  <span class="comment">// 打开一个连接</span></div><div class="line"></div><div class="line">  ws.send(<span class="string">'something'</span>); <span class="comment">// 发送一个消息</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">ws.onmessage = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// 接收到了一个消息</span></div><div class="line">  <span class="built_in">console</span>.log(e.data);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ws.onerror = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// 发生了一个错误</span></div><div class="line">  <span class="built_in">console</span>.log(e.message);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">ws.onclose = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// 连接被关闭了</span></div><div class="line">  <span class="built_in">console</span>.log(e.code, e.reason);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 
-发起网络请求fetch+网址
-要从任意地址获取内容的话，只需简单地将网址作为参数传递给fetch方法
-
-fetch('https://mywebsite.com/mydata.json
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/14/RN-Fetch/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1135,20 +1446,27 @@ fetch('https://mywebsite.com/mydata.json
       
         
           
+            <blockquote>
+<p>React Native提供了几个适用于展示长列表数据的组件，一般而言我们会选用FlatList或是SectionList。</p>
+</blockquote>
+<h1 id="FlatList"><a href="#FlatList" class="headerlink" title="FlatList"></a>FlatList</h1><blockquote>
+<p>FlatList组件用于显示一个垂直的滚动列表，其中的元素之间结构近似而仅数据不同。</p>
+<p>FlatList更适于长列表数据，且元素个数可以增删。和ScrollView不同的是，FlatList并不立即渲染所有元素，而是优先渲染屏幕上可见的元素。</p>
+<p>FlatList组件必须的两个属性是data和renderItem。data是列表的数据源，而renderItem则从数据源中逐个解析数据，然后返回一个设定好格式的组件来渲染。</p>
+</blockquote>
+<h1 id="官网栗子🌰"><a href="#官网栗子🌰" class="headerlink" title="官网栗子🌰"></a>官网栗子🌰</h1><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_List_001.png" alt=""></p>
+<h2 id="stFlatList-js头文件"><a href="#stFlatList-js头文件" class="headerlink" title="stFlatList.js头文件"></a>stFlatList.js头文件</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><div class="line"><span class="built_in">FlatList,</span></div></pre></td></tr></table></figure>
+<h2 id="stFlatList-js组件"><a href="#stFlatList-js组件" class="headerlink" title="stFlatList.js组件"></a>stFlatList.js组件</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">RN_List</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span> style = &#123;styles.container&#125;&gt;</div><div class="line">        &lt;<span class="type">FlatList</span> data=&#123;[</div><div class="line">          &#123;key:<span class="string">"111111111111"</span>&#125;,</div><div class="line">          &#123;key:<span class="string">"222222222222"</span>&#125;,</div><div class="line">          &#123;key:<span class="string">"333333333333"</span>&#125;,</div><div class="line">          &#123;key:<span class="string">"444444444444"</span>&#125;,</div><div class="line">          &#123;key:<span class="string">"555555555555"</span>&#125;,</div><div class="line">        ]&#125;</div><div class="line">        renderItem = &#123;(&#123;item&#125;) =&gt;&lt;<span class="type">Text</span> style = &#123;styles.item&#125;&gt;&#123;item.key&#125;&lt;/<span class="type">Text</span>&gt;&#125;</div><div class="line">      /&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="stFlatList-js样式"><a href="#stFlatList-js样式" class="headerlink" title="stFlatList.js样式"></a>stFlatList.js样式</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">const styles = StyleSheet.create(&#123;</div><div class="line"><span class="symbol">  container:</span> &#123;</div><div class="line"><span class="symbol">    flex:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    paddingTop:</span><span class="number">22</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  item:</span>&#123;</div><div class="line"><span class="symbol">    padding:</span><span class="number">10</span>,</div><div class="line"><span class="symbol">    fontSize:</span><span class="number">18</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">44</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><p>在RN_List.js中</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> RN_List <span class="keyword">from</span> <span class="string">"./stFlatList.js"</span>;</div><div class="line">AppRegistry.registerComponent(<span class="string">'RN_List'</span>, <span class="function"><span class="params">()</span> =&gt;</span> RN_List);</div></pre></td></tr></table></figure>
+<h1 id="SectionList"><a href="#SectionList" class="headerlink" title="SectionList"></a>SectionList</h1><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_List_002.png" alt=""></p>
+<h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><figure class="highlight autohotkey"><table><tr><td class="code"><pre><div class="line"><span class="built_in">SectionList,</span></div></pre></td></tr></table></figure>
+<h2 id="stSectionList-js组件"><a href="#stSectionList-js组件" class="headerlink" title="stSectionList.js组件"></a>stSectionList.js组件</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">RN_List</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span> style = &#123;styles.container&#125;&gt;</div><div class="line">        &lt;<span class="type">SectionList</span> sections=&#123;[</div><div class="line">          &#123;title:<span class="string">"A"</span>,data:[<span class="string">"A001"</span>]&#125;,</div><div class="line">          &#123;title:<span class="string">"B"</span>,data:[<span class="string">"B001"</span>,<span class="string">"B002"</span>,<span class="string">"B003"</span>,<span class="string">"B004"</span>]&#125;,</div><div class="line">        ]&#125;</div><div class="line">          renderItem = &#123;(&#123;item&#125;)=&gt;&lt;<span class="type">Text</span> style = &#123;styles.item&#125;&gt;&#123;item&#125;&lt;/<span class="type">Text</span>&gt;&#125;</div><div class="line">          renderSectionHeader = &#123;(&#123;section&#125;) =&gt; &lt;<span class="type">Text</span> style = &#123;styles.sectionHeader&#125;&gt;&#123;section.title&#125;&lt;/<span class="type">Text</span>&gt;&#125;</div><div class="line">      /&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="stSectionList-js样式"><a href="#stSectionList-js样式" class="headerlink" title="stSectionList.js样式"></a>stSectionList.js样式</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">const styles = StyleSheet.create(&#123;</div><div class="line"><span class="symbol">  container:</span> &#123;</div><div class="line"><span class="symbol">    flex:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    paddingTop:</span><span class="number">22</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  sectionHeader:</span>&#123;</div><div class="line"><span class="symbol">    paddingTop:</span><span class="number">2</span>,</div><div class="line"><span class="symbol">    paddingLeft:</span><span class="number">10</span>,</div><div class="line"><span class="symbol">    paddingRight:</span><span class="number">10</span>,</div><div class="line"><span class="symbol">    paddingBottom:</span><span class="number">2</span>,</div><div class="line"><span class="symbol">    fontSize:</span><span class="number">14</span>,</div><div class="line"><span class="symbol">    fontWeight:</span><span class="string">"bold"</span>,</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"rgba(247,247,247,1.0)"</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  item:</span>&#123;</div><div class="line"><span class="symbol">    padding:</span><span class="number">10</span>,</div><div class="line"><span class="symbol">    fontSize:</span><span class="number">18</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">44</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="stSectionList-js导出"><a href="#stSectionList-js导出" class="headerlink" title="stSectionList.js导出"></a>stSectionList.js导出</h2><p>在RN_List.js中</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> RN_List <span class="keyword">from</span> <span class="string">"./stSectionList.js"</span>;</div><div class="line">AppRegistry.registerComponent(<span class="string">'RN_List'</span>, <span class="function"><span class="params">()</span> =&gt;</span> RN_List);</div></pre></td></tr></table></figure>
           
-React Native提供了几个适用于展示长列表数据的组件，一般而言我们会选用FlatList或是SectionList。
-
-FlatList
-FlatList组件用于显示一个垂直的滚动列表，其中的元素之间结构近似而仅数据不同。
-FlatList更适于长列表数据，且元素个数可以增删。和Scrol
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/14/RN-List/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1280,20 +1598,18 @@ FlatList更适于长列表数据，且元素个数可以增删。和Scrol
       
         
           
-          组件的高度和宽度决定了其在屏幕上显示的尺寸
-指定宽高
-最简单的给组件设定尺寸的方式就是在样式中指定固定的width和height。React Native中的尺寸都是无单位的，表示的是与设备像素密度无关的逻辑像素点
-
-🌰
-class RN_Bounds extends Component &#12
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/13/RN-Bounds/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>组件的高度和宽度决定了其在屏幕上显示的尺寸</p>
+<h1 id="指定宽高"><a href="#指定宽高" class="headerlink" title="指定宽高"></a>指定宽高</h1><blockquote>
+<p>最简单的给组件设定尺寸的方式就是在样式中指定固定的width和height。<br>React Native中的尺寸都是无单位的，表示的是与设备像素密度无关的逻辑像素点</p>
+</blockquote>
+<h2 id="🌰"><a href="#🌰" class="headerlink" title="🌰"></a>🌰</h2><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Bounds_001.png" alt=""></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">class</span> <span class="selector-tag">RN_Bounds</span> <span class="selector-tag">extends</span> <span class="selector-tag">Component</span> &#123;</div><div class="line"></div><div class="line">  <span class="selector-tag">render</span> ()&#123;</div><div class="line">    <span class="selector-tag">return</span>(</div><div class="line">      &lt;View&gt;</div><div class="line">        &lt;View style = &#123;&#123;<span class="attribute">width</span>:<span class="number">50</span>,<span class="attribute">height</span>:<span class="number">50</span>,<span class="attribute">backgroundColor</span>:<span class="string">"powderblue"</span>&#125;&#125;/&gt;</div><div class="line">        &lt;View style = &#123;&#123;<span class="attribute">width</span>:<span class="number">100</span>,<span class="attribute">height</span>:<span class="number">100</span>,<span class="attribute">backgroundColor</span>:<span class="string">"skyblue"</span>&#125;&#125;/&gt;</div><div class="line">        &lt;View style = &#123;&#123;<span class="attribute">width</span>:<span class="number">150</span>,<span class="attribute">height</span>:<span class="number">150</span>,<span class="attribute">backgroundColor</span>:<span class="string">"steelblue"</span>&#125;&#125;/&gt;</div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h1><blockquote>
+<p>理解为权重<br>组件能够撑满剩余空间的前提是其父容器的尺寸不为零<br>如果父容器既没有固定的width和height，也没有设定flex，则父容器的尺寸为零。其子组件如果使用了flex，也是无法显示的</p>
+</blockquote>
+<h2 id="🌰🌰"><a href="#🌰🌰" class="headerlink" title="🌰🌰"></a>🌰🌰</h2><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Bounds_002.png" alt=""></p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_Bounds</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render()&#123;</div><div class="line">    <span class="keyword">return</span>(</div><div class="line">      &lt;<span class="type">View</span> style=&#123;&#123;flex:<span class="number">1</span>&#125;&#125;&gt;</div><div class="line">        &lt;<span class="type">View</span> style = &#123;&#123;flex:<span class="number">1</span>,backgroundColor:<span class="string">"red"</span>&#125;&#125;/&gt;</div><div class="line">          &lt;<span class="type">View</span> style = &#123;&#123;flex:<span class="number">2</span>,backgroundColor:<span class="string">"blue"</span>&#125;&#125;/&gt;</div><div class="line">            &lt;<span class="type">View</span> style = &#123;&#123;flex:<span class="number">3</span>,backgroundColor:<span class="string">"steelblue"</span>&#125;&#125;/&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -1425,17 +1741,16 @@ class RN_Bounds extends Component &#12
       
         
           
-          State
-使用两种数据来控制一个组件：props和stateprops是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state一般来说，你需要在constructor中初始化state然后在需要修改时调用setState方法
-官网样例1假如
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/13/RN-State/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="State"><a href="#State" class="headerlink" title="State"></a>State</h1><blockquote>
+<p>使用两种数据来控制一个组件：props和state<br>props是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用state<br>一般来说，你需要在constructor中初始化state<br>然后在需要修改时调用setState方法</p>
+<h1 id="官网样例1"><a href="#官网样例1" class="headerlink" title="官网样例1"></a>官网样例1</h1><p>假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个prop。而文字的显示或隐藏的状态（快速的显隐切换就产生了闪烁的效果）则是随着时间变化的，因此这一状态应该写到state中<br><img src="http://osq7nstcc.bkt.clouddn.com/RN_State_001.gif" alt=""></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2></blockquote>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 每1000毫秒对showText状态做一次取反操作</div><div class="line"> * 根据当前showText的值决定是否显示text内容</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blink</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  constructor(props)&#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;showText:<span class="literal">true</span>&#125;;</div><div class="line">  setInterval(()=&gt;&#123;</div><div class="line">    <span class="keyword">this</span>.setState(previousState=&gt;&#123;</div><div class="line">      <span class="keyword">return</span>&#123; showText:!previousState.showText&#125;;</div><div class="line">    &#125;);</div><div class="line">  &#125;,<span class="number">1000</span>);</div><div class="line">&#125;</div><div class="line">  render ()&#123;</div><div class="line">    let display= <span class="keyword">this</span>.state.showText?<span class="keyword">this</span>.props.text:<span class="string">" "</span>;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">Text</span>&gt;&#123;display&#125;&lt;/<span class="type">Text</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_State</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span>&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"好喜欢"</span> /&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"真的么"</span>/&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"RN的实战"</span>/&gt;</div><div class="line">        &lt;<span class="type">Blink</span> text = <span class="string">"吼一吼！123456！"</span>/&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>实际开发中，我们一般不会在定时器函数（setInterval、setTimeout等）中来操作state。典型的场景是在接收到服务器返回的新数据，或者在用户输入数据之后。你也可以使用一些“状态容器”比如Redux来统一管理数据流</p>
+</blockquote>
+
+          
         
       
     </div>
@@ -1567,19 +1882,12 @@ class RN_Bounds extends Component &#12
       
         
           
-          BC_Resume_Video_Play 视频简历
-点咋/播放次数
-0区1行
-
+            <h1 id="BC-Resume-Video-Play-视频简历"><a href="#BC-Resume-Video-Play-视频简历" class="headerlink" title="BC_Resume_Video_Play 视频简历"></a>BC_Resume_Video_Play 视频简历</h1><p><img src="http://ot0mms4k8.bkt.clouddn.com/BC_Resume_Video_Play_001.png" alt=""></p>
+<h1 id="点咋-播放次数"><a href="#点咋-播放次数" class="headerlink" title="点咋/播放次数"></a>点咋/播放次数</h1><blockquote>
+<p>0区1行</p>
+</blockquote>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/13/BC-Resume-Video-Play/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1711,18 +2019,21 @@ class RN_Bounds extends Component &#12
       
         
           
-          RN_Props 属性大多数组件在创建时就可以使用各种参数来进行定制。用于定制的这些参数就称为props（属性）
-栗子组件Image为例，在创建一个图片时，可以传入一个名为source的prop来指定要显示的图片的地址，以及使用名为style的prop来控制其尺寸
-栗子-代码
-import Reac
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/13/RN-Props/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="RN-Props-属性"><a href="#RN-Props-属性" class="headerlink" title="RN_Props 属性"></a>RN_Props 属性</h1><p>大多数组件在创建时就可以使用各种参数来进行定制。用于定制的这些参数就称为props（属性）</p>
+<h1 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h1><p>组件Image为例，在创建一个图片时，可以传入一个名为source的prop来指定要显示的图片的地址，以及使用名为style的prop来控制其尺寸</p>
+<h2 id="栗子-代码"><a href="#栗子-代码" class="headerlink" title="栗子-代码"></a>栗子-代码</h2><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Props_001.png" alt=""></p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  <span class="type">AppRegistry</span>,</div><div class="line">  <span class="type">StyleSheet</span>,</div><div class="line">  <span class="type">Text</span>,</div><div class="line">  <span class="type">View</span>,</div><div class="line">  <span class="type">Image</span>,</div><div class="line">&#125; from <span class="symbol">'react</span>-native';</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_Props</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    let pic = &#123;uri:<span class="string">"https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg"</span>&#125;;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">Image</span></div><div class="line">        source = &#123;pic&#125;</div><div class="line">        style = &#123;&#123;width:<span class="number">200</span>,height:<span class="number">200</span>&#125;&#125;/&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="type">AppRegistry</span>.registerComponent(<span class="symbol">'RN_Prop</span>s', () =&gt; <span class="type">RN_Props</span>);</div></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>请注意{pic}外围有一层括号，我们需要用括号来把pic这个变量嵌入到JSX语句中。括号的意思是括号内部为一个js变量或表达式，需要执行后取值。因此我们可以把任意合法的JavaScript表达式通过括号嵌入到JSX语句中</p>
+<h1 id="自定义的组件也可以使用props"><a href="#自定义的组件也可以使用props" class="headerlink" title="自定义的组件也可以使用props"></a>自定义的组件也可以使用props</h1><p>通过在不同的场景使用不同的属性定制，可以尽量提高自定义组件的复用范畴。只需在render函数中引用this.props，然后按需处理即可</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Props_002.png" alt=""></p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Greeting</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">Text</span>&gt; <span class="type">Hello</span> &#123;<span class="keyword">this</span>.props.name&#125;!&lt;/<span class="type">Text</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//组件</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_Props</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span> style = &#123;&#123;alignItems:<span class="string">"center"</span>&#125;&#125;&gt;</div><div class="line">        &lt;<span class="type">Greeting</span> name = <span class="string">"yue01"</span>/&gt;</div><div class="line">        &lt;<span class="type">Greeting</span> name = <span class="string">"yue02"</span>/&gt;</div><div class="line">        &lt;<span class="type">Greeting</span> name = <span class="string">"yue03"</span>/&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>Greeting组件中将name作为一个属性来定制，这样可以复用这一组件来制作各种不同的“问候语”。上面的例子把Greeting组件写在JSX语句中，用法和内置组件并无二致</p>
+<h1 id="super-props"><a href="#super-props" class="headerlink" title="super(props)"></a>super(props)</h1><blockquote>
+<p>在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错<br>因为子类实例的构建，是基于对父类实例加工，只有super方法才能返回父类实例</p>
+</blockquote>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Todo</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    constructor(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -1783,6 +2094,7 @@ import Reac
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -1883,7 +2195,7 @@ import Reac
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 
@@ -1985,12 +2297,6 @@ import Reac
 
 
 	
-
-
-
-
-
-  
 
 
 
@@ -2329,19 +2635,6 @@ import Reac
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
 
 
 

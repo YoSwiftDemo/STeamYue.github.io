@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -109,8 +109,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -276,26 +276,22 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
   </div>
-
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -414,15 +410,8 @@
       
         
           
+            
           
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/31/ES6-Base-Grammar/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -554,20 +543,221 @@
       
         
           
-          Redux
-①Action②Reducer③Store
+            <h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><blockquote>
+<p>①Action<br>②Reducer<br>③Store</p>
+</blockquote>
+<p><a href="https://github.com/STeamYue/RN_Redux_002" target="_blank" rel="external">iOS-RN-Project-002-0.44.3 Github地址</a></p>
+<h2 id="①-Action"><a href="#①-Action" class="headerlink" title="① Action"></a>① Action</h2><blockquote>
+<p>本质上是一个 JavaScript 对象<br>包括一个必须的字段 type ，以及其它数据项<br>类似于这样 {type: ‘Action_NAME’, attr01: ‘data01’, attr02: ‘data02’ }<br>使用函数 ActionCreator(args) 来创建 Action</p>
+<p>例子：<br>添加 TODO 项，我们会使用下面的函数来创建 Action，带有 TODO 项的名称。并且，我们会把 Action 的 type 字段用常量赋值，不直接使用字符串，以便更好的管理与引用(iOS的宏控制)</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//给函数addTodo传参数</span></div><div class="line"><span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span><span class="params">(text)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;type: ADD_TODO, text&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="②Reducer：状态-state-更新函数"><a href="#②Reducer：状态-state-更新函数" class="headerlink" title="②Reducer：状态 state 更新函数"></a>②Reducer：状态 state 更新函数</h2><blockquote>
+<p>一个纯函数，接收两个参数：state 、action，返回一个新的 state<br>谨记 reducer 一定要保持纯净<br>只要传入参数相同，返回计算得到的下一个 state 就一定相同<br>没有特殊情况、没有副作用，没有 API 请求、没有变量修改，单纯执行计算</p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">(<span class="keyword">state</span>, action) =&gt; <span class="keyword">state</span></div></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line">const ADD_TODO = <span class="string">'ADD_TODO'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myReducers</span><span class="params">(state=[], action)</span></span>&#123;</div><div class="line">    switch(action.<span class="built_in">type</span>)&#123;            </div><div class="line">        case ADD_TODO:</div><div class="line">            <span class="keyword">return</span> [</div><div class="line">                ...state,</div><div class="line">                &#123;</div><div class="line">                    title: action.text,</div><div class="line">                    <span class="built_in">status</span>: <span class="literal">false</span>,</div><div class="line">                &#125;</div><div class="line">            ]</div><div class="line">        default:</div><div class="line">            <span class="keyword">return</span> state;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">调用：</div><div class="line">// 这里是 Action (ActionCreator)</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span><span class="params">(text)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;<span class="built_in">type</span>:ADD_TODO, text&#125;</div><div class="line">&#125;</div><div class="line">// 这里是 State</div><div class="line">let state = [&#123;title: <span class="string">'吃早饭'</span>,<span class="built_in">status</span>:<span class="literal">true</span>&#125;,&#123;title: <span class="string">'打电话'</span>,<span class="built_in">status</span>:<span class="literal">false</span>&#125;];</div><div class="line">let newState = myReducers(state, addTodo(<span class="string">'看电视'</span>));  </div><div class="line">// newState =&gt;  [&#123;title: <span class="string">'吃早饭'</span>, <span class="built_in">status</span>: <span class="literal">true</span>&#125;,&#123;title: <span class="string">'打电话'</span>, <span class="built_in">status</span>: <span class="literal">false</span>&#125;, &#123;title: <span class="string">'看电视'</span>, <span class="built_in">status</span>: <span class="literal">false</span>&#125; ];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>实际应用中，我们并不会这样使用 reducer ，这里只是展示一个返回结果<br>这样使用 reducer<br>①创建 store ，将 reducer 作为参数传入<br>②使用 store 派发(dispatch) 操作(action)<br>③store 内部执行 reducer</p>
+</blockquote>
+<h2 id="③Store-状态-state-容器"><a href="#③Store-状态-state-容器" class="headerlink" title="③Store 状态 state 容器"></a>③Store 状态 state 容器</h2><blockquote>
+<p>不仅是 state 容器，更是将 reducer 与 action 连接到了一起<br>Store 有以下职责<br>❶维持应用的 state；<br>❷提供 getState() 方法获取 state；<br>❸提供 dispatch(action) 方法更新 state；<br>❹通过 subscribe(listener) 注册监听器;<br>❺通过 subscribe(listener) 返回的函数注销监听器</p>
+<p>谨记:Redux 应用只有一个单一的 store。当需要拆分数据处理逻辑时，你应该使用 reducer 组合而不是创建多个 store</p>
+</blockquote>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><blockquote>
+<p>store 的创建很简单，使用 redux 提供的 createStore() ，并传入两个参数，reducer 和 state<br>reducer : 随着应用的壮大，reducer 也变得复杂，我们需要将其拆分成小的 reducer ，并使用 combineReducers() 合并成一个 reducer<br>state : 初始状态，可选</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; createStore, combineReducers &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reducers</span>(<span class="params">state, action</span>)</span>&#123; ... &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">actionCreator</span>(<span class="params">args</span>)</span>&#123; ... &#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> store = createStore(reducers)  <span class="comment">// 或者</span></div><div class="line"><span class="keyword">let</span> store = createStore(reducers, &#123;<span class="attr">key1</span>:<span class="string">'data1'</span>&#125;)</div><div class="line"></div><div class="line">store.getState() </div><div class="line">store.dispatch(actionCreator)</div><div class="line"></div><div class="line"><span class="comment">// 使用 combineReducers 创建 Store</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reducer1</span>(<span class="params">state, action</span>)</span>&#123; ... &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reducer2</span>(<span class="params">state, action</span>)</span>&#123; ... &#125;</div><div class="line"><span class="keyword">let</span> combine = combineReducers(&#123;</div><div class="line">    reducer1,</div><div class="line">    reducer2</div><div class="line">&#125;);</div><div class="line"><span class="keyword">let</span> store = createStore(combine)</div></pre></td></tr></table></figure>
+<h2 id="Redux-使用的三原则"><a href="#Redux-使用的三原则" class="headerlink" title="Redux 使用的三原则"></a>Redux 使用的三原则</h2><blockquote>
+<p>①Single source of truth单一数据源<br>整个应用的state，存储在唯一一个object中，同时也只有一个store用于存储这个object</p>
+<p>②State is read-only状态是只读的<br>唯一能改变state的方法，就是触发action操作。action是用来描述正在发生的事件的一个对象</p>
+<p>③Changes are made with pure functions<br>在改变state tree时，用到action，同时也需要编写对应的reducers才能完成state改变操作</p>
+</blockquote>
+<h2 id="React-与-Redux-配合"><a href="#React-与-Redux-配合" class="headerlink" title="React 与 Redux 配合"></a>React 与 Redux 配合</h2><blockquote>
+<p>Redux 并不是 React 的专属，不一定与 React 配合使用<br>它可以与 React、Angular、Ember、jQuery 甚至纯 javascript 等一起使用<br>像 React 这种 state =&gt; UI 类型的框架与之配合，使用起来还是很爽的</p>
+</blockquote>
+<h2 id="react-redux"><a href="#react-redux" class="headerlink" title="react-redux"></a>react-redux</h2><blockquote>
+<p>使用 react-redux 这个工具把 React 与 Redux 联系起来<br>提供两个功能： Provider 、 Connect</p>
+<h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>Provider : 一个 Component ，用来包裹应用程序的根组件(入口组件)，提供 store 属性，以供子组件使用</p>
+<p>1.创建store<br>2.Provider包裹入口组件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">let</span> store = createStore(<span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></div><div class="line">       <span class="tag">&lt;<span class="name">HomeContainer</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Connect"><a href="#Connect" class="headerlink" title="Connect"></a>Connect</h3><blockquote>
+<p>将包装好的组件连接到Redux<br>尽量只做一个顶层的组件，或者 route 处理<br>从技术上来说你可以将应用中的任何一个组件 connect() 到 Redux store 中，但尽量避免这么做，因为这个数据流很难追踪<br>使用方法类似于这样</p>
+</blockquote>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><div class="line"><span class="title">export</span> <span class="keyword">default</span> connect()(<span class="type">HomePage</span>)  // 它将我们的容器组件 `<span class="type">HomePage</span> ` 连接到 <span class="type">Redux</span>。</div></pre></td></tr></table></figure>
+<h2 id="理解数据流"><a href="#理解数据流" class="headerlink" title="理解数据流"></a>理解数据流</h2><h3 id="react-数据流"><a href="#react-数据流" class="headerlink" title="react 数据流"></a>react 数据流</h3><p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Redux-Project-002-rect%E6%95%B0%E6%8D%AE%E6%B5%81.png" alt=""></p>
+<h3 id="react-redux-数据流"><a href="#react-redux-数据流" class="headerlink" title="react + redux 数据流"></a>react + redux 数据流</h3><p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Redux-Project-002-rect+redux%E6%95%B0%E6%8D%AE%E6%B5%81.png" alt=""></p>
+<hr>
+<h1 id="React-Redux-开发"><a href="#React-Redux-开发" class="headerlink" title="React + Redux 开发"></a>React + Redux 开发</h1><h2 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h2><blockquote>
+<p>①新建项目</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> react-native init RN_Redux_002</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>②安装 redux 和 react-redux</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span>  RN_Redux_002项目路径</span></div><div class="line"><span class="meta">$</span><span class="bash"> npm install redux react-redux --save</span></div></pre></td></tr></table></figure>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight 1c"><table><tr><td class="code"><pre><div class="line">RN_Redux_002/</div><div class="line">   <span class="string">|</span></div><div class="line">   ├──ios/                       * IOS</div><div class="line">   <span class="string">|</span></div><div class="line">   ├──android/                   * Android</div><div class="line">   <span class="string">|</span></div><div class="line">   ├──src/                       * 主程序</div><div class="line">   │   │</div><div class="line">   │   │──components             * 所有组件</div><div class="line">   │   │</div><div class="line">   │   └──pages                  * 所有页面</div><div class="line">   │   │</div><div class="line">   │   └──images                 * 本地图片资源</div><div class="line">   │   │</div><div class="line">   │   └──actions                * 存放所有的拆分为小的 action 文件</div><div class="line">   │   │</div><div class="line">   │   └──reducers               * 存放所有的拆分为小的 reducer 文件</div><div class="line">   │   │</div><div class="line">   │   └──service                * 封装服务性质的包缓存封装..</div><div class="line">   │   │</div><div class="line">   │   └──index.js               * App入口</div><div class="line">   │</div><div class="line">   │──package.json               * 包信息</div><div class="line">   │</div><div class="line">   │──.babelrc                   * Babel配置</div><div class="line">   │</div><div class="line">   └──reset.sh                   * 清空项目依赖并重新安装</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="A数据实战"><a href="#A数据实战" class="headerlink" title="A数据实战"></a>A数据实战</h1><blockquote>
+<p>A1:数据简单加载<br>A2:简单扩展属性加载数据使用 Redux<br>A3：使用 Redux创建 store加载数据</p>
+</blockquote>
+<h1 id="A1：数据简单加载"><a href="#A1：数据简单加载" class="headerlink" title="A1：数据简单加载"></a>A1：数据简单加载</h1><h2 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h2><blockquote>
+<p>引入HomePage<br>RootContainer组件里承载HomePage<br>设置styles</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  View,</div><div class="line">  StyleSheet,</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> HomePage <span class="keyword">from</span> <span class="string">'./pages/HomePage'</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">RootContainer</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span>(</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.container&#125;</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">HomePage</span> /&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">  <span class="attr">container</span>:</div><div class="line">  &#123;</div><div class="line">    <span class="attr">flex</span>:<span class="number">1</span>,</div><div class="line">    <span class="attr">marginTop</span>:<span class="number">20</span>,</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="index-ios-js"><a href="#index-ios-js" class="headerlink" title="index.ios.js"></a>index.ios.js</h2><blockquote>
+<p>引入，入口index.js里RootContainer</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  AppRegistry,</div><div class="line">  StyleSheet,</div><div class="line">  Text,</div><div class="line">  View</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> RootContainer <span class="keyword">from</span> <span class="string">'./src/index'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">RN_Redux_002</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span></span></div><div class="line">          <span class="tag">&lt;<span class="name">RootContainer</span>/&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">flex</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">justifyContent</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">alignItems</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'#F5FCFF'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div><div class="line"></div><div class="line">AppRegistry.registerComponent(<span class="string">'RN_Redux_002'</span>, () =&gt; RN_Redux_002);</div></pre></td></tr></table></figure>
+<h2 id="HomePage-js"><a href="#HomePage-js" class="headerlink" title="HomePage.js"></a>HomePage.js</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">    View,</div><div class="line">    Text</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">HomePage</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span> (props)&#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">  &#125;</div><div class="line">  render()&#123;</div><div class="line">    <span class="keyword">return</span>(</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">Text</span>&gt;</span>QQ:738816656<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Redux-Project-002-002.png" alt=""></p>
+<hr>
+<h1 id="A2：简单扩展属性加载数据使用-Redux"><a href="#A2：简单扩展属性加载数据使用-Redux" class="headerlink" title="A2：简单扩展属性加载数据使用 Redux"></a>A2：简单扩展属性加载数据使用 Redux</h1><blockquote>
+<p>直接扩展属性注入数据</p>
+<h2 id="2-1-index-iOS-js"><a href="#2-1-index-iOS-js" class="headerlink" title="2.1-index.iOS.js"></a>2.1-index.iOS.js</h2><p>引入入口index的 组件RootContainer</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  AppRegistry,</div><div class="line">  StyleSheet,</div><div class="line">  Text,</div><div class="line">  View</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> RootContainer <span class="keyword">from</span> <span class="string">'./src/index'</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">RN_Redux_002</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span></span></div><div class="line">          <span class="tag">&lt;<span class="name">RootContainer</span>/&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">  <span class="attr">container</span>: &#123;</div><div class="line">    <span class="attr">flex</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">justifyContent</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">alignItems</span>: <span class="string">'center'</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'#F5FCFF'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div><div class="line"></div><div class="line">AppRegistry.registerComponent(<span class="string">'RN_Redux_002'</span>, () =&gt; RN_Redux_002);</div></pre></td></tr></table></figure>
+<h2 id="2-2修改HomePage-js"><a href="#2-2修改HomePage-js" class="headerlink" title="2.2修改HomePage.js"></a>2.2修改HomePage.js</h2><blockquote>
+<p>添加组件TodoListComponent</p>
+</blockquote>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><div class="line">&lt;TodoListComponent todoList=&#123;[&#123;title:<span class="string">'测试数据'</span>&#125;]&#125; /&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Redux-Project-002-002.png" alt=""></p>
+<hr>
+<h1 id="A3：使用-Redux创建-store加载数据"><a href="#A3：使用-Redux创建-store加载数据" class="headerlink" title="A3：使用 Redux创建 store加载数据"></a>A3：使用 Redux创建 store加载数据</h1><h2 id="3-0任务"><a href="#3-0任务" class="headerlink" title="3.0任务"></a>3.0任务</h2><blockquote>
+<p>Task01:创建 store，并带有初始数据<br>Task02:使用 Provider connect()<br>Task03:显示初始数据</p>
+<h2 id="3-1入口文件的index-js"><a href="#3-1入口文件的index-js" class="headerlink" title="3.1入口文件的index.js"></a>3.1入口文件的index.js</h2><p>修改入口文件，引入 redux、react-redux、reducers ，定义初始数据，创建 store ，使用 Provider 包裹根组件，并带上 store 属性（供被包裹的组件使用）</p>
+<p>引入 reducersd]的入口index.js<br>引入 HomePage.js<br>引入 redux —&gt; 创建 store<br>引入 react-redux —&gt;  使用 Provider<br>初始数据: initState<br>创建 store<br>组件RootContainer<br>Provider:包裹根组件(入口组件)，提供 store 属性，以供子组件使用（用法本篇上面）</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React,&#123;Component&#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  View,</div><div class="line">  StyleSheet,</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> HomePage <span class="keyword">from</span> <span class="string">'./pages/HomePage'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> reducers <span class="keyword">from</span> <span class="string">'./reducers/index'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line">    </div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;  </div><div class="line"></div><div class="line"><span class="keyword">const</span> initState = </div><div class="line">&#123;</div><div class="line">  <span class="attr">todos</span>:[</div><div class="line">    &#123;<span class="attr">title</span>:<span class="string">'吃饭饭'</span>,<span class="attr">status</span>:<span class="literal">true</span>&#125;,</div><div class="line">    &#123;<span class="attr">title</span>:<span class="string">'打游戏'</span>,<span class="attr">status</span>:<span class="literal">false</span>&#125;,</div><div class="line">    &#123;<span class="attr">title</span>:<span class="string">'撸代码'</span>,<span class="attr">status</span>:<span class="literal">false</span>&#125;,</div><div class="line">  ],</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> store = createStore(reducers, initState);</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">RootContainer</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">Provider</span> </span></span></div><div class="line">            <span class="attr">store</span> = <span class="string">&#123;store&#125;</span>&gt;</div><div class="line">          <span class="tag">&lt;<span class="name">View</span> </span></div><div class="line">              <span class="attr">style</span> = <span class="string">&#123;styles.container&#125;</span>&gt;</div><div class="line">            <span class="tag">&lt;<span class="name">HomePage</span> /&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">Provider</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">  <span class="attr">container</span>:</div><div class="line">  &#123;</div><div class="line">    <span class="attr">flex</span>:<span class="number">1</span>,</div><div class="line">    <span class="attr">marginTop</span>:<span class="number">20</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>##3.2- HomePage.js</p>
+<blockquote>
+<p>引入子组件TodoListComponent<br>引入react-redux,提供的 connect() 进行连接组件与redux<br>HomePage不再是默认export<br>constructor函数<br>组件TodoListComponent扩展 属性todoList:value,用来注入数据<br>this.props.todoList掉map函数遍历,加载数据</p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">import React, &#123; Component &#125; <span class="keyword">from</span> 'react';</div><div class="line">import &#123;</div><div class="line">    View,</div><div class="line">    Text</div><div class="line">&#125; <span class="keyword">from</span> 'react-native';</div><div class="line"></div><div class="line">import TodoListComponent <span class="keyword">from</span> '../components/TodoListComponent';  </div><div class="line"></div><div class="line">import &#123; connect &#125; <span class="keyword">from</span> 'react-redux';   </div><div class="line"></div><div class="line"> class HomePage extends Component &#123;</div><div class="line">  constructor (props)&#123;</div><div class="line">    super(props);</div><div class="line">  &#125;</div><div class="line">  render()&#123;</div><div class="line">    return(</div><div class="line">      <span class="variable">&lt;View&gt;</span></div><div class="line">        &#123;/* <span class="variable">&lt;Text&gt;</span>QQ:<span class="number">738816656</span>&lt;/Text&gt; */&#125;</div><div class="line">         &#123;/* <span class="variable">&lt;TodoListComponent todoList=&#123;[&#123;title:'测试数据'&#125;]&#125; /&gt;</span> */&#125;</div><div class="line">            <span class="variable">&lt;TodoListComponent todoList=&#123;this.props.todoList&#125; /&gt;</span></div><div class="line">      &lt;/View&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">// 基于全局 <span class="keyword">state</span> ，哪些 <span class="keyword">state</span> 是我们想注入的 props</div><div class="line">function mapStateToProps(<span class="keyword">state</span>)&#123;</div><div class="line">    return &#123;</div><div class="line">        todoList: <span class="keyword">state</span>.todos,  // 将全局的 <span class="keyword">state</span> 的其中一个 key(即todos) 作为 props 注入</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">export <span class="keyword">default</span> connect(mapStateToProps)(HomePage);  // 连接组件并export</div></pre></td></tr></table></figure>
+<h2 id="3-3-reducers的index-js"><a href="#3-3-reducers的index-js" class="headerlink" title="3.3-reducers的index.js"></a>3.3-reducers的index.js</h2><blockquote>
+<p>感觉类似iOS的封装一个通用结构函数，createStore函数通过2个参数返回store<br>todoList:这是一个空的 reducer , 不做任何处理，返回原始 state<br>reducers:这里的 key 要与初始数据的 key(初始化initState用的todos) 一致</p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">import &#123; combineReducers &#125; <span class="keyword">from</span> 'redux';</div><div class="line">function todoList(<span class="keyword">state</span>=[], action)&#123;</div><div class="line">    return <span class="keyword">state</span>;</div><div class="line">&#125;</div><div class="line">const reducers = combineReducers(&#123;</div><div class="line">    todos: todoList</div><div class="line">&#125;);</div><div class="line">export <span class="keyword">default</span> reducers;</div></pre></td></tr></table></figure>
+<h2 id="3-4-Component的TodoListComponent-js"><a href="#3-4-Component的TodoListComponent-js" class="headerlink" title="3.4 Component的TodoListComponent.js"></a>3.4 Component的TodoListComponent.js</h2><blockquote>
+<p>组件 TodoListComponent用 props 接收来自容器组件的数据（比如todoList），并以展示(类似iOS里拿到数据源,处理数据/加载UI)<br>map()函数<br>todo.status&amp;&amp;finishStyle   todo.status为true就执行finishStyle 为false就不执行<br>()=&gt; return();</p>
+</blockquote>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">    <span class="type">Text</span>,</div><div class="line">    <span class="type">View</span>,</div><div class="line">    <span class="type">StyleSheet</span>,</div><div class="line">&#125; from <span class="symbol">'react</span>-native';</div><div class="line"></div><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">TodoListComponent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    constructor(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;<span class="type">View</span></div><div class="line">                style=&#123;styles.container&#125;</div><div class="line">                &gt;</div><div class="line">		            &#123;</div><div class="line">		            <span class="keyword">this</span>.props.todoList.map(</div><div class="line">		               (todo, index)=&gt;&#123;</div><div class="line">		                   <span class="keyword">var</span> finishStyle = &#123;textDecorationLine:<span class="symbol">'line</span>-through', color:<span class="symbol">'gra</span>y'&#125;;</div><div class="line">		                <span class="keyword">return</span> (</div><div class="line">		                    &lt;<span class="type">Text</span> style=&#123;[styles.todo,</div><div class="line">		                                 todo.status&amp;&amp;finishStyle]&#125;&gt;&#123;todo.title&#125;&lt;/<span class="type">Text</span>&gt;</div><div class="line">		                      );</div><div class="line">		                            &#125;</div><div class="line">		                              )</div><div class="line">		             &#125;</div><div class="line">            &lt;/<span class="type">View</span>&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const styles = <span class="type">StyleSheet</span>.create(&#123;</div><div class="line">    container:</div><div class="line">    &#123;</div><div class="line">        paddingHorizontal: <span class="number">20</span>,</div><div class="line">    &#125;,</div><div class="line">    todo:</div><div class="line">    &#123;</div><div class="line">        paddingVertical: <span class="number">5</span>,</div><div class="line">    &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="3-5-TodoListComponent-js"><a href="#3-5-TodoListComponent-js" class="headerlink" title="3.5 TodoListComponent.js"></a>3.5 TodoListComponent.js</h2><blockquote>
+<p>TodoListComponent组件展示测试数据<br>constructor<br>下面用到this.props，需要重写（有点类似iOS里 super）</p>
+<p>map()函数 会读取todoList数组的元素，（iOS里的for功能–&gt;遍历）</p>
+</blockquote>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">    <span class="type">Text</span>,</div><div class="line">    <span class="type">View</span>,</div><div class="line">    <span class="type">StyleSheet</span>,</div><div class="line">&#125; from <span class="symbol">'react</span>-native';</div><div class="line"></div><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">TodoListComponent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    constructor(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;<span class="type">View</span> style=&#123;styles.container&#125;&gt;</div><div class="line">            &#123;<span class="keyword">this</span>.props.todoList.map((todo, index)=&gt;&#123;</div><div class="line">                <span class="keyword">var</span> finishStyle = &#123;textDecorationLine:<span class="symbol">'line</span>-through', color:<span class="symbol">'gra</span>y'&#125;;</div><div class="line">                <span class="keyword">return</span> (</div><div class="line">                    &lt;<span class="type">Text</span> style=&#123;[styles.todo,todo.status&amp;&amp;finishStyle]&#125;&gt;&#123;todo.title&#125;&lt;/<span class="type">Text</span>&gt;</div><div class="line">                );</div><div class="line">            &#125;)&#125;</div><div class="line">            &lt;/<span class="type">View</span>&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const styles = <span class="type">StyleSheet</span>.create(&#123;</div><div class="line">    container: </div><div class="line">    &#123;</div><div class="line">        paddingHorizontal: <span class="number">20</span>,</div><div class="line">    &#125;,</div><div class="line">    todo: </div><div class="line">    &#123;</div><div class="line">        paddingVertical: <span class="number">5</span>,</div><div class="line">    &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Redux-Project-002-003.png" alt=""></p>
+<hr>
+<h1 id="B交互实战"><a href="#B交互实战" class="headerlink" title="B交互实战"></a>B交互实战</h1><p><strong>Task</strong></p>
+<blockquote>
+<p>1.TODO 项添加点击事件<br>2.点击改变状态(status:true|false)<br>3.新组件TodoFormComponent.js,可以添加新的 TODO 项</p>
+</blockquote>
+<h1 id="B1-TODO-状态切换"><a href="#B1-TODO-状态切换" class="headerlink" title="B1:TODO 状态切换"></a>B1:TODO 状态切换</h1><h2 id="1-TodoListComponent-js"><a href="#1-TodoListComponent-js" class="headerlink" title="1.TodoListComponent.js"></a>1.TodoListComponent.js</h2><blockquote>
+<p>引入TouchableOpacity: Text组件外层增加TouchableOpacity组件<br>构建onPress 调用函数clickTodo<br>TouchableOpacity 添加onPress</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">    Text,</div><div class="line">    View,</div><div class="line">    StyleSheet,</div><div class="line">    TouchableOpacity,</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">TodoListComponent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    clickTodo(index)&#123;</div><div class="line">      <span class="keyword">this</span>.props.clickTodo&amp;&amp;<span class="keyword">this</span>.props.clickTodo(index);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;styles.container&#125;</span>&gt;</span></span></div><div class="line">            &#123;this.props.todoList.map((todo, index)=&gt;&#123;</div><div class="line">              let finishStyle = &#123;textDecorationLine:'line-through', color:'gray'&#125;;</div><div class="line">                return (</div><div class="line">                          <span class="tag">&lt;<span class="name">TouchableOpacity</span></span></div><div class="line">                            <span class="attr">onPress</span> = <span class="string">&#123;()</span>=&gt;&#123;</div><div class="line">                                this.clickTodo(index)</div><div class="line">                              &#125;</div><div class="line">                            &#125;</div><div class="line">                            &gt;</div><div class="line">                           <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;[styles.todo,todo.status&amp;&amp;finishStyle]&#125;</span></span></div><div class="line">                              &gt;&#123;todo.title&#125;</div><div class="line">                            <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">                      <span class="tag">&lt;/<span class="name">TouchableOpacity</span>&gt;</span></div><div class="line">                );</div><div class="line">            &#125;)&#125;</div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">    <span class="attr">container</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="attr">paddingHorizontal</span>: <span class="number">20</span>,</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">todo</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="attr">paddingVertical</span>: <span class="number">5</span>,</div><div class="line">    &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="2-HomePage-js"><a href="#2-HomePage-js" class="headerlink" title="2.HomePage.js"></a>2.HomePage.js</h2><blockquote>
+<p>子组件 TodoListComponent 的点击事件配置完成，通过 props 调用容器组件的方法。容器组件 HomeContainer 调用 dispatch(action)</p>
+<p>引入action  </p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;changeTodoStatus&#125; <span class="keyword">from</span> <span class="string">'../actions/actionIndex'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>构造clickTodo函数，解构出 dispatch<br>从 props 里解构出 dispatch<br>执行 dispatch(action)</p>
+</blockquote>
+<figure class="highlight axapta"><table><tr><td class="code"><pre><div class="line">clickTodo(<span class="keyword">index</span>)</div><div class="line">&#123;</div><div class="line">  let &#123; dispatch &#125; = <span class="keyword">this</span>.props;   <span class="comment">//从 props 里解构出 dispatch</span></div><div class="line">  dispatch(changeTodoStatus(<span class="keyword">index</span>)); <span class="comment">// 执行 dispatch(action)</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>组件TodoListComponent扩展属性clickTodo</p>
+</blockquote>
+<figure class="highlight axapta"><table><tr><td class="code"><pre><div class="line">clickTodo=&#123;(<span class="keyword">index</span>)=&gt;&#123;</div><div class="line">              <span class="keyword">this</span>.clickTodo(<span class="keyword">index</span>)</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
+<p>##3.actionIndex.js</p>
+<blockquote>
+<p>使用方法创建 action ，并将 action 的 type 字段全部使用常量（不直接使用字符串，方便统一管理与多处引用）</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="code"><pre><div class="line"><span class="comment">/*----------------------action 类型常量 --------------------*/</span></div><div class="line"><span class="comment">/*</span></div><div class="line"> * 更改 TODO 状态</div><div class="line"> * <span class="doctag">@type</span> &#123;String&#125;</div><div class="line"> */</div><div class="line">export <span class="keyword">const</span> CLICK_TODO_STATUS = <span class="string">'CLICK_TODO_STATUS'</span>;</div><div class="line"><span class="comment">/*----------------------action 创建函数 --------------------*/</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 更改 TODO 状态</div><div class="line"> * <span class="doctag">@param</span>  &#123;Number&#125; index TODO索引</div><div class="line"> * <span class="doctag">@return</span> &#123;Object&#125;       action</div><div class="line"> */</div><div class="line">export <span class="function"><span class="keyword">function</span> <span class="title">changeTodoStatus</span><span class="params">(index)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;type: CLICK_TODO_STATUS, index&#125;;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="5-reducer-index-js"><a href="#5-reducer-index-js" class="headerlink" title="5.reducer/index.js"></a>5.reducer/index.js</h2><blockquote>
+<p>reducer 更新 state<br>派发action后，需要用reducer响应action，并返回新的state<br>引入 action ，使用 action 类型常量<br>匹配响应 action，创建并返回新的 state (注意，不能修改state)<br>在没有匹配到 action 时，返回原始state,这是一个空的 reducer , 不做任何处理，返回原始 state</p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">import &#123; combineReducers &#125; <span class="keyword">from</span> 'redux';</div><div class="line"></div><div class="line">import &#123;CLICK_TODO_STATUS&#125; <span class="keyword">from</span> '../actions/actionIndex';</div><div class="line"></div><div class="line">function todoList(<span class="keyword">state</span>=[], action)&#123;</div><div class="line">  switch (action.type) &#123;</div><div class="line">    case CLICK_TODO_STATUS:</div><div class="line">      var todo = <span class="keyword">state</span>[action.index];</div><div class="line">      return [</div><div class="line">          ...<span class="keyword">state</span>.slice(<span class="number">0</span>,action.index),</div><div class="line">          Object.assign(&#123;&#125;,todo,&#123;</div><div class="line">            status:!todo.status,</div><div class="line">          &#125;),</div><div class="line">          ...<span class="keyword">state</span>.slice(action.index + <span class="number">1</span>)</div><div class="line">      ];</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">           return <span class="keyword">state</span>;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">const reducers = combineReducers(&#123;</div><div class="line">    todos: todoList // 这里的 key 要与初始数据的 key 一致</div><div class="line">&#125;);</div><div class="line">export <span class="keyword">default</span> reducers;</div></pre></td></tr></table></figure>
+<p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Redux-Project-002-B-001.png" alt=""></p>
+<hr>
+<p>#B2:添加新 Todo 项</p>
+<p>##1.新增组件TodoFormComponent.js</p>
+<blockquote>
+<p>constructor(props)<br>addTodo(){}<br>setTodo(text){}<br>TextInput的onChangeText<br>Button 的 onPress</p>
+</blockquote>
+<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">    <span class="type">View</span>,</div><div class="line">    <span class="type">TextInput</span>,</div><div class="line">    <span class="type">Button</span>,</div><div class="line">    <span class="type">StyleSheet</span>,</div><div class="line">&#125; from <span class="symbol">'react</span>-native';</div><div class="line"></div><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">TodoFormComponent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">  constructor(props)&#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;</div><div class="line">      todo:<span class="literal">null</span>,</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">  addTodo()&#123;</div><div class="line">    <span class="keyword">this</span>.props.addTodo&amp;&amp;<span class="keyword">this</span>.props.addTodo(<span class="keyword">this</span>.state.todo);<span class="comment">//调用父组件方法</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  setTodo(text)&#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123;</div><div class="line">      todo:text,</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  render()&#123;</div><div class="line">    <span class="keyword">return</span>(</div><div class="line">      &lt;<span class="type">View</span></div><div class="line">                   style = &#123;styles.container&#125;&gt;</div><div class="line">          &lt;<span class="type">TextInput</span></div><div class="line">                   style = &#123;styles.input&#125;</div><div class="line">                   onChangeText = &#123;(text)=&gt;&#123;</div><div class="line">                             <span class="keyword">this</span>.setTodo(text)</div><div class="line">                       &#125;&#125;</div><div class="line">          /&gt;</div><div class="line">        &lt;<span class="type">Button</span></div><div class="line">                 title = <span class="symbol">'Ad</span>d'</div><div class="line">                  onPress =&#123;()=&gt;&#123;</div><div class="line">                    <span class="keyword">this</span>.addTodo()</div><div class="line">                  &#125;&#125;</div><div class="line">        /&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">const styles = <span class="type">StyleSheet</span>.create(&#123;</div><div class="line">    container:</div><div class="line">     &#123;</div><div class="line">        paddingHorizontal: <span class="number">10</span>,</div><div class="line">        flexDirection: <span class="symbol">'ro</span>w',</div><div class="line">         width:<span class="number">300</span>,</div><div class="line">     &#125;,</div><div class="line">    input:</div><div class="line">    &#123;</div><div class="line">        flex: <span class="number">1</span>,</div><div class="line">        height: <span class="number">30</span>,</div><div class="line">        borderColor: <span class="symbol">'gra</span>y',</div><div class="line">        borderWidth: <span class="number">1</span>,</div><div class="line"></div><div class="line">    &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="2-actionIndex-js"><a href="#2-actionIndex-js" class="headerlink" title="2. actionIndex.js"></a>2. actionIndex.js</h2><blockquote>
+<p>action 类型常量</p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> IN_PUT_ADD_FORM_TODO = <span class="string">'ADD_TODO_FORM'</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>action 创建函数 </p>
+</blockquote>
+<figure class="highlight ada"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">function</span> <span class="title">inPutAddFormTodo</span>(text)&#123;              </div><div class="line">    <span class="keyword">return</span> <span class="type">&#123;type:</span> IN_PUT_ADD_FORM_TODO, text&#125;;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="3-reducer-index-js"><a href="#3-reducer-index-js" class="headerlink" title="3.reducer/index.js"></a>3.reducer/index.js</h2><blockquote>
+<p>修改 reducer, 响应 action<br>引入 IN_PUT_ADD_FORM_TODO<br>定义了新的匹配类型，以响应新的 action</p>
+</blockquote>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;CLICK_TODO_STATUS,IN_PUT_ADD_FORM_TODO&#125; <span class="keyword">from</span> <span class="string">'../actions/actionIndex'</span>;</div><div class="line"></div><div class="line"><span class="keyword">case</span> IN_PUT_ADD_FORM_TODO:</div><div class="line">              <span class="keyword">return</span> [</div><div class="line">                  ...state,</div><div class="line">                  &#123;</div><div class="line">                      title: action.text,</div><div class="line">                      status: <span class="keyword">false</span>,</div><div class="line">                  &#125;</div><div class="line">              ];</div></pre></td></tr></table></figure>
+<h2 id="4-HomePage-js"><a href="#4-HomePage-js" class="headerlink" title="4.HomePage.js"></a>4.HomePage.js</h2><blockquote>
+<p>引入组件 TodoFormComponent.js<br>构建addTodo函数解构出 dispatch，执行action<br>渲染组件，扩展属性addTodo</p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> TodoFormComponent from <span class="string">'../components/TodoFormComponent'</span></div><div class="line"></div><div class="line">  addTodo(<span class="built_in">text</span>)&#123;</div><div class="line">		    let &#123; dispatch &#125; = <span class="keyword">this</span>.props;           <span class="comment">// 从 props 里解构出 dispatch</span></div><div class="line">		    dispatch(inPutAddFormTodo(<span class="built_in">text</span>));       <span class="comment">// 执行 dispatch(action)</span></div><div class="line">  &#125;</div><div class="line">  </div><div class="line">     &lt;TodoFormComponent</div><div class="line">                addTodo = &#123;(<span class="built_in">text</span>)=&gt;&#123;</div><div class="line">                  <span class="keyword">this</span>.addTodo(<span class="built_in">text</span>)</div><div class="line">                &#125;&#125;/&gt;</div></pre></td></tr></table></figure>
+<p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Redux-Project-002-B-002.png" alt=""></p>
+<hr>
+<h1 id="C-TODO过滤显示"><a href="#C-TODO过滤显示" class="headerlink" title="C:TODO过滤显示"></a>C:TODO过滤显示</h1><p><strong>任务</strong></p>
+<blockquote>
+<p>入口文件添加一个新的初始state与 todos 平级，做为当前过滤条件<br>创建一个子组件TodoFilterComponent：包含3个过滤按钮All、Undo、Finish，并接收一个属性为当前过滤条件，过滤按钮与当前过滤条件相同时，过滤按钮不可点击<br>修改容器组件HomeContainer：引入过滤组件，并且可以设置当前过滤条件，根据过滤条件显示不同状态的 TODO 项<br>添加 Action：定义ActionCreator生成设置当前过滤条件的 Action<br>添加 Reducer：可以设置当前的过滤条件</p>
+</blockquote>
+<h2 id="1-index-js"><a href="#1-index-js" class="headerlink" title="1.index.js"></a>1.index.js</h2><blockquote>
+<p>初始化数据中，增加filter</p>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">const initState = &#123;</div><div class="line"><span class="symbol">    todos:</span> [</div><div class="line">        &#123;<span class="string">title:</span><span class="string">'吃早饭'</span>,<span class="string">status:</span><span class="literal">true</span>&#125;,</div><div class="line">        &#123;<span class="string">title:</span><span class="string">'打篮球'</span>,<span class="string">status:</span><span class="literal">false</span>&#125;,</div><div class="line">        &#123;<span class="string">title:</span><span class="string">'修电脑'</span>,<span class="string">status:</span><span class="literal">false</span>&#125;,</div><div class="line">    ],</div><div class="line"><span class="symbol">    filter:</span> <span class="string">'All'</span>, <span class="comment">// 'All'|'Undo'|'Finish'  </span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="2-新组建TodoFilterComponent-js"><a href="#2-新组建TodoFilterComponent-js" class="headerlink" title="2.新组建TodoFilterComponent.js"></a>2.新组建TodoFilterComponent.js</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">    View,</div><div class="line">    Text,</div><div class="line">    TouchableOpacity,</div><div class="line">    StyleSheet,</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">TodoFilterComponent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props)&#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">  &#125;</div><div class="line">  filterTodo(filter)&#123;</div><div class="line">    <span class="keyword">this</span>.props.filterTodo&amp;&amp;<span class="keyword">this</span>.props.filterTodo(filter);</div><div class="line">  &#125;</div><div class="line">  renderFilter(filter)&#123;</div><div class="line">    <span class="keyword">if</span> (filter == <span class="keyword">this</span>.props.filter)</div><div class="line">          &#123;</div><div class="line">            <span class="keyword">return</span>(</div><div class="line">                <span class="xml"><span class="tag">&lt;<span class="name">Text</span></span></span></div><div class="line">                  <span class="attr">style</span>=<span class="string">&#123;[styles.filter,styles.filterCurrent]&#125;</span>&gt;</div><div class="line">                  &#123;filter&#125;</div><div class="line">                <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">              );</div><div class="line">           &#125;</div><div class="line">            <span class="keyword">return</span>(</div><div class="line">              <span class="xml"><span class="tag">&lt;<span class="name">TouchableOpacity</span></span></span></div><div class="line">                <span class="attr">onPress</span> = <span class="string">&#123;()</span>=&gt;&#123;</div><div class="line">                  this.filterTodo(filter)&#125;&#125;&gt;</div><div class="line">                <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;styles.filter&#125;</span>&gt;</span></div><div class="line">                  &#123;filter&#125;</div><div class="line">                <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">              <span class="tag">&lt;/<span class="name">TouchableOpacity</span>&gt;</span></div><div class="line">            );</div><div class="line">  &#125;</div><div class="line">  render()&#123;</div><div class="line">    <span class="keyword">return</span>(</div><div class="line">          <span class="xml"><span class="tag">&lt;<span class="name">View</span>  <span class="attr">style</span> = <span class="string">&#123;styles.container&#125;</span>&gt;</span></span></div><div class="line">            &#123;this.renderFilter('All')&#125;</div><div class="line">            &#123;this.renderFilter('Undo')&#125;</div><div class="line">            &#123;this.renderFilter('Finish')&#125;</div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">         );</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">    <span class="attr">container</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="attr">flexDirection</span>: <span class="string">'row'</span>,</div><div class="line">        <span class="attr">paddingLeft</span>: <span class="number">20</span>,</div><div class="line">        <span class="attr">paddingTop</span>: <span class="number">20</span>,</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">filter</span>:</div><div class="line">    &#123;</div><div class="line">        <span class="attr">marginRight</span>: <span class="number">20</span>,</div><div class="line">        <span class="attr">textDecorationLine</span>: <span class="string">'underline'</span>,</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">filterCurrent</span>:&#123;</div><div class="line">        <span class="attr">color</span>: <span class="string">'gray'</span>,</div><div class="line">        <span class="attr">textDecorationLine</span>: <span class="string">'none'</span>,</div><div class="line">    &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>##3.HomePage.js</p>
+<blockquote>
+<p>引入子组件TodoFilterComponent<br>添加过滤方法，此方法的功能为设置当前过滤条件</p>
+<p>引入 action –&gt; filterTodoList<br>引入新组件 TodoFilterComponent.js</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;changeTodoStatus,inPutAddFormTodo,filterTodoList&#125; <span class="keyword">from</span> <span class="string">'../actions/actionIndex'</span></div><div class="line"><span class="keyword">import</span> TodoFilterComponent <span class="keyword">from</span> <span class="string">'../components/TodoFilterComponent'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>构建方法filterTodo(filter){}<br>解构出 dispatch<br>执行过滤方法</p>
+</blockquote>
+<figure class="highlight golo"><table><tr><td class="code"><pre><div class="line">filterTodo(<span class="keyword">filter</span>)&#123;</div><div class="line">    <span class="keyword">let</span> &#123; dispatch &#125; = this.props;        </div><div class="line">    dispatch(filterTodoList(<span class="keyword">filter</span>));  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>组件渲染并添加方法</p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line">&lt;TodoFormComponent</div><div class="line">            <span class="comment">//  渲染组件</span></div><div class="line">              addTodo = &#123;(<span class="built_in">text</span>)=&gt;&#123;</div><div class="line">                <span class="keyword">this</span>.addTodo(<span class="built_in">text</span>)</div><div class="line">        &#125;&#125;/&gt;</div></pre></td></tr></table></figure>
+<h2 id="4-actionIndex-js"><a href="#4-actionIndex-js" class="headerlink" title="4.actionIndex.js"></a>4.actionIndex.js</h2><blockquote>
+<p>action 类型常量</p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> FILTER_TODO_LIST = <span class="string">'FILTER_TODO_LIST'</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>action 创建函数 </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">filterTodoList</span>(<span class="params">filter</span>)</span>&#123;      <span class="comment">// 添加新的 action 创建函数</span></div><div class="line">    <span class="keyword">return</span> &#123;<span class="attr">type</span>: FILTER_TODO_LIST, filter&#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="5-reducer-index-js-1"><a href="#5-reducer-index-js-1" class="headerlink" title="5.reducer/index.js"></a>5.reducer/index.js</h2><blockquote>
+<p>引入 FILTER_TODO_LIST</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;CLICK_TODO_STATUS,IN_PUT_ADD_FORM_TODO,FILTER_TODO_LIST&#125; <span class="keyword">from</span> <span class="string">'../actions/actionIndex'</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>定义了新的 reducer</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">function setFilter(<span class="attribute">state</span>=<span class="string">''</span>, action)&#123;</div><div class="line">    switch(action.type)&#123;</div><div class="line">        case FILTER_TODO_LIST:</div><div class="line">            return action.filter;</div><div class="line">       <span class="built_in"> default </span>:</div><div class="line">            return state;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>新增filter<br>这里的 key 要与初始数据的 key 一致</p>
+</blockquote>
+<figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">const reducers = combineReducers(&#123;</div><div class="line"><span class="symbol">    todos:</span> todoList,</div><div class="line"><span class="symbol">    filter:</span> setFilter,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="6-运行显示todo-列表"><a href="#6-运行显示todo-列表" class="headerlink" title="6.运行显示todo 列表"></a>6.运行显示todo 列表</h2><h2 id="7-HomePage-js"><a href="#7-HomePage-js" class="headerlink" title="7.HomePage.js"></a>7.HomePage.js</h2><blockquote>
+<p>TODO 列表的显示，是根据容器组件HomeContainer给的数据来显示的，它并不知道数据的具体来源，给它什么数据它就显示什么数据（这也正是我们想要的功能）<br>将容器组件HomePage的 TODO 列表数据做修改</p>
+</blockquote>
+<figure class="highlight pf"><table><tr><td class="code"><pre><div class="line">const getFilterTodos = (todos, filter) =&gt; &#123;               // 定义 TODO 过滤方法，返回新的数据</div><div class="line">  switch (filter) &#123;</div><div class="line">    case 'All':</div><div class="line">      return todos;</div><div class="line">    case 'Undo':</div><div class="line">      return todos.filter( todo =&gt; !todo.status);</div><div class="line">    case 'Finish':</div><div class="line">      return todos.filter( todo =&gt; todo.status);</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">      throw new Error('Unknown filter: ' + filter);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function mapStateToProps(<span class="keyword">state</span>)&#123;</div><div class="line">    return &#123;</div><div class="line">        //todoList: <span class="keyword">state</span>.todos,  // 将全局的 <span class="keyword">state</span> 的其中一个 key(即todos) 作为 props 注入</div><div class="line">        todoList: getFilterTodos(<span class="keyword">state</span>.todos, <span class="keyword">state</span>.filter),</div><div class="line">        // 注入props时，调用 TODO 过滤方法</div><div class="line">        currentFilter: <span class="keyword">state</span>.filter, // 注入新的 <span class="keyword">state</span> 到 props</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://osq7nstcc.bkt.clouddn.com/RN-Redux-Project-002-C-001.gif" alt=""></p>
+<hr>
 
-iOS-RN-Project-002-0.44.3 Github地址
-① Action
-本质上是一个 JavaScript 对象包括一个必须的字段 type ，以及其它数据项类似于这样 {type: ‘Action_NAME’, attr01
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/30/RN-Redux-Project-002/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -699,19 +889,64 @@ iOS-RN-Project-002-0.44.3 Github地址
       
         
           
-          Redux
-RN+iOS 资料少，参考很多网上资料，模仿下Redux的使用，对RN了解依然一脸懵逼
-RN_Redux 代码地址
+            <h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><blockquote>
+<p>RN+iOS 资料少，参考很多网上资料，模仿下Redux的使用，对RN了解依然一脸懵逼</p>
+<p><a href="https://github.com/STeamYue/RN_Redux" target="_blank" rel="external">RN_Redux 代码地址</a></p>
+</blockquote>
+<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><figure class="highlight 1c"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="string">|</span></div><div class="line">├──ios/                       * IOS</div><div class="line"><span class="string">|</span></div><div class="line">├──android/                   * Android</div><div class="line"><span class="string">|</span></div><div class="line">├──src/                       * 主程序</div><div class="line">│   │</div><div class="line">│   │──components             * 所有组件</div><div class="line">│   │</div><div class="line">│   └──pages                  * 所有页面</div><div class="line">│   │</div><div class="line">│   └──images                 * 本地图片资源</div><div class="line">│   │</div><div class="line">│   └──utils                  * Utils</div><div class="line">│   │</div><div class="line">│   └──styles                 * 所有样式变量集中管理</div><div class="line">│   │</div><div class="line">│   └──service                * 封装服务性质的包缓存封装..</div><div class="line">│   │</div><div class="line">│   └──index.js               * App入口</div><div class="line">│</div><div class="line">│──package.json               * 包信息</div><div class="line">│</div><div class="line">│──.babelrc                   * Babel配置</div><div class="line">│</div><div class="line">└──reset.sh                   * 清空项目依赖并重新安装</div></pre></td></tr></table></figure>
+<h1 id="显示-TODO-列表"><a href="#显示-TODO-列表" class="headerlink" title="显示 TODO 列表"></a>显示 TODO 列表</h1><blockquote>
+<p>显示 TODO 列表感觉就是 UI层的处理</p>
+</blockquote>
+<p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Redux_Project_001_subComponent.png" alt=""></p>
+<h2 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h2><blockquote>
+<p>引入一个（或多个）容器组件（RootContainer）,容器组件再引入多个子组件展示信息</p>
+</blockquote>
+<h3 id="①容器组件"><a href="#①容器组件" class="headerlink" title="①容器组件"></a>①容器组件</h3><blockquote>
+<p>❶提供数据给子组件（通过props）<br>❷数据处理</p>
+</blockquote>
+<h3 id="②子组件"><a href="#②子组件" class="headerlink" title="②子组件"></a>②子组件</h3><blockquote>
+<p>❶展示数据（子组件一般都是通过父组件props获取数据，它并不关心数据来源）<br>❷部分数据处理与调用父组件数据处理方法（通过props）</p>
+</blockquote>
+<h3 id="index的代码"><a href="#index的代码" class="headerlink" title="index的代码"></a>index的代码</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">//1.</span></div><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span>&#123;</div><div class="line">  View,</div><div class="line">  Text,</div><div class="line">  StyleSheet,&#125;<span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"><span class="comment">//2.引入容器组件</span></div><div class="line"><span class="keyword">import</span> HomeContainer <span class="keyword">from</span> <span class="string">'./components/HomeContainer'</span></div><div class="line"><span class="comment">//3.</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">RootContainer</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">      render()&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">          <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> =<span class="string">&#123;styles.container&#125;</span>&gt;</span></span></div><div class="line">            <span class="tag">&lt;<span class="name">HomeContainer</span>/&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">        );</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line"><span class="comment">//4.</span></div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">  <span class="attr">container</span>:</div><div class="line">  &#123;</div><div class="line">    <span class="attr">flex</span>:<span class="number">1</span>,</div><div class="line">    <span class="attr">marginTop</span>:<span class="number">20</span>,</div><div class="line">    <span class="attr">backgroundColor</span>:<span class="string">'green'</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="HomeContainer-js"><a href="#HomeContainer-js" class="headerlink" title="HomeContainer.js"></a>HomeContainer.js</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">    View,</div><div class="line">    Text,</div><div class="line">    StyleSheet,</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</div><div class="line"><span class="keyword">import</span> TodoListComponent <span class="keyword">from</span> <span class="string">'./TodoListComponent'</span></div><div class="line"><span class="keyword">export</span>  <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeContainer</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props)&#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">      <span class="keyword">this</span>.state =</div><div class="line">      &#123;</div><div class="line">        <span class="attr">todoList</span>:[&#123;<span class="attr">title</span>:<span class="string">'iOS'</span>,<span class="attr">status</span>:<span class="literal">false</span>&#125;,</div><div class="line">                 &#123;<span class="attr">title</span>:<span class="string">'ReactNative'</span>,<span class="attr">status</span>:<span class="literal">false</span>&#125;,</div><div class="line">                 &#123;<span class="attr">title</span>:<span class="string">'TestRN'</span>,<span class="attr">status</span>:<span class="literal">false</span>&#125;,],</div><div class="line">       &#125;;</div><div class="line">    &#125;</div><div class="line">  render()&#123;</div><div class="line">    <span class="keyword">return</span>(</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;&#123;backgroundColor:</span>'<span class="attr">yellow</span>'&#125;&#125;&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">TodoListComponent</span></span></div><div class="line">          <span class="attr">todoList</span> = <span class="string">&#123;this.state.todoList&#125;/</span>&gt;</div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    )</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="TodoListComponent-js"><a href="#TodoListComponent-js" class="headerlink" title="TodoListComponent.js"></a>TodoListComponent.js</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">    <span class="type">Text</span>,</div><div class="line">    <span class="type">View</span>,</div><div class="line">    <span class="type">StyleSheet</span>,</div><div class="line">&#125; from <span class="symbol">'react</span>-native';</div><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">TodoListComponent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">  constructor(props)</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state =</div><div class="line">    &#123;</div><div class="line">      todoList:<span class="keyword">this</span>.props.todoList,</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">  render()&#123;</div><div class="line">    <span class="keyword">return</span>(</div><div class="line">      &lt;<span class="type">View</span></div><div class="line">        style = &#123;styles.container&#125;</div><div class="line">        &gt;</div><div class="line">          &#123;</div><div class="line">            <span class="keyword">this</span>.state.todoList.map((todo,index)=&gt;&#123;</div><div class="line">                <span class="keyword">var</span> finishStyle = &#123;textDecorationLine:<span class="symbol">'line</span>-through',</div><div class="line">                                                color:<span class="symbol">'gra</span>y'&#125;;</div><div class="line">                <span class="keyword">return</span> (</div><div class="line">                  &lt;<span class="type">Text</span> style=&#123;[styles.todo,todo.status&amp;&amp;finishStyle]&#125;&gt;&#123;todo.title&#125;&lt;/<span class="type">Text</span>&gt;</div><div class="line">                );</div><div class="line">              &#125;</div><div class="line">            )</div><div class="line">          &#125;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="type">TodoListComponent</span>.defaultProps = &#123;</div><div class="line">    todoList: [],</div><div class="line">&#125;</div><div class="line"><span class="comment">//</span></div><div class="line">const  styles = <span class="type">StyleSheet</span>.create(&#123;</div><div class="line">  container:</div><div class="line">  &#123;</div><div class="line">        paddingHorizontal: <span class="number">20</span>,</div><div class="line">  &#125;,</div><div class="line">  todo:</div><div class="line">  &#123;</div><div class="line">        paddingVertical: <span class="number">5</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="TODO-处理"><a href="#TODO-处理" class="headerlink" title="TODO 处理"></a>TODO 处理</h1><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Redux_Project_001_showdeleline.png" alt=""></p>
+<blockquote>
+<p>事件的处理，有点像iOS中我剥离出的protocol层，专心处理事件交互<br>为 TODO 项目添加点击事件,换此 TODO 的状态（未完成、已完成）<br>引入 TouchableOpacity，可以添加点击事件</p>
+</blockquote>
+<h2 id="TodoListComponent-js-1"><a href="#TodoListComponent-js-1" class="headerlink" title="TodoListComponent.js"></a>TodoListComponent.js</h2><blockquote>
+<p>TODO 列表的数据是容器组件HomeContainer通过 props 传递给子组件 TodoListComponent<br>点击事件要通过 props 传回给容器组件，处理数据后，更改状态 state ，子组件 TodoListComponent 接受新数据以更新显示状态</p>
+</blockquote>
+<p>①添加点击功能</p>
+<blockquote>
+<p>点击Text 文本出现删除线</p>
+</blockquote>
+<p>❶引入新组件</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">TouchableOpacity</span></div></pre></td></tr></table></figure>
+<p>❷添加</p>
+<figure class="highlight dust"><table><tr><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">TouchableOpacity</span> </span></span></div><div class="line">                  <span class="attr">onPress</span>=<span class="template-variable">&#123;</span></div><div class="line">                     ()=&gt;&#123;this.toggleTodo(index)&#125;<span class="xml"><span class="tag"></span></span></div><div class="line">                     &#125;</div><div class="line">                  &gt;</div><div class="line">                 <span class="tag">&lt;<span class="name">Text</span>  </span></div><div class="line">                      <span class="attr">style</span>=<span class="template-variable">&#123;[styles.todo,todo.status&amp;&amp;finishStyle]&#125;</span><span class="xml"><span class="tag"></span></span></div><div class="line">                      &gt;</div><div class="line">                     <span class="template-variable">&#123;todo.title&#125;</span><span class="xml"></span></div><div class="line">                 <span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">              <span class="tag">&lt;/<span class="name">TouchableOpacity</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>②接受新数据和点击事件 的toggleTodo设置</p>
+<blockquote>
+<p>TODO 列表组件点击 TODO 项，传回给容器组件做数据处理，更新 state，数据会自动传递给 TODO 列表组件 TodoListComponent，更新显示</p>
+</blockquote>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 接受新数据，更新状态显示</span></div><div class="line">componentWillReceiveProps(newProps)</div><div class="line">    &#123;     </div><div class="line">      <span class="keyword">this</span>.setState(&#123;</div><div class="line">          todoList: newProps.todoList || [],</div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line"><span class="comment">// 点击事件，传回父组件，执行相应处理</span></div><div class="line">toggleTodo(index)</div><div class="line">&#123;    </div><div class="line">    <span class="keyword">this</span>.props.toggleTodo &amp;&amp; <span class="keyword">this</span>.props.toggleTodo(index);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="添加-TODO-项"><a href="#添加-TODO-项" class="headerlink" title="添加 TODO 项"></a>添加 TODO 项</h1><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Redux_Project_001_add.png" alt=""></p>
+<blockquote>
+<p>将添加 TODO 功能也做成一个子组件 TodoFormComponent<br>子组件 TodoFormComponent 包含一个输入框 TextInput、一个按钮 Button<br>在输入框中输入文本，会存储到 state 中<br>点击按钮，获取到 state 中的文本，通过 props 传递给父组件做数据处理，显示在 TODO 列表组件 TodoListComponent 中</p>
+</blockquote>
+<h2 id="TodoFormComponent-js"><a href="#TodoFormComponent-js" class="headerlink" title="TodoFormComponent.js"></a>TodoFormComponent.js</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">    <span class="type">View</span>,</div><div class="line">    <span class="type">TextInput</span>,</div><div class="line">    <span class="type">Button</span>,</div><div class="line">    <span class="type">StyleSheet</span>,</div><div class="line">&#125; from <span class="symbol">'react</span>-native';</div><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">TodoFormComponent</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    constructor(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props);</div><div class="line">        <span class="keyword">this</span>.state = &#123;</div><div class="line">            todo: <span class="literal">null</span>,</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">    addTodo()&#123;</div><div class="line">        <span class="keyword">this</span>.props.addTodo &amp;&amp; <span class="keyword">this</span>.props.addTodo(<span class="keyword">this</span>.state.todo);</div><div class="line">    &#125;</div><div class="line">    setTodo(text)&#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;</div><div class="line">            todo: text</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;<span class="type">View</span></div><div class="line">              style=&#123;styles.container&#125;</div><div class="line">              &gt;</div><div class="line">                &lt;<span class="type">TextInput</span></div><div class="line">                    style=&#123;styles.input&#125;</div><div class="line">                     onChangeText=&#123;</div><div class="line">                            (text)=&gt;&#123;<span class="keyword">this</span>.setTodo(text)&#125;</div><div class="line">                             &#125;</div><div class="line">                     /&gt;</div><div class="line">                &lt;<span class="type">Button</span> title=<span class="string">"添加"</span></div><div class="line">                  onPress=&#123;</div><div class="line">                    ()=&gt;<span class="keyword">this</span>.addTodo()</div><div class="line">                         &#125;</div><div class="line">                 /&gt;</div><div class="line">            &lt;/<span class="type">View</span>&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">const styles = <span class="type">StyleSheet</span>.create(&#123;</div><div class="line">    container: &#123;</div><div class="line">        paddingHorizontal: <span class="number">15</span>,</div><div class="line">        flexDirection: <span class="symbol">'ro</span>w',</div><div class="line">    &#125;,</div><div class="line">    input: &#123;</div><div class="line">        height: <span class="number">30</span>,</div><div class="line">        borderColor: <span class="symbol">'blu</span>e',</div><div class="line">        borderWidth: <span class="number">2</span>,</div><div class="line">        flex: <span class="number">1</span>,</div><div class="line">    &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="HomeContainer-js-1"><a href="#HomeContainer-js-1" class="headerlink" title="HomeContainer.js"></a>HomeContainer.js</h2><blockquote>
+<p>处理addTodo添加方法</p>
+</blockquote>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><div class="line">addTodo(text)&#123;</div><div class="line">       <span class="keyword">var</span> todoList = <span class="keyword">this</span>.state.todoList;</div><div class="line">       todoList.push(&#123;</div><div class="line">           title: text,</div><div class="line">           status: <span class="literal">false</span>,</div><div class="line">       &#125;);</div><div class="line">       <span class="keyword">this</span>.setState(&#123;</div><div class="line">           todoList: todoList,</div><div class="line">       &#125;)</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>添加控件，调用addTodo方法</p>
+</blockquote>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line">&lt;TodoFormComponent</div><div class="line">                addTodo=&#123;</div><div class="line">                  (<span class="built_in">text</span>)=&gt;&#123;<span class="keyword">this</span>.addTodo(<span class="built_in">text</span>)&#125;</div><div class="line">                &#125;</div><div class="line">               /&gt;</div></pre></td></tr></table></figure>
 
-目录结构|├──ios/                       * IOS|├──android/                   * Android|├──s
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/29/RN-Redux-Project-001/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -843,18 +1078,223 @@ RN_Redux 代码地址
       
         
           
-          FlatList功能
-高性能的简单列表组件，支持下面这些常用的功能完全跨平台支持水平布局模式。行组件显示或隐藏时可配置回调事件。支持单独的头部组件。支持单独的尾部组件。支持自定义行间分隔线。支持下拉刷新。支持上拉加载。支持跳转到指定行（ScrollToIndex
+            <h1 id="FlatList"><a href="#FlatList" class="headerlink" title="FlatList"></a>FlatList</h1><h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><blockquote>
+<p>高性能的简单列表组件，支持下面这些常用的功能<br>完全跨平台<br>支持水平布局模式。<br>行组件显示或隐藏时可配置回调事件。<br>支持单独的头部组件。<br>支持单独的尾部组件。<br>支持自定义行间分隔线。<br>支持下拉刷新。<br>支持上拉加载。<br>支持跳转到指定行（ScrollToIndex</p>
+</blockquote>
+<p>分组/类/区（section），请使用<sectionlist> </sectionlist></p>
+<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><table>
+<thead>
+<tr>
+<th>FlatList属性</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ItemSeparatorComponent</td>
+<td>ReactClass<any></any></td>
+<td>行与行之间的分隔线组件<br>不会出现在第一行之前和最后一行之后</td>
+<td></td>
+</tr>
+<tr>
+<td>ListEmptyComponent</td>
+<td>ReactClass<any></any></td>
+<td>React.Element<any></any></td>
+<td>列表为空时渲染该组件<br>可以是React Component, 也可以是一个render函数， 或者渲染好的element</td>
+<td></td>
+</tr>
+<tr>
+<td>ListFooterComponent</td>
+<td>ReactClass<any></any></td>
+<td>尾部组件</td>
+<td></td>
+</tr>
+<tr>
+<td>ListHeaderComponent</td>
+<td>ReactClass<any></any></td>
+<td>头部组件</td>
+<td></td>
+</tr>
+<tr>
+<td>columnWrapperStyle</td>
+<td>StyleObj</td>
+<td>如果设置了多列布局（即将numColumns值设为大于1的整数），<br>则可以额外指定此样式作用在每行容器上</td>
+<td></td>
+</tr>
+<tr>
+<td>data</td>
+<td>Array<itemt></itemt></td>
+<td>data属性目前只支持普通数组<br>其他特殊数据结构，例如immutable数组，请直接使用更底层的VirtualizedList组件</td>
+<td></td>
+</tr>
+<tr>
+<td>extraData</td>
+<td>any</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>getItem</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>getItemCount</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>getItemLayout</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>horizontal</td>
+<td>boolean</td>
+<td>设置为true则变为水平布局模式</td>
+<td></td>
+</tr>
+<tr>
+<td>initialNumToRender</td>
+<td>number</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>initialScrollIndex</td>
+<td>number</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>keyExtractor</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>legacyImplementation</td>
+<td>boolean</td>
+<td>设置为true则使用旧的ListView的实现</td>
+<td></td>
+</tr>
+<tr>
+<td>numColumns</td>
+<td>number</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>onEndReached</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>onEndReachedThreshold</td>
+<td>number</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>onRefresh</td>
+<td>?() =&gt; void</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>onViewableItemsChanged</td>
+<td>void</td>
+<td>一个新的Item渲染或者隐藏 的时候调用此方法</td>
+<td></td>
+</tr>
+<tr>
+<td>refreshing</td>
+<td>boolean</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>renderItem</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>viewabilityConfig</td>
+<td>ViewabilityConfig</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><table>
+<thead>
+<tr>
+<th>FlatList方法</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①scrollToEnd(params?: object)</td>
+<td>滚动到底部</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>②scrollToIndex(params: object)</td>
+<td>跳转到指定行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>③scrollToItem(params: object)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>④scrollToOffset(params: {animated?: ?boolean, offset: number})</td>
+<td>滚动到指定的偏移的位置</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>⑤recordInteraction()</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><p><a href="https://github.com/STeamYue/RN_FlatList" target="_blank" rel="external">简单使用 Github地址</a></p>
 
-分组/类/区（section），请
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/28/RN-FlatList/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -986,17 +1426,10 @@ RN_Redux 代码地址
       
         
           
-          RN参考RN参考-原创
-RN-47RN资料
+            <p><a href="http://blog.csdn.net/slowlifes/article/details/75331277" target="_blank" rel="external">RN参考</a><br><a href="http://blog.csdn.net/yeshaojian/article/category/6475783" target="_blank" rel="external">RN参考-原创</a></p>
+<p><a href="http://blog.csdn.net/hsbirenjie/article/category/6307126" target="_blank" rel="external">RN-47</a><br><a href="http://www.jianshu.com/p/eabba7fc6192" target="_blank" rel="external">RN资料</a></p>
 
           
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/28/RN-Study-Resource/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1128,20 +1561,15 @@ RN-47RN资料
       
         
           
-          https://github.com/kompasim/atom-plugins
-安装Autoprefixer官网下载
-激活地址
-安装postcss-cli$sudo npm install autoprefixer -g
-配置External Tools
-打开Webstorm设置，Preferen
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/25/Tool-RN-WebStorm/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p><a href="https://github.com/kompasim/atom-plugins" target="_blank" rel="external">https://github.com/kompasim/atom-plugins</a></p>
+<h1 id="安装Autoprefixer"><a href="#安装Autoprefixer" class="headerlink" title="安装Autoprefixer"></a>安装Autoprefixer</h1><p><a href="https://www.jetbrains.com/webstorm/download/download-thanks.html" target="_blank" rel="external">官网下载</a></p>
+<p><a href="http://idea.liyang.io" target="_blank" rel="external">激活地址</a></p>
+<h2 id="安装postcss-cli"><a href="#安装postcss-cli" class="headerlink" title="安装postcss-cli"></a>安装postcss-cli</h2><figure class="highlight gams"><table><tr><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> npm install autoprefixer -g</span></div></pre></td></tr></table></figure>
+<h2 id="配置External-Tools"><a href="#配置External-Tools" class="headerlink" title="配置External Tools"></a>配置External Tools</h2><blockquote>
+<p>打开Webstorm设置，Preferences -&gt; Tools -&gt; External Tools ;点击新增按钮<br>1.Program:填入你的postcss-cli 的PATH(Mac webStom拖到终端先获取路径)<br>2.Parameters  $FileDir$/$FileName$<br>3.Working directory :$ProjectFileDir$</p>
+</blockquote>
+
+          
         
       
     </div>
@@ -1273,18 +1701,39 @@ RN-47RN资料
       
         
           
-          RN_Export一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用
-组件引入默认组件定义export default class XXXX extends Component
-默认组件引用import XXX from '../YYYY/XXX'
-非默认组件定义export 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/24/RN-Export/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="RN-Export"><a href="#RN-Export" class="headerlink" title="RN_Export"></a>RN_Export</h1><p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用</p>
+<h1 id="组件引入"><a href="#组件引入" class="headerlink" title="组件引入"></a>组件引入</h1><h2 id="默认组件定义"><a href="#默认组件定义" class="headerlink" title="默认组件定义"></a>默认组件定义</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">XXXX</span> <span class="keyword">extends</span> <span class="title">Component</span></span></div></pre></td></tr></table></figure>
+<h2 id="默认组件引用"><a href="#默认组件引用" class="headerlink" title="默认组件引用"></a>默认组件引用</h2><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> XXX <span class="keyword">from</span> <span class="string">'../YYYY/XXX'</span></div></pre></td></tr></table></figure>
+<h2 id="非默认组件定义"><a href="#非默认组件定义" class="headerlink" title="非默认组件定义"></a>非默认组件定义</h2><figure class="highlight scala"><table><tr><td class="code"><pre><div class="line">export  <span class="class"><span class="keyword">class</span> <span class="title">XXXX</span> <span class="keyword">extends</span> <span class="title">Componen</span></span></div></pre></td></tr></table></figure>
+<h2 id="非默认组件引用"><a href="#非默认组件引用" class="headerlink" title="非默认组件引用"></a>非默认组件引用</h2><blockquote>
+<p>非默认组件引用需要加入{}</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;XXX&#125; <span class="keyword">from</span> <span class="string">'../YYYY/XXXX'</span></div></pre></td></tr></table></figure>
+<h1 id="多个组件"><a href="#多个组件" class="headerlink" title="多个组件"></a>多个组件</h1><blockquote>
+<p>单个js文件里声明多个组件</p>
+</blockquote>
+<h2 id="多个组件定义"><a href="#多个组件定义" class="headerlink" title="多个组件定义"></a>多个组件定义</h2><blockquote>
+<p>MyPage.js中</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">MyPage</span>&#123;</span>&#125;</div><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInfo</span>&#123;</span>&#125;</div></pre></td></tr></table></figure>
+<h2 id="多个组件引用"><a href="#多个组件引用" class="headerlink" title="多个组件引用"></a>多个组件引用</h2><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;MyPage, MyInfo&#125; <span class="keyword">from</span> <span class="string">'./components/MyPage'</span>;</div></pre></td></tr></table></figure>
+<h2 id="多个组件，加default时-导出-引入"><a href="#多个组件，加default时-导出-引入" class="headerlink" title="多个组件，加default时,导出+引入"></a>多个组件，加default时,导出+引入</h2><blockquote>
+<p>有default和没有default的区别：有default在引用时可以自定义名称，而没有default时需要使用{}括起来且名称必须和class名称一致<br>每个文件里只能有一个default组件，但可以有多个非default组件</p>
+</blockquote>
+<h3 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h3><blockquote>
+<p>每个文件里只能有个default组件，可以包含其他非default组件</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line"><span class="builtin-name">export</span><span class="built_in"> default </span>class MyPage&#123;&#125;</div><div class="line"><span class="builtin-name">export</span> class MyInfo&#123;&#125;</div></pre></td></tr></table></figure>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line">mport MyPage,&#123;MyInfo&#125; <span class="keyword">from</span> <span class="string">'./components/Templates'</span>;</div></pre></td></tr></table></figure>
+<h1 id="变量、常量导入导出"><a href="#变量、常量导入导出" class="headerlink" title="变量、常量导入导出"></a>变量、常量导入导出</h1><h2 id="导出-1"><a href="#导出-1" class="headerlink" title="导出"></a>导出</h2><figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line"><span class="builtin-name">export</span> &#123;name, age&#125;</div></pre></td></tr></table></figure>
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;name, age&#125; <span class="keyword">from</span> <span class="string">'./xxxxx'</span></div></pre></td></tr></table></figure>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="导出方法"><a href="#导出方法" class="headerlink" title="导出方法"></a>导出方法</h2><figure class="highlight ada"><table><tr><td class="code"><pre><div class="line">export <span class="keyword">function</span> <span class="title">sum</span>(num1, num2)</div><div class="line">&#123;</div><div class="line"> <span class="keyword">return</span> <span class="type">num1</span> + num2; </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h2 id="导入方法"><a href="#导入方法" class="headerlink" title="导入方法"></a>导入方法</h2><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line">import &#123;sum&#125; from './xxxx'</div><div class="line"></div><div class="line">```自定义组件：必须使用class定义类，自定义类可以不使用class定义类z-------------------------------------------------</div><div class="line"><span class="meta">#</span><span class="bash"> 自定义类（定义/导出）</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">自定义类与自定义组件的区别</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">组件继承与Component</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">自定义组件：必须使用class定义类，自定义类可以不使用class定义类</span></div><div class="line"><span class="meta"></span></div><div class="line">#<span class="bash"><span class="comment"># 没有对象属性的自定义类 （定义与导出）</span></span></div><div class="line"><span class="meta">&gt;</span><span class="bash">如果一个自定义类，没有对象属性，都是类方法和类属性，一般使用组件的定义方式(class)和导出方式(<span class="built_in">export</span> default)</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"></span></div><div class="line"><span class="meta">&gt;</span><span class="bash"></span></div><div class="line"><span class="meta">#</span><span class="bash"><span class="comment">## 定义</span></span></div></pre></td></tr></table></figure>
+<p>export default class XXXX {<br>}<br><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"></div><div class="line">### 引入</div></pre></td></tr></table></figure></p>
+<p>import XXXX from ‘./XXXX’<br>```</p>
+<p>参考：<br><a href="http://www.jianshu.com/p/2c7bbef3144d" target="_blank" rel="external">http://www.jianshu.com/p/2c7bbef3144d</a></p>
+
+          
         
       
     </div>
@@ -1416,17 +1865,548 @@ RN-47RN资料
       
         
           
-          RN-Navigation
-一、StackNavigator： 导航组件，实现各个页面之间的跳转二、TabNavigator：   导航栏组件，实现同一个页面上不同界面的切换三、DrawerNavigator：侧滑菜单导航栏，抽屉组件
-四、使用:StackNavigator + TabNavigat
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/24/RN-Navigation/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="RN-Navigation"><a href="#RN-Navigation" class="headerlink" title="RN-Navigation"></a>RN-Navigation</h1><blockquote>
+<p>一、StackNavigator： 导航组件，实现各个页面之间的跳转<br>二、TabNavigator：   导航栏组件，实现同一个页面上不同界面的切换<br>三、DrawerNavigator：侧滑菜单导航栏，抽屉组件</p>
+<p>四、使用:StackNavigator + TabNavigator</p>
+</blockquote>
+<h1 id="StackNavigator导航栏"><a href="#StackNavigator导航栏" class="headerlink" title="StackNavigator导航栏"></a>StackNavigator导航栏</h1><blockquote>
+<p>组件采用堆栈式的页面导航来实现各个界面跳</p>
+</blockquote>
+<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h1 id="属性-navigation"><a href="#属性-navigation" class="headerlink" title="属性-navigation"></a>属性-navigation</h1><blockquote>
+<p>StackNavigator中注册后的组件都有navigation这个属性. navigation又有5个参数</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>navigation属性参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>this.props.navigation.navigate(‘Two’, { name: ‘two’ }</td>
+<td>push下一个页面</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>routeName</td>
+<td>注册过的目标路由名称</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>params</td>
+<td>传递的参数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>action</td>
+<td>如果该界面是一个navigator的话，将运行这个sub-action</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>this.props.navigation.goBack()</td>
+<td>返回上一页</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>his.props.navigation.state</td>
+<td>每个界面通过这去访问它的router，state其中包括:</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>routeName</td>
+<td>路由名</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>key</td>
+<td>路由身份标识</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>params</td>
+<td>参数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>this.props.navigation.setParams</td>
+<td>该方法允许界面更改router中的参数，可以用来动态的更改导航栏的内容</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>this.props.navigation.dispatch</td>
+<td>可以dispatch一些action，主要支持的action有</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>①Navigate</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>②Reset</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>③SetParams</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>①Navigate</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line">import &#123; </div><div class="line">       NavigationActions&#125; <span class="keyword">from</span> <span class="string">'react-navigation'</span></div><div class="line"><span class="keyword">const</span> navigationAction = NavigationActions.navigate(&#123;</div><div class="line">routeName: <span class="string">'Profile'</span>,</div><div class="line">    <span class="keyword">params</span>: &#123;&#125;,</div><div class="line">    <span class="comment">// navigate can have a nested navigate action that will be run inside the child router</span></div><div class="line">    action: NavigationActions.navigate(&#123; routeName: <span class="string">'SubProfileRoute'</span>&#125;)</div><div class="line">     &#125;)</div><div class="line">  <span class="keyword">this</span>.props.navigation.dispatch(navigationAction)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>②Reset:Reset方法会清除原来的路由记录，添加上新设置的路由信息, 可以指定多个action，index是指定默认显示的那个路由页面, 注意不要越界了</p>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; NavigationActions &#125; from <span class="string">'react-navigation'</span></div><div class="line">const resetAction = NavigationActions.reset(&#123;</div><div class="line"><span class="string">index:</span> <span class="number">0</span>,</div><div class="line"><span class="string">actions:</span> [</div><div class="line">     NavigationActions.navigate(&#123; <span class="string">routeName:</span> <span class="string">'Profile'</span>&#125;),</div><div class="line">     NavigationActions.navigate(&#123; <span class="string">routeName:</span> <span class="string">'Two'</span>&#125;)</div><div class="line">     ]</div><div class="line">    &#125;)</div><div class="line"> <span class="keyword">this</span>.props.navigation.dispatch(resetAction)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>③SetParams:为指定的router更新参数，该参数必须是已经存在于router的param中</p>
+</blockquote>
+<figure class="highlight cs"><table><tr><td class="code"><pre><div class="line">import &#123; NavigationActions &#125; <span class="keyword">from</span> <span class="string">'react-navigation'</span></div><div class="line"><span class="keyword">const</span> setParamsAction = NavigationActions.setParams(&#123;</div><div class="line"> <span class="keyword">params</span>: &#123;&#125;, <span class="comment">// these are the new params that will be merged into the existing route params</span></div><div class="line"> <span class="comment">// The key of the route that should get the new params</span></div><div class="line">  key: <span class="string">'screen-123'</span>,</div><div class="line">  &#125;)</div><div class="line"> <span class="keyword">this</span>.props.navigation.dispatch(setParamsAction)</div></pre></td></tr></table></figure>
+<h2 id="构造函数API"><a href="#构造函数API" class="headerlink" title="构造函数API"></a>构造函数API</h2><blockquote>
+<p>StackNavigator <strong>(</strong>RouteConfigs, StackNavigatorConfig <strong>)</strong></p>
+</blockquote>
+<h3 id="参数StackNavigatorConfig"><a href="#参数StackNavigatorConfig" class="headerlink" title="参数StackNavigatorConfig"></a>参数StackNavigatorConfig</h3><blockquote>
+<p>数表示各个页面路由配置,让导航器知道需要导航的路由对应的页面</p>
+</blockquote>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><div class="line">const RouteConfigs = &#123;</div><div class="line">    Home: &#123;</div><div class="line">        screen: HomePage,</div><div class="line">        navigationOptions: (&#123;navigation&#125;) =&gt; (&#123;</div><div class="line">            title: <span class="string">'首页'</span>,</div><div class="line">        &#125;),</div><div class="line">    &#125;,</div><div class="line">    Find: &#123;</div><div class="line">        screen: FindPage,</div><div class="line">        navigationOptions: (&#123;navigation&#125;) =&gt; (&#123;</div><div class="line">            title: <span class="string">'发现'</span>,</div><div class="line">        &#125;),</div><div class="line">    &#125;,</div><div class="line">    Mine: &#123;</div><div class="line">        screen: MinePage,</div><div class="line">        navigationOptions: (&#123;navigation&#125;) =&gt; (&#123;</div><div class="line">            title: <span class="string">'我的'</span>,</div><div class="line">        &#125;),</div><div class="line">    &#125;,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>路由名称:Home,Find,Mine<br>screen属性值为对应路由的页面:HomePage,FindPage,MinePage<br>navigationOptions:为对应路由页面的配置选项</p>
+<h3 id="参数RouteConfigs"><a href="#参数RouteConfigs" class="headerlink" title="参数RouteConfigs"></a>参数RouteConfigs</h3></blockquote>
+<h2 id="样例代码"><a href="#样例代码" class="headerlink" title="样例代码"></a>样例代码</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> MyNavigator = StackNavigator(</div><div class="line">  &#123;</div><div class="line">		    <span class="attr">Home</span>   :   &#123; <span class="attr">screen</span>: Tabs &#125;,</div><div class="line">		    <span class="attr">HomeTwo</span>: </div><div class="line">		               &#123;</div><div class="line">				         <span class="attr">screen</span>: HomeTwo,       <span class="comment">// 必须, 其他都是非必须</span></div><div class="line">				         path:<span class="string">'app/homeTwo'</span>,    <span class="comment">//使用url导航时用到, 如 web app 和 Deep Linking</span></div><div class="line">				         navigationOptions: &#123;&#125;  <span class="comment">// 此处设置了, 会覆盖组件内的`static navigationOptions`设置.</span></div><div class="line">		               &#125;,</div><div class="line">		    <span class="attr">HomeThree</span>: &#123; <span class="attr">screen</span>: HomeThree &#125;,</div><div class="line">		    <span class="attr">HomeFour</span>:  &#123; <span class="attr">screen</span>: HomeFour  &#125;,</div><div class="line">  &#125;, </div><div class="line">  &#123;</div><div class="line">          <span class="attr">initialRouteName</span>:     <span class="string">'Home'</span>,       <span class="comment">//默认显示界面</span></div><div class="line">          navigationOptions:                 <span class="comment">//屏幕导航的默认选项, 也可以在组件内用 static navigationOptions 设置(会覆盖此处的设置)</span></div><div class="line">                          &#123;                                </div><div class="line">						          <span class="attr">header</span>:      <span class="comment">//可以设置一些导航的属性，如果隐藏顶部导航栏只要将这个属性设置为null  </span></div><div class="line">									       &#123;        </div><div class="line">									          <span class="attr">backTitle</span>:  <span class="string">'返回'</span>,    <span class="comment">// 左上角返回键文字  </span></div><div class="line">									          style:      &#123; </div><div class="line">									                       <span class="attr">backgroundColor</span>: <span class="string">'#fff'</span> &#125;,</div><div class="line">									          <span class="attr">titleStyle</span>: &#123;           </div><div class="line">									                       <span class="attr">color</span>: <span class="string">'green'</span>&#125;</div><div class="line">						                 &#125;,</div><div class="line">						         <span class="attr">cardStack</span>:                       <span class="comment">//配置cardStack</span></div><div class="line">						                &#123;</div><div class="line">						                 <span class="attr">gesturesEnabled</span>: <span class="literal">true</span>,   <span class="comment">//允许右滑返回</span></div><div class="line">						                &#125;</div><div class="line">           &#125;,</div><div class="line">          <span class="attr">mode</span>: <span class="string">'card'</span>,                     <span class="comment">// 页面切换模式, 左右是card(相当于iOS中的push效果), 上下是modal(相当于iOS中的modal效果)</span></div><div class="line">          headerMode: <span class="string">'screen'</span>,             <span class="comment">// 导航栏的显示模式, screen: 有渐变透明效果, float: 无透明效果, none: 隐藏导航栏</span></div><div class="line">           onTransitionStart: <span class="function"><span class="params">()</span>=&gt;</span>&#123; </div><div class="line">                                  <span class="built_in">console</span>.log(<span class="string">'导航栏切换开始'</span>);    <span class="comment">// 回调</span></div><div class="line">                                   &#125;,           </div><div class="line">          <span class="attr">onTransitionEnd</span>: <span class="function"><span class="params">()</span>=&gt;</span>&#123; </div><div class="line">                               <span class="built_in">console</span>.log(<span class="string">'导航栏切换结束'</span>);        <span class="comment">// 回调</span></div><div class="line">                               &#125; </div><div class="line"></div><div class="line">   &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+<h2 id="navigationOptions"><a href="#navigationOptions" class="headerlink" title="navigationOptions"></a>navigationOptions</h2><h3 id="版本1"><a href="#版本1" class="headerlink" title="版本1"></a>版本1</h3><table>
+<thead>
+<tr>
+<th>navigationOptions参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>导航栏的标题</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>header</td>
+<td>导航栏设置对象</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>visible</td>
+<td>导航栏是否显示</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>title</td>
+<td>导航栏的标题, 可以是字符串也可以是个组件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>backTitle</td>
+<td>左上角的返回键文字, 默认是上一个页面的title</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>right</td>
+<td>导航栏右按钮</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>left</td>
+<td>导航栏左按钮</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>style</td>
+<td>导航栏的style</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>titleStyle</td>
+<td>导航栏的title的style</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>tintColor</td>
+<td>导航栏颜色</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>cardStack</td>
+<td>配置card stack</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>gesturesEnabled</td>
+<td>是否允许右滑返回，在iOS上默认为true，在Android上默认为false</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="版本2"><a href="#版本2" class="headerlink" title="版本2"></a>版本2</h3><table>
+<thead>
+<tr>
+<th>navigationOptions参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>可以作为头部标题 headerTitle ，或者Tab标题 tabBarLabel</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>header</td>
+<td>自定义的头部组件，使用该属性后系统的头部组件会消失</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>headerTitle</td>
+<td>头部的标题，即页面的标题</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>headerBackTitle</td>
+<td>返回标题，默认为 title</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>headerTruncatedBackTitle</td>
+<td>返回标题不能显示时（比如返回标题太长了）显示此标题，默认为 “Back”</td>
+</tr>
+<tr>
+<td></td>
+<td>headerRight</td>
+<td>头部右边组件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>headerLeft</td>
+<td>头部左边组件</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>headerStyle</td>
+<td>头部组件的样式</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>headerTitleStyle</td>
+<td>头部标题的样式</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>headerBackTitleStyle</td>
+<td>头部返回标题的样式</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>headerTintColor</td>
+<td>头部颜色</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>headerPressColorAndroid</td>
+<td>Android 5.0 以上MD风格的波纹颜色</td>
+<td></td>
+</tr>
+<tr>
+<td>esturesEnabled</td>
+<td>否能侧滑返回， iOS 默认 true ， Android 默认 false</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="在组件中设置static-navigationOptions-示例"><a href="#在组件中设置static-navigationOptions-示例" class="headerlink" title="在组件中设置static navigationOptions-示例"></a>在组件中设置static navigationOptions-示例</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">static</span> navigationOptions = &#123; </div><div class="line">      <span class="attr">title</span>:     <span class="string">'homeThree'</span>, </div><div class="line">      <span class="attr">header</span>:    <span class="function">(<span class="params">navigation, defaultHeader</span>) =&gt;</span>（&#123;</div><div class="line">									          ...defaultHeader,   <span class="comment">// 默认预设 </span></div><div class="line">									          visible: <span class="literal">true</span> ,     <span class="comment">// 覆盖预设中的此项 </span></div><div class="line">									          &#125;), </div><div class="line">      <span class="attr">cardStack</span>: &#123;</div><div class="line">          <span class="attr">gesturesEnabled</span>: <span class="literal">false</span> <span class="comment">// 是否可以右滑返回 </span></div><div class="line">          &#125;&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>或这样 </p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><div class="line">    <span class="keyword">static</span> navigationOptions = &#123; </div><div class="line">         <span class="comment">//标题写死  title: 'Two', </span></div><div class="line">         <span class="comment">// 动态标题</span></div><div class="line">         title: <span class="function">(<span class="params">navigation, childRouter</span>) =&gt;</span> &#123; </div><div class="line">				          <span class="keyword">if</span> (navigation.state.params.isSelected) </div><div class="line">				          &#123; </div><div class="line">				          <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;navigation.state.params.name&#125;</span>选中`</span>; </div><div class="line">				          &#125; </div><div class="line">				          <span class="keyword">else</span></div><div class="line">				          &#123; </div><div class="line">				           <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;navigation.state.params.name&#125;</span>没选中`</span>;</div><div class="line">				          &#125; </div><div class="line">                   &#125;,</div><div class="line">         header: <span class="function">(<span class="params">&#123; state, setParams, goBack &#125;</span>) =&gt;</span> &#123; </div><div class="line">		               <span class="keyword">let</span> right; </div><div class="line">		               <span class="keyword">if</span> (state.params.isSelected) </div><div class="line">		               &#123;</div><div class="line">		                    right = (&lt;Button title=<span class="string">"取消"</span> </div><div class="line">		                                     onPress=&#123;<span class="function"><span class="params">()</span> =&gt;</span> setParams(&#123; isSelected: <span class="literal">false</span> &#125;)&#125;/&gt;);</div><div class="line">		               &#125; </div><div class="line">		               <span class="keyword">else</span> </div><div class="line">		               &#123;</div><div class="line">		                    right = (&lt;Button title=<span class="string">"选择"</span></div><div class="line">		                                     onPress=&#123;<span class="function"><span class="params">()</span> =&gt;</span> setParams(&#123; isSelected: <span class="literal">true</span> &#125;)&#125;/&gt;);</div><div class="line">                     &#125;</div><div class="line">                     <span class="keyword">let</span> left = (&lt;Button title=<span class="string">"返回"</span></div><div class="line">                            onPress=&#123;<span class="function"><span class="params">()</span> =&gt;</span> goBack()&#125;/&gt;);</div><div class="line">                     <span class="keyword">let</span> visible = <span class="literal">false</span>;  <span class="comment">// 是否显示导航栏</span></div><div class="line">        <span class="keyword">return</span> &#123; right, left, visible &#125;;</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">// header: &#123;left: &lt;Button title="返回"/&gt;&#125;,</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="StackNavigatorConfig"><a href="#StackNavigatorConfig" class="headerlink" title="StackNavigatorConfig"></a>StackNavigatorConfig</h2><figure class="highlight"><table><tr><td class="code"><pre><div class="line">参数表示导航器的配置，包括导航器的初始页面、各个页面之间导航的动画、页面的配置选项等等</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">StackNavigatorConfig 参数</th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">initialRouteName</td>
+<td style="text-align:left">设置默认的页面组件，必须是上面已注册的页面组件</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">initialRouteParams</td>
+<td style="text-align:left">初始路由的参数</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">navigationOptions</td>
+<td style="text-align:left">屏幕导航的默认选项</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">paths</td>
+<td style="text-align:left">RouteConfigs里面路径设置的映射</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">mode</td>
+<td style="text-align:left">页面切换模式</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">card</td>
+<td style="text-align:left">普通app常用的左右切换</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">modal</td>
+<td style="text-align:left">上下切换</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">headerMode</td>
+<td style="text-align:left">导航栏的显示模式:</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">float</td>
+<td style="text-align:left">无透明效果, 默认</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">screen</td>
+<td style="text-align:left">有渐变透明效果</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">none</td>
+<td style="text-align:left">隐藏导航栏</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">cardStyle</td>
+<td style="text-align:left">样式</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">onTransitionStart</td>
+<td style="text-align:left">页面切换开始时的回调函数</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">onTransitionEnd</td>
+<td style="text-align:left">页面切换结束时的回调函数</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://blog.csdn.net/sinat_17775997/article/details/70176688" target="_blank" rel="external">参考1</a><br><a href="http://blog.csdn.net/sinat_17775997/article/details/75659713" target="_blank" rel="external">参考2</a></p>
+<hr>
+<h1 id="二、TabNavigator-标签栏"><a href="#二、TabNavigator-标签栏" class="headerlink" title="二、TabNavigator 标签栏"></a>二、TabNavigator 标签栏</h1><blockquote>
+<p>注册TabNavigator<br><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">const</span> <span class="string">Tabs</span> <span class="string">=</span> <span class="string">TabNavigator(&#123;</span>   </div><div class="line"><span class="attr">     Home:</span> <span class="string">&#123;</span>        </div><div class="line"><span class="attr">           screen:</span> <span class="string">Home,</span>       </div><div class="line"><span class="attr">           navigationOptions:</span> <span class="string">&#123;</span>  <span class="string">//</span> <span class="string">也可以写在组件的static</span> <span class="string">navigationOptions内</span> </div><div class="line"><span class="attr">                 tabBar:</span> <span class="string">&#123;</span>    </div><div class="line"><span class="attr">                          label:</span> <span class="string">'首页'</span><span class="string">,</span>   </div><div class="line"><span class="attr">                          icon:</span> <span class="string">(&#123;tintColor&#125;)</span> <span class="string">=&gt;</span> <span class="string">(&lt;Image</span> <span class="string">source=&#123;require('./app/images/home.png')&#125;</span> </div><div class="line">                                                         <span class="string">style=&#123;[&#123;tintColor:</span> <span class="string">tintColor&#125;,styles.icon]&#125;/&gt;),</span></div><div class="line">                        <span class="string">&#125;,</span> </div><div class="line">                            <span class="string">&#125;</span></div><div class="line">            <span class="string">&#125;,</span>  </div><div class="line"><span class="attr">      Bill:</span> <span class="string">&#123;</span>  </div><div class="line"><span class="attr">             screen:</span> <span class="string">Bill,</span>     </div><div class="line"><span class="attr">             navigationOptions:</span> <span class="string">&#123;</span>     </div><div class="line"><span class="attr">                     tabBar:</span> <span class="string">&#123;</span>            </div><div class="line"><span class="attr">                          label:</span> <span class="string">'账单'</span><span class="string">,</span>       </div><div class="line"><span class="attr">                                   icon:</span> <span class="string">(&#123;tintColor&#125;)</span> <span class="string">=&gt;</span> <span class="string">(&lt;Image</span> <span class="string">source=&#123;require('./app/images/bill.png')&#125;</span></div><div class="line">                                                                  <span class="string">style=&#123;[&#123;tintColor:</span> <span class="string">tintColor&#125;,styles.icon]&#125;/&gt;),</span> </div><div class="line">                             <span class="string">&#125;,</span></div><div class="line">                              <span class="string">&#125;</span></div><div class="line">               <span class="string">&#125;,</span>   </div><div class="line"><span class="attr">       Me:</span> <span class="string">&#123;</span>  </div><div class="line"><span class="attr">           screen:</span> <span class="string">Me,</span>      </div><div class="line"><span class="attr">           navigationOptions:</span> <span class="string">&#123;</span>  </div><div class="line"><span class="attr">                      tabBar:</span> <span class="string">&#123;</span>             </div><div class="line"><span class="attr">                           label:</span> <span class="string">'我'</span><span class="string">,</span>             </div><div class="line"><span class="attr">                           icon:</span> <span class="string">(&#123;tintColor&#125;)</span> <span class="string">=&gt;</span> <span class="string">(&lt;Image</span> <span class="string">source=&#123;require('./app/images/me.png')&#125;</span></div><div class="line">                                                          <span class="string">style=&#123;[&#123;tintColor:</span> <span class="string">tintColor&#125;,styles.icon]&#125;/&gt;),</span> </div><div class="line">                              <span class="string">&#125;,</span> </div><div class="line">                              <span class="string">&#125;</span> </div><div class="line">            <span class="string">&#125;</span></div><div class="line">       <span class="string">&#125;,</span> </div><div class="line">       <span class="string">&#123;</span>   </div><div class="line"><span class="attr">         animationEnabled:</span> <span class="literal">false</span><span class="string">,</span>                                        <span class="string">//</span> <span class="string">切换页面时是否有动画效果</span>  </div><div class="line"><span class="attr">         tabBarPosition:</span> <span class="string">'bottom'</span><span class="string">,</span>                                       <span class="string">//</span> <span class="string">显示在底端，android</span> <span class="string">默认是显示在页面顶端的</span>    </div><div class="line"><span class="attr">         swipeEnabled:</span> <span class="literal">false</span><span class="string">,</span>                                            <span class="string">//</span> <span class="string">是否可以左右滑动切换tab</span>      </div><div class="line"><span class="attr">         backBehavior:</span> <span class="string">'none'</span><span class="string">,</span>                                           <span class="string">//</span> <span class="string">按</span> <span class="string">back</span> <span class="string">键是否跳转到第一个Tab(首页)，</span> <span class="string">none</span> <span class="string">为不跳转</span>      </div><div class="line"><span class="attr">         tabBarOptions:</span> <span class="string">&#123;</span>          </div><div class="line"><span class="attr">                       activeTintColor:</span> <span class="string">'#ff8500'</span><span class="string">,</span>                       <span class="string">//</span> <span class="string">文字和图片选中颜色</span>    </div><div class="line"><span class="attr">                       inactiveTintColor:</span> <span class="string">'#999'</span><span class="string">,</span>                        <span class="string">//</span> <span class="string">文字和图片未选中颜色</span>        </div><div class="line"><span class="attr">                       showIcon:</span> <span class="literal">true</span><span class="string">,</span>                                   <span class="string">//</span> <span class="string">android</span> <span class="string">默认不显示</span> <span class="string">icon,</span> <span class="string">需要设置为</span> <span class="literal">true</span> <span class="string">才会显示</span>      </div><div class="line"><span class="attr">                       indicatorStyle:</span> <span class="string">&#123;</span>            </div><div class="line"><span class="attr">                                     height:</span> <span class="number">0</span>                          <span class="string">//</span> <span class="string">如TabBar下面显示有一条线，可以设高度为0后隐藏</span> <span class="string">&#125;,</span>     </div><div class="line"><span class="attr">                                     style:</span> <span class="string">&#123;</span>  <span class="attr">backgroundColor:</span> <span class="string">'#fff'</span><span class="string">,</span> <span class="string">//</span> <span class="string">TabBar</span> <span class="string">背景色</span> <span class="string">//</span> <span class="attr">height:</span> <span class="number">44</span> <span class="string">&#125;,</span>     </div><div class="line"><span class="attr">                                     labelStyle:</span> <span class="string">&#123;</span>   <span class="attr">fontSize:</span> <span class="number">10</span><span class="string">,</span>      <span class="string">//</span> <span class="string">文字大小</span> <span class="string">&#125;,</span></div><div class="line">                                       <span class="string">&#125;,</span></div><div class="line">        <span class="string">&#125;</span></div><div class="line">        <span class="string">);</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="screen："><a href="#screen：" class="headerlink" title="screen："></a>screen：</h2><blockquote>
+<p>和导航的功能是一样的，对应界面名称，可以在其他页面通过这个screen传值和跳转。  </p>
+</blockquote>
+<h2 id="navigationOptions："><a href="#navigationOptions：" class="headerlink" title="navigationOptions："></a>navigationOptions：</h2><blockquote>
+<p>配置TabNavigator的一些属性<br>❶title：标题，会同时设置导航条和标签栏的title<br>❷tabBarVisible：是否隐藏标签栏。默认不隐藏(true)<br>❸tabBarIcon：设置标签栏的图标。需要给每个都设置<br>❹tabBarLabel：设置标签栏的title。推荐  </p>
+</blockquote>
+<h2 id="导航栏配置"><a href="#导航栏配置" class="headerlink" title="导航栏配置"></a>导航栏配置</h2><h3 id="❶tabBarPosition"><a href="#❶tabBarPosition" class="headerlink" title="❶tabBarPosition"></a>❶tabBarPosition</h3><blockquote>
+<p>设置tabbar的位置，iOS默认在底部，安卓默认在顶部。（属性值：’top’，’bottom’）    </p>
+<p>###swipeEnabled<br>是否允许在标签之间进行滑动  </p>
+</blockquote>
+<h3 id="animationEnabled"><a href="#animationEnabled" class="headerlink" title="animationEnabled"></a>animationEnabled</h3><blockquote>
+<p>是否在更改标签时显示动画  </p>
+</blockquote>
+<p>###lazy</p>
+<blockquote>
+<p>是否根据需要懒惰呈现标签，而不是提前，意思是在app打开的时候将底部标签栏全部加载，默认false,推荐为true  </p>
+</blockquote>
+<h3 id="trueinitialRouteName"><a href="#trueinitialRouteName" class="headerlink" title="trueinitialRouteName"></a>trueinitialRouteName</h3><blockquote>
+<p>设置默认的页面组件  </p>
+</blockquote>
+<h3 id="backBehavior"><a href="#backBehavior" class="headerlink" title="backBehavior"></a>backBehavior</h3><blockquote>
+<p>按 back 键是否跳转到第一个Tab(首页)， none 为不跳转  </p>
+<h3 id="tabBarOptions"><a href="#tabBarOptions" class="headerlink" title="tabBarOptions"></a>tabBarOptions</h3><p>配置标签栏的一些属性iOS属性  </p>
+</blockquote>
+<h3 id="activeTintColor"><a href="#activeTintColor" class="headerlink" title="activeTintColor"></a>activeTintColor</h3><blockquote>
+<p>label和icon的前景色 活跃状态下  </p>
+</blockquote>
+<h3 id="activeBackgroundColor"><a href="#activeBackgroundColor" class="headerlink" title="activeBackgroundColor"></a>activeBackgroundColor</h3><blockquote>
+<p>label和icon的背景色 活跃状态下  </p>
+</blockquote>
+<h3 id="inactiveTintColor"><a href="#inactiveTintColor" class="headerlink" title="inactiveTintColor"></a>inactiveTintColor</h3><blockquote>
+<p>label和icon的前景色 不活跃状态下  </p>
+</blockquote>
+<h3 id="inactiveBackgroundColor"><a href="#inactiveBackgroundColor" class="headerlink" title="inactiveBackgroundColor"></a>inactiveBackgroundColor</h3><blockquote>
+<p>label和icon的背景色 不活跃状态下  </p>
+</blockquote>
+<h3 id="showLabel"><a href="#showLabel" class="headerlink" title="showLabel"></a>showLabel</h3><blockquote>
+<p>是否显示label，默认开启 style：tabbar的样式  </p>
+</blockquote>
+<h3 id="labelStyle"><a href="#labelStyle" class="headerlink" title="labelStyle"></a>labelStyle</h3><blockquote>
+<p>label的样式安卓属性  </p>
+</blockquote>
+<h3 id="activeTintColor-1"><a href="#activeTintColor-1" class="headerlink" title="activeTintColor"></a>activeTintColor</h3><blockquote>
+<p>label和icon的前景色 活跃状态下  </p>
+</blockquote>
+<h3 id="inactiveTintColor-1"><a href="#inactiveTintColor-1" class="headerlink" title="inactiveTintColor"></a>inactiveTintColor</h3><blockquote>
+<p>label和icon的前景色 不活跃状态下  </p>
+</blockquote>
+<h3 id="showIcon"><a href="#showIcon" class="headerlink" title="showIcon"></a>showIcon</h3><blockquote>
+<p>是否显示图标，默认关闭  </p>
+</blockquote>
+<h3 id="showLabel-1"><a href="#showLabel-1" class="headerlink" title="showLabel"></a>showLabel</h3><blockquote>
+<p>是否显示label，默认开启 style：tabbar的样式  </p>
+</blockquote>
+<h3 id="labelStyle-1"><a href="#labelStyle-1" class="headerlink" title="labelStyle"></a>labelStyle</h3><blockquote>
+<p>label的样式 upperCaseLabel：是否使标签大写，默认为true  </p>
+</blockquote>
+<h3 id="pressColor"><a href="#pressColor" class="headerlink" title="pressColor"></a>pressColor</h3><blockquote>
+<p>material涟漪效果的颜色（安卓版本需要大于5.0）  </p>
+</blockquote>
+<h3 id="pressOpacity"><a href="#pressOpacity" class="headerlink" title="pressOpacity"></a>pressOpacity</h3><blockquote>
+<p>按压标签的透明度变化（安卓版本需要小于5.0）  </p>
+</blockquote>
+<h3 id="scrollEnabled"><a href="#scrollEnabled" class="headerlink" title="scrollEnabled"></a>scrollEnabled</h3><blockquote>
+<p>是否启用可滚动选项卡 tabStyle：tab的样式  </p>
+</blockquote>
+<h3 id="indicatorStyle"><a href="#indicatorStyle" class="headerlink" title="indicatorStyle"></a>indicatorStyle</h3><blockquote>
+<p>标签指示器的样式对象（选项卡底部的行）。安卓底部会多出一条线，可以将height设置为0来暂时解决这个问题  </p>
+</blockquote>
+<h3 id="labelStyle-2"><a href="#labelStyle-2" class="headerlink" title="labelStyle"></a>labelStyle</h3><blockquote>
+<p>label的样式  </p>
+</blockquote>
+<h3 id="iconStyle"><a href="#iconStyle" class="headerlink" title="iconStyle"></a>iconStyle</h3><blockquote>
+<p>图标样式  </p>
+</blockquote>
+<hr>
+<h1 id="三、DrawerNavigator"><a href="#三、DrawerNavigator" class="headerlink" title="三、DrawerNavigator"></a>三、DrawerNavigator</h1><figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">const</span> <span class="string">DrawerNav</span> <span class="string">=</span> <span class="string">DrawerNavigator(&#123;</span>   </div><div class="line"><span class="attr">                 Home:</span> <span class="string">&#123;</span> <span class="attr">screen:</span> <span class="string">Home</span> <span class="string">&#125;,</span>    </div><div class="line"><span class="attr">                 Bill:</span> <span class="string">&#123;</span> <span class="attr">screen:</span> <span class="string">Bill</span> <span class="string">&#125;,</span>    </div><div class="line"><span class="attr">                 Me:</span> <span class="string">&#123;</span> <span class="attr">screen:</span> <span class="string">Me</span> <span class="string">&#125;,</span>    </div><div class="line"><span class="attr">                 HomeTwo:</span> <span class="string">&#123;</span> <span class="attr">screen:</span> <span class="string">HomeTwo</span> <span class="string">&#125;,</span>    </div><div class="line"><span class="attr">                 HomeThree:</span> <span class="string">&#123;</span> <span class="attr">screen:</span> <span class="string">HomeThree</span> <span class="string">&#125;,</span>   </div><div class="line"><span class="attr">                 HomeFour:</span> <span class="string">&#123;</span> <span class="attr">screen:</span> <span class="string">HomeFour</span> <span class="string">&#125;,</span>    </div><div class="line"><span class="attr">                 BillTwo:</span> <span class="string">&#123;</span> <span class="attr">screen:</span> <span class="string">BillTwo</span> <span class="string">&#125;,</span>    </div><div class="line"><span class="attr">                 BillThree:</span> <span class="string">&#123;</span> <span class="attr">screen:</span> <span class="string">BillThree</span> <span class="string">&#125;</span> </div><div class="line">               <span class="string">&#125;,</span> </div><div class="line">               <span class="string">&#123;</span> </div><div class="line"><span class="attr">                   drawerWidth:</span> <span class="number">200</span><span class="string">,</span> <span class="string">//</span> <span class="string">抽屉宽</span>   </div><div class="line"><span class="attr">                   drawerPosition:</span> <span class="string">'left'</span><span class="string">,</span> <span class="string">//</span> <span class="string">抽屉在左边还是右边</span> </div><div class="line">                   <span class="string">//</span> <span class="attr">contentComponent:</span> <span class="string">CustomDrawerContentComponent,</span> <span class="string">//</span> <span class="string">自定义抽屉组件</span> </div><div class="line"><span class="attr">                   contentOptions:</span> <span class="string">&#123;</span>     </div><div class="line"><span class="attr">                                  initialRouteName:</span> <span class="string">Home,</span>           <span class="string">//</span> <span class="string">默认页面组件</span>     </div><div class="line"><span class="attr">                                  activeTintColor:</span> <span class="string">'white'</span><span class="string">,</span>         <span class="string">//</span> <span class="string">选中文字颜色</span>     </div><div class="line"><span class="attr">                                  activeBackgroundColor:</span> <span class="string">'#ff8500'</span><span class="string">,</span> <span class="string">//</span> <span class="string">选中背景颜色</span>     </div><div class="line"><span class="attr">                                  inactiveTintColor:</span> <span class="string">'#666'</span><span class="string">,</span>        <span class="string">//</span> <span class="string">未选中文字颜色</span>     </div><div class="line"><span class="attr">                                  inactiveBackgroundColor:</span> <span class="string">'#fff'</span><span class="string">,</span>  <span class="string">//</span> <span class="string">未选中背景颜色</span>   </div><div class="line"><span class="attr">                                  style:</span> <span class="string">&#123;</span> <span class="string">//</span> <span class="string">样式</span> <span class="string">&#125;</span> </div><div class="line">                                <span class="string">&#125;</span> </div><div class="line">               <span class="string">&#125;);</span></div></pre></td></tr></table></figure>
+<h2 id="DrawerNavigatorConfig"><a href="#DrawerNavigatorConfig" class="headerlink" title="DrawerNavigatorConfig"></a>DrawerNavigatorConfig</h2><figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">DrawerNavigatorConfig  </div><div class="line">  </div><div class="line">    drawerWidth - 抽屉的宽度  </div><div class="line">    drawerPosition - 选项是左或右。 默认为左侧位置  </div><div class="line">    contentComponent - 用于呈现抽屉内容的组件，例如导航项。 接收抽屉的导航。 默认为DrawerItems  </div><div class="line">    contentOptions - 配置抽屉内容  </div><div class="line">  </div><div class="line">    initialRouteName - 初始路由的routeName  </div><div class="line">    <span class="keyword">order</span> <span class="title">- 定义抽屉项目顺序的routeNames</span>数组。  </div><div class="line">    路径 - 提供routeName到路径配置的映射，它覆盖routeConfigs中设置的路径。  </div><div class="line">    backBehavior - 后退按钮是否会切换到初始路由？ 如果是，设置为initialRoute，否则为none。 默认为initialRoute行为  </div><div class="line">  </div><div class="line">   DrawerItems的contentOptions属性  </div><div class="line">  </div><div class="line">    activeTintColor - 活动标签的标签和图标颜色  </div><div class="line">    activeBackgroundColor - 活动标签的背景颜色  </div><div class="line">    inactiveTintColor - 非活动标签的标签和图标颜色  </div><div class="line">    inactiveBackgroundColor - 非活动标签的背景颜色  </div><div class="line">    内容部分的样式样式对象  </div><div class="line">    labelStyle - 当您的标签是字符串时，要覆盖内容部分中的文本样式的样式对象</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="四、使用-StackNavigator-TabNavigator"><a href="#四、使用-StackNavigator-TabNavigator" class="headerlink" title="四、使用:StackNavigator + TabNavigator"></a>四、使用:StackNavigator + TabNavigator</h1><blockquote>
+<p>简单使用StackNavigator + TabNavigator实现Tab界面切换、界面间导航</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>MyStackNavigator.js<br>MyTabBarItem.js</p>
+</blockquote>
+<h2 id="API定义"><a href="#API定义" class="headerlink" title="API定义"></a>API定义</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="title">StackNavigator</span><span class="params">(RouteConfigs, StackNavigatorConfig)</span></span></div><div class="line"><span class="function"><span class="title">TabNavigator</span><span class="params">(RouteConfigs, TabNavigatorConfig)</span></span></div></pre></td></tr></table></figure>
+<h2 id="集成-react-navigation"><a href="#集成-react-navigation" class="headerlink" title="集成 react-navigation"></a>集成 react-navigation</h2><figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> npm install react-navigation --save</span></div></pre></td></tr></table></figure>
+<h2 id="导入必要组件"><a href="#导入必要组件" class="headerlink" title="导入必要组件"></a>导入必要组件</h2><figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;StackNavigator,TabNavigator,TabBarBottom&#125; <span class="keyword">from</span> <span class="string">'react-navigation'</span>;</div></pre></td></tr></table></figure>
+<hr>
+<p> <a href="http://blog.csdn.net/haoranli/article/details/61917583" target="_blank" rel="external">http://blog.csdn.net/haoranli/article/details/61917583</a></p>
+<p> <a href="http://blog.csdn.net/u013718120/article/details/72357698" target="_blank" rel="external">http://blog.csdn.net/u013718120/article/details/72357698</a></p>
+<p><a href="http://blog.csdn.net/u013718120/article/details/72357698" target="_blank" rel="external">原文参考</a></p>
+<p>博客重要参考</p>
+<p><a href="http://lovenight.github.io/2015/11/10/Hexo-3-1-1-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/" target="_blank" rel="external">http://lovenight.github.io/2015/11/10/Hexo-3-1-1-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97/</a></p>
+
+          
         
       
     </div>
@@ -1558,17 +2538,46 @@ RN-47RN资料
       
         
           
-          Action原文地址
-定义
-Action 是把数据从应用（这里之所以不叫 view 是因为这些数据有可能是服务器响应，用户输入或其它非 view 的数据 ）传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 st
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/24/RN-Action/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h1><p><a href="http://cn.redux.js.org/docs/basics/Actions.html" target="_blank" rel="external">原文地址</a></p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p><strong>Action</strong> 是把数据从应用（这里之所以不叫 view 是因为这些数据有可能是服务器响应，用户输入或其它非 view 的数据 ）传到 store 的有效载荷。它是 store 数据的唯一来源。一般来说你会通过 store.dispatch() 将 action 传到 store</p>
+</blockquote>
+<h2 id="添加新-todo-任务的-action"><a href="#添加新-todo-任务的-action" class="headerlink" title="添加新 todo 任务的 action"></a>添加新 todo 任务的 action</h2><figure class="highlight actionscript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: ADD_TODO,</div><div class="line">  text: <span class="string">'Build my first Redux app'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Action 本质上是 JavaScript 普通对象<br>约定，action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作<br>多数情况下，type 会被定义成字符串常量<br>当应用规模越来越大时，建议使用单独的模块或文件来存放 action</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; ADD_TODO, REMOVE_TODO &#125; <span class="keyword">from</span> <span class="string">'../actionTypes'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>样板文件使用提醒<br>使用单独的模块或文件来定义 action type 常量并不是必须的，甚至根本不需要定义<br>对于小应用来说，使用字符串做 action type 更方便些<br>在大型应用中把它们显式地定义成常量还是利大于弊的。参照 <a href="http://cn.redux.js.org/docs/recipes/ReducingBoilerplate.html" target="_blank" rel="external">减少样板代码</a> 获取更多保持代码简洁的实践经验</p>
+<p>除了 type 字段外，action 对象的结构完全由你自己决定。参照 Flux 标准 Action 获取关于如何构造 action 的建议<br>我们还需要再添加一个 action type 来表示用户完成任务的动作。因为数据是存放在数组中的，所以我们通过下标 index 来引用特定的任务。而实际项目中一般会在新建数据的时候生成唯一的 ID 作为数据的引用标识</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: TOGGLE_TODO,</div><div class="line">  index: <span class="number">5</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>尽量减少在 action 中传递的数据<br>比如上面的例子，传递 index 就比把整个任务对象传过去要好</p>
+<p>最后，再添加一个 action type 来表示当前的任务展示选项</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attribute">type</span>: SET_VISIBILITY_FILTER,</div><div class="line">  filter: SHOW_COMPLETED</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Action-创建函数"><a href="#Action-创建函数" class="headerlink" title="Action 创建函数"></a>Action 创建函数</h1><blockquote>
+<p>Action 创建函数 就是生成 action 的方法。“action” 和 “action 创建函数” 这两个概念很容易混在一起，使用时最好注意区分<br>在 Redux 中的 action 创建函数只是简单的返回一个 action:</p>
+</blockquote>
+<figure class="highlight ada"><table><tr><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">addTodo</span>(text) &#123;</div><div class="line">  <span class="keyword">return</span> <span class="type">&#123;</span></div><div class="line">    <span class="keyword">type</span>: ADD_TODO,</div><div class="line">    text</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样做将使 action 创建函数更容易被移植和测试<br>在 传统的 Flux 实现中，当调用 action 创建函数时，一般会触发一个 dispatch，像这样</p>
+<figure class="highlight fortran"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span></span> addTodoWithDispatch(text) &#123;</div><div class="line">  const <span class="keyword">action</span> = &#123;</div><div class="line">    <span class="keyword">type</span>: ADD_TODO,</div><div class="line">    text</div><div class="line">  &#125;</div><div class="line">  dispatch(<span class="keyword">action</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>不同的是，Redux 中只需把 action 创建函数的结果传给 dispatch() 方法即可发起一次 dispatch 过程</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">dispatch(<span class="name">addTodo</span>(<span class="name">text</span>))</div><div class="line">dispatch(<span class="name">completeTodo</span>(<span class="name">index</span>))</div></pre></td></tr></table></figure>
+<p>或者创建一个 被绑定的 action 创建函数 来自动 dispatch：</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">const boundAddTodo = (<span class="name">text</span>) =&gt; dispatch(<span class="name">addTodo</span>(<span class="name">text</span>))</div><div class="line">const boundCompleteTodo = (<span class="name">index</span>) =&gt; dispatch(<span class="name">completeTodo</span>(<span class="name">index</span>))</div></pre></td></tr></table></figure>
+<p>然后直接调用它们：</p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><div class="line">boundAddTodo(<span class="name">text</span>)<span class="comment">;</span></div><div class="line">boundCompleteTodo(<span class="name">index</span>)<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>store 里能直接通过 store.dispatch() 调用 dispatch() 方法，但是多数情况下你会使用 react-redux 提供的 connect() 帮助器来调用。bindActionCreators() 可以自动把多个 action 创建函数 绑定到 dispatch() 方法上。</p>
+<p>Action 创建函数也可以是异步非纯函数。你可以通过阅读 高级教程 中的 异步 action章节，学习如何处理 AJAX 响应和如何把 action 创建函数组合进异步控制流。因为基础教程中包含了阅读高级教程和异步 action 章节所需要的一些重要基础概念, 所以请在移步异步 action 之前, 务必先完成基础教程</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><blockquote>
+<p>actions.js</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * action 类型</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_TODO = <span class="string">'ADD_TODO'</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> TOGGLE_TODO = <span class="string">'TOGGLE_TODO'</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> SET_VISIBILITY_FILTER = <span class="string">'SET_VISIBILITY_FILTER'</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * 其它的常量</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> VisibilityFilters = &#123;</div><div class="line">  <span class="attr">SHOW_ALL</span>: <span class="string">'SHOW_ALL'</span>,</div><div class="line">  <span class="attr">SHOW_COMPLETED</span>: <span class="string">'SHOW_COMPLETED'</span>,</div><div class="line">  <span class="attr">SHOW_ACTIVE</span>: <span class="string">'SHOW_ACTIVE'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * action 创建函数</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: ADD_TODO, text &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">toggleTodo</span>(<span class="params">index</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: TOGGLE_TODO, index &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">setVisibilityFilter</span>(<span class="params">filter</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: SET_VISIBILITY_FILTER, filter &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -1745,6 +2754,7 @@ Action 是把数据从应用（这里之所以不叫 view 是因为这些数据�
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -1845,7 +2855,7 @@ Action 是把数据从应用（这里之所以不叫 view 是因为这些数据�
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 
@@ -1947,12 +2957,6 @@ Action 是把数据从应用（这里之所以不叫 view 是因为这些数据�
 
 
 	
-
-
-
-
-
-  
 
 
 
@@ -2291,19 +3295,6 @@ Action 是把数据从应用（这里之所以不叫 view 是因为这些数据�
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
 
 
 
