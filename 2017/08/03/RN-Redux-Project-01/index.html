@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ReactNative,RN_View" />
+  <meta name="keywords" content="ReactNative,Redux," />
 
 
 
@@ -93,19 +93,17 @@
 
 
 
-<meta name="description" content="文章访问密码">
-<meta name="keywords" content="ReactNative,RN_View">
+<meta name="description" content="React + Redux 搭建项目1.项目搭建 ①新建项目  $ react-native init 项目  ②安装 redux 和 react-redux  $ cd  RN_Redux_Asyn_Action项目路径$ npm install redux react-redux --save 2.项目结构RN_Redux_002/   |   ├──ios/">
+<meta name="keywords" content="ReactNative,Redux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RN_View">
-<meta property="og:url" content="http://yoursite.com/2017/07/10/RN-View/index.html">
+<meta property="og:title" content="RN-Redux-Project-01-搭建项目">
+<meta property="og:url" content="http://yoursite.com/2017/08/03/RN-Redux-Project-01/index.html">
 <meta property="og:site_name" content="胜利&#x2F;女神&#x2F;在微笑">
-<meta property="og:description" content="文章访问密码">
-<meta property="og:image" content="http://olz8i6wia.bkt.clouddn.com/RN-View%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E6%95%88%E6%9E%9C%E5%9B%BE.png">
-<meta property="og:updated_time" content="2017-07-10T14:29:09.000Z">
+<meta property="og:description" content="React + Redux 搭建项目1.项目搭建 ①新建项目  $ react-native init 项目  ②安装 redux 和 react-redux  $ cd  RN_Redux_Asyn_Action项目路径$ npm install redux react-redux --save 2.项目结构RN_Redux_002/   |   ├──ios/">
+<meta property="og:updated_time" content="2017-08-03T08:44:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RN_View">
-<meta name="twitter:description" content="文章访问密码">
-<meta name="twitter:image" content="http://olz8i6wia.bkt.clouddn.com/RN-View%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E6%95%88%E6%9E%9C%E5%9B%BE.png">
+<meta name="twitter:title" content="RN-Redux-Project-01-搭建项目">
+<meta name="twitter:description" content="React + Redux 搭建项目1.项目搭建 ①新建项目  $ react-native init 项目  ②安装 redux 和 react-redux  $ cd  RN_Redux_Asyn_Action项目路径$ npm install redux react-redux --save 2.项目结构RN_Redux_002/   |   ├──ios/">
 
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/10/RN-View/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/03/RN-Redux-Project-01/"/>
 
 
 
 
 
-  <title>RN_View | 胜利/女神/在微笑</title>
+  <title>RN-Redux-Project-01-搭建项目 | 胜利/女神/在微笑</title>
   
 
 
@@ -288,7 +286,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/RN-View/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/03/RN-Redux-Project-01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Steam Yue">
@@ -305,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">RN_View</h1>
+          <h1 class="post-title" itemprop="name headline">RN-Redux-Project-01-搭建项目</h1>
         
 
         <div class="post-meta">
@@ -317,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T21:38:17+08:00">
-                2017-07-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-03T16:43:40+08:00">
+                2017-08-03
               </time>
             
 
@@ -347,6 +345,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ReactNative/Redux/" itemprop="url" rel="index">
+                    <span itemprop="name">Redux</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -363,10 +372,6 @@
           
 
           
-              <div class="post-description">
-                  文章访问密码
-              </div>
-          
 
         </div>
       </header>
@@ -378,13 +383,17 @@
       
 
       
-        <h1 id="RN-View-组件"><a href="#RN-View-组件" class="headerlink" title="RN_View(组件)"></a>RN_View(组件)</h1><p><a href="http://reactnative.cn/docs/0.46/getting-started.html" target="_blank" rel="external">RN-中文官网地址–&gt;</a></p>
-<h2 id="布局分析"><a href="#布局分析" class="headerlink" title="布局分析"></a>布局分析</h2><blockquote>
-<p>1.有个containor容器<br>2.内嵌3个子<br>3.子嵌入2子</p>
+        <h1 id="React-Redux-搭建项目"><a href="#React-Redux-搭建项目" class="headerlink" title="React + Redux 搭建项目"></a>React + Redux 搭建项目</h1><h2 id="1-项目搭建"><a href="#1-项目搭建" class="headerlink" title="1.项目搭建"></a>1.项目搭建</h2><blockquote>
+<p>①新建项目</p>
 </blockquote>
-<p><img src="http://olz8i6wia.bkt.clouddn.com/RN-View%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0%E6%95%88%E6%9E%9C%E5%9B%BE.png" alt="效果图"></p>
-<h2 id="定义组件"><a href="#定义组件" class="headerlink" title="定义组件"></a>定义组件</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span>  RN_View = React.createClass(&#123;</div><div class="line">  <span class="attr">render</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.container,styles.flex]&#125;</span>&gt;</span></span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.item&#125;</span>&gt;</span></div><div class="line"></div><div class="line">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center]&#125;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Text</span>&gt;</span>酒店<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> =<span class="string">&#123;[styles.flex,styles.lineLeftRight]&#125;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center,styles.lineCenter]&#125;</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">Text</span>&gt;</span>海外酒店<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center]&#125;</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">Text</span>&gt;</span>特价酒店<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> =<span class="string">&#123;[styles.flex]&#125;</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center,styles.lineCenter]&#125;</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">Text</span>&gt;</span>团购<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">             <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;[styles.flex,styles.center]&#125;</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">Text</span>&gt;</span>民宿.客栈<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">             <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">var styles = StyleSheet.create(&#123;</div><div class="line"><span class="symbol">  container:</span>&#123;</div><div class="line"><span class="symbol">    marginTop:</span><span class="number">25</span>,</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"#F2F2F2"</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/*</span></div><div class="line">  多个组件都需要设置，则一次性设置</div><div class="line">  */</div><div class="line"><span class="symbol">  flex:</span>&#123;</div><div class="line"><span class="symbol">    flex:</span><span class="number">1</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  center:</span>&#123;</div><div class="line"><span class="symbol">    justifyContent:</span><span class="string">"center"</span>,</div><div class="line"><span class="symbol">    alignItems:</span><span class="string">"center"</span>,</div><div class="line">  &#125;,</div><div class="line"><span class="symbol">  item:</span>&#123;</div><div class="line"><span class="symbol">    flexDirection:</span><span class="string">"row"</span>,</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"#FF607C"</span>,</div><div class="line"><span class="symbol">    marginTop:</span><span class="number">5</span>,</div><div class="line"><span class="symbol">    marginLeft:</span><span class="number">5</span>,</div><div class="line"><span class="symbol">    marginRight:</span><span class="number">5</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">80</span>,</div><div class="line"><span class="symbol">    borderRadius:</span><span class="number">5</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/**</span></div><div class="line">  给中间的区域设置左右线</div><div class="line">  */</div><div class="line"><span class="symbol">  lineLeftRight:</span>&#123;</div><div class="line"><span class="symbol">    boederLeftWidth:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    borderRightWidth:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">    borderColor:</span><span class="string">"white"</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/**</span></div><div class="line">  上半区域设置下边线</div><div class="line">  */</div><div class="line"><span class="symbol">  lineCenter:</span>&#123;</div><div class="line"><span class="symbol">  borderBottomWidth:</span><span class="number">1</span>,</div><div class="line"><span class="symbol">  borderColor:</span><span class="string">"white"</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> react-native init 项目</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>②安装 redux 和 react-redux</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span>  RN_Redux_Asyn_Action项目路径</span></div><div class="line"><span class="meta">$</span><span class="bash"> npm install redux react-redux --save</span></div></pre></td></tr></table></figure>
+<h2 id="2-项目结构"><a href="#2-项目结构" class="headerlink" title="2.项目结构"></a>2.项目结构</h2><figure class="highlight 1c"><table><tr><td class="code"><pre><div class="line">RN_Redux_002/</div><div class="line">   <span class="string">|</span></div><div class="line">   ├──ios/                       * IOS</div><div class="line">   <span class="string">|</span></div><div class="line">   ├──android/                   * Android</div><div class="line">   <span class="string">|</span></div><div class="line">   ├──src/                       * 主程序</div><div class="line">   │   │</div><div class="line">   │   │──components             * 所有组件</div><div class="line">   │   │</div><div class="line">   │   └──pages                  * 所有页面</div><div class="line">   │   │</div><div class="line">   │   └──images                 * 本地图片资源</div><div class="line">   │   │</div><div class="line">   │   └──actions                * 存放所有的拆分为小的 action 文件</div><div class="line">   │   │</div><div class="line">   │   └──reducers               * 存放所有的拆分为小的 reducer 文件</div><div class="line">   │   │</div><div class="line">   │   └──service                * 封装服务性质的包缓存封装..</div><div class="line">   │   │</div><div class="line">   │   └──index.js               * App入口</div><div class="line">   │</div><div class="line">   │──package.json               * 包信息</div><div class="line">   │</div><div class="line">   │──.babelrc                   * Babel配置</div><div class="line">   │</div><div class="line">   └──reset.sh                   * 清空项目依赖并重新安装</div></pre></td></tr></table></figure>
+<h2 id="3-任务"><a href="#3-任务" class="headerlink" title="3.任务"></a>3.任务</h2><h2 id="4-Github地址及其参考文档"><a href="#4-Github地址及其参考文档" class="headerlink" title="4.Github地址及其参考文档"></a>4.Github地址及其参考文档</h2><p><a href="https://github.com/STeamYue/RN_Redux" target="_blank" rel="external">01-06部分 项目 Github代码地址</a></p>
+<p><a href="http://blog.csdn.net/sinat_17775997/article/details/71703211" target="_blank" rel="external">参考资料</a></p>
 
       
     </div>
@@ -416,7 +425,7 @@
           
             <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
           
-            <a href="/tags/RN-View/" rel="tag"># RN_View</a>
+            <a href="/tags/Redux/" rel="tag"># Redux</a>
           
         </div>
       
@@ -429,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/09/RN-Flexbox/" rel="next" title="RN-Flexbox">
-                <i class="fa fa-chevron-left"></i> RN-Flexbox
+              <a href="/2017/08/02/RN-React-Navigation/" rel="next" title="RN_React_Navigation开源库(StackNavigator+ TabNavigator+ DrawerNavigator)">
+                <i class="fa fa-chevron-left"></i> RN_React_Navigation开源库(StackNavigator+ TabNavigator+ DrawerNavigator)
               </a>
             
           </div>
@@ -438,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/11/RN-Text/" rel="prev" title="RN_Text">
-                RN_Text <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
