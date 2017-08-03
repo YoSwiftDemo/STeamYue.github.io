@@ -286,6 +286,122 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/RN-Component-Design/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steam Yue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="胜利/女神/在微笑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/24/RN-Component-Design/" itemprop="url">RN_Component_Design架构设计</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T09:06:19+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          RN_Design
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/24/RN-Component-Design/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/23/RN-TabBarIOS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1897,152 +2013,6 @@ Node 里面，顶层对象是global，但其他环境都不支持。
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/13/RN-Props/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Steam Yue">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="胜利/女神/在微笑">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/13/RN-Props/" itemprop="url">RN_Props</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-13T13:22:18+08:00">
-                2017-07-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactNative</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="RN-Props-属性"><a href="#RN-Props-属性" class="headerlink" title="RN_Props 属性"></a>RN_Props 属性</h1><p>大多数组件在创建时就可以使用各种参数来进行定制。用于定制的这些参数就称为props（属性）</p>
-<h1 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h1><p>组件Image为例，在创建一个图片时，可以传入一个名为source的prop来指定要显示的图片的地址，以及使用名为style的prop来控制其尺寸</p>
-<h2 id="栗子-代码"><a href="#栗子-代码" class="headerlink" title="栗子-代码"></a>栗子-代码</h2><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Props_001.png" alt=""></p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  <span class="type">AppRegistry</span>,</div><div class="line">  <span class="type">StyleSheet</span>,</div><div class="line">  <span class="type">Text</span>,</div><div class="line">  <span class="type">View</span>,</div><div class="line">  <span class="type">Image</span>,</div><div class="line">&#125; from <span class="symbol">'react</span>-native';</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_Props</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    let pic = &#123;uri:<span class="string">"https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg"</span>&#125;;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">Image</span></div><div class="line">        source = &#123;pic&#125;</div><div class="line">        style = &#123;&#123;width:<span class="number">200</span>,height:<span class="number">200</span>&#125;&#125;/&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="type">AppRegistry</span>.registerComponent(<span class="symbol">'RN_Prop</span>s', () =&gt; <span class="type">RN_Props</span>);</div></pre></td></tr></table></figure>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>请注意{pic}外围有一层括号，我们需要用括号来把pic这个变量嵌入到JSX语句中。括号的意思是括号内部为一个js变量或表达式，需要执行后取值。因此我们可以把任意合法的JavaScript表达式通过括号嵌入到JSX语句中</p>
-<h1 id="自定义的组件也可以使用props"><a href="#自定义的组件也可以使用props" class="headerlink" title="自定义的组件也可以使用props"></a>自定义的组件也可以使用props</h1><p>通过在不同的场景使用不同的属性定制，可以尽量提高自定义组件的复用范畴。只需在render函数中引用this.props，然后按需处理即可</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><img src="http://osq7nstcc.bkt.clouddn.com/RN_Props_002.png" alt=""></p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Greeting</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">Text</span>&gt; <span class="type">Hello</span> &#123;<span class="keyword">this</span>.props.name&#125;!&lt;/<span class="type">Text</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//组件</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_Props</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  render ()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;<span class="type">View</span> style = &#123;&#123;alignItems:<span class="string">"center"</span>&#125;&#125;&gt;</div><div class="line">        &lt;<span class="type">Greeting</span> name = <span class="string">"yue01"</span>/&gt;</div><div class="line">        &lt;<span class="type">Greeting</span> name = <span class="string">"yue02"</span>/&gt;</div><div class="line">        &lt;<span class="type">Greeting</span> name = <span class="string">"yue03"</span>/&gt;</div><div class="line">      &lt;/<span class="type">View</span>&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h2><p>Greeting组件中将name作为一个属性来定制，这样可以复用这一组件来制作各种不同的“问候语”。上面的例子把Greeting组件写在JSX语句中，用法和内置组件并无二致</p>
-<h1 id="super-props"><a href="#super-props" class="headerlink" title="super(props)"></a>super(props)</h1><blockquote>
-<p>在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错<br>因为子类实例的构建，是基于对父类实例加工，只有super方法才能返回父类实例</p>
-</blockquote>
-<figure class="highlight scala"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Todo</span> <span class="keyword">extends</span> <span class="title">Component</span></span>&#123;</div><div class="line">    constructor(props)&#123;</div><div class="line">        <span class="keyword">super</span>(props)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2093,7 +2063,7 @@ Node 里面，顶层对象是global，但其他环境都不支持。
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2104,7 +2074,7 @@ Node 里面，顶层对象是global，但其他环境都不支持。
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

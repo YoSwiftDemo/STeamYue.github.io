@@ -286,6 +286,148 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/08/RN-SytleSheet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Steam Yue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="胜利/女神/在微笑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/08/RN-SytleSheet/" itemprop="url">RN-SytleSheet</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-08T00:08:08+08:00">
+                2017-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="RN-SytleSheet样式"><a href="#RN-SytleSheet样式" class="headerlink" title="RN-SytleSheet样式"></a>RN-SytleSheet样式</h1><p>使用StyleSheet.create来集中定义组件的样式<br>盒模型</p>
+<blockquote>
+<p>margin :距离外边距离<br>border:<br>element</p>
+<h1 id="官网代码样例"><a href="#官网代码样例" class="headerlink" title="官网代码样例"></a>官网代码样例</h1><p><img src="http://osq7nstcc.bkt.clouddn.com/RN-SytleSheet-002.png" alt=""></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RN_SytleSheet</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">   render ()&#123;</div><div class="line">     <span class="keyword">return</span> (</div><div class="line">       <span class="xml"><span class="tag">&lt;<span class="name">View</span>&gt;</span></span></div><div class="line">         <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span> = <span class="string">&#123;styles.red&#125;</span>&gt;</span> just red<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span> = <span class="string">&#123;styles.bigblue&#125;</span>&gt;</span>just bigblue<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span> = <span class="string">&#123;[styles.bigblue,styles.red]&#125;</span>&gt;</span>bigblue,then red<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span> = <span class="string">&#123;[styles.red,styles.bigblue]&#125;</span>&gt;</span>red,then bigblue<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">     );</div><div class="line">   &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</div><div class="line">  <span class="attr">bigblue</span>:&#123;</div><div class="line">    <span class="attr">color</span>:<span class="string">"blue"</span>,</div><div class="line">    <span class="attr">fontWeight</span>:<span class="string">"bold"</span>,</div><div class="line">    <span class="attr">fontSize</span>:<span class="number">30</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">red</span>:&#123;</div><div class="line">    <span class="attr">color</span>:<span class="string">"red"</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="视频学习UI效果"><a href="#视频学习UI效果" class="headerlink" title="视频学习UI效果"></a>视频学习UI效果</h1><p><img src="http://osq7nstcc.bkt.clouddn.com/RN-SytleSheet-001.png" alt="RN-SytleSheet-001"></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="定义组件"><a href="#定义组件" class="headerlink" title="定义组件"></a>定义组件</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> RN_SytleSheet = React.createClass</div><div class="line">(&#123;</div><div class="line">  <span class="attr">render</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span></div><div class="line">  &#123;</div><div class="line">    <span class="keyword">return</span> </div><div class="line">    (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.container&#125;</span>&gt;</span></span></div><div class="line">      <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.top&#125;</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span> = <span class="string">&#123;styles.bottom&#125;</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">View</span>&gt;</span></div><div class="line">   )</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">var styles = StyleSheet.create</div><div class="line">(&#123;</div><div class="line">  <span class="comment">//外层</span></div><div class="line"><span class="symbol">  container:</span></div><div class="line">  &#123;</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"red"</span>,</div><div class="line"><span class="symbol">    width:</span> <span class="number">300</span>,</div><div class="line"><span class="symbol">    height:</span> <span class="number">440</span>,</div><div class="line"><span class="symbol">    marginTop:</span><span class="number">25</span>,</div><div class="line"><span class="symbol">    marginLeft:</span><span class="number">30</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">//Top</span></div><div class="line"><span class="symbol">  top:</span></div><div class="line">  &#123;</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"green"</span>,</div><div class="line"><span class="symbol">    width:</span><span class="number">280</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">150</span>,</div><div class="line"><span class="symbol">    margin:</span><span class="number">10</span>,</div><div class="line"><span class="symbol">    borderWidth:</span><span class="number">3</span>,</div><div class="line"><span class="symbol">    borderColor:</span><span class="string">"black"</span>,</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">//Bottom</span></div><div class="line"><span class="symbol">  bottom:</span></div><div class="line">  &#123;</div><div class="line"><span class="symbol">    backgroundColor:</span><span class="string">"yellow"</span>,</div><div class="line"><span class="symbol">    width:</span><span class="number">280</span>,</div><div class="line"><span class="symbol">    height:</span><span class="number">100</span>,</div><div class="line"><span class="symbol">    margin:</span><span class="number">10</span>,</div><div class="line"><span class="symbol">    borderWidth:</span><span class="number">5</span>,</div><div class="line"><span class="symbol">    borderColor:</span><span class="string">"black"</span>,</div><div class="line">  &#125;,</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/08/RN-Error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -767,7 +909,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -778,7 +920,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
